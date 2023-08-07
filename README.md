@@ -1,7 +1,12 @@
 
 ## **🚀 The project model I aimed to implement is as follows, and the ports in the test remain the same:**
+This project plan need some changes like angular insted of react and name of service account 
+
 ![image](https://github.com/softwarehutpl/java-is-23-mr/assets/98847639/b334bb03-0166-4de2-a15e-dab975d6e9d6)
 
+## **⭐ Previous idea without microservice :**
+You can see here idea of the project without microservice and many tools with done frontend in thymeleaf
+Link:  https://github.com/mat-rys/Training-Notebook-WEB-API
 
 ## **💻 Technologies:**
 Back-end
