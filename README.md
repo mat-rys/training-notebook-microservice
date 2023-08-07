@@ -2,10 +2,6 @@
 ## **🚀 The project model I aimed to implement is as follows, and the ports in the test remain the same:**
 ![image](https://github.com/softwarehutpl/java-is-23-mr/assets/98847639/b334bb03-0166-4de2-a15e-dab975d6e9d6)
 
-I added a folder named "training-notebook-for-tests" containing the project for tests that fulfill the task requirements. Additionally, I made the following modifications:
-* Removed security-related elements such as dependencies and configuration classes.
-* Eliminated token elements.
-* Adjusted controllers and tests to ensure that security-related data does not interfere with the methods.
 
 ## **💻 Technologies:**
 Back-end
@@ -27,7 +23,14 @@ UI/UX
 * ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
 
-## **🛠️ How to use:**
+## **🛠️ How to test back-end, for the moment without security and account becouse of work on Keycloak:**
+
+I added a folder named "training-notebook-for-tests" containing the project for tests that fulfill the task requirements. Additionally, I made the following modifications:
+* Removed security-related elements such as dependencies and configuration classes.
+* Eliminated token elements.
+* Adjusted controllers and tests to ensure that security-related data does not interfere with the methods.
+
+How to test backend:
 
 1.Create databse 
 a.Provided a script in the "SqlDataBase" folder to create the necessary databases for the project. You can simply execute the script in the psql shell. The database is in PostgreSQL.
