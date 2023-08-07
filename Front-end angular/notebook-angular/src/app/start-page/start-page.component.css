@@ -1,2 +1,123 @@
+body {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+    background-color: #0D66B4; /* Ustaw kolor tła dla całej strony */
+    background-size: auto;
+    width: 100.95%;
+    height: 100%;
+}
 
+
+.star-web {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.star-web .header {
+    display: flex;
+    align-items: center;
+}
+
+.star-web .header a {
+    margin-right: 28px;
+    text-decoration: none;
+}
+
+.star-web .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 100px; /* Dostosuj marginesy według preferencji */
+    padding: 0;
+}
+
+.star-web .Training-Notebook-Logo {
+    margin-top: -54px;
+
+}
+
+.separator1 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
+    width: 100%; /* Dostosuj szerokość kreski */
+    margin-top: -75px; /* Dostosuj marginesy według preferencji */
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2); /* Dodaj cień */
+}
+
+/*     KONIEC HEADER   */
+
+.hero {
+    color: #fff;
+
+}
+
+.hero-title {
+    font-size: 82px;
+    text-align: center;
+    margin-top: 150px;
+    margin-left: -550px;
+    font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+}
+
+.hero-description {
+    font-size: 26px;
+    text-align: center;
+    margin-left: -550px;
+    margin-top: -35px;
+    white-space: pre-line;
+}
+
+.reg-and-log {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -380px;
+    margin-left: 1380px;
+}
+
+.reg-and-log a {
+    text-decoration: none;
+}
+
+.reg-and-log button {
+    background: linear-gradient(0deg,#480DF0, #00B2C8); /* Linear gradient background from top to bottom */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 25px 68px;
+    margin: 25px 25px; /* Add margin between buttons */
+    font-size: 26px; /* Increase font size */
+    font-family: 'Playfair Display', serif; /* Specify font */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Added box shadow */
+}
+
+.reg-and-log button:hover {
+    background: linear-gradient(0deg,#480DF0, #0056b3 ); /* Linear gradient background on hover */
+    transform: scale(1.1);
+    transform-origin: center;
+    outline: none;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Added box shadow on hover */
+}
+
+
+
+
+
+
+.separator2 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
   
+}
