@@ -4,6 +4,9 @@ This project plan need some changes like angular insted of react and name of ser
 
 ![image](https://github.com/softwarehutpl/java-is-23-mr/assets/98847639/b334bb03-0166-4de2-a15e-dab975d6e9d6)
 
+## **📄 Project documentation and analyst:**
+link: https://github.com/mat-rys/training-notebook-microservice/blob/main/Project%20idea%2C%20tools%20and%20future%20development.pdf
+
 ## **⭐ Previous idea without microservice :**
 You can see here idea of the project without microservice and many tools with done frontend in thymeleaf
 Link:  https://github.com/mat-rys/Training-Notebook-WEB-API
@@ -92,7 +95,11 @@ PORT 8090 CALCUALTOR SERVICE
 
 PORT 8070 NOTES SERVICE
 
-PORT 9411 ZIPKIN  http://localhost:9411/zipkin/
+## **☕ Idea of start-page**
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/23b31ada-f47f-4a48-b2c3-ed840cc81888)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/9f5d547a-fd94-4a45-a7cd-77639c396c67)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/55c834b7-09a6-4939-a0a9-539ccf80b370)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/33c9e8a5-da0a-4685-978f-511059d38128)
 
-PORT 3000 GRAFANA http://localhost:3000/?orgId=1
+
 
