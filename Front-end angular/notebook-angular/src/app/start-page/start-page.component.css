@@ -3,12 +3,12 @@ body {
     margin-left: -10px;
     margin-bottom: -10px;
     margin-right: -10px;
-    background-color: #0D66B4; /* Ustaw kolor tła dla całej strony */
+    background-color: #0D66B4;
     background-size: auto;
     width: 100.95%;
     height: 100%;
+    user-select: none; /* Unselectable text */
 }
-
 
 .star-web {
     display: flex;
@@ -35,28 +35,32 @@ body {
     top: 0;
     right: 0;
     margin-top: 20px;
-    margin-right: 100px; /* Dostosuj marginesy według preferencji */
+    margin-right: 100px;
     padding: 0;
 }
 
 .star-web .Training-Notebook-Logo {
     margin-top: -54px;
-
 }
 
 .separator1 {
     border: none;
     border-top: 1px solid rgb(0, 0, 0);
-    width: 100%; /* Dostosuj szerokość kreski */
-    margin-top: -75px; /* Dostosuj marginesy według preferencji */
-    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2); /* Dodaj cień */
+    width: 100%;
+    margin-top: -75px;
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
+}
+
+/* Unselectable text for specific elements */
+.star-web,
+.star-web * {
+    user-select: none;
 }
 
 /*     KONIEC HEADER   */
 
 .hero {
     color: #fff;
-
 }
 
 .hero-title {
@@ -65,6 +69,7 @@ body {
     margin-top: 150px;
     margin-left: -550px;
     font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+    user-select: none; /* Unselectable text */
 }
 
 .hero-description {
@@ -73,6 +78,7 @@ body {
     margin-left: -550px;
     margin-top: -35px;
     white-space: pre-line;
+    user-select: none; /* Unselectable text */
 }
 
 .reg-and-log {
@@ -90,34 +96,110 @@ body {
 }
 
 .reg-and-log button {
-    background: linear-gradient(0deg,#480DF0, #00B2C8); /* Linear gradient background from top to bottom */
+    background: linear-gradient(0deg, #480DF0, #00B2C8); /* Linear gradient background from top to bottom */
     color: #fff;
     border: none;
     border-radius: 30px;
-    padding: 25px 68px;
-    margin: 25px 25px; /* Add margin between buttons */
+    padding: 18px 60px;
+    margin: 30px 25px; /* Add margin between buttons */
     font-size: 26px; /* Increase font size */
     font-family: 'Playfair Display', serif; /* Specify font */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Added box shadow */
+    user-select: none; /* Unselectable text */
 }
 
 .reg-and-log button:hover {
-    background: linear-gradient(0deg,#480DF0, #0056b3 ); /* Linear gradient background on hover */
+    background: linear-gradient(0deg, #480DF0, #0056b3); /* Linear gradient background on hover */
     transform: scale(1.1);
     transform-origin: center;
     outline: none;
     box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); /* Added box shadow on hover */
+    user-select: none; /* Unselectable text */
 }
-
-
-
-
-
 
 .separator2 {
     border: none;
     border-top: 1px solid rgb(0, 0, 0);
-  
+    margin-top: 170px;
 }
+
+
+/* KONIEC HERO */
+/* Styl dla sekcji "Personal Account" */
+/* Styl dla sekcji "Personal Account" */
+.Personal.Account {
+    text-align: center; /* Wycentrowanie tekstu */
+    color: #fff;
+}
+
+.profile-title {
+    font-size: 56px;
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 880px;
+    font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+    color: #fff;
+    transform: rotate(5deg); /* Obrót obrazu o -25 stopni */
+    user-select: none; /* Unselectable text */
+}
+
+.profile-description {
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    margin-left: 880px;
+    margin-top: -35px;
+    white-space: pre-line;
+    transform: rotate(5deg); /* Obrót obrazu o -25 stopni */
+    user-select: none; /* Unselectable text */
+}
+
+.Personal.Account img {
+    width: 850px;
+    height: 530px;
+    transform: rotate(-20deg); /* Obrót obrazu o -25 stopni */
+    margin-top: -150px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Dodaj cień obrazu */
+    margin-left: -800px;
+    border: 1px solid rgb(0, 0, 0); /* Grubsza ramka wokół obrazka */
+}
+
+.Personal.Account {
+    text-align: center; /* Wycentrowanie tekstu */
+    color: #fff;
+}
+
+.notes-title {
+    font-size: 56px;
+    text-align: center;
+    margin-top: 200px;
+    margin-left: -880px;
+    font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+    color: #fff;
+    transform: rotate(-5deg); /* Obrót obrazu o -25 stopni */
+    user-select: none; /* Unselectable text */
+}
+
+.notes-description {
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    margin-left: -880px;
+    margin-top: -35px;
+    white-space: pre-line;
+    transform: rotate(-5deg); /* Obrót obrazu o -25 stopni */
+    user-select: none; /* Unselectable text */
+}
+
+.Notes img {
+    width: 850px;
+    height: 530px;
+    transform: rotate(20deg); /* Obrót obrazu o -25 stopni */
+    margin-top: -150px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* Dodaj cień obrazu */
+    margin-left: 800px;
+    border: 1px solid rgb(0, 0, 0); /* Grubsza ramka wokół obrazka */
+}
+
