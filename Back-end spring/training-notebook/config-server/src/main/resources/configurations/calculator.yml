@@ -17,7 +17,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:8181/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
+          jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
   application:
     name: calculator
   datasource:

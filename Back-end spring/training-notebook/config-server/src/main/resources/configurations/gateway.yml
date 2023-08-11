@@ -17,13 +17,14 @@ spring:
       client:
         provider:
           my-keycloak-provider:
-            issuer-uri: http://localhost:8181/realms/training-notebook-microservice-realm
+            issuer-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm
+
         registration:
           keycloak-spring-gateway-client:
             scope: openid
             provider: my-keycloak-provider
             client-id: spring-gateway-appliaction
-            client-secret: sdvW8mZLHA0vd7nQcxc9MIICb1hbmw7t
+            client-secret: 6aiXmUlE27BiMVUerHBVNCUTJs4ascMS
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
   cloud:
