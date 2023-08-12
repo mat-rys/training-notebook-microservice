@@ -13,6 +13,7 @@
         <module name="notes" />
         <module name="discovery" />
         <module name="gateway" />
+        <module name="account" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="account" options="-parameters" />
       <module name="calculator" options="-parameters" />
       <module name="config-server" options="-parameters" />
       <module name="discovery" options="-parameters" />

@@ -43,6 +43,10 @@ spring:
           uri: http://localhost:8070
           predicates:
             - Path=/notes/**
+        - id: account
+          uri: http://localhost:8100
+          predicates:
+            - Path=/account/**
 
 management:
   tracing:
@@ -62,10 +66,15 @@ springdoc:
       - url: /v3/api-docs
         name: gateway
         primaryName: gateway
+
       - url: /notes/v3/api-docs
         name: notes
         primaryName: notes
+
       - url: /calculator/v3/api-docs
         name: calculator
         primaryName: calculator
 
+      - url: /account/v3/api-docs
+        name: account
+        primaryName: account
