@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule to use HttpClient
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // Dodaj import modułu FormsModule
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component'; // Importuj AppRoutingModule
 
 @NgModule({
-  declarations: [AppComponent, StartPageComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule],
+  declarations: [AppComponent, StartPageComponent, LoginComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], // Dodaj AppRoutingModule
   providers: [],
   bootstrap: [AppComponent],
 })
