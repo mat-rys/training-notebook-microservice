@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component'; // Import komponentu logowania
-import { StartPageComponent } from './start-page/start-page.component'; // Import komponentu strony startowej
+import { LoginComponent } from './login/login.component'; 
+import { RegistrationComponent } from './registration/registration.component'; 
+import { StartPageComponent } from './start-page/start-page.component'; 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }, // Dla ścieżki /login użyj LoginComponent
-  { path: 'start-page', component: StartPageComponent }, // Dla ścieżki /start-page użyj StartPageComponent
+  { path: 'login', component: LoginComponent }, 
+  { path: 'registration', component: RegistrationComponent }, 
+  { path: 'start-page', component: StartPageComponent }, 
   { path: '', redirectTo: 'start-page', pathMatch: 'full' },
   { path: '**', redirectTo: 'start-page' },
 ];

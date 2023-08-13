@@ -1,0 +1,90 @@
+body {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+    background-color: #0D66B4;
+    background-size: auto;
+    width: 100.95%;
+    height: 100%;
+    user-select: none; /* Unselectable text */
+}
+
+.star-web {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.star-web .header {
+    display: flex;
+    align-items: center;
+}
+
+.star-web .header a {
+    margin-right: 28px;
+    text-decoration: none;
+}
+
+.star-web .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 100px;
+    padding: 0;
+}
+
+.star-web .Training-Notebook-Logo {
+    margin-top: -54px;
+}
+
+.separator1 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    margin-top: -75px;
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
+}
+/* head */
+
+
+
+
+/* foot */
+.foot {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 300px;
+    background-color: #f0f0f0;
+}
+
+.foot p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.foot a {
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.foot button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.foot button:hover {
+    background-color: #0056b3;
+}
