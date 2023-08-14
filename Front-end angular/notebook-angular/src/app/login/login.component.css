@@ -53,8 +53,6 @@ body {
 /* head */
 
 /* Dodaj te style na koniec pliku start-page.component.css */
-/* head */
-
 .hero {
     display: flex;
     justify-content: center;
@@ -75,19 +73,19 @@ body {
     width: 420px;
     height: 550px;
     padding: 20px;
-    margin-left: 170px; /* Zmieniono na 170px */
+    margin-left: 170px;
     margin-top: -180px;
     border-radius: 10px;
     background: linear-gradient(to bottom, #FFFFFF, #0D66B4);
     box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
     display: flex;
-    flex-direction: column; /* Dodano flex-direction: column */
-    justify-content: center; /* Wyśrodkowanie zawartości w pionie */
-    align-items: center; /* Wyśrodkowanie zawartości w poziomie */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .image {
-    margin-left: -180px; /* Zmieniono na -180px */
+    margin-left: -180px;
     margin-top: -135px;
     width: 420px;
     height: 590px;
@@ -105,42 +103,106 @@ body {
     color: #000000;
     font-size: 24px;
     margin-bottom: 20px;
-    margin-top: -300px;
-    text-align: center; /* Wyśrodkowanie tekstu w lewej kolumnie */
-  
+    position: absolute;
+    margin-top: -420px;
+    text-align: center;
 }
 
 .buttons {
-    margin-bottom: 20px;
-}
-
-.login-button, .username-button , .password-button{
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin-bottom: 0px;
 }
 
 .login-button {
+    width: 140px;
+    height: 46px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
     background: linear-gradient(to bottom, #00B2C8, #480DF0);
     color: #FFFFFF;
+    font-size: 22px;
     margin-right: 10px;
+    margin-top: 70px;
+    margin-bottom: auto;
+    
 }
 
-.username-button {
-    background: linear-gradient(to bottom, #FFFFFF, #480DF0);
-    color: #000000;
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 50px;
 }
 
-.password-button {
+.input-field {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    margin-top: -6px;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    filter: invert(100%);
+}
+
+.input-field input::placeholder {
+    color: #FFFFFF; /* Zmieniono kolor tekstu zastępczego na biały */
+}
+
+.username-field, .password-field {
+    padding: 10px 20px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #FFFFFF; /* Zmieniono kolor tekstu na biały */
     background: linear-gradient(to bottom, #FFFFFF, #480DF0);
-    color: #000000;
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-left: -90px;
+    color: #FFFFFF;
+}
+
+.remember-checkbox {
+    margin-right: 5px;
+}
+
+.forget-password {
+    margin-top: 0px;
+    position: absolute;
+    margin-left: 65px;
+    font-size: 12px;
+    color: #FFFFFF;
 }
 
 .remember-forget {
-    color: #000000;
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 35px;
 }
 
+.register-link {
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.register-link a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
 
 
 

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
   logoPath = "assets\\Training Notebook-logos_transparent.png";
+  women_registration = "assets\\women_trainign.png";
 }
