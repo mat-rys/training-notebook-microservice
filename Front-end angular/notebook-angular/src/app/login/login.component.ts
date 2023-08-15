@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   logoPath = "assets\\Training Notebook-logos_transparent.png";
-  women_login = "assets\\login_women.png";
+  women_login = "assets\\women_training_phone.png";
 }

@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { StartPageComponent } from './start-page/start-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { RegistrationComponent } from './registration/registration.component'; // Importuj AppRoutingModule
+import { RegistrationComponent } from './registration/registration.component';
+import { AccountComponent } from './account/account.component'; // Importuj AppRoutingModule
 
 @NgModule({
-  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent],
+  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, AccountComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], // Dodaj AppRoutingModule
   providers: [],
   bootstrap: [AppComponent],

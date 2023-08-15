@@ -1,0 +1,111 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+</head>
+<body>
+    <div class="star-web">
+        <nav class="nav-list">
+          <div class="logo">
+            <a class="Training-Notebook-Logo" href="http://localhost:4200/">
+              <img width="174" height="179" [src]="logoPath" alt="Training-Notebook-Logo" />
+            </a>
+          </div>
+          <div class="nav-buttons">
+            <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
+            <a href="#"><button><i class="fas fa-book"></i> Notes</button></a>
+            <a href="#"><button><i class="fas fa-envelope"></i> Calendar</button></a>
+            <a href="#"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
+            <a href="#"><button><i class="fas fa-cog"></i> Settings</button></a>
+            <a href="#"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+          </div>
+        </nav>
+      </div>
+      
+      <section class="content">
+        <div class="profile-form">
+            <div class="profile-header">
+                <h2>Profile</h2>
+            </div>
+            <div class="profile-info">
+                <div class="profile-row">
+                    <span class="profile-label">Email:</span>
+                    <span class="profile-value">user@example.com</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Password:</span>
+                    <span class="profile-value">********</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">First Name:</span>
+                    <span class="profile-value">John</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Last Name:</span>
+                    <span class="profile-value">Doe</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Username:</span>
+                    <span class="profile-value">johndoe</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Weight:</span>
+                    <span class="profile-value">70 kg</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Height:</span>
+                    <span class="profile-value">180 cm</span>
+                </div>
+                <div class="profile-row">
+                    <span class="profile-label">Gender:</span>
+                    <span class="profile-value">Male</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="additional-sections">
+      <div class="additional-section">
+          <div class="additional-box">
+               <!-- Wykres zmian BMI -->
+               <canvas id="bmiChart"></canvas>
+                
+               <!-- Statystyki -->
+               <div class="stats">
+                   <p>Last BMI: 24.5</p>
+               </div>
+          </div>
+      </div>
+      
+      <div class="additional-section">
+          <div class="additional-box">
+            <div class="stats">
+              <p>How many notes added:</p>
+              <p>Last note:</p>
+              <p>Last Note Date: 2023-08-14</p>
+          </div>
+          </div>
+      </div>
+      
+      <div class="additional-section">
+          <div class="additional-box">
+              <!-- Zawartość trzeciego prostokąta -->
+          </div>
+      </div>
+    </section>
+    
+    
+      <!-- <section class="hero">
+        <div class="search-container">
+          <input type="text" placeholder="Search">
+          <button class="round-button"><i class="fas fa-check"></i></button>
+        </div>
+      </section> -->
+     
+      <section class="foot">
+        <p>&copy; Copyright Robert Fox 2022. All rights reserved.</p>
+        <a href="#"><button>Privacy Policy</button></a>
+        <a href="#"><button>Terms & Conditions</button></a>
+      </section>
+</body>
