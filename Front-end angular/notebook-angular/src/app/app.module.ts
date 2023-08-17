@@ -8,10 +8,14 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { AccountComponent } from './account/account.component'; // Importuj AppRoutingModule
+import { AccountComponent } from './account/account.component';
+import { BmiChartComponent } from './bmi-chart/bmi-chart.component';
+import { NoteComponent } from './note/note.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { SettingsComponent } from './settings/settings.component'; // Importuj AppRoutingModule
 
 @NgModule({
-  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, AccountComponent],
+  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, AccountComponent, BmiChartComponent, NoteComponent, CalendarComponent, SettingsComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], // Dodaj AppRoutingModule
   providers: [],
   bootstrap: [AppComponent],
