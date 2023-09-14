@@ -44,6 +44,13 @@ However, I still need to add the required roles to the endpoints.
 Overall, it's significant progress as I can now associate notes in the database with the user ID from Keycloak.
 
 
-22.07
-Ogarnąć jak się zalogować w postman dla testów
-Jak wysłać dockery
+DO ZROBIENIA
+
+1* CORS keyclok pomoędzy spring i angular
+2* Zabezpieczenie serwisów w keyclok z uwzględnieniem rol
+3* Account service
+4* Zrobienie frontendu całego
+5* Załatwienie customowych login register i połaczonych z keyclok
+6* Udostępnienie w chmurze (pewnie jakiś cload kubernetes i dockery będą)
+
+Prawie finito

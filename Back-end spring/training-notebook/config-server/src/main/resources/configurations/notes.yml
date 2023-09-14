@@ -15,7 +15,7 @@ spring:
     change-log: classpath:/liquibase/liquibase-changeLog.xml
   security:
     oauth2:
-      resourceserver:
+      resource-server:
         jwt:
           jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
   application:
@@ -39,7 +39,7 @@ management:
 
 openapi:
   service:
-    title: pnotes-service doc #title that you will want to display in the swagger ui
+    title: notes-service doc #title that you will want to display in the swagger ui
     version: 1.0.0
     url: http://localhost:8222 #api gateway url
 springdoc:

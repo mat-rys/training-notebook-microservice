@@ -6,7 +6,6 @@ server:
   servlet:
     context-path: /
 spring:
-
   profiles:
     active:
       - ${ACTIVE_SPRING_PROFILE:dev}
@@ -18,17 +17,19 @@ spring:
         provider:
           my-keycloak-provider:
             issuer-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm
-
         registration:
           keycloak-spring-gateway-client:
             scope: openid
             provider: my-keycloak-provider
-            client-id: spring-gateway-appliaction
+            client-id: backend
             client-secret: 6aiXmUlE27BiMVUerHBVNCUTJs4ascMS
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+
+
   cloud:
     gateway:
+
       default-filters:
         - TokenRelay
       discovery:
@@ -47,6 +48,7 @@ spring:
           uri: http://localhost:8100
           predicates:
             - Path=/account/**
+
 
 management:
   tracing:

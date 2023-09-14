@@ -2,6 +2,7 @@ package com.example.notes.controller;
 
 import com.example.notes.entitie.UserNotes;
 import com.example.notes.service.UserNotesService;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,11 +24,18 @@ public class UserNotesController {
 
     private final UserNotesService userNotesService;
 
+    @CrossOrigin(origins = "http://localhost:4200/account") // Adres Twojej aplikacji Angular
+    @GetMapping("/ak")
+    public String getAs() {
+        return "adadadad";
+    }
+
     @GetMapping
     public ResponseEntity<Stream<UserNotes>> getAllNotes() {
         log.info("Getting all notes");
         return ResponseEntity.ok().body(userNotesService.getNotes().stream());
     }
+
 
     @GetMapping("/byUserId")
     public ResponseEntity<Stream<UserNotes>> getNotesByUserId(Principal principal) {

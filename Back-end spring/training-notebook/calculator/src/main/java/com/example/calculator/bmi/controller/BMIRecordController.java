@@ -2,6 +2,7 @@ package com.example.calculator.bmi.controller;
 
 import com.example.calculator.bmi.entitie.BMIRecord;
 import com.example.calculator.bmi.service.BMIRecordService;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,11 +19,14 @@ import java.util.Set;
 @Slf4j
 @RequestMapping("/calculator")
 @AllArgsConstructor
+@RolesAllowed("user")
 public class BMIRecordController {
 
     private final BMIRecordService bmiRecordService;
 
 
+    @RolesAllowed("user")
+    @CrossOrigin(origins = "http://localhost:4200") // Adres Twojej aplikacji Angular
     @GetMapping("/get/all")
     public ResponseEntity<List<BMIRecord>> getBMIRecords() {
         log.info("Received request to get all BMI records.");
