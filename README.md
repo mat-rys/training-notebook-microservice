@@ -18,7 +18,6 @@ Back-end
 * ![PostgreSql](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 * ![InteliJ](https://img.shields.io/badge/-IntelliJ%20IDEA-000000?style=flat-square&logo=intellij-idea&logoColor=white)
 * ![Maven](https://img.shields.io/badge/-Maven-C71A36?style=flat-square&logo=apache-maven&logoColor=white)
-* ![Keycloak](https://img.shields.io/badge/-Keycloak-005571?style=flat-square&logo=keycloak&logoColor=white)
 * ![Swagger](https://img.shields.io/badge/-Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black)
 * ![Zipkin and Grafana](https://img.shields.io/badge/-Zipkin%20%26%20Grafana-FFCA28?style=flat-square&logo=grafana&logoColor=black)
 
@@ -29,14 +28,7 @@ UI/UX
 * ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
 
-## **🛠️ How to test back-end, for the moment without security and account becouse of work on Keycloak:**
-
-I added a folder named "training-notebook-for-tests" containing the project for tests that fulfill the task requirements. Additionally, I made the following modifications:
-* Removed security-related elements such as dependencies and configuration classes.
-* Eliminated token elements.
-* Adjusted controllers and tests to ensure that security-related data does not interfere with the methods.
-
-How to test backend:
+## **🛠️ How to test back-end:**
 
 1.Create databse 
 a.Provided a script in the "SqlDataBase" folder to create the necessary databases for the project. You can simply execute the script in the psql shell. The database is in PostgreSQL.
