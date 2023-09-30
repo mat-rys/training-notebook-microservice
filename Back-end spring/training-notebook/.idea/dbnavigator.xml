@@ -52,6 +52,7 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/account/src/main/resources/liquibase/database/27.09.2023/01-create-acc.sql" connection-id="30a25b44-2c11-4282-8c3d-72515f25fad0" session-id="MAIN" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/calculator/src/main/resources/liquibase/database/23.07.2023/01-create-calc.sql" connection-id="30a25b44-2c11-4282-8c3d-72515f25fad0" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
@@ -79,7 +80,7 @@
     <connections>
       <connection id="30a25b44-2c11-4282-8c3d-72515f25fad0" active="true" signed="true">
         <database>
-          <name value="Connection" />
+          <name value="account" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />

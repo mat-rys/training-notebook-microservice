@@ -3,16 +3,13 @@ package com.example.calculator.bmi.service;
 import com.example.calculator.bmi.entitie.BMIRecord;
 import com.example.calculator.bmi.repository.BMIRecordRepo;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor

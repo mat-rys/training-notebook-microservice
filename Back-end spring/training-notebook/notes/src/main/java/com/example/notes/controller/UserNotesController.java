@@ -19,17 +19,15 @@ import java.util.stream.Stream;
 @RestController
 @Slf4j
 @AllArgsConstructor
+
 @RequestMapping("/notes")
 public class UserNotesController {
 
     private final UserNotesService userNotesService;
 
-    @CrossOrigin(origins = "http://localhost:4200/account") // Adres Twojej aplikacji Angular
-    @GetMapping("/ak")
-    public String getAs() {
-        return "adadadad";
-    }
 
+
+    @CrossOrigin(origins = "http://localhost:4200") // Adres Twojej aplikacji Angular
     @GetMapping
     public ResponseEntity<Stream<UserNotes>> getAllNotes() {
         log.info("Getting all notes");

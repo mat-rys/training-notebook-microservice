@@ -6,32 +6,32 @@ server:
   servlet:
     context-path: /
 spring:
+  main:
+    web-application-type: reactive
   profiles:
     active:
       - ${ACTIVE_SPRING_PROFILE:dev}
   application:
     name: gateway
-  security:
-    oauth2:
-      client:
-        provider:
-          my-keycloak-provider:
-            issuer-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm
-        registration:
-          keycloak-spring-gateway-client:
-            scope: openid
-            provider: my-keycloak-provider
-            client-id: backend
-            client-secret: 6aiXmUlE27BiMVUerHBVNCUTJs4ascMS
-            authorization-grant-type: authorization_code
-            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-keycloak-provider:
+#            issuer-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm
+#        registration:
+#          keycloak-spring-gateway-client:
+#            scope: openid
+#            provider: my-keycloak-provider
+#            client-id: backend
+#            client-secret: 6aiXmUlE27BiMVUerHBVNCUTJs4ascMS
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
 
 
   cloud:
     gateway:
 
-      default-filters:
-        - TokenRelay
       discovery:
         locator:
           enabled: true
@@ -49,6 +49,8 @@ spring:
           predicates:
             - Path=/account/**
 
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
 
 management:
   tracing:

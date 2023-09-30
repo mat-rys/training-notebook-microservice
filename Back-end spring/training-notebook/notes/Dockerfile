@@ -1,14 +1,5 @@
-# Użyj obrazu OpenJDK 11
-FROM openjdk:11-jre-slim
-
-# Skopiuj aplikację do kontenera
-COPY target/notes.jar /app.jar
-
-# Ustaw zmienne środowiskowe
-ENV SPRING_PROFILES_ACTIVE=production
-
-# Expose port, na którym działa Twoja aplikacja Spring Boot
-EXPOSE 8070
-
-# Uruchom aplikację Spring Boot po uruchomieniu kontenera
-CMD ["java", "-jar", "/app.jar"]
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} notes.jar
+ENTRYPOINT ["java","-jar","/notes.jar"]
+EXPOSE  8070

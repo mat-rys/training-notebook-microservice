@@ -1,8 +1,16 @@
 version: '3'
 
 services:
+
+
+  config-server:
+    build:
+      context: ./config-server # Ścieżka do katalogu, w którym znajduje się Dockerfile dla config-server
+    ports:
+      - "8888:8888" # Porty na które ma być mapowany serwer konfiguracyjny
+
   eureka:
-    image: your-eureka-image:tag # Jeśli masz obraz Eureka, wstaw go tutaj
+    image: netflixoss/eureka
     ports:
       - "8761:8761"
     environment:
@@ -44,6 +52,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: production
     depends_on:
+      - config-server
       - eureka
       - postgres
 
@@ -55,6 +64,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: production
     depends_on:
+      - config-server
       - eureka
       - postgres
 
@@ -66,6 +76,7 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: production
     depends_on:
+      - config-server
       - eureka
       - postgres
 

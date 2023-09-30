@@ -11,21 +11,22 @@ server:
   servlet:
     context-path: /
 spring:
-#  liquibase:
-#    change-log: classpath:/liquibase/liquibase-changeLog.xml
-  security:
-    oauth2:
-      resource-server:
-        jwt:
-          jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
+  liquibase:
+    change-log: classpath:/liquibase/liquibase-changeLog.xml
+#  security:
+#    oauth2:
+#      resource-server:
+#        jwt:
+#          jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
   application:
     name: account
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5555/keycloak
+    url: jdbc:postgresql://localhost:5432/account
     username: postgres
     password: 1234
     jpa:
+      generate-ddl: true
       hibernate:
         ddl-auto: update
       database: postgresql
@@ -40,6 +41,15 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  expiration: 86400
+
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
+
 
 openapi:
   service:

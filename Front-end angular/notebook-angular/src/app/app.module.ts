@@ -16,8 +16,10 @@ import { SettingsComponent } from './settings/settings.component'; // Importuj A
 
 @NgModule({
   declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, AccountComponent, BmiChartComponent, NoteComponent, CalendarComponent, SettingsComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], // Dodaj AppRoutingModule
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], 
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+

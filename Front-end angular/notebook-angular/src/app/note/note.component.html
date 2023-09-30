@@ -22,19 +22,20 @@
         </nav>
       </div>
 
+      <div class="notes">
+        <div *ngFor="let note of notes">
+          <h2>{{ note.title }}</h2>
+          <p>{{ note.description }}</p>
+          <p>Start Date: {{ note.startDate | date:'short' }}</p>
+          <p>End Date: {{ note.endDate | date:'short' }}</p>
+          <hr>
+        </div>
+      </div>
+   
       
-      
-      
-      
-     
-
-  
-    
-
-    
-    
      
       <section class="foot">
+       
         <p>&copy; Copyright Robert Fox 2022. All rights reserved.</p>
         <a href="#"><button>Privacy Policy</button></a>
         <a href="#"><button>Terms & Conditions</button></a>

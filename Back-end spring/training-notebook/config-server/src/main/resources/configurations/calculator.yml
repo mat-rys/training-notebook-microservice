@@ -13,11 +13,11 @@ server:
 spring:
   liquibase:
     change-log: classpath:/liquibase/liquibase-changeLog.xml
-  security:
-    oauth2:
-      resource-server:
-        jwt:
-          jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
+#  security:
+#    oauth2:
+#      resource-server:
+#        jwt:
+#          jwk-set-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/certs
   application:
     name: calculator
   datasource:

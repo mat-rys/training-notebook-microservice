@@ -44,13 +44,7 @@ However, I still need to add the required roles to the endpoints.
 Overall, it's significant progress as I can now associate notes in the database with the user ID from Keycloak.
 
 
-DO ZROBIENIA
-
-1* CORS keyclok pomoędzy spring i angular
-2* Zabezpieczenie serwisów w keyclok z uwzględnieniem rol
-3* Account service
-4* Zrobienie frontendu całego
-5* Załatwienie customowych login register i połaczonych z keyclok
-6* Udostępnienie w chmurze (pewnie jakiś cload kubernetes i dockery będą)
-
-Prawie finito
+30.09
+Many changes in the microservice finally progressing with app
+Security swap, keycloak into spring security because of problems with cors beetwen angualar and spring and mainly becouse  of knowladge and skills
+I have created an account service that utilizes RSA tokens and returns them after logging in through the gateway. Now I need to implement access authorization based on the token.

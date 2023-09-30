@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@CrossOrigin()
 @OpenAPIDefinition(info = @Info(title = "API Gateway", version = "1.0", description = "Documentation API Gateway v1.0"))
 public class GatewayApplication {
 
