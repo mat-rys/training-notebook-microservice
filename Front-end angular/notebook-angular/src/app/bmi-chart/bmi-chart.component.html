@@ -1,42 +1,91 @@
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+  <title>BMI Calculator</title>
 </head>
 <body>
-    <div class="star-web">
-        <nav class="nav-list">
-          <div class="logo">
-            <a class="Training-Notebook-Logo" href="http://localhost:4200/">
-              <img width="174" height="179" [src]="logoPath" alt="Training-Notebook-Logo" />
-            </a>
-          </div>
-          <div class="nav-buttons">
-            <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
-            <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
-            <a href="http://localhost:4200/calendar"><button><i class="fas fa-envelope"></i> Calendar</button></a>
-            <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
-            <a href="http://localhost:4200/settings"><button><i class="fas fa-cog"></i> Settings</button></a>
-            <a href="#"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
-          </div>
-        </nav>
+
+  <div class="background-content-photo">
+    <img width="1903" height="1050" src="{{ yogaPhotoPath }}" alt="Your Image" class="image"/>
+  </div>
+
+  <section lass="star-web">
+    <nav class="nav-list">
+      <div class="logo">
+        <a class="Training-Notebook-Logo" href="http://localhost:4200/">
+          <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
+        </a>
       </div>
+      <div class="nav-buttons">
+        <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
+        <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
+        <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
+        <a href="http://localhost:4200/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
+        <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+      </div>
+    </nav>
+  </section>   
 
-      
-      
-      
-      
-     
+  <section class="content">
+    
+    <div class="bmi">
+      <h2>Calculate Your BMI</h2>
+      <input [(ngModel)]="weight" type="number" name="weight" class="input-field" placeholder="Weight (kg)"><br />
+      <input [(ngModel)]="height" type="number" name="height" class="input-field" placeholder="Height (m)"><br />
+      <button (click)="calculateBMI(weight,height)" class="calculate-button">Calculate BMI</button><br />
+      <p>BMI is a measurement that assesses<br />
+        the relationship between a person's weight<br /> 
+        and height,and it's used to evaluate <br />
+        their nutritional status.</p><br />
+     <p>BMI Value Ranges:<br />
+       Less than 16 - underweight<br />
+       16 - 16.99 - severe thinness<br />
+       17 - 18.49 - mild thinness<br />
+       18.5 - 24.99 - normal weight<br />
+       25 - 29.99 - overweight<br />
+       30 - 34.99 - obesity class I<br />
+       35 - 39.99 - obesity class II<br />
+       40 or greater - extreme obesity</p>
+    </div>
 
+    <div class="bmr">
+      <h2>Calculate Your BMR</h2>
+    <div class="gender-options">
+      <label for="male2" [ngClass]="{'male-button-selected': selectedGender === 'male'}">Male</label>
+      <input type="radio" name="gender" id="male2" value="male" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
+      <label for="female2" [ngClass]="{'female-button-selected': selectedGender === 'female'}">Female</label>
+      <input type="radio" name="gender" id="female2" value="female" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
+    </div>
+      
+      <input [(ngModel)]="weightBMR" type="number" name="weightBMR" class="input-field" placeholder="Weight (kg)"><br />
+      <input [(ngModel)]="heightBMR" type="number" name="heightBMR" class="input-field" placeholder="Height (m)"><br />
+      <input [(ngModel)]="age" type="number" name="age" class="input-field" placeholder="Age"><br />
+      <button (click)="calculateBMR(weightBMR, heightBMR, age, selectedGender)" class="calculate-button">Calculate BMR</button><br />
+      <p>Your Basal Metabolic Rate (BMR) <br />
+        is the number of calories your <br />
+        body burns at rest to maintain basic <br />
+        life functions, such as breathing, <br />
+        circulation, and body temperature.<br />
+        BMR can be calculated based on weight, <br />
+        height, age, and gender.</p><br />
+    </div>
+  </section>
   
-    
+  <section class="results">
+    <div class="result-bmi">
+      <h2>BMI Results</h2>
+      <p *ngIf="bmiResult !== null">Your BMI is: <span id="bmiResult">{{ bmiResult }}</span></p>
+      <p *ngIf="bmiResult === null">Enter weight and height to calculate BMI.</p>
+    </div>
+    <div class="result-bmr">
+      <h2>BMR Results</h2>
+      <p *ngIf="bmrResult !== null">Your BMR is: <span id="bmrResult">{{ bmrResult }}</span></p>
+      <p *ngIf="bmrResult === null">Enter weight, height, age, and gender to calculate BMR.</p>
+    </div>
+  </section>
+  
 
-    
-    
-     
-      <section class="foot">
-        <p>&copy; Copyright Robert Fox 2022. All rights reserved.</p>
-        <a href="#"><button>Privacy Policy</button></a>
-        <a href="#"><button>Terms & Conditions</button></a>
-      </section>
 </body>

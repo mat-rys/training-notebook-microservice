@@ -93,11 +93,6 @@ PORT 8090 CALCUALTOR SERVICE
 
 PORT 8070 NOTES SERVICE
 
-## **☕ Idea of start-page**
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/23b31ada-f47f-4a48-b2c3-ed840cc81888)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/9f5d547a-fd94-4a45-a7cd-77639c396c67)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/55c834b7-09a6-4939-a0a9-539ccf80b370)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/33c9e8a5-da0a-4685-978f-511059d38128)
 
 
 

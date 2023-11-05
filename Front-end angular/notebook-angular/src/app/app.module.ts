@@ -11,13 +11,26 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AccountComponent } from './account/account.component';
 import { BmiChartComponent } from './bmi-chart/bmi-chart.component';
 import { NoteComponent } from './note/note.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { SettingsComponent } from './settings/settings.component'; // Importuj AppRoutingModule
+import { NutritionComponent } from './nutrition/nutrition.component';
+import { NoteAddComponent } from './note-add/note-add.component';
+import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { MealAddProductsComponent } from './meal-add-products/meal-add-products.component'; // Importuj AppRoutingModule
+
+
 
 @NgModule({
-  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, AccountComponent, BmiChartComponent, NoteComponent, CalendarComponent, SettingsComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule], 
-  providers: [],
+  declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, 
+    AccountComponent, BmiChartComponent, NoteComponent, NutritionComponent, NoteAddComponent, ProductComponent, ProductListComponent, MealAddProductsComponent],
+  imports: [
+    BrowserModule, 
+    FormsModule, 
+    HttpClientModule, 
+    AppRoutingModule,
+  ], 
+    
+  providers: [   
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

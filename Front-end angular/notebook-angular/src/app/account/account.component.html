@@ -4,108 +4,162 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
 </head>
 <body>
-    <div class="star-web">
-        <nav class="nav-list">
-          <div class="logo">
-            <a class="Training-Notebook-Logo" href="http://localhost:4200/">
-              <img width="174" height="179" [src]="logoPath" alt="Training-Notebook-Logo" />
-            </a>
-          </div>
-          <div class="nav-buttons">
-            <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
-            <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
-            <a href="http://localhost:4200/calendar"><button><i class="fas fa-envelope"></i> Calendar</button></a>
-            <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
-            <a href="http://localhost:4200/settings"><button><i class="fas fa-cog"></i> Settings</button></a>
-            <a href="#"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
-          </div>
-        </nav>
-      </div>
+    <div class="background-content-photo">
+      <img width="1903" height="1050" src="{{ womenRegistration }}" alt="Your Image" class="image"/>
+    </div>
+    <section lass="star-web">
+      <nav class="nav-list">
+        <div class="logo">
+          <a class="Training-Notebook-Logo" href="http://localhost:4200/">
+            <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
+          </a>
+        </div>
+        <div class="nav-buttons">
+          <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
+          <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
+          <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
+          <a href="http://localhost:4200/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
+          <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+        </div>
+      </nav>
+    </section>  
       
-      <section class="content">
-        <div class="profile-form">
+    <div class="profile-image-container">
+      <div class="change-button-photo" (click)="toggleImageInput()">Change</div>
+      <div class="profile-image">
+        <img *ngIf="photo.photoUrl" [src]="photo.photoUrl" alt="User Image">
+      </div>
+    </div>
+    
+    <!-- Dodaj element do zmiany obrazka -->
+    <div class="change-image-input" *ngIf="showImageInput">
+      <input type="text" [(ngModel)]="newImageUrl" placeholder="Nowy URL obrazka">
+      <button (click)="updateImage()">Zatwierdź</button>
+    </div>
+
+
+    
+    <section class="content">
+      <div class="profile-form">
             <div class="profile-header">
-                <h2>Profile</h2>
+              <h2>Profile</h2>
             </div>
             <div class="profile-info">
-                <div class="profile-row">
-                  <span class="profile-label">Email:</span>
-                  <span class="profile-value">{{ user.email }}</span>
-                </div>
-                <div class="profile-row">
-                    <span class="profile-label">Password:</span>
-                    <span class="profile-value">********</span>
-                </div>
-                <div class="profile-row">
-                  <span class="profile-label">First Name:</span>
-                  <span class="profile-value">{{ user.first_name }}</span>
-                </div>
-                <div class="profile-row">
-                    <span class="profile-label">Last Name:</span>
-                    <span class="profile-value">{{ user.last_name }}</span>
-                </div>
-                <div class="profile-row">
-                  <span class="profile-label">Username:</span>
-                  <span class="profile-value">{{ user.username }}</span>
-                </div>
-                <div class="profile-row">
-                    <span class="profile-label">Weight:</span>
-                    <span class="profile-value">70 kg</span>
-                </div>
-                <div class="profile-row">
-                    <span class="profile-label">Height:</span>
-                    <span class="profile-value">180 cm</span>
-                </div>
-                <div class="profile-row">
-                    <span class="profile-label">Gender:</span>
-                    <span class="profile-value">Male</span>
-                </div>
+              <div class="profile-row">
+                <span class="profile-label">Email:</span>
+                <span class="profile-value">{{ user.email }}</span>
+                <div class="change-button" (click)="showEmailInput = true" >Change</div>
+              </div>
+              <div class="change-weight-input" *ngIf="showEmailInput">
+                <input type="text" [(ngModel)]="newEmail" placeholder="New email">
+                <button (click)="updateEmail()">Update</button>
+              </div>
+
+              
+              <!-- <div class="profile-row">
+                <span class="profile-label">Password:</span>
+                <span class="profile-value">ERROR</span>
+                <div class="change-button">Change</div>
+              </div> -->
+
+              <div class="profile-row">
+                <span class="profile-label">First Name:</span>
+                <span class="profile-value">{{ user.firstName }}</span>
+                <div class="change-button" (click)="showFirstNameInput = true">Change</div>
+              </div>
+              <div class="change-weight-input" *ngIf="showFirstNameInput">
+                <input type="text" [(ngModel)]="newFirstName" placeholder="New first name">
+                <button (click)="updateFirstName()">Update</button>
+              </div>
+
+
+              <div class="profile-row">
+                <span class="profile-label">Last Name:</span>
+                <span class="profile-value">{{ user.lastName }}</span>
+                <div class="change-button" (click)="showLastNameInput = true" >Change</div>
+              </div>
+              <div class="change-weight-input" *ngIf="showLastNameInput">
+                <input type="text" [(ngModel)]="newLastName" placeholder="New last name">
+                <button (click)="updateLastName()">Update</button>
+              </div>
+
+
+              <div class="profile-row">
+                <span class="profile-label">Username:</span>
+                <span class="profile-value">{{ user.username }}</span>
+                <div class="change-button" (click)="showUsernameInput = true">Change</div>
+              </div>
+              <div class="change-weight-input" *ngIf="showUsernameInput">
+                <input type="text" [(ngModel)]="newUsername" placeholder="New username">
+                <button (click)="updateUsername()">Update</button>
+              </div>
             </div>
-        </div>
-    </section>
-    
-    
-    <section class="additional-sections">
-      <div class="additional-section">
-          <div class="additional-box">
-               <!-- Wykres zmian BMI -->
-               <canvas id="bmiChart"></canvas>
-                
-               <!-- Statystyki -->
-               <div class="stats">
-                   <p>Last BMI: 24.5</p>
-               </div>
           </div>
-      </div>
+    
       
-      <div class="additional-section">
-          <div class="additional-box">
-            <div class="stats">
-              <p>How many notes added:</p>
-              <p>Last note:</p>
-              <p>Last Note Date: 2023-08-14</p>
-          </div>
-          </div>
-      </div>
-      
-      <div class="additional-section">
-          <div class="additional-box">
-              <!-- Zawartość trzeciego prostokąta -->
-          </div>
-      </div>
+          <section class="Body">
+            <div class="additional-section">
+              <div class="additional-box">
+                <h2>Body profile</h2> <!-- Dodaj nagłówek "Body" -->
+          
+
+                <div class="profile-row">
+                  <span class="profile-label">Weight:</span>
+                  <span class="profile-value">{{ body.weight }}</span>
+                  <div class="change-button" (click)="showWeightInput = true">Change</div>
+                </div>
+                <div class="change-weight-input" *ngIf="showWeightInput">
+                  <input type="number" [(ngModel)]="newWeight" placeholder="New Weight">
+                  <button (click)="updateWeight()">Update</button>
+                </div>
+          
+
+                <!-- Dodaj sekcje do zmiany pozostałych pól -->
+                <div class="profile-row">
+                  <span class="profile-label">Height:</span>
+                  <span class="profile-value">{{ body.height }}</span>
+                  <div class="change-button" (click)="showHeightInput = true">Change</div>
+                </div>
+                <div class="change-weight-input" *ngIf="showHeightInput">
+                  <input type="number" [(ngModel)]="newHeight" placeholder="New Height">
+                  <button (click)="updateHeight()">Update</button>
+                </div>
+          
+
+                <div class="profile-row">
+                  <span class="profile-label">Gender:</span>
+                  <span class="profile-value">{{ body.gender }}</span>
+                  <div class="change-button" (click)="showGenderInput = true">Change</div>
+                </div>
+                <div class="change-weight-input" *ngIf="showGenderInput">
+                  <input  [(ngModel)]="newGender" placeholder="New Gender">
+                  <button (click)="updateGender()">Update</button>
+                </div>
+          
+
+                <div class="profile-row">
+                  <span class="profile-label">Age:</span>
+                  <span class="profile-value">{{ body.age }}</span>
+                  <div class="change-button" (click)="showAgeInput = true">Change</div>
+                </div>
+                <div class="change-weight-input" *ngIf="showAgeInput">
+                  <input type="number" [(ngModel)]="newAge" placeholder="New Age">
+                  <button (click)="updateAge()">Update</button>
+                </div>
+          
+
+                <div class="profile-row">
+                  <span class="profile-label">Goals:</span>
+                  <span class="profile-value">{{ body.goals }}</span>
+                  <div class="change-button" (click)="showGoalsInput = true">Change</div>
+                </div>
+                <div class="change-weight-input" *ngIf="showGoalsInput">
+                  <input type="text" [(ngModel)]="newGoals" placeholder="New Goals">
+                  <button (click)="updateGoals()">Update</button>
+                </div>
+              </div>
+            </div>
+          </section>
+            
     </section>
-    
-    
-      <!-- <section class="hero">
-        <div class="search-container">
-          <input type="text" placeholder="Search">
-          <button class="round-button"><i class="fas fa-check"></i></button>
-        </div>
-      </section> -->
-     
-      <section class="foot">
-        <p>&copy; Copyright Robert Fox 2022. All rights reserved.</p>
-        <a href="#"><button>Privacy Policy</button></a>
-        <a href="#"><button>Terms & Conditions</button></a>
-      </section>
 </body>

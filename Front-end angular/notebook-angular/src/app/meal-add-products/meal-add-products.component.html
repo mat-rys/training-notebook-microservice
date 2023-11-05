@@ -1,0 +1,119 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+</head>
+<body>
+  <section lass="star-web">
+    <div class="background-content-photo">
+      <img width="1903" height="1050" src="{{ ramenPhoto }}" alt="Your Image" class="image"/>
+    </div>
+    <nav class="nav-list">
+      <div class="logo">
+        <a class="Training-Notebook-Logo" href="http://localhost:4200/">
+          <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
+        </a>
+      </div>
+      <div class="nav-buttons">
+        <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
+        <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
+        <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
+        <a href="http://localhost:4200/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
+        <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+      </div>
+    </nav>
+  </section> 
+
+  <section class="content">
+    <div class="hero">
+      <!-- Dodaj pasek wyszukiwania -->
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products" [(ngModel)]="searchQuery" (keyup.enter)="searchProducts()" />
+        <button (click)="searchProducts()"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div *ngIf="editingProduct" class="edit-form">
+        <h2>Edit Product</h2>
+        <input [(ngModel)]="editingProduct.title" placeholder="Title">
+        <input [(ngModel)]="editingProduct.calories" placeholder="Calories">
+        <input [(ngModel)]="editingProduct.grams" placeholder="Grams">
+        <input [(ngModel)]="editingProduct.carbs" placeholder="Carbs">
+        <input [(ngModel)]="editingProduct.fat" placeholder="Fat">
+        <input [(ngModel)]="editingProduct.protein" placeholder="Protein">
+        <button (click)="updateProduct()">Update</button>
+      </div>
+  
+      <!-- Lista przefiltrowanych produktów (jeśli jest zdefiniowana fraza) -->
+      <div class="product-list" *ngIf="searchQuery">
+        <div *ngFor="let product of filteredProducts" class="product-item">
+          <div class="product-header">
+            <h2>{{ product.title }}</h2>
+            <div class="product-buttons">
+              <button class="add-button" (click)="addSelectedProductToMeal(product)" >Add</button>
+              <button class="edit-button" (click)="scrollToTop()" (click)="editProduct(product)"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-button" (click)="deleteProductConfirmation(product)">Delete</button>
+            </div>
+          </div>
+          <div class="product-details">
+            <p>Calories: {{ product.calories }}</p>
+            <p>Grams: {{ product.grams }}</p>
+            <p>Carbs: {{ product.carbs }}</p>
+            <p>Protein: {{ product.protein }}</p>
+            <p>Fat: {{ product.fat }}</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Lista wszystkich produktów (jeśli nie ma zdefiniowanej frazy) -->
+      <div class="product-list" *ngIf="!searchQuery">
+        <div *ngFor="let product of products" class="product-item">
+          <div class="product-header">
+            <h2>{{ product.title }}</h2>
+            <div class="product-buttons">
+              <button class="add-button" (click)="addSelectedProductToMeal(product)" >Add</button>
+              <button class="edit-button" (click)="scrollToTop()" (click)="editProduct(product)"><i class="fas fa-edit"></i> Edit</button>
+              <button class="delete-button" (click)="deleteProductConfirmation(product)">Delete</button>
+             
+            </div>
+          </div>
+          <div class="product-details">
+            <p>Calories: {{ product.calories }}</p>
+            <p>Grams: {{ product.grams }}</p>
+            <p>Carbs: {{ product.carbs }}</p>
+            <p>Protein: {{ product.protein }}</p>
+            <p>Fat: {{ product.fat }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="added-products-section">
+    <table class="totals">
+      <tr>
+        <th>Total Calories</th>
+        <th>Total Fat</th>
+        <th>Total Protein</th>
+        <th>Total Carbs</th>
+      </tr>
+      <tr>
+        <td>{{ totalCalories | number:'1.0-1' }} kcal</td>
+        <td>{{ totalFat | number:'1.0-1' }} g</td>
+        <td>{{ totalProtein | number:'1.0-1' }} g</td>
+        <td>{{ totalCarbs | number:'1.0-1' }} g</td>
+      </tr>
+    </table>
+     <!-- Dodaj ten blok HTML w sekcji "Added Products" -->
+     <div class="added-products">
+      <h3>Selected Products</h3>
+      <ul>
+        <li *ngFor="let product of selectedProducts">
+          <span>{{ product.title }} ({{ product.grams }} g)</span>
+          <button (click)="removeProduct(product)">Remove</button>
+          <button >Edit Grams</button>
+        </li>
+      </ul>
+    </div>
+</section>
+       
+</body>

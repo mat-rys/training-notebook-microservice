@@ -5,21 +5,27 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AccountComponent } from './account/account.component';
 import { StartPageComponent } from './start-page/start-page.component'; 
 import { BmiChartComponent } from './bmi-chart/bmi-chart.component';
-import { CalendarComponent } from './calendar/calendar.component';
 import { NoteComponent } from './note/note.component';
-import { SettingsComponent } from './settings/settings.component';
+import { NutritionComponent } from './nutrition/nutrition.component';
+import { NoteAddComponent } from './note-add/note-add.component';
+import { ProductComponent } from './product/product.component';
+import {ProductListComponent } from './product-list/product-list.component';
+import {MealAddProductsComponent } from './meal-add-products/meal-add-products.component';
+import { AuthGuard } from './auth.guar';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent }, 
-  { path: 'registration', component: RegistrationComponent }, 
-  { path: 'start-page', component: StartPageComponent }, 
-  { path: 'account', component: AccountComponent }, 
-  { path: 'bmi-chart', component: BmiChartComponent }, 
-  { path: 'settings', component: SettingsComponent }, 
-  { path: 'calendar', component: CalendarComponent }, 
-  { path: 'notes', component: NoteComponent }, 
+  { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'start-page', component: StartPageComponent },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'bmi-chart', component: BmiChartComponent, canActivate: [AuthGuard] },
+  { path: 'notes', component: NoteComponent, canActivate: [AuthGuard] },
+  { path: 'notes-add', component: NoteAddComponent, canActivate: [AuthGuard] },
+  { path: 'product-add', component: ProductComponent, canActivate: [AuthGuard] },
+  { path: 'products-list', component: ProductListComponent, canActivate: [AuthGuard] },
+  { path: 'meal-add-products', component: MealAddProductsComponent, canActivate: [AuthGuard] },
+  { path: 'nutrition', component: NutritionComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: 'start-page', pathMatch: 'full' },
-
 ];
 
 @NgModule({

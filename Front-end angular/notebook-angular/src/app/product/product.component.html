@@ -1,0 +1,67 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+</head>
+<body>
+  <section lass="star-web">
+    <div class="background-content-photo">
+      <img width="1903" height="1050" src="{{ ramenPhoto }}" alt="Your Image" class="image"/>
+    </div>
+    <nav class="nav-list">
+      <div class="logo">
+        <a class="Training-Notebook-Logo" href="http://localhost:4200/">
+          <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
+        </a>
+      </div>
+      <div class="nav-buttons">
+        <a href="http://localhost:4200/account"><button><i class="fas fa-user"></i> Profile</button></a>
+        <a href="http://localhost:4200/notes"><button><i class="fas fa-book"></i> Notes</button></a>
+        <a href="http://localhost:4200/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
+        <a href="http://localhost:4200/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
+        <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
+      </div>
+    </nav>
+  </section> 
+
+  <div class="products-list-button">
+    <a href="http://localhost:4200/products-list"><button><i class="fas fa-add"></i> Products list</button></a>
+  </div>
+  
+  <div class="hero">
+    <form (submit)="createProduct()">
+      <div class="search-container">
+        <div class="input-container">
+          <label for="title">Title:</label>
+          <input class="title" type="text" id="title" [(ngModel)]="title" name="title" required>
+        </div>
+        <div class="input-container">
+          <label for="calories">Calories:</label>
+          <input class="title" type="number" id="calories" [(ngModel)]="calories" name="calories" required>
+        </div>
+        <div class="input-container">
+          <label for="grams">Grams:</label>
+          <input class="activity" type="number" id="grams" [(ngModel)]="grams" name="grams" required>
+        </div>
+        <div class="input-container">
+          <label for="carbs">Carbs:</label>
+          <input class="activity" type="number" id="carbs" [(ngModel)]="carbs" name="carbs" required>
+        </div>
+        <div class="input-container">
+          <label for="protein">Protein:</label>
+          <input class="activity" type="number" id="protein" [(ngModel)]="protein" name="protein" required>
+        </div>
+        <div class="input-container">
+          <label for="fat">Fat:</label>
+          <input class="activity" type="number" id="fat" [(ngModel)]="fat" name="fat" required>
+        </div>
+        <button  class="submit-button" type="submit">Create Product</button>
+      </div>
+    </form>
+    
+  </div>
+  <div *ngIf="productCreated" class="product-created-message">
+    Product created successfully!
+  </div>
+  
+</body>

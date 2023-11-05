@@ -1,75 +1,92 @@
 body {
-    margin: 0;
-    background-color: #0D66B4;
-    background-size: auto;
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    margin-top: -10px;
-    margin-left: 8.4px;
-  }
-  
-  .star-web {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    background-color: #092640;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px; 
-  }
-  
-  .nav-list .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .nav-buttons {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-buttons a {
-    text-decoration: none;
-  }
-  
-  .nav-buttons button {
-    padding: 12px 16px;
-    font-size: 18px;
-    background-color: #5B31D1;
-    color: #fff;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .nav-buttons button:hover {
-    background-color: #4009A5;
-  }
-  
-  .content {
-    flex-grow: 1;
-    margin-left: 200px; 
-  }
+  margin: 0;
+
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.star-web {
+  display: flex;
+  justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
+  align-items: center;
+  padding: 0px;
+  background-color: #092640;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.nav-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row; /* Zmień na poziomy układ */
+  align-items: center;
+  justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
+ 
+  margin-top: 5px;
+
+  width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
+}
+
+.nav-list .logo {
+  display: flex;
+  justify-content: flex-end; /* Przesuń logo na prawy róg */
+  align-items: center;
+  margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
+}
+
+.nav-list .logo a:hover {
+  color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
+  color: #fff;
+  border-radius: 20px; /* Dodano zaokrąglenie na hover */
+}
+
+/* Przyciski nawigacyjne */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Przesuń przyciski na środek */
+
+}
+
+.nav-buttons a {
+  text-decoration: none;
+}
+
+.nav-buttons button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
+  border-radius: 0; /* Usunięto border-radius z początkowego stylu */
+}
+
+.nav-buttons button:hover {
+  background-color: #4009A5;
+  color: #fff;
+  border-radius: 20px; /* Dodano zaokrąglenie na hover */
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 200px; 
+}
   
   .header {
     display: flex;
@@ -108,32 +125,76 @@ body {
     cursor: pointer;
   }
   
- 
-/* foot */
-.foot {
-  text-align: center;
-  padding: 20px 0;
-  margin-top: 170px; /* Margines od góry */
-  margin-left: 220px; /* Margines z lewej strony (szerokość .nav-list) */
-  margin-right: 00px; /* Margines z prawej strony (szerokość .additional-sections) */
+  
+
+
+/* Styl notatki */
+.note-card {
   background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: -200px;
+  max-width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.foot p {
+.note-card:hover {
+  transform: scale(1.02);
+}
+
+.note-card h2 {
+  font-size: 24px; /* Zwiększenie rozmiaru tytułu */
+  margin-top: 0;
+  color: black; /* Kolor tytułu */
+}
+
+.note-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: black; /* Kolor tekstu notatki */
+}
+
+.date-info {
+  display: flex;
+  justify-content: space-between;
+  color: black; /* Kolor daty */
+}
+
+.date-info strong {
+  font-weight: bold;
+}
+
+
+.background-content-photo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(40%);
+  transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+}
+
+/* Dodaj ten kod do arkusza stylów */
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  margin-left: 10px;
+  padding: 5px 10px;
   font-size: 14px;
-  color: #333;
-  margin: 0;
-}
-
-.foot a {
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-.foot button {
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: #007bff;
+  background: linear-gradient(to bottom, #00B2C8, #480DF0);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -141,14 +202,84 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.foot button:hover {
+.action-buttons button:hover {
   background-color: #0056b3;
 }
-/* ///////////////// */
 
+.edit-button {
+  background-color: #17a2b8;
+}
 
+.delete-button {
+  background-color: #dc3545;
+}
 
+/* Styl dla przycisku "Add Note" */
+.add-note-button {
+  display: flex;
+  justify-content: flex-end;
 
+  margin-left: 700px;
+}
+
+.add-note-button button {
+  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  font-size: 16px;
+  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-note-button button:hover {
+  background-color: #1a5a9f; /* Kolor przycisku "Add Note" po najechaniu myszką */
+}
+
+/* Styl dla formularza edycji notatki */
+.edit-form {
+  border-radius: 10px; /* Zaokrąglij rogi formularza */
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-left: -210px;
+  margin-bottom: 30px;
+}
+
+.edit-form h2 {
+  font-size: 24px;
+  color:#fff; /* Kolor tytułu */
+  margin-bottom: 20px;
+}
+
+.edit-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  border-radius: 10px; /* Zaokrąglij rogi inputów */
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.edit-form button {
+  padding: 8px 20px;
+    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    color: #fff;
+    border: none;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
 
 
 
