@@ -41,6 +41,23 @@ public class AccountService {
         }
     }
 
+    public String getUserId(String idKeycloak) {
+        try {
+            log.info("Fetching user with ID: {}", idKeycloak);
+            String userId = jdbcTemplate.queryForObject("SELECT id FROM user_entity WHERE id = ?", String.class, idKeycloak);
+            System.out.println("User ID: " + userId);
+
+            return userId;
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("User with ID {} not found", idKeycloak);
+            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+        } catch (Exception e) {
+            log.error("An error occurred while fetching user", e);
+            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+        }
+    }
+
+
     public boolean updateEmail(String idKeycloak, String newEmail) {
         String sql = "UPDATE user_entity SET email = ? WHERE id = ?";
 

@@ -31,14 +31,19 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
 
     @Override
     public BodyProfile updateWeight(String id, Double weight) {
-        System.out.println(id+"........."+weight.toString());
         Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
         if (optionalBodyProfile.isPresent()) {
             BodyProfile bodyProfile = optionalBodyProfile.get();
             bodyProfile.setWeight(weight);
             return bodyProfileRepo.save(bodyProfile);
+        } else {
+            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
+            BodyProfile newBodyProfile = BodyProfile.builder()
+                    .idUser(id)
+                    .weight(weight)
+                    .build();
+            return bodyProfileRepo.save(newBodyProfile);
         }
-        return null;
     }
 
     @Override
@@ -48,8 +53,14 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
             BodyProfile bodyProfile = optionalBodyProfile.get();
             bodyProfile.setHeight(height);
             return bodyProfileRepo.save(bodyProfile);
+        } else {
+            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
+            BodyProfile newBodyProfile = BodyProfile.builder()
+                    .idUser(id)
+                    .height(height)
+                    .build();
+            return bodyProfileRepo.save(newBodyProfile);
         }
-        return null;
     }
 
     @Override
@@ -59,8 +70,14 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
             BodyProfile bodyProfile = optionalBodyProfile.get();
             bodyProfile.setGender(gender);
             return bodyProfileRepo.save(bodyProfile);
+        } else {
+            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
+            BodyProfile newBodyProfile = BodyProfile.builder()
+                    .idUser(id)
+                    .gender(gender)
+                    .build();
+            return bodyProfileRepo.save(newBodyProfile);
         }
-        return null;
     }
 
     @Override
@@ -70,8 +87,14 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
             BodyProfile bodyProfile = optionalBodyProfile.get();
             bodyProfile.setAge(age);
             return bodyProfileRepo.save(bodyProfile);
+        } else {
+            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
+            BodyProfile newBodyProfile = BodyProfile.builder()
+                    .idUser(id)
+                    .age(age)
+                    .build();
+            return bodyProfileRepo.save(newBodyProfile);
         }
-        return null;
     }
 
     @Override
@@ -81,7 +104,13 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
             BodyProfile bodyProfile = optionalBodyProfile.get();
             bodyProfile.setGoals(goals);
             return bodyProfileRepo.save(bodyProfile);
+        } else {
+            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
+            BodyProfile newBodyProfile = BodyProfile.builder()
+                    .idUser(id)
+                    .goals(goals)
+                    .build();
+            return bodyProfileRepo.save(newBodyProfile);
         }
-        return null;
     }
 }

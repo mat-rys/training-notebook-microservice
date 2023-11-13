@@ -21,10 +21,9 @@ public class Photo {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private String idUser;
-    @Column(name = "photourl")
+    @Column(name = "photo_url")
     private String photoUrl;
 
 }

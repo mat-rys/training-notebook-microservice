@@ -27,8 +27,8 @@ public class BodyProfileController {
     @PostMapping("/photo")
     public ResponseEntity<String> createPhoto(@RequestBody Photo photo, Principal principal) {
         photo.setIdUser(principal.getName());
+        System.out.println(photo);
         photoRepo.save(photo);
-        log.info("Zapisano nowy obrazek profilowy.");
         return ResponseEntity.status(HttpStatus.CREATED).body("Zapisano nowy obrazek profilowy.");
     }
 
@@ -36,6 +36,7 @@ public class BodyProfileController {
     @GetMapping("/photo")
     public ResponseEntity<Photo> getPhoto(Principal principal) {
         Photo photo = photoRepo.findByIdUser(principal.getName());
+        System.out.println(photo);
         if (photo != null) {
             return ResponseEntity.ok(photo);
         } else {

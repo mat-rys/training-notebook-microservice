@@ -28,29 +28,6 @@ public class AccountController {
     private final AccountService accountService;
 
 
-
-    @PostMapping("/get-token")
-    public ResponseEntity<String> getToken() {
-        String keycloakUrl = "http://localhost:8191/auth/realms/training-notebook-microservice-realm/protocol/openid-connect/token";
-        RestTemplate restTemplate = new RestTemplate();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
-        MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
-        requestBody.add("username", "ttt");
-        requestBody.add("password", "ttt");
-        requestBody.add("grant_type", "password");
-        requestBody.add("client_id", "backend");
-        requestBody.add("client_secret", "6aiXmUIE27BIMVUerHBVNCUTJs4ascMS");
-
-        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
-
-        ResponseEntity<String> response = restTemplate.postForEntity(keycloakUrl, requestEntity, String.class);
-
-        return response;
-    }
-
     @GetMapping("/user")
     public ResponseEntity<UserDetailsResponse> getUser(Principal principal) {
         UserDetailsResponse userDetailsResponse = accountService.getUserService(principal.getName());
@@ -61,6 +38,16 @@ public class AccountController {
         }
     }
 
+
+    @GetMapping("/user/id")
+    public ResponseEntity<String> getUserId(Principal principal) {
+        String userId = accountService.getUserId(principal.getName());
+        if (userId != null) {
+            return ResponseEntity.ok(userId);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @PutMapping("/user/email")
     public ResponseEntity<String> updateUserEmail(Principal principal, @RequestBody String newEmail) {

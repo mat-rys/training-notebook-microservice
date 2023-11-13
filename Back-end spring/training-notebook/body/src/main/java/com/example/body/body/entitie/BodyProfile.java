@@ -27,7 +27,6 @@ public class BodyProfile {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
     private String idUser;
     private Double weight;
