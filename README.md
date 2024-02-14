@@ -2,13 +2,6 @@
 ## **🚀 The project model:**
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/8ae79684-dd54-4b4a-8241-9a3a90e01946)
 
-## **📄 Project documentation and analyst:**
-link: https://github.com/mat-rys/training-notebook-microservice/blob/main/Project%20idea%2C%20tools%20and%20future%20development.pdf
-
-## **⭐ Previous idea without microservice :**
-You can see here idea of the project without microservice and many tools with done frontend in thymeleaf
-Link:  https://github.com/mat-rys/Training-Notebook-WEB-API
-
 ## **💻 Technologies:**
 Back-end
 * ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
@@ -29,22 +22,7 @@ UI/UX
 * ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
 
-## **🛠️ How to test back-end:**
-
-1.Create databse 
-a.Provided a script in the "SqlDataBase" folder to create the necessary databases for the project. You can simply execute the script in the psql shell. The database is in PostgreSQL.
-![image](https://github.com/softwarehutpl/java-is-23-mr/assets/98847639/36fe8b3e-c5b7-438b-bd67-11645ede6e1a)
-
-b.The tables will be automatically created if the databases exist when starting the services through Liquibase.
-
-2.The order to run the components of the project:
-* nr.1 config-server
-* nr.2 discovery
-* nr.3 gateway
-* nr.4 services like notes and calcualtor
-
-
-## **📚 Summary: If you have completed all the previous steps:**
+## **🛠️ Summary: If you have completed all the previous steps:**
 
 PORT 8222 API GATEWAY acting as an intermediary between services.
 
@@ -55,6 +33,9 @@ PORT 8761 EUREKA SERVER http://localhost:8761/
 PORT 8090 CALCUALTOR SERVICE
 
 PORT 8070 NOTES SERVICE
+
+## **📚 Summary: The look of website:**
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/f14a0552-fa58-4a25-9c46-f0f5578ced1f)
 
 
 
