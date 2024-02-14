@@ -1,6 +1,6 @@
 
 ## **🚀 The project model:**
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/8ae79684-dd54-4b4a-8241-9a3a90e01946)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/14bff766-9a38-4c97-a665-6a61e5dd68c9)
 
 ## **💻 Technologies:**
 Back-end
