@@ -21,19 +21,6 @@ Front-end
 UI/UX
 * ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
-
-## **🛠️ Summary: If you have completed all the previous steps:**
-
-PORT 8222 API GATEWAY acting as an intermediary between services.
-
-PORT 8222 SWAGGER  http://localhost:8222/webjars/swagger-ui/4.15.5/index.html?urls.primaryName=calculator
-
-PORT 8761 EUREKA SERVER http://localhost:8761/
-
-PORT 8090 CALCUALTOR SERVICE
-
-PORT 8070 NOTES SERVICE
-
 ## **📚 Summary: The look of website:**
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/f14a0552-fa58-4a25-9c46-f0f5578ced1f)
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/33de29d0-69e0-4466-9fb2-d335c44f1ecf)
