@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../security-config/auth.service';
 
 @Component({
   selector: 'app-account',
@@ -115,17 +115,12 @@ export class AccountComponent implements OnInit {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
-  
-    // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint for updating weight
     const apiEndpoint = 'http://localhost:8222/body/weight';
-  
-    // Send the updatedWeight as a plain number (not wrapped in an object)
     this.http.put(apiEndpoint, updatedWeight, { headers })
       .subscribe(response => {
         this.loadBodyProfil(headers);
       });
   
-    // Hide the weight input
     this.showWeightInput = false;
   }
 
@@ -155,7 +150,7 @@ export class AccountComponent implements OnInit {
     });
 
     const apiEndpoint = 'http://localhost:8222/body/gender';
-    this.http.put(apiEndpoint, { gender: updatedGender }, { headers })
+    this.http.put(apiEndpoint, updatedGender , { headers })
       .subscribe(response => {
         this.loadBodyProfil(headers);
       });
@@ -193,7 +188,7 @@ export class AccountComponent implements OnInit {
 
     const apiEndpoint = 'http://localhost:8222/body/goals';
 
-    this.http.put(apiEndpoint, {updatedGoals }, { headers })
+    this.http.put(apiEndpoint, updatedGoals , { headers })
       .subscribe(response => {
         this.loadBodyProfil(headers);
       });
@@ -271,6 +266,42 @@ export class AccountComponent implements OnInit {
       });
 
     this.showEmailInput = false;
+  }
+
+  toggleWeightInput() {
+    this.showWeightInput = !this.showWeightInput;
+  }
+  
+  toggleHeightInput() {
+    this.showHeightInput = !this.showHeightInput;
+  }
+  
+  toggleGenderInput() {
+    this.showGenderInput = !this.showGenderInput;
+  }
+  
+  toggleAgeInput() {
+    this.showAgeInput = !this.showAgeInput;
+  }
+  
+  toggleGoalsInput() {
+    this.showGoalsInput = !this.showGoalsInput;
+  }
+  
+  toggleEmailInput() {
+    this.showEmailInput = !this.showEmailInput;
+  }
+  
+  toggleFirstNameInput() {
+    this.showFirstNameInput = !this.showFirstNameInput;
+  }
+  
+  toggleLastNameInput() {
+    this.showLastNameInput = !this.showLastNameInput;
+  }
+  
+  toggleUsernameInput() {
+    this.showUsernameInput = !this.showUsernameInput;
   }
 
 }

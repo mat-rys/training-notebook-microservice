@@ -207,6 +207,12 @@ body {
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2); /* Dodaj grubsze obramowanie tutaj */
+  transition: transform 0.3s ease;
+
+}
+
+.profile-image:hover {
+  transform: scale(1.08); /* Powiększenie obrazka o 20% */
 }
 
 .profile-image img {
@@ -221,7 +227,7 @@ body {
   display: none;
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  right: -10px;
   background-color: #007bff;
   color: #fff;
   padding: 3px 6px;

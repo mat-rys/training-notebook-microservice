@@ -1,0 +1,80 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+</head>
+<body>
+    <div class="star-web">
+        <div class="header">
+            <a class="Training-Notebook-Logo" href="/start-page"><img width="164" height="169" [src]="logoPath" alt="Training-Notebook-Logo" /></a>
+            <nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="https://facebook.com" class="facebook">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/facebook-circled.png" alt="facebook-circled"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mat-rys" class="github">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/github.png" alt="github"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="linkedin" class="linkedin">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/linkedin.png" alt="linkedin"/>
+                        </a>
+                    </li> 
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <hr class="separator1"> <!-- Czarna linia oddzielająca -->
+
+
+    <section class="hero">
+        <p class="hero-title">Train, progress and achieve <br />
+            goals you never thought about   <br />
+            with Sportify</p>
+        <p class="hero-description">Start your fitness journey today and unlock a world of possibilities.  <br />
+                Whether you're seeking to enhance your athletic performance or simply  <br />
+                aiming to lead a healthier lifestyle, we're here to empower you on your <br />
+                path to greatness. Let's write your fitness success story together for FREE! 
+        </p>
+            <div class="reg-and-log">
+                <a class="registration-button" href="/registration"><button>Register</button></a> 
+                <a class="login-button" href="/login"><button>Log in</button></a>
+            </div>      
+    </section>
+    
+    <hr class="separator2"> <!-- Czarna linia oddzielająca -->
+    <a class="scroll-down" (click)="scrollDown()">
+        <button>
+          See more
+          <img class="scroll-down-img" width="22" height="22" src="https://img.icons8.com/ios-filled/50/FFFFFF/circled-down-2.png" alt="circled-down-2"/>
+        </button>
+    </a>
+
+      
+
+    <section class="hero2" #hero2Section>
+        <div class="Personal-Account">
+            <img [src]="content[currentContentIndex].image" alt="register-page-api-photo"/>
+            <p class="profile-title">{{ content[currentContentIndex].title }}</p>
+            <p class="profile-description">{{ content[currentContentIndex].description }}</p>
+        </div>
+        <div class="dot-container">
+            <span class="dot" *ngFor="let item of content; let i = index" 
+                  [class.active]="currentContentIndex === i" 
+                  (click)="goToContent(i)"></span>
+        </div>
+    </section>
+    
+    
+     <!-- Dodaj kropki tutaj -->
+    
+    
+      
+
+
+</body>
+
+

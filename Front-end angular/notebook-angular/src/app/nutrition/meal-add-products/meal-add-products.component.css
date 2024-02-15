@@ -1,0 +1,466 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .star-web {
+    display: flex;
+    justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
+    align-items: center;
+    padding: 0px;
+   
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row; /* Zmień na poziomy układ */
+    align-items: center;
+    justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
+   
+    margin-top: 5px;
+  
+    width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
+  }
+  
+  .nav-list .logo {
+    display: flex;
+    justify-content: flex-end; /* Przesuń logo na prawy róg */
+    align-items: center;
+    margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
+  }
+  
+  .nav-list .logo a:hover {
+    color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
+    color: #fff;
+    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+  }
+  
+  /* Przyciski nawigacyjne */
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Przesuń przyciski na środek */
+  
+  }
+  
+  .nav-buttons a {
+    text-decoration: none;
+  }
+  
+  .nav-buttons button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
+    border-radius: 0; /* Usunięto border-radius z początkowego stylu */
+  }
+  
+  .nav-buttons button:hover {
+    background-color: #4009A5;
+    color: #fff;
+    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+  }
+  
+  
+  
+  
+    .background-content-photo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(50%);
+      transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+    }
+  
+
+
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Rozłoży produkty na przestrzeni dostępnej szerokości */
+        align-items: flex-start; /* Rozpocznij produkty od góry */
+      }
+      
+      .product-item {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        min-width: 300px;
+        max-width: 400px;
+      }
+      
+      .product-item h2 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      
+      .product-item p {
+        font-size: 16px;
+        margin: 5px 0;
+      }
+      
+
+      /* styles.css lub styles.scss */
+
+/* Styl dla wyszukiwarki */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styl dla listy produktów */
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-item {
+    background-color: #f9f9f9;
+    padding: 16px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    max-width: 400px;
+  
+  }
+  
+  .product-item .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-item h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .product-item .product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product-item p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  /* Pozostałe style pozostaw bez zmian */
+  
+  
+  .product-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-info {
+    font-size: 16px;
+  }
+  
+  .product-info p {
+    margin: 5px 0;
+  }
+  
+
+  .add-product-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 950px;
+    margin-top: 12px;
+  }
+  
+  .add-product-button button {
+    padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+    font-size: 16px;
+    background:  #480DF0;
+    color: #fff;
+    border: none;
+    border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .add-product-button button:hover {
+    background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  }
+
+
+  /* Styl dla kontenera paska wyszukiwania */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Styl dla pola tekstowego wyszukiwania */
+.search-bar input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+  outline: none; /* Usuń standardowy obramowanie pola */
+}
+
+/* Styl dla przycisku wyszukiwania */
+.search-bar button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styl dla ikony w przycisku */
+.search-bar button i {
+  font-size: 18px;
+}
+
+/* Styl po najechaniu na przycisk wyszukiwania */
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+/* Styl dla przycisków "Edit" i "Delete" */
+.product-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button,.add-button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover ,
+.add-button:hover{
+  background: #0056b3;
+}
+
+
+
+
+
+/* Styl dla formularza edycji notatki */
+.edit-form {
+  border-radius: 10px; /* Zaokrąglij rogi formularza */
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-left: -20px;
+  margin-bottom: 30px;
+}
+
+.edit-form h2 {
+  font-size: 24px;
+  color:#fff; /* Kolor tytułu */
+  margin-bottom: 20px;
+}
+
+.edit-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  border-radius: 10px; /* Zaokrąglij rogi inputów */
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.edit-form button {
+  padding: 8px 20px;
+    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    color: #fff;
+    border: none;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Styl dla listy dodanych produktów */
+.added-products {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .added-products h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .added-products ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .added-products li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+  }
+  
+  .added-products li button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .added-products li button:hover {
+    background-color: #c0392b;
+  }
+  
+
+  /* CSS for the totals table */
+.totals {
+  margin-top: 20px; /* Add some spacing from the previous content */
+  border-collapse: collapse; /* Collapse borders for a cleaner look */
+  color:#ddd;
+  width: 100%; /* Make the table take the full width available */
+}
+
+.totals th {
+  border: 1px solid #ddd; /* Add borders to table cells */
+  padding: 8px; /* Add padding to the cells for spacing */
+  text-align: left; /* Align text to the left */
+  color: black;
+}
+
+.totals td{
+  border: 1px solid #ddd; /* Add borders to table cells */
+  padding: 8px; /* Add padding to the cells for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+.totals th {
+  background-color: #f2f2f2; /* Add a light gray background to header cells */
+}
+
+/* Style the total values */
+.totals td {
+  font-weight: bold; /* Make the total values bold */
+}
+
+.added-products-section {
+  position: absolute;
+  left: 1350px; /* Określa odległość od lewej krawędzi strony */
+  top: 50px; /* Określa odległość od górnej krawędzi strony */
+}
+
+.added-products {
+  text-align: center; /* Wyśrodkowanie zawartości wewnątrz "added-products" */
+}
+
+.added-products ul {
+  list-style: none;
+  padding: 0;
+}
+
+.added-products li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.added-products button.add-products-to-meal-button {
+  padding: 10px 14px;
+  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px; /* Dodaj odstęp od poprzedniego elementu */
+}

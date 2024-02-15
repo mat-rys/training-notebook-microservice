@@ -33,9 +33,9 @@
     
     <div class="bmi">
       <h2>Calculate Your BMI</h2>
-      <input [(ngModel)]="weight" type="number" name="weight" class="input-field" placeholder="Weight (kg)"><br />
-      <input [(ngModel)]="height" type="number" name="height" class="input-field" placeholder="Height (m)"><br />
-      <button (click)="calculateBMI(weight,height)" class="calculate-button">Calculate BMI</button><br />
+      <input [(ngModel)]="weight" type="number" name="weight" class="input-field" placeholder="Weight (kg)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="height" type="number" name="height" class="input-field" placeholder="Height (cm)" (input)="onInputChange()"><br />
+      <button class="calculate-button" (click)="calculateBMI(weight, height)">Calculate BMI</button><br />
       <p>BMI is a measurement that assesses<br />
         the relationship between a person's weight<br /> 
         and height,and it's used to evaluate <br />
@@ -60,10 +60,10 @@
       <input type="radio" name="gender" id="female2" value="female" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
     </div>
       
-      <input [(ngModel)]="weightBMR" type="number" name="weightBMR" class="input-field" placeholder="Weight (kg)"><br />
-      <input [(ngModel)]="heightBMR" type="number" name="heightBMR" class="input-field" placeholder="Height (m)"><br />
-      <input [(ngModel)]="age" type="number" name="age" class="input-field" placeholder="Age"><br />
-      <button (click)="calculateBMR(weightBMR, heightBMR, age, selectedGender)" class="calculate-button">Calculate BMR</button><br />
+    <input [(ngModel)]="weightBMR" type="number" name="weightBMR" class="input-field" placeholder="Weight (kg)" (input)="onInputChange()"><br />
+    <input [(ngModel)]="heightBMR" type="number" name="heightBMR" class="input-field" placeholder="Height (cm)" (input)="onInputChange()"><br />
+    <input [(ngModel)]="age" type="number" name="age" class="input-field" placeholder="Age" (input)="onInputChange()"><br />
+    <button class="calculate-button" (click)="calculateBMR(weightBMR, heightBMR, age, selectedGender)">Calculate BMR</button><br />
       <p>Your Basal Metabolic Rate (BMR) <br />
         is the number of calories your <br />
         body burns at rest to maintain basic <br />
