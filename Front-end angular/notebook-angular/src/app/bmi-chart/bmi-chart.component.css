@@ -136,6 +136,12 @@ body {
   margin-bottom: 12px;
 }
 
+.body-fat .gender-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
 .bmr label {
   display: inline-block;
   cursor: pointer;
@@ -145,9 +151,21 @@ body {
   margin-right: 10px;
 }
 
-
+.body-fat label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-right: 10px;
+}
 
 .bmr input[type="radio"] {
+  display: none;
+  margin-right: 5px;
+}
+
+.body-fat input[type="radio"] {
   display: none;
   margin-right: 5px;
 }
@@ -184,7 +202,8 @@ body {
 
 /* Styl dla kalkulatorów BMI i BMR */
 .bmi,
-.bmr {
+.bmr,
+.body-fat {
   background-color: rgba(255, 255, 255, 0.84);
   border-radius: 10px;
   padding: 20px;
@@ -195,6 +214,7 @@ body {
   align-items: center;
   position: relative;
   z-index: 1;
+  width: 270px;
   margin-left: 220px; /* Dodaj margines od lewej strony (szerokość .nav-list) */
 }
 
@@ -250,7 +270,7 @@ body {
   justify-content: space-between; /* Rozłożenie elementów na przestrzeni dostępnej przestrzeni */
 }
 
-.result-bmi, .result-bmr {
+.result-bmi, .result-bmr,.result-body-fat {
   width: calc(50% - 40px); /* Szerokość wyników 50% - odstęp 40px */
   padding: 20px;
   width: 270px;
@@ -258,7 +278,7 @@ body {
   margin-bottom: 20px; /* Dodaj odstęp między wynikami */
 }
 
-.result-bmi, .result-bmr {
+.result-bmi, .result-bmr,.result-body-fat {
   background-color: rgba(255, 255, 255, 0.84);
   border-radius: 10px;
   text-align: center;

@@ -72,6 +72,28 @@
         BMR can be calculated based on weight, <br />
         height, age, and gender.</p><br />
     </div>
+
+    <div class="body-fat">
+      <h2>Calculate Your Body Fat<br />
+         Percentage (NHRC) </h2>
+      <div class="gender-options">
+        <label for="maleBodyFat" [ngClass]="{'male-button-selected': selectedGenderBodyFat === 'male'}">Male</label>
+        <input type="radio" name="genderBodyFat" id="maleBodyFat" value="male" class="radio-button" [(ngModel)]="selectedGenderBodyFat" [ngClass]="{'male-button': selectedGenderBodyFat === 'male', 'female-button': selectedGenderBodyFat === 'female'}">
+        <label for="femaleBodyFat" [ngClass]="{'female-button-selected': selectedGenderBodyFat === 'female'}">Female</label>
+        <input type="radio" name="genderBodyFat" id="femaleBodyFat" value="female" class="radio-button" [(ngModel)]="selectedGenderBodyFat" [ngClass]="{'male-button': selectedGenderBodyFat === 'male', 'female-button': selectedGenderBodyFat === 'female'}">
+      </div>
+
+      <input [(ngModel)]="waist" type="number" name="waist" class="input-field" placeholder="Waist (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="hips" type="number" name="hips" class="input-field" placeholder="Hips (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="neck" type="number" name="neck" class="input-field" placeholder="Neck (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="heightBodyFat" type="number" name="heightBodyFat" class="input-field" placeholder="Height (cm)" (input)="onInputChange()"><br />
+      <button class="calculate-button" (click)="calculateBodyFat(waist, hips, neck, heightBodyFat, selectedGenderBodyFat)">Calculate Body Fat Percentage</button><br />
+      <p>NHRC is a multifunctional health calculator <br />
+        that enables more precise calculation <br />
+        of body fat percentage <br />
+      </p>
+    </div>
+    
   </section>
   
   <section class="results">
@@ -84,6 +106,11 @@
       <h2>BMR Results</h2>
       <p *ngIf="bmrResult !== null">Your BMR is: <span id="bmrResult">{{ bmrResult }}</span></p>
       <p *ngIf="bmrResult === null">Enter weight, height, age, and gender to calculate BMR.</p>
+    </div>
+    <div class="result-body-fat">
+      <h2>Body Fat Percentage Results</h2>
+      <p *ngIf="bodyFatResult !== null">Your Body Fat Percentage is: <span id="bodyFatResult">{{ bodyFatResult }}</span></p>
+      <p *ngIf="bodyFatResult === null">Enter waist, hips, neck, height, and gender to calculate Body Fat Percentage.</p>
     </div>
   </section>
   

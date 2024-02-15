@@ -33,6 +33,16 @@ export class BmiChartComponent implements OnInit {
   age: number | null = null;
   selectedGender: string | null = null; // Zmienna do przechowywania wybran
 
+   // Variables for body fat percentage calculation
+   waist: number | null = null;
+   hips: number | null = null;
+   neck: number | null = null;
+   heightBodyFat: number | null = null;
+   genderBodyFat: string | null = null;
+   bodyFatResult: number | null = null;
+   selectedGenderBodyFat: string | null = null;
+
+
   calculateBMI(weight: number | null, height: string | null) {
     if (weight !== null && height !== null && weight > 0 && parseFloat(height) > 0) {
       const heightInMeters = parseFloat(height) / 100;
@@ -61,12 +71,29 @@ export class BmiChartComponent implements OnInit {
     }
   }
 
-  // Funkcja wywoływana po zmianie danych wejściowych
-  onInputChange() {
-    clearTimeout(this.updateTimeout);
-    this.updateTimeout = setTimeout(() => {
-      this.calculateBMI(this.weight, this.height);
-      this.calculateBMR(this.weightBMR, this.heightBMR, this.age, this.selectedGender);
-    }, 500); // Oczekujemy 0.5 sekundy po zakończeniu wprowadzania danych
+  calculateBodyFat(waist: number | null, hips: number | null, neck: number | null, heightBodyFat: number | null, genderBodyFat: string | null) {
+    if (waist !== null && hips !== null && neck !== null && heightBodyFat !== null && genderBodyFat !== null) {
+      let bodyFatPercentage: number;
+      if (genderBodyFat === 'male') {
+        bodyFatPercentage = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(heightBodyFat)) - 450;
+      } else {
+        bodyFatPercentage = 495 / (1.29579 - 0.35004 * Math.log10(waist + hips - neck) + 0.22100 * Math.log10(heightBodyFat)) - 450;
+      }
+      this.bodyFatResult = bodyFatPercentage;
+    } else {
+      this.bodyFatResult = null;
+    }
   }
+
+ // Funkcja wywoływana przy zmianie danych wejściowych
+// Funkcja wywoływana przy zmianie danych wejściowych
+onInputChange() {
+  clearTimeout(this.updateTimeout);
+  this.updateTimeout = setTimeout(() => {
+    this.calculateBMI(this.weight, this.height);
+    this.calculateBMR(this.weightBMR, this.heightBMR, this.age, this.selectedGender);
+    this.calculateBodyFat(this.waist, this.hips, this.neck, this.heightBodyFat, this.selectedGenderBodyFat); // Upewnij się, że wywołujesz calculateBodyFat()
+  }, 500);
+}
+
 }
