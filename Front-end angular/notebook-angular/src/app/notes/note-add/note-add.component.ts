@@ -1,9 +1,9 @@
+// note-add.component.ts
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { Router } from '@angular/router';
 import { NoteAdd } from './note-add.model';
+import { NoteAddService } from '../services/note-add.service';
 
 @Component({
   selector: 'app-note-add',
@@ -20,10 +20,9 @@ export class NoteAddComponent implements OnInit {
 
   logoPath = "assets\\Training Notebook-logos.png";
   notesPath = "assets\\flat-lay-pink-sports-attributes-with-clipboard.jpg";
-  token = this.authService.getToken();
   successMessage: string = '';
 
-  constructor(private authService: AuthService, private http: HttpClient, private router: Router) { }
+  constructor(private authService: AuthService, private noteAddService: NoteAddService, private router: Router) { }
   ngOnInit(): void {}
 
   createNote() {
@@ -37,10 +36,6 @@ export class NoteAddComponent implements OnInit {
     const startDate = this.WstartDate ? new Date(this.WstartDate) : currentDate;
     const endDate = this.WendDate ? new Date(this.WendDate) : currentDate;
   
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`
-    });
-  
     const newNote: NoteAdd = {
       title: this.Wtitle,
       activityType: this.WactivityType,
@@ -49,20 +44,19 @@ export class NoteAddComponent implements OnInit {
       description: this.Wdescription
     };
   
-    this.http.post('http://localhost:8222/notes', newNote, { headers: headers })
-      .subscribe(
-        (response) => {
-          console.log('Notatka została utworzona.');
-          this.successMessage = 'Note created successfully!';
-          setTimeout(() => {
-            this.successMessage = '';
-            this.router.navigate(['/notes']);
-          }, 1000);
-        },
-        (error) => {
-          console.error('Wystąpił błąd podczas tworzenia notatki.', error);
-        }
-      );
+    this.noteAddService.createNote(newNote).subscribe(
+      (response) => {
+        console.log('Notatka została utworzona.');
+        this.successMessage = 'Note created successfully!';
+        setTimeout(() => {
+          this.successMessage = '';
+          this.router.navigate(['/notes']);
+        }, 1000);
+      },
+      (error) => {
+        console.error('Wystąpił błąd podczas tworzenia notatki.', error);
+      }
+    );
   }
   
   logout() {

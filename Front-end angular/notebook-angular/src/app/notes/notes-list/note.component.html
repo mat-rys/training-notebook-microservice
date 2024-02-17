@@ -36,8 +36,13 @@
 </div>
 
 <div class="calendar-container">
-  <input type="date" [ngModel]="selectedDate | date:'yyyy-MM-dd'" (change)="onDateChange($event)">
+  <input 
+    type="date" 
+    [ngModel]="selectedDate | date:'yyyy-MM-dd'" 
+    (change)="onDateChange($event)"
+   >
 </div>
+
 
   
 

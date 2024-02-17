@@ -239,6 +239,8 @@ body {
 
 /* Styl dla formularza edycji notatki */
 .edit-form {
+  
+
   border-radius: 10px; /* Zaokrąglij rogi formularza */
   padding: 20px;
   border-radius: 4px;
@@ -361,10 +363,6 @@ body {
 }
 
 }
-
-
-
-
 
 
 
