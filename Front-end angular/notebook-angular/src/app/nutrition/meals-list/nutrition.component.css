@@ -452,3 +452,40 @@ input {
   text-align: center;
 }
 
+.tips-container {
+  position: fixed;
+  width: 300px;
+  top: 350px; /* dostosuj pozycję pionową */
+  right: 220px; /* dostosuj pozycję poziomą */
+  background-color: rgba(255, 255, 255, 0.8); /* użyj koloru tła z przezroczystością */
+  padding: 20px; /* dodaj wypełnienie */
+  border-radius: 10px; /* zaokrągl brzegi */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* dodaj cień */
+}
+
+  .tips-container .tip {
+    margin-bottom: 10px; /* dodaj odstęp między poradami */
+  }
+
+  /* Dodatkowo możesz dodać stylowanie dla nagłówków i paragrafów w poradach */
+  .tips-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .tips-container p {
+    font-size: 14px;
+  }
+
+  .image-container {
+    position: absolute;
+    top: -60px;
+    right: -50px;
+  }
+
+  .random-image {
+    width: 100px; /* Dostosuj szerokość obrazka */
+    height: auto; /* Ustaw automatyczną wysokość, aby zachować proporcje */
+  
+    padding: 10px; /* Dodaj wypełnienie dla tła obrazka */
+  }

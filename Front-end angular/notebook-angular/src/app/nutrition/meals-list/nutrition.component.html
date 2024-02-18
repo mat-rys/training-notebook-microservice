@@ -34,6 +34,19 @@
     <a href="/products-list"><button><i class="fas fa-add"></i> Products list</button></a>
   </div>
 
+
+  <div class="tips-container">
+    <div *ngFor="let tip of tips" class="tip">
+      <h3>{{ tip.tip }}</h3>
+      <p>{{ tip.statystyka }}</p>
+    </div>
+    <div class="image-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Random Image" class="random-image" />
+    </div>
+  </div>
+  
+  
+
   <section class="content">
 
     <div class="heroAdd" *ngIf="showMealFormAdd">
@@ -132,9 +145,7 @@
           <button class="delete-button" (click)="deleteMealConfirmation(meal.id)">Delete</button>
         </div>
       </div>
-    </div>
-    
-    
+    </div>   
   </section>
   
   <div *ngIf="successMessage" class="success-message">

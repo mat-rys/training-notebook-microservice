@@ -5,6 +5,8 @@ import {  Meal } from './meal.model';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../security-config/auth.service';
+import { NutritionTip } from '../meals-list/advices/advice.model';
+import { NutritionTipService } from '../meals-list/services/nutrition-tip.service';
 
 
 @Component({
@@ -15,6 +17,8 @@ import { AuthService } from '../../security-config/auth.service';
 export class NutritionComponent implements OnInit {
   logoPath = 'assets\\Training Notebook-logos.png';
   ramenPhoto = 'assets\\ramen.jpg';
+  imageUrl: string | null = null;
+
   meals: Meals[] = [];
   selectedDate: string = ''; // Przykład daty
   sortDirection: string = 'asc'; // Domyślnie sortuj rosnąco
@@ -37,21 +41,36 @@ export class NutritionComponent implements OnInit {
   day!: Date; 
   mealTime!: string;
   token = this.authService.getToken();
+  tips: NutritionTip[] = [];
 
-  constructor(private authService: AuthService,private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService,private http: HttpClient, private router: Router, private tipService: NutritionTipService) {}
+
   ngOnInit(): void {
     this.headers = new HttpHeaders({
       Authorization: `Bearer ${this.token}`,
     });
 
-  
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0'); // Miesiące są numerowane od 0, dlatego dodajemy 1
     const year = today.getFullYear();
     this.selectedDate = `${year}-${month}-${day}`
     this.loadMeals(this.selectedDate);
+    this.loadRandomTip();
   }
+
+  loadRandomTip() {
+    this.tipService.getRandomSortedNutritionTip().subscribe(randomTip => {
+      this.tips = [randomTip]; // Umieść losową poradę w tablicy, aby można ją było użyć w szablonie
+    });
+    this.loadRandomImage();
+  }
+
+  loadRandomImage() {
+    this.imageUrl = this.tipService.getRandomImage();
+  }
+  
+
   logout() {
     this.authService.removeToken();
   }
