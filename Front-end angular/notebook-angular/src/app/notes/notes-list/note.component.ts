@@ -4,6 +4,7 @@ import { Note } from './note.model';
 import { AuthService } from '../../security-config/auth.service';
 import { NoteService } from '../services/note.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ActivityTypeService } from '../services/activity-type.service';
 
 @Component({
   selector: 'app-note',
@@ -30,12 +31,29 @@ export class NoteComponent implements OnInit {
   selectedDate: Date = new Date();
   successMessage: string = '';
   datesWithNotes: string[] = [];
+  activityTypes: any[] = [];
+  expandedNote: Note | null = null; // Notatka, która jest rozszerzona
 
-  constructor(private authService: AuthService, private noteService: NoteService) { }
+  constructor(private authService: AuthService, private noteService: NoteService, private activityTypeService: ActivityTypeService) { }
 
   ngOnInit(): void {
     this.loadNotes();
+    this.activityTypeService.getActivityTypes().subscribe(types => {
+      this.activityTypes = types.map(activity => activity.activity_type);
+    });
   }
+
+  expandNote(note: Note) {
+    if (this.expandedNote !== note) {
+      this.expandedNote = note;
+    }
+  }
+  
+
+  closeNote(event: any) {
+  event.stopPropagation();
+  this.expandedNote = null;
+}
 
   loadNotes() {
     this.noteService.getNotes(this.selectedDate).subscribe(data => {
@@ -49,18 +67,18 @@ export class NoteComponent implements OnInit {
   }
 
   changeDate(offset: number) {
-    const currentDate = new Date(this.selectedDate.getTime()); // Głęboka kopia daty
+    const currentDate = new Date(this.selectedDate.getTime());
     currentDate.setDate(currentDate.getDate() + offset);
     this.selectedDate = currentDate;
-    this.loadNotes(); // Załaduj notatki na nowo na podstawie nowej daty
+    this.loadNotes();
   }
   
 
   onDateChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target && target.value) {
-      this.selectedDate = new Date(target.value); // Aktualizuj datę
-      this.loadNotes(); // Załaduj notatki dla nowej daty
+      this.selectedDate = new Date(target.value);
+      this.loadNotes();
     }
   }
 
@@ -108,4 +126,6 @@ export class NoteComponent implements OnInit {
   logout() {
     this.authService.removeToken();
   }
+
+ 
 }

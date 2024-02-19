@@ -132,24 +132,54 @@ body {
   width: 350px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
   cursor: pointer;
+  transition: width 0.3s, height 0.3s; /* Animacja dla zmiany rozmiaru notatki */
+  text-overflow: ellipsis; /* Wyświetlaj trzy kropki, gdy tekst jest przycięty */
+  white-space: nowrap; /* Unikaj przełamania wiersza */
+  overflow: visible;
+}
+
+.note-card:not(.expanded) h2,
+.note-card:not(.expanded) p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-card.expanded {
+  width: 450px; /* Zwiększ szerokość */
+  height: auto; /* Pozwól na automatyczne dostosowanie wysokości */
+  white-space: normal; /* Pozwól na przełamywanie linii */
+  word-wrap: break-word; /* Przełamuj słowa, które są za długie, aby zmieścić się w linii */
 }
 
 .note-card:hover {
-  transform: scale(1.06);
+  transform: scale(1.1);
 }
 
 .note-card h2 {
   font-size: 24px; /* Zwiększenie rozmiaru tytułu */
   margin-top: 0;
+  overflow: visible;
+  white-space: normal;
   color: black; /* Kolor tytułu */
 }
 
 .note-card p {
   font-size: 16px;
   margin: 10px 0;
+  white-space: normal;
+  overflow: visible;
   color: black; /* Kolor tekstu notatki */
+}
+
+.date-info {
+  display: flex;
+  justify-content: space-between;
+  color: black; /* Kolor daty */
+}
+
+.date-info strong {
+  font-weight: bold;
 }
 
 .date-info {
@@ -240,7 +270,6 @@ body {
 /* Styl dla formularza edycji notatki */
 .edit-form {
   
-
   border-radius: 10px; /* Zaokrąglij rogi formularza */
   padding: 20px;
   border-radius: 4px;
@@ -251,6 +280,7 @@ body {
   margin-left: -50px;
   margin-bottom: 30px;
 }
+
 
 .edit-form h2 {
   font-size: 24px;

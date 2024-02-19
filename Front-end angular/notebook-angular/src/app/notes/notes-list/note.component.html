@@ -55,7 +55,10 @@
      <div *ngIf="editingNote" class="edit-form">
       <h2>Edit Note</h2>
       <input [(ngModel)]="editingNote.title" placeholder="Title">
-      <input [(ngModel)]="editingNote.activityType" placeholder="Activity Type">
+      <input [(ngModel)]="editingNote.activityType" placeholder="Activity Type"  required list="activityTypesList">
+        <datalist id="activityTypesList">
+          <option *ngFor="let type of activityTypes" [value]="type"></option>
+        </datalist>
       <input [(ngModel)]="editingNote.description" placeholder="Description">
       <input [(ngModel)]="editingNote.startDate" placeholder="Start Date">
       <input [(ngModel)]="editingNote.endDate" placeholder="End Date">
@@ -63,10 +66,10 @@
       <button (click)="cancelEdit()">Cancel</button>
     </div>
 
-    <div *ngFor="let note of notes" class="note-card" [@rotateInOut]>
-      <h2>{{ note.title }}</h2>
+    <div *ngFor="let note of notes" class="note-card" [class.expanded]="note === expandedNote" [@rotateInOut] 
+    (mouseover)="expandNote(note)" (mouseout)="closeNote($event)"> <h2>{{ note.title }}</h2>
       <p>{{ note.activityType }}</p>
-      <p>{{ note.description }}</p>
+      <p class="description">{{ note.description }}</p>
       <div class="date-info">
         <p><strong>Start Date:</strong> {{ note.startDate | formatHour }}</p>
         <p><strong>End Date:</strong> {{ note.endDate | formatHour }}</p>
@@ -76,9 +79,9 @@
         <button class="delete-button" (click)="deleteNoteConfirmation(note.id)"><i class="fas fa-trash-alt"></i> Delete</button>
       </div>
     </div>
-    
-   
+
   </section>
+
   <div *ngIf="successMessage" class="success-message">
     {{ successMessage }}
   </div>
