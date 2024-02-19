@@ -29,11 +29,11 @@
     </nav>
   </section> 
 
-  <div class="header">
+  <div class="header" [@rotateInOut]>
     <span class="arrow-left" (click)="changeDate(-1)">&lt;</span>
     <span class="date">{{ selectedDate | date:'dd.MM.yyyy' }}</span>
     <span class="arrow-right" (click)="changeDate(1)">&gt;</span>
-</div>
+  </div>
 
 <div class="calendar-container">
   <input 
@@ -63,7 +63,7 @@
       <button (click)="cancelEdit()">Cancel</button>
     </div>
 
-    <div *ngFor="let note of notes" class="note-card">
+    <div *ngFor="let note of notes" class="note-card" [@rotateInOut]>
       <h2>{{ note.title }}</h2>
       <p>{{ note.activityType }}</p>
       <p>{{ note.description }}</p>

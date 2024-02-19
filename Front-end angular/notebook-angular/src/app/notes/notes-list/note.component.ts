@@ -3,11 +3,24 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from './note.model';
 import { AuthService } from '../../security-config/auth.service';
 import { NoteService } from '../services/note.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+  styleUrls: ['./note.component.css'],
+  animations: [
+    trigger('rotateInOut', [
+      state('in', style({transform: 'rotateY(0)'})),
+      transition(':enter', [
+        style({transform: 'rotateY(-90deg)'}),
+        animate('550ms ease-in')
+      ]),
+      transition(':leave', [
+        animate('10ms ease-out', style({transform: 'rotateY(90deg)'}))
+      ])
+    ])
+  ]
 })
 export class NoteComponent implements OnInit {
   logoPath = "assets\\Training Notebook-logos.png";

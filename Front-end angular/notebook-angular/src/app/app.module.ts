@@ -12,6 +12,7 @@ import { NutritionComponent } from './nutrition/meals-list/nutrition.component';
 import { ProductComponent } from './nutrition/product-add/product.component';
 import { ProductListComponent } from './nutrition/products-list/product-list.component';
 import { MealAddProductsComponent } from './nutrition/meal-add-products/meal-add-products.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -20,6 +21,7 @@ import { MealAddProductsComponent } from './nutrition/meal-add-products/meal-add
   declarations: [AppComponent, StartPageComponent, LoginComponent, RegistrationComponent, 
      NutritionComponent, ProductComponent, ProductListComponent, MealAddProductsComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule, 
     FormsModule, 
     HttpClientModule, 
