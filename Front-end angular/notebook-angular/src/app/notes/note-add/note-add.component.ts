@@ -4,6 +4,7 @@ import { AuthService } from '../../security-config/auth.service';
 import { Router } from '@angular/router';
 import { NoteAdd } from './note-add.model';
 import { NoteAddService } from '../services/note-add.service';
+import { ActivityTypeService } from '../services/activity-type.service';
 
 @Component({
   selector: 'app-note-add',
@@ -21,9 +22,21 @@ export class NoteAddComponent implements OnInit {
   logoPath = "assets\\Training Notebook-logos.png";
   notesPath = "assets\\flat-lay-pink-sports-attributes-with-clipboard.jpg";
   successMessage: string = '';
+  activityTypes: any[] = [];
 
-  constructor(private authService: AuthService, private noteAddService: NoteAddService, private router: Router) { }
-  ngOnInit(): void {}
+  constructor(private authService: AuthService, private noteAddService: NoteAddService,
+    private router: Router, private activityTypeService: ActivityTypeService) { }
+
+    ngOnInit(): void {
+      this.activityTypeService.getActivityTypes().subscribe(types => {
+        this.activityTypes = types.map(activity => activity.activity_type); // Przekształć obiekty typu aktywności na tablicę samych nazw
+      });
+    } 
+    
+    selectActivityType(activity: string) {
+      this.WactivityType = activity;
+    }
+    
 
   createNote() {
     if (!this.Wtitle) {
