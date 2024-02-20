@@ -133,7 +133,7 @@ body {
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: width 0.3s, height 0.3s; /* Animacja dla zmiany rozmiaru notatki */
+  transition: width 1s, height 1s; /* Animacja dla zmiany rozmiaru notatki */
   text-overflow: ellipsis; /* Wyświetlaj trzy kropki, gdy tekst jest przycięty */
   white-space: nowrap; /* Unikaj przełamania wiersza */
   overflow: visible;

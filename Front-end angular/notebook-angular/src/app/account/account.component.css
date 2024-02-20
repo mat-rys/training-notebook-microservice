@@ -78,7 +78,7 @@ body {
 }
 
 .nav-buttons button:hover {
-  background-color: #4009A5;
+  background-color: #2E8B57;
   color: #fff;
   border-radius: 20px; /* Dodano zaokrąglenie na hover */
 }
@@ -130,13 +130,13 @@ body {
 
 .Body {
  background-color: #E9E9E9;
-  margin-left:-800px; /* Przesunięcie w lewo o 100px */
+  margin-left:-840px; /* Przesunięcie w lewo o 100px */
   margin-top: 100px;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   height: 180px;
-  width: 500px;
+  width: 640px;
   
  
 }
@@ -148,12 +148,13 @@ body {
 
 .profile-form {
   background-color: #E9E9E9;
-  margin-left: -470px; /* Przesunięcie w lewo o 100px */
-  padding: 30px;
+  margin-left: -500px; /* Przesunięcie w lewo o 100px */
+  padding: 40px;
   margin-top: 50px;
   border-radius: 15px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  max-width: 200px;
+  height: auto;
+  width: 300px;
 }
 
 
@@ -170,8 +171,11 @@ body {
 }
 
 .profile-info {
-    text-align: left;
-    padding: 20px;
+  text-align: left;
+  padding: 20px;
+  width: 100%; /* Ustawienie szerokości na 100% */
+  display: flex;
+  flex-wrap: wrap; 
 }
 
 .profile-row {
@@ -187,14 +191,23 @@ body {
 }
 
 .profile-value {
-    flex: 2;
-    margin-left: 10px;
+  flex: 2;
+  margin-left: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  flex-basis: 100%;
+  white-space: normal; /* Dodane */
+}
+
+.profile-header{
+  margin-bottom: 15px;
 }
 
 
 .profile-image-container {
   position: relative;
-  margin-left: -340px;
+  margin-left: -400px;
   bottom: -70px;
   margin-bottom: -240px;
 }
@@ -228,7 +241,7 @@ body {
   position: absolute;
   bottom: 5px;
   right: -10px;
-  background-color: #007bff;
+  background-color: #2E8B57;
   color: #fff;
   padding: 3px 6px;
   border-radius: 3px;
@@ -298,7 +311,7 @@ body {
 .change-button {
   display: none;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #2E8B57;
   color: #fff;
   padding: 3px 6px;
   border-radius: 3px;
@@ -312,5 +325,32 @@ body {
 
 
 
+/* Styl dla inputów */
+.change-weight-input input[type="text"],
+.change-weight-input input[type="number"],
+.change-weight-input select {
+  width: 150px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* Styl dla przycisków update */
+.change-weight-input button {
+  padding: 10px 20px;
+  background-color: #2E8B57; /* Kolor tła */
+  color: #fff; /* Kolor tekstu */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background-color 0.3s; /* Animacja zmiany koloru tła */
+}
+
+.change-weight-input button:hover {
+  background-color: #24693D; /* Kolor tła po najechaniu kursorem */
+}
 
 

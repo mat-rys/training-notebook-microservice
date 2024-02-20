@@ -206,7 +206,7 @@ export class AccountComponent implements OnInit {
 
     const apiEndpoint = 'http://localhost:8222/account/user/email';
 
-    this.http.put(apiEndpoint, { updatedEmail }, { headers })
+    this.http.put(apiEndpoint,  updatedEmail , { headers })
       .subscribe(response => {
         this.loadUser(headers);
       });
@@ -224,7 +224,7 @@ export class AccountComponent implements OnInit {
       
           const apiEndpoint = 'http://localhost:8222/account/user/firstname';
       
-          this.http.put(apiEndpoint, {updatedFirstName}, { headers })
+          this.http.put(apiEndpoint, updatedFirstName, { headers })
             .subscribe(response => {
               this.loadUser(headers);
             });
@@ -242,7 +242,7 @@ export class AccountComponent implements OnInit {
    
        const apiEndpoint = 'http://localhost:8222/account/user/lastname';
    
-       this.http.put(apiEndpoint, { updatedLastName}, { headers })
+       this.http.put(apiEndpoint,  updatedLastName, { headers })
          .subscribe(response => {
           this.loadUser(headers);
          });
@@ -260,7 +260,7 @@ export class AccountComponent implements OnInit {
 
     const apiEndpoint = 'http://localhost:8222/account/user/username';
 
-    this.http.put(apiEndpoint, { updatedUsername}, { headers })
+    this.http.put(apiEndpoint,  updatedUsername, { headers })
       .subscribe(response => {
         this.loadUser(headers);
       });
