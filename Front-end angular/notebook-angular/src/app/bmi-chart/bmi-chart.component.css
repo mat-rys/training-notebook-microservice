@@ -46,7 +46,7 @@ body {
 }
 
 .nav-list .logo a:hover {
-  color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
+  color: #C7BF36; /* Ustaw kolor tekstu na fioletowy */
   color: #fff;
   border-radius: 20px; /* Dodano zaokrąglenie na hover */
 }
@@ -79,7 +79,7 @@ body {
 }
 
 .nav-buttons button:hover {
-  background-color: #4009A5;
+  background-color: #9B5C0F;
   color: #fff;
   border-radius: 20px; /* Dodano zaokrąglenie na hover */
 }
@@ -226,7 +226,7 @@ body {
   margin-bottom: 10px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(to bottom, #FFFFFF, #480DF0);
+  background: linear-gradient(to bottom, #C2966D, #9B5C0F);
   color: #fff;
   margin: -2px;
   font-size: 16px;
@@ -239,7 +239,7 @@ body {
 
 .calculate-button {
   padding: 10px 20px;
-  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  background: linear-gradient(to bottom, #FF8885, #9B5C0F);
   color: #fff;
   border: none;
   margin: -5px;
@@ -249,7 +249,7 @@ body {
 }
 
 .calculate-button:hover {
-  background-color: #4009A5;
+  background-color: #9B5C0F;
 }
 
 .male-button {
@@ -297,13 +297,13 @@ body {
 }
 
 .male-button-selected {
-  color: #4009A5; /* Kolor tekstu niebieski */
+  color: #9B5C0F; /* Kolor tekstu niebieski */
   text-decoration: underline; /* Podkreślenie tekstu */
   font-weight: bold; /* Pogrubienie tekstu */
 }
 
 .female-button-selected {
-  color: #4009A5; /* Kolor tekstu niebieski */
+  color: #9B5C0F; /* Kolor tekstu niebieski */
   text-decoration: underline; /* Podkreślenie tekstu */
   font-weight: bold; /* Pogrubienie tekstu */
 }

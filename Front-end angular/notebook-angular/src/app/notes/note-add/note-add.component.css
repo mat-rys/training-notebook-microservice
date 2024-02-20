@@ -70,7 +70,7 @@ body {
   }
   
   .nav-buttons button:hover {
-    background-color: #4009A5;
+    background-color: #BA2C84;
     color: #fff;
     border-radius: 20px;
   }
@@ -134,7 +134,7 @@ body {
   
   .submit-button {
     padding: 8px 20px;
-    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
     color: #fff;
     border: none;
     margin: 0px;
@@ -159,7 +159,7 @@ body {
   /* Dodaj nową klasę dla stylu button */
   .submit-button {
     padding: 8px 20px;
-    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
     color: #fff;
     border: none;
     margin: 0px;

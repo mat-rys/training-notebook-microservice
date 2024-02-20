@@ -78,7 +78,7 @@ body {
 }
 
 .nav-buttons button:hover {
-  background-color: #4009A5;
+  background-color: #BA2C84;
   color: #fff;
   border-radius: 20px; /* Dodano zaokrąglenie na hover */
 }
@@ -218,7 +218,7 @@ body {
   margin-left: 10px;
   padding: 5px 10px;
   font-size: 14px;
-  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  background: linear-gradient(to bottom, #C889A9, #BA2C84);
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -227,15 +227,15 @@ body {
 }
 
 .action-buttons button:hover {
-  background-color: #0056b3;
+  background-color: #BA2C84;
 }
 
 .edit-button {
-  background-color: #17a2b8;
+  background-color: #BA2C84;
 }
 
 .delete-button {
-  background-color: #dc3545;
+  background-color: #BA2C84;
 }
 
 /* Styl dla przycisku "Add Note" */
@@ -255,7 +255,7 @@ body {
 
   padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
   font-size: 16px;
-  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  background: linear-gradient(to bottom, #C889A9, #BA2C84);
   color: #fff;
   border: none;
   border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
@@ -300,7 +300,7 @@ body {
 
 .edit-form button {
   padding: 8px 20px;
-    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
     color: #fff;
     border: none;
     margin: 0px;
