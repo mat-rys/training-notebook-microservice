@@ -25,9 +25,11 @@ UI/UX
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/f14a0552-fa58-4a25-9c46-f0f5578ced1f)
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/33de29d0-69e0-4466-9fb2-d335c44f1ecf)
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/67a24285-62c6-42a2-918a-26e5b186014d)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/c8b95649-a856-4864-9258-54b9e30c7bd8)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/162a19e8-d73a-4198-971e-4c2208529bbb)
-![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/f53a29ea-c4d6-4c15-a143-fa11b5a975a0)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/78f5c5a7-0fb1-4169-99b6-fab0c6eb158b)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/e4ce8b21-ab93-4443-a216-d93577c665e4)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/0538e4e8-ed6d-48cf-a085-082fced2b2f0)
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/792ac68d-cec8-4f7e-8e2c-b5fbad152fa3)
+
 
 
 
