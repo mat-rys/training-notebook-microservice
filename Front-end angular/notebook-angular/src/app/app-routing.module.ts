@@ -14,18 +14,21 @@ import { LoginComponent } from './auth/login/login.component';
     { path: '', loadChildren: () => import('./auth/before-auth.module').then(m => m.BeforeAuthModule)},
     { path: '', loadChildren: () => import('./auth/before-auth.module').then(m => m.BeforeAuthModule)},
     { path: 'start-page', loadChildren: () => import('./auth/before-auth.module').then(m => m.BeforeAuthModule)},
-    // { path: 'registration', component: RegistrationComponent },
-    // { path: 'login', component: LoginComponent},
-    // { path: 'start-page', component: StartPageComponent},
-
+    
     { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule), canActivate: [AuthGuard] },
+
     { path: 'bmi-chart', loadChildren: () => import('./bmi-chart/bmi-chart.module').then(m => m.BmiChartModule), canActivate: [AuthGuard] },
+
     { path: 'notes', loadChildren: () => import('./notes/note.module').then(m => m.NoteModule), canActivate: [AuthGuard] },
     { path: 'notes-add', component: NoteAddComponent, canActivate: [AuthGuard] },
-    { path: 'product-add', component: ProductComponent, canActivate: [AuthGuard] },
-    { path: 'products-list', component: ProductListComponent, canActivate: [AuthGuard] },
-    { path: 'meal-add-products', component: MealAddProductsComponent, canActivate: [AuthGuard] },
-    { path: 'nutrition', component: NutritionComponent, canActivate: [AuthGuard] },
+
+    
+    // { path: 'product-add', component: ProductComponent, canActivate: [AuthGuard] },
+    // { path: 'products-list', component: ProductListComponent, canActivate: [AuthGuard] },
+    // { path: 'meal-add-products', component: MealAddProductsComponent, canActivate: [AuthGuard] },
+
+    { path: 'nutrition', loadChildren: () => import('./nutrition/nutrition.module').then(m => m.NutritionModule), canActivate: [AuthGuard]} ,
+
     { path: '', loadChildren: () => import('./auth/before-auth.module').then(m => m.BeforeAuthModule)},
 
   ];
