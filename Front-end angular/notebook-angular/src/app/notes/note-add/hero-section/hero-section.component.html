@@ -1,0 +1,15 @@
+<section class="hero">
+    <form (submit)="createNote()">
+      <div class="search-container">
+        <input class="title" type="text" placeholder="Title" [(ngModel)]="Wtitle" name="Wtitle" required>
+        <input class="activity" type="text" placeholder="Activity Type" [(ngModel)]="WactivityType" name="WactivityType" required list="activityTypesList">
+        <datalist id="activityTypesList">
+          <option *ngFor="let type of activityTypes" [value]="type"></option>
+        </datalist>
+        <textarea class="description" placeholder="Description" [(ngModel)]="Wdescription" name="Wdescription" required></textarea>
+        <input class="datetime-start" type="datetime-local" placeholder="Start Date" [(ngModel)]="WstartDate" name="WstartDate" required>
+        <input class="datetime-end" type="datetime-local" placeholder="End Date" [(ngModel)]="WendDate" name="WendDate" required>
+        <button class="submit-button" type="submit" [disabled]="!Wtitle">Create Note</button>
+      </div>
+    </form>
+  </section>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AuthService } from '../security-config/auth.service';
+import { AuthService } from '../../security-config/auth.service';
 
 @Component({
   selector: 'app-account',

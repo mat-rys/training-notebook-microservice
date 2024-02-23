@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule, Routes } from '@angular/router';
 import { FormatHourPipe } from '../custom-pipes/format-hour.pipe'; 
-import { NoteAddComponent } from './note-add/note-add.component'; 
+import { NoteAddComponent } from './note-add/note-add.component';
+import { NavbarComponent } from './note-add/navbar/navbar.component';
+import { HeroSectionComponent } from './note-add/hero-section/hero-section.component'; 
 
 
 const routes: Routes = [
@@ -14,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [NoteComponent,NoteAddComponent,FormatHourPipe],
+  declarations: [NoteComponent,NoteAddComponent,FormatHourPipe, NavbarComponent, HeroSectionComponent],
   imports: [  
     FormsModule,
     HttpClientModule,

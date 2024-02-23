@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AccountComponent } from './account.component';
+import { AccountComponent } from './account/account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; // Dodaj CommonModule
 import { RouterModule, Routes } from '@angular/router';
