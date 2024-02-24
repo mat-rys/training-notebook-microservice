@@ -6,8 +6,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormatHourPipe } from '../custom-pipes/format-hour.pipe'; 
 import { NoteAddComponent } from './note-add/note-add.component';
-import { NavbarComponent } from './note-add/navbar/navbar.component';
-import { HeroSectionComponent } from './note-add/hero-section/hero-section.component'; 
+import { NavbarComponent } from './shared-child-component/navbar/navbar.component';
+import { HeroSectionComponent } from './note-add/hero-section/hero-section.component';
+import { DateSelectorComponent } from './notes-list/date-selector/date-selector.component';
+import { ContentComponent } from './notes-list/content/content.component'; 
 
 
 const routes: Routes = [
@@ -16,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [NoteComponent,NoteAddComponent,FormatHourPipe, NavbarComponent, HeroSectionComponent],
+  declarations: [NoteComponent,NoteAddComponent,FormatHourPipe, NavbarComponent, HeroSectionComponent, DateSelectorComponent, ContentComponent],
   imports: [  
     FormsModule,
     HttpClientModule,

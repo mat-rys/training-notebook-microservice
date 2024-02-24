@@ -1,92 +1,28 @@
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-</head>
-<body>
-  <div class="background-content-photo">
-    <img width="1903" height="1050" src="{{ notesPath }}" alt="Your Image" class="image"/>
-  </div>
-  
- 
-  
-  <section id="top" lass="star-web">
-  
-    
-    <nav class="nav-list">
-      <div class="logo">
-        <a class="Training-Notebook-Logo" href="/start-page">
-          <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
-        </a>
-      </div>
-      <div class="nav-buttons">
-        <a href="/account"><button><i class="fas fa-user"></i> Profile</button></a>
-        <a href="/notes"><button><i class="fas fa-book"></i> Notes</button></a>
-        <a href="/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
-        <a href="/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
-        <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
-      </div>
-    </nav>
-  </section> 
+  <div id="photo-background" ></div>
+  <app-navbar (logout)="handleLogout()"></app-navbar> 
 
-  <div class="header" [@rotateInOut]>
-    <span class="arrow-left" (click)="changeDate(-1)">&lt;</span>
-    <span class="date">{{ selectedDate | date:'dd.MM.yyyy' }}</span>
-    <span class="arrow-right" (click)="changeDate(1)">&gt;</span>
-  </div>
-
-<div class="calendar-container">
-  <input 
-    type="date" 
-    [ngModel]="selectedDate | date:'yyyy-MM-dd'" 
-    (change)="onDateChange($event)"
-   >
-</div>
-
-
-  
+  <app-date-selector 
+    [selectedDate]="selectedDate" 
+    (dateChange)="onDateChange($event)" 
+    (nextDate)="changeDate(1)" 
+    (prevDate)="changeDate(-1)">
+  </app-date-selector>
 
   <div class="add-note-button">
-    <a href="/notes-add"><button><i class="fas fa-add"></i> Add note</button></a>
+    <a href="/notes-add">
+      <button>
+        <i class="fas fa-add"></i> Add note
+      </button>
+    </a>
   </div>
   
-  <section class="content">
-  
-     <div *ngIf="editingNote" class="edit-form">
-      <h2>Edit Note</h2>
-      <input [(ngModel)]="editingNote.title" placeholder="Title">
-      <input [(ngModel)]="editingNote.activityType" placeholder="Activity Type"  required list="activityTypesList">
-        <datalist id="activityTypesList">
-          <option *ngFor="let type of activityTypes" [value]="type"></option>
-        </datalist>
-      <input [(ngModel)]="editingNote.description" placeholder="Description">
-      <input [(ngModel)]="editingNote.startDate" placeholder="Start Date">
-      <input [(ngModel)]="editingNote.endDate" placeholder="End Date">
-      <button (click)="updateNote()">Update</button>
-      <button (click)="cancelEdit()">Cancel</button>
-    </div>
-
-    <div *ngFor="let note of notes" class="note-card" [class.expanded]="note === expandedNote" [@rotateInOut] 
-    (mouseover)="expandNote(note)" (mouseout)="closeNote($event)"> <h2>{{ note.title }}</h2>
-      <p>{{ note.activityType }}</p>
-      <p class="description">{{ note.description }}</p>
-      <div class="date-info">
-        <p><strong>Start Date:</strong> {{ note.startDate | formatHour }}</p>
-        <p><strong>End Date:</strong> {{ note.endDate | formatHour }}</p>
-      </div>
-      <div class="action-buttons">
-        <button class="edit-button" (click)="scrollToTop()" (click)="editNote(note)"><i class="fas fa-edit"></i> Edit</button>
-        <button class="delete-button" (click)="deleteNoteConfirmation(note.id)"><i class="fas fa-trash-alt"></i> Delete</button>
-      </div>
-    </div>
-
-  </section>
-
-  <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
-  </div>
+  <app-content 
+    [loadedNotes]="notes" 
+    (updateNote)="updateNote($event)"
+    (deleteNote)="deleteNoteConfirmation($event)">
+  </app-content>
+ 
+ <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
   
   
-     
-
-</body>

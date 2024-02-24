@@ -32,7 +32,6 @@ export class NoteAddComponent implements OnInit {
       this.WactivityType = activity;
     }
     
-
     handleCreateNoteEvent(noteData: any) {
     this.noteAddService.createNote(noteData).subscribe(
       (response) => {

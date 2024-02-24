@@ -1,0 +1,203 @@
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+    
+    .hero {
+      background-color: #0D66B4;
+      padding: 50px;
+      text-align: center;
+    }
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .search-container input {
+      padding: 10px;
+      border: none;
+      border-radius: 29px; 
+    
+      width: 400px; 
+      height: 20px; 
+    }
+    
+    .round-button {
+      padding: 12px;
+      border: none;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px; 
+      background-color: white;;
+      color: white;
+      cursor: pointer;
+    }
+  
+  
+  /* Styl notatki */
+  .note-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    
+    width: 350px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: width 1s, height 1s; /* Animacja dla zmiany rozmiaru notatki */
+    text-overflow: ellipsis; /* Wyświetlaj trzy kropki, gdy tekst jest przycięty */
+    white-space: nowrap; /* Unikaj przełamania wiersza */
+    overflow: visible;
+  }
+  
+  .note-card:not(.expanded) h2,
+  .note-card:not(.expanded) p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .note-card.expanded {
+    width: 450px; /* Zwiększ szerokość */
+    height: auto; /* Pozwól na automatyczne dostosowanie wysokości */
+    white-space: normal; /* Pozwól na przełamywanie linii */
+    word-wrap: break-word; /* Przełamuj słowa, które są za długie, aby zmieścić się w linii */
+  }
+  
+  .note-card:hover {
+    transform: scale(1.1);
+  }
+  
+  .note-card h2 {
+    font-size: 24px; /* Zwiększenie rozmiaru tytułu */
+    margin-top: 0;
+    overflow: visible;
+    white-space: normal;
+    color: black; /* Kolor tytułu */
+  }
+  
+  .note-card p {
+    font-size: 16px;
+    margin: 10px 0;
+    white-space: normal;
+    overflow: visible;
+    color: black; /* Kolor tekstu notatki */
+  }
+  
+  .date-info {
+    display: flex;
+    justify-content: space-between;
+    color: black; /* Kolor daty */
+  }
+  
+  .date-info strong {
+    font-weight: bold;
+  }
+  
+  .date-info {
+    display: flex;
+    justify-content: space-between;
+    color: black; /* Kolor daty */
+  }
+  
+  .date-info strong {
+    font-weight: bold;
+  }
+  
+  
+  .background-content-photo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+    transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+  }
+  
+  /* Dodaj ten kod do arkusza stylów */
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .action-buttons button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .action-buttons button:hover {
+    background-color: #BA2C84;
+  }
+  
+  .edit-button {
+    background-color: #BA2C84;
+  }
+  
+  .delete-button {
+    background-color: #BA2C84;
+  }
+  
+  /* Styl dla formularza edycji notatki */
+  .edit-form {
+    
+    border-radius: 10px; /* Zaokrąglij rogi formularza */
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -45px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .edit-form h2 {
+    font-size: 24px;
+    color:#fff; /* Kolor tytułu */
+    margin-bottom: 20px;
+  }
+  
+  .edit-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    border-radius: 10px; /* Zaokrąglij rogi inputów */
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .edit-form button {
+    padding: 8px 20px;
+      background: linear-gradient(to bottom, #C889A9, #BA2C84);
+      color: #fff;
+      border: none;
+      margin: 0px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  
+  .edit-form button:hover {
+    background-color: #0056b3;
+  }

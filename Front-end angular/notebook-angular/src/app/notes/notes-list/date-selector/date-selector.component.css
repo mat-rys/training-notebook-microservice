@@ -1,0 +1,59 @@
+
+.date-selection{
+    margin-top: 60px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  .arrow-left,
+  .arrow-right {
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px; 
+  }
+  
+  .date {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .calendar-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .calendar-container input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 130px;
+  }
+  
+  
+  
+  .calendar-container input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    cursor: pointer;
+  }
+  
+  .calendar-container input[type="date"]::-webkit-calendar-picker-indicator:before {
+    content: '\1F4C6';
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .calendar-container input[type="date"]:focus {
+    outline: none;
+    border-color: dodgerblue;
+    box-shadow: 0 0 5px dodgerblue;
+  }
+  

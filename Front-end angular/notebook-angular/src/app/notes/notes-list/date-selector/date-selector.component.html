@@ -1,0 +1,18 @@
+
+<section class="date-selection">
+    <div class="header">
+        <span class="arrow-left" (click)="onPrevDate()"><</span>
+        <span class="date">{{ selectedDate | date:'dd.MM.yyyy' }}</span>
+        <span class="arrow-right" (click)="onNextDate()">></span>
+    </div>
+      
+    <div class="calendar-container">
+    <input 
+      type="date" 
+      [ngModel]="selectedDate | date:'yyyy-MM-dd'" 
+      (change)="onDateChange($event)"
+    >
+    </div>
+</section>
+
+  
