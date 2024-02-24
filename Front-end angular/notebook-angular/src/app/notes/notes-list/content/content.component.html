@@ -8,8 +8,8 @@
          <option *ngFor="let type of activityTypes" [value]="type"></option>
        </datalist> -->
      <input [(ngModel)]="editingNote.description" placeholder="Description">
-     <input [(ngModel)]="editingNote.startDate" placeholder="Start Date">
-     <input [(ngModel)]="editingNote.endDate" placeholder="End Date">
+     <input [(ngModel)]="editingNote.startDate" type="datetime-local" placeholder="Start Date">
+     <input [(ngModel)]="editingNote.endDate" type="datetime-local" placeholder="End Date">
      <button (click)="onUpdateNote()">Update</button>
      <button (click)="cancelEdit()">Cancel</button>
    </div>

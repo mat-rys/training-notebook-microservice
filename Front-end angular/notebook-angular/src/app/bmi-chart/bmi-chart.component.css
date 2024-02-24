@@ -12,81 +12,23 @@ body {
   justify-content: flex-start;
 }
 
-.star-web {
-  display: flex;
-  justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
-  align-items: center;
-  padding: 0px;
-  background-color: #092640;
-
-  width: 100%;
+#photo-background{
+  background-image: url("../../assets/diet.jpg");
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
-}
-
-.nav-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row; /* Zmień na poziomy układ */
-  align-items: center;
-  justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
- 
-  margin-top: 5px;
-
-  width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
-}
-
-.nav-list .logo {
-  display: flex;
-  justify-content: flex-end; /* Przesuń logo na prawy róg */
-  align-items: center;
-  margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
-}
-
-.nav-list .logo a:hover {
-  color: #C7BF36; /* Ustaw kolor tekstu na fioletowy */
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
-}
-
-/* Przyciski nawigacyjne */
-.nav-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Przesuń przyciski na środek */
-
-}
-
-.nav-buttons a {
-  text-decoration: none;
-}
-
-.nav-buttons button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  z-index: -1;
+  opacity: 1;
   width: 100%;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
-  border-radius: 0; /* Usunięto border-radius z początkowego stylu */
-}
-
-.nav-buttons button:hover {
-  background-color: #9B5C0F;
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
+  height: 100%;
+  filter: brightness(25%);
+  background-size: cover; 
 }
 
 .content {
   flex-grow: 1;
-
+  top: 50px;
+  margin-bottom: 50px;
   margin-left: 200px; 
 }
   

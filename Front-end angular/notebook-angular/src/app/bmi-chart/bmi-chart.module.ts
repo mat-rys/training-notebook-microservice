@@ -4,6 +4,7 @@ import { BmiChartComponent } from './bmi-chart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; // Dodaj CommonModule
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarCalcsComponent } from './navbar-calcs/navbar-calcs.component';
 
 const routes: Routes = [
   { path: '', component: BmiChartComponent },
@@ -11,7 +12,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [BmiChartComponent],
+  declarations: [BmiChartComponent, NavbarCalcsComponent],
   imports: [  
     FormsModule,
     HttpClientModule,

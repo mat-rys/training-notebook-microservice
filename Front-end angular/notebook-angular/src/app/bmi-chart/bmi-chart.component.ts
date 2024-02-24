@@ -8,9 +8,6 @@ import { AuthService } from '../security-config/auth.service';
   styleUrls: ['./bmi-chart.component.css']
 })
 export class BmiChartComponent implements OnInit {
-  logoPath = "assets\\Training Notebook-logos.png";
-  yogaPhotoPath = "assets\\diet.jpg";
-  
   updateTimeout: any;
 
   constructor(private authService: AuthService) { }
@@ -18,11 +15,11 @@ export class BmiChartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout() {
+  handleLogout() {
     this.authService.removeToken();
   }
 
-  // Dodaj zmienne do przechowywania wyników BMI
+ 
   weight: number | null = null;
   height: string | null = null;
   bmiResult: number | null = null;
@@ -31,9 +28,8 @@ export class BmiChartComponent implements OnInit {
   weightBMR: number | null = null;
   heightBMR: number | null = null;
   age: number | null = null;
-  selectedGender: string | null = null; // Zmienna do przechowywania wybran
+  selectedGender: string | null = null; 
 
-   // Variables for body fat percentage calculation
    waist: number | null = null;
    hips: number | null = null;
    neck: number | null = null;
@@ -85,14 +81,12 @@ export class BmiChartComponent implements OnInit {
     }
   }
 
- // Funkcja wywoływana przy zmianie danych wejściowych
-// Funkcja wywoływana przy zmianie danych wejściowych
 onInputChange() {
   clearTimeout(this.updateTimeout);
   this.updateTimeout = setTimeout(() => {
     this.calculateBMI(this.weight, this.height);
     this.calculateBMR(this.weightBMR, this.heightBMR, this.age, this.selectedGender);
-    this.calculateBodyFat(this.waist, this.hips, this.neck, this.heightBodyFat, this.selectedGenderBodyFat); // Upewnij się, że wywołujesz calculateBodyFat()
+    this.calculateBodyFat(this.waist, this.hips, this.neck, this.heightBodyFat, this.selectedGenderBodyFat); 
   }, 500);
 }
 

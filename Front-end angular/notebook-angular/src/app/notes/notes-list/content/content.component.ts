@@ -42,7 +42,7 @@ export class ContentComponent {
   editNote(note: Note) {
     this.editingNote = { ...note };
   }
-
+  
   cancelEdit() {
     this.editingNote = null;
   }
@@ -61,8 +61,6 @@ export class ContentComponent {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-
 }
 
   
