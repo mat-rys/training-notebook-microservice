@@ -31,7 +31,7 @@ export class RegisterUserService {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${accessToken}`
     });
-
+    
     return this.http.post(this.registerUrl, user, { headers });
   }
 }
