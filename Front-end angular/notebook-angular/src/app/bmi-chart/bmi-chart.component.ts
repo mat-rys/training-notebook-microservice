@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../security-config/auth.service';
 
-
 @Component({
   selector: 'app-bmi-chart',
   templateUrl: './bmi-chart.component.html',
@@ -10,16 +9,6 @@ import { AuthService } from '../security-config/auth.service';
 export class BmiChartComponent implements OnInit {
   updateTimeout: any;
 
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
-
-  handleLogout() {
-    this.authService.removeToken();
-  }
-
- 
   weight: number | null = null;
   height: string | null = null;
   bmiResult: number | null = null;
@@ -30,15 +19,22 @@ export class BmiChartComponent implements OnInit {
   age: number | null = null;
   selectedGender: string | null = null; 
 
-   waist: number | null = null;
-   hips: number | null = null;
-   neck: number | null = null;
-   heightBodyFat: number | null = null;
-   genderBodyFat: string | null = null;
-   bodyFatResult: number | null = null;
-   selectedGenderBodyFat: string | null = null;
+  waist: number | null = null;
+  hips: number | null = null;
+  neck: number | null = null;
+  heightBodyFat: number | null = null;
+  genderBodyFat: string | null = null;
+  bodyFatResult: number | null = null;
+  selectedGenderBodyFat: string | null = null;
 
+  constructor(private authService: AuthService) { }
+  ngOnInit(): void {
+  }
 
+  handleLogout() {
+    this.authService.removeToken();
+  }
+ 
   calculateBMI(weight: number | null, height: string | null) {
     if (weight !== null && height !== null && weight > 0 && parseFloat(height) > 0) {
       const heightInMeters = parseFloat(height) / 100;
@@ -49,12 +45,9 @@ export class BmiChartComponent implements OnInit {
     }
   }
 
-  // Funkcja do obliczania BMR i wyświetlania wyniku
   calculateBMR(weight: number | null, height: number | null, age: number | null, gender: string | null) {
     if (weight !== null && height !== null && age !== null && gender !== null && weight > 0 && height > 0 && age > 0) {
-      // Konwersja wzrostu z centymetrów na metry
       const heightInMeters = height / 100;
-
       let bmr: number;
       if (gender === 'male') {
         bmr = 850 + (13.397 * weight) + (5 * heightInMeters) - (5 * age);
@@ -81,13 +74,13 @@ export class BmiChartComponent implements OnInit {
     }
   }
 
-onInputChange() {
-  clearTimeout(this.updateTimeout);
-  this.updateTimeout = setTimeout(() => {
-    this.calculateBMI(this.weight, this.height);
-    this.calculateBMR(this.weightBMR, this.heightBMR, this.age, this.selectedGender);
-    this.calculateBodyFat(this.waist, this.hips, this.neck, this.heightBodyFat, this.selectedGenderBodyFat); 
-  }, 500);
-}
+  onInputChange() {
+    clearTimeout(this.updateTimeout);
+    this.updateTimeout = setTimeout(() => {
+      this.calculateBMI(this.weight, this.height);
+      this.calculateBMR(this.weightBMR, this.heightBMR, this.age, this.selectedGender);
+      this.calculateBodyFat(this.waist, this.hips, this.neck, this.heightBodyFat, this.selectedGenderBodyFat); 
+    }, 500);
+  }
 
 }

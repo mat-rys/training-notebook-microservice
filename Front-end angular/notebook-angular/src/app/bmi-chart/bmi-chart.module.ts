@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: '', component: BmiChartComponent },
 ];
 
-
 @NgModule({
   declarations: [BmiChartComponent, NavbarCalcsComponent],
   imports: [  
@@ -18,7 +17,7 @@ const routes: Routes = [
     HttpClientModule,
     CommonModule,
     RouterModule.forChild(routes)
-  ], // Dodaj CommonModule],
-  exports: [BmiChartComponent], // Opcjonalnie eksportuj komponent, jeśli będzie używany poza tym modulem
+  ],
+  exports: [BmiChartComponent], 
 })
 export class BmiChartModule {}

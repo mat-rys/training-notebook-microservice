@@ -38,8 +38,8 @@ export class StartPageComponent implements OnInit {
   ];
   currentContentIndex = 0;
   intervalId: any;
-  autoSlideEnabled = true; // Flaga określająca, czy automatyczne przełączanie jest włączone
-  autoSlideTimeout: any; // Zmienna do przechowywania identyfikatora timeout
+  autoSlideEnabled = true; 
+  autoSlideTimeout: any; 
 
   constructor(private elRef: ElementRef) { }
 
@@ -52,9 +52,8 @@ export class StartPageComponent implements OnInit {
       if (this.autoSlideEnabled) {
         this.currentContentIndex = (this.currentContentIndex + 1) % this.content.length;
       }
-    }, 4000); // zmień treść co 5 sekund
+    }, 4000); 
   }
-
 
   stopContentSlider() {
     clearInterval(this.intervalId);
@@ -65,16 +64,10 @@ export class StartPageComponent implements OnInit {
     hero2Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
  
-  scrollTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   goToContent(index: number) {
     this.currentContentIndex = index;
-    this.stopContentSlider(); // Zatrzymaj automatyczne przełączanie
-    this.autoSlideEnabled = false; // Wyłącz automatyczne przełączanie
-
-    // Ustaw timeout, aby wznowić automatyczne przełączanie po 5 sekundach
+    this.stopContentSlider(); 
+    this.autoSlideEnabled = false; 
     this.autoSlideTimeout = setTimeout(() => {
       this.autoSlideEnabled = true;
       this.startContentSlider();
@@ -82,7 +75,6 @@ export class StartPageComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // Upewnij się, żeby wyczyścić timeout, gdy komponent jest niszczony, aby uniknąć wycieków pamięci
     if (this.autoSlideTimeout) {
       clearTimeout(this.autoSlideTimeout);
     }

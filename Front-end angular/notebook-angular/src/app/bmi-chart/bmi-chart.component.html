@@ -1,7 +1,5 @@
 
 <body>
-
-  
   <div id="photo-background" ></div>
   <navbar-calcs> (logout)="handleLogout()"></navbar-calcs> 
 
@@ -34,7 +32,6 @@
       <label for="female2" [ngClass]="{'female-button-selected': selectedGender === 'female'}">Female</label>
       <input type="radio" name="gender" id="female2" value="female" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
     </div>
-      
     <input [(ngModel)]="weightBMR" type="number" name="weightBMR" class="input-field" placeholder="Weight (kg)" (input)="onInputChange()"><br />
     <input [(ngModel)]="heightBMR" type="number" name="heightBMR" class="input-field" placeholder="Height (cm)" (input)="onInputChange()"><br />
     <input [(ngModel)]="age" type="number" name="age" class="input-field" placeholder="Age" (input)="onInputChange()"><br />
@@ -57,7 +54,6 @@
         <label for="femaleBodyFat" [ngClass]="{'female-button-selected': selectedGenderBodyFat === 'female'}">Female</label>
         <input type="radio" name="genderBodyFat" id="femaleBodyFat" value="female" class="radio-button" [(ngModel)]="selectedGenderBodyFat" [ngClass]="{'male-button': selectedGenderBodyFat === 'male', 'female-button': selectedGenderBodyFat === 'female'}">
       </div>
-
       <input [(ngModel)]="waist" type="number" name="waist" class="input-field" placeholder="Waist (cm)" (input)="onInputChange()"><br />
       <input [(ngModel)]="hips" type="number" name="hips" class="input-field" placeholder="Hips (cm)" (input)="onInputChange()"><br />
       <input [(ngModel)]="neck" type="number" name="neck" class="input-field" placeholder="Neck (cm)" (input)="onInputChange()"><br />
@@ -68,7 +64,6 @@
         of body fat percentage <br />
       </p>
     </div>
-    
   </section>
   
   <section class="results">
@@ -88,6 +83,4 @@
       <p *ngIf="bodyFatResult === null">Enter waist, hips, neck, height, and gender to calculate Body Fat Percentage.</p>
     </div>
   </section>
-  
-
 </body>

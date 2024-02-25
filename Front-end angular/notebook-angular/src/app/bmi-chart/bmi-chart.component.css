@@ -69,11 +69,6 @@ body {
     cursor: pointer;
   }
   
- 
-
-
-/* CONTENT */
-/* checkboxs */
 .bmr .gender-options {
   display: flex;
   align-items: center;
@@ -114,7 +109,6 @@ body {
   margin-right: 5px;
 }
 
-/* Content text input buttons */
 .content {
  margin-left: -220px;
  margin-top: 20px;
@@ -125,9 +119,8 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   padding: 20px;
-  position: relative; /* Dodaj pozycję względną */
+  position: relative; 
 }
-
 
 
 .background-content-photo {
@@ -140,11 +133,9 @@ body {
   height: 100%;
   object-fit: cover;
   filter: brightness(30%);
-  transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+  transform: scale(1.1); 
 }
 
-
-/* Styl dla kalkulatorów BMI i BMR */
 .bmi,
 .bmr,
 .body-fat {
@@ -159,7 +150,7 @@ body {
   position: relative;
   z-index: 1;
   width: 270px;
-  margin-left: 220px; /* Dodaj margines od lewej strony (szerokość .nav-list) */
+  margin-left: 220px; 
 }
 
 
@@ -173,7 +164,7 @@ body {
   color: #fff;
   margin: -2px;
   font-size: 16px;
-  text-align: center; /* Wyśrodkowanie tekstu w inputach */
+  text-align: center; 
 }
 
 .input-field::placeholder {
@@ -197,29 +188,29 @@ body {
 
 .male-button {
  
-  color: white; /* Biały kolor tekstu */
+  color: white; 
 }
 
 .female-button {
 
-  color: white; /* Biały kolor tekstu */
+  color: white;
 }
 
 .results {
   display: flex;
   margin-right: -10px;
-  flex-wrap: wrap; /* Dzięki temu elementy będą "zawijać się" na następny wiersz */
+  flex-wrap: wrap; 
   gap: 300px;
   margin-top: 20px;
-  justify-content: space-between; /* Rozłożenie elementów na przestrzeni dostępnej przestrzeni */
+  justify-content: space-between; 
 }
 
 .result-bmi, .result-bmr,.result-body-fat {
-  width: calc(50% - 40px); /* Szerokość wyników 50% - odstęp 40px */
+  width: calc(50% - 40px);
   padding: 20px;
   width: 270px;
-  flex: 10; /* Równy podział przestrzeni dostępnej poziomo */
-  margin-bottom: 20px; /* Dodaj odstęp między wynikami */
+  flex: 10; 
+  margin-bottom: 20px; 
 }
 
 .result-bmi, .result-bmr,.result-body-fat {
@@ -240,15 +231,15 @@ body {
 }
 
 .male-button-selected {
-  color: #9B5C0F; /* Kolor tekstu niebieski */
-  text-decoration: underline; /* Podkreślenie tekstu */
-  font-weight: bold; /* Pogrubienie tekstu */
+  color: #9B5C0F; 
+  text-decoration: underline; 
+  font-weight: bold; 
 }
 
 .female-button-selected {
-  color: #9B5C0F; /* Kolor tekstu niebieski */
-  text-decoration: underline; /* Podkreślenie tekstu */
-  font-weight: bold; /* Pogrubienie tekstu */
+  color: #9B5C0F; 
+  text-decoration: underline; 
+  font-weight: bold; 
 }
 
 

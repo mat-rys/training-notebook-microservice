@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { Router } from '@angular/router';
+import { RegisterUserService } from '../services/register-user.service';
 
 @Component({
   selector: 'app-registration',
@@ -19,33 +20,21 @@ export class RegistrationComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService, private http: HttpClient, private router: Router) {
-    this.getToken();
+  constructor(private authService: AuthService, private http: HttpClient,
+     private router: Router,private registerUserService: RegisterUserService) {
+    this.getAdminToken();
   }
 
-  getToken() {
-    const url = 'http://localhost:8191/auth/realms/master/protocol/openid-connect/token';
-    const body = new URLSearchParams();
-    body.set('username', 'admin');
-    body.set('password', 'Pa55w0rd');
-    body.set('grant_type', 'password');
-    body.set('client_id', 'admin-cli');
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-
-    this.http.post(url, body.toString(), { headers }).subscribe((response: any) => {
+  getAdminToken() {
+    this.registerUserService.getAdminToken().subscribe((response: any) => {
       this.accessToken = response.access_token;
       if (this.accessToken) {
         this.authService.setToken(this.accessToken);
-        // console.log('Access Token:', this.accessToken);
       }
     });
   }
 
   registerAccount() {
-    const url = 'http://localhost:8191/auth/admin/realms/training-notebook-microservice-realm/users';
     const user = {
       firstName: this.firstName,
       lastName: this.lastName,
@@ -60,19 +49,18 @@ export class RegistrationComponent {
         }
       ]
     };
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.accessToken}`
-    });
-
-    this.http.post(url, user, { headers }).subscribe((response: any) => {
-      console.log('User created:', response);
-      this.router.navigate(['/login']);
-    }, (error) => {
-      // Obsługa błędu podczas rejestracji
-      alert('Registration failed. Please check your information and try again.');
-      console.error('Error registering user:', error);
-    });
+  
+    if (this.accessToken) {
+      this.registerUserService.registerUser(user, this.accessToken).subscribe((response: any) => {
+        console.log('User created:', response);
+        this.router.navigate(['/login']);
+      }, (error) => {
+        alert('Registration failed. Please check your information and try again.');
+        console.error('Error registering user:', error);
+      });
+    } else {
+      console.error('Error: Access token is undefined.');
+    }
   }
+  
 }
