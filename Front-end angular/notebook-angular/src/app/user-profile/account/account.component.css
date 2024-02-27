@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  /* background-color: #0D66B4; */
   width: 100%;
   height: 120%;
   user-select: none;
@@ -12,80 +11,23 @@ body {
   justify-content: flex-start;
 }
 
-.star-web {
-  display: flex;
-  justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
-  align-items: center;
-  padding: 0px;
-  background-color: #092640;
-  width: 100%;
+#photo-background{
+  background-image: url("../../../assets/hiking-female-boots.jpg");
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
-}
-
-.nav-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row; /* Zmień na poziomy układ */
-  align-items: center;
-  justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
- 
-  margin-top: 5px;
-
-  width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
-}
-
-.nav-list .logo {
-  display: flex;
-  justify-content: flex-end; /* Przesuń logo na prawy róg */
-  align-items: center;
-  margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
-}
-
-.nav-list .logo a:hover {
-  color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
-}
-
-/* Przyciski nawigacyjne */
-.nav-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Przesuń przyciski na środek */
-
-}
-
-.nav-buttons a {
-  text-decoration: none;
-}
-
-.nav-buttons button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  z-index: -1;
+  opacity: 1;
   width: 100%;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
-  border-radius: 0; /* Usunięto border-radius z początkowego stylu */
-}
-
-.nav-buttons button:hover {
-  background-color: #2E8B57;
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
+  height: 100%;
+  filter: brightness(40%);
+  background-size: cover; 
 }
 
 .content {
  margin-left: 1000px;
-  margin-bottom: 180px;
+
+  margin-bottom: 220px;
   text-align: center;
 }
   
@@ -127,7 +69,6 @@ body {
   }
   
  
-
 .Body {
  background-color: #E9E9E9;
   margin-left:-840px; /* Przesunięcie w lewo o 100px */
@@ -137,14 +78,11 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   height: auto;
   width: 640px;
-  
- 
 }
 
 .additional-box{
   margin-top: -40px;
 }
-
 
 .profile-form {
   background-color: #E9E9E9;
@@ -160,6 +98,7 @@ body {
 
 
 .profile-image {
+  margin-top: 80px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -234,8 +173,6 @@ body {
   object-fit: cover;
 }
 
-
-
 .change-button-photo {
   display: none;
   position: absolute;
@@ -252,7 +189,6 @@ body {
 .profile-image-container:hover .change-button-photo {
   display: block;
 }
-
 
 .background-content-photo {
   position: fixed;
@@ -324,8 +260,6 @@ body {
 }
 
 
-
-/* Styl dla inputów */
 .change-weight-input input[type="text"],
 .change-weight-input input[type="number"],
 .change-weight-input select {
@@ -337,7 +271,6 @@ body {
   font-size: 11px;
 }
 
-/* Styl dla przycisków update */
 .change-weight-input button {
   padding: 10px 20px;
   background-color: #2E8B57; /* Kolor tła */

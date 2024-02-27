@@ -1,167 +1,126 @@
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-</head>
 <body>
-    <div class="background-content-photo">
-      <img width="1903" height="1050" src="{{ womenRegistration }}" alt="Your Image" class="image"/>
-    </div>
-    <section lass="star-web">
-      <nav class="nav-list">
-        <div class="logo">
-          <a class="Training-Notebook-Logo" href="/start-page">
-            <img width="74" height="49" src="{{ logoPath }}" alt="Training-Notebook-Logo" />
-          </a>
-        </div>
-        <div class="nav-buttons">
-          <a href="/account"><button><i class="fas fa-user"></i> Profile</button></a>
-          <a href="/notes"><button><i class="fas fa-book"></i> Notes</button></a>
-          <a href="/bmi-chart"><button><i class="fas fa-envelope"></i> Bmi calculator </button></a>
-          <a href="/nutrition"><button><i class="fas fa-cog"></i> Counting food</button></a>
-          <a href="/login"  (click)="logout()"><button><i class="fas fa-sign-out-alt"></i> Logout</button></a>
-        </div>
-      </nav>
-    </section>  
-      
+
+    <div id="photo-background" ></div>
+    <navbar-account>(logout)="handleLogout()"</navbar-account>
+
     <div class="profile-image-container">
-      <div class="change-button-photo" (click)="toggleImageInput()">Change</div>
+      <div class="change-button-photo" (click)="toggleInput('photo')">Change</div>
       <div class="profile-image">
         <img *ngIf="photo.photoUrl" [src]="photo.photoUrl" alt="User Image">
       </div>
     </div>
     
-    <!-- Dodaj element do zmiany obrazka -->
     <div class="change-image-input" *ngIf="showImageInput">
       <input type="text" [(ngModel)]="newImageUrl" placeholder="Nowy URL obrazka">
       <button (click)="updateImage()">Zatwierdź</button>
     </div>
 
-
-    
     <section class="content">
       <div class="profile-form">
             <div class="profile-header">
               <h2>Profile</h2>
             </div>
 
-            
-
               <div class="profile-row">
                 <span class="profile-label">Email:</span>
                 <span class="profile-value">{{ user.email }}</span>
-                <div class="change-button" (click)="toggleEmailInput()" >Change</div>
+                <div class="change-button" (click)="toggleInput('email')" >Change</div>
               </div>
               <div class="change-weight-input" *ngIf="showEmailInput">
                 <input type="text" [(ngModel)]="newEmail" placeholder="New email">
-                <button (click)="updateEmail()">Update</button>
+                <button (click)="updateField('email', newEmail)">Update</button>
               </div>
-
-              
-              <!-- <div class="profile-row">
-                <span class="profile-label">Password:</span>
-                <span class="profile-value">ERROR</span>
-                <div class="change-button">Change</div>
-              </div> -->
 
               <div class="profile-row">
                 <span class="profile-label">First Name:</span>
                 <span class="profile-value">{{ user.firstName }}</span>
-                <div class="change-button" (click)="toggleFirstNameInput()">Change</div>
+                <div class="change-button" (click)="toggleInput('firstName')">Change</div>
               </div>
               <div class="change-weight-input" *ngIf="showFirstNameInput">
                 <input type="text" [(ngModel)]="newFirstName" placeholder="New first name">
-                <button (click)="updateFirstName()">Update</button>
+                <button (click)="updateField('firstName', newFirstName)">Update</button>
               </div>
-
 
               <div class="profile-row">
                 <span class="profile-label">Last Name:</span>
                 <span class="profile-value">{{ user.lastName }}</span>
-                <div class="change-button" (click)="toggleLastNameInput()" >Change</div>
+                <div class="change-button" (click)="toggleInput('lastName')" >Change</div>
               </div>
               <div class="change-weight-input" *ngIf="showLastNameInput">
                 <input type="text" [(ngModel)]="newLastName" placeholder="New last name">
-                <button (click)="updateLastName()">Update</button>
+                <button (click)="updateField('lastName', newLastName)">Update</button>
               </div>
-
 
               <div class="profile-row">
                 <span class="profile-label">Username:</span>
                 <span class="profile-value">{{ user.username }}</span>
-                <div class="change-button" (click)="toggleUsernameInput()">Change</div>
+                <div class="change-button" (click)="toggleInput('username')">Change</div>
               </div>
               <div class="change-weight-input" *ngIf="showUsernameInput">
                 <input type="text" [(ngModel)]="newUsername" placeholder="New username">
-                <button (click)="updateUsername()">Update</button>
+                <button (click)="updateField('username', newUsername)">Update</button>
               </div>
             
           </div>
     
-      
           <section class="Body">
             <div class="additional-section">
               <div class="additional-box">
-                <h2>Body profile</h2> <!-- Dodaj nagłówek "Body" -->
+                <h2>Body profile</h2>
           
-
                 <div class="profile-row">
                   <span class="profile-label">Weight:</span>
                   <span class="profile-value">{{ body.weight }} kg</span>
-                  <div class="change-button" (click)="toggleWeightInput()">Change</div>
+                  <div class="change-button" (click)="toggleInput('weight')">Change</div>
                 </div>
                 <div class="change-weight-input" *ngIf="showWeightInput">
                   <input type="number" [(ngModel)]="newWeight" placeholder="New Weight">
-                  <button (click)="updateWeight()">Update</button>
+                  <button (click)="updateBodyProfile('weight', newWeight)">Update</button>
                 </div>
           
-
-                <!-- Dodaj sekcje do zmiany pozostałych pól -->
                 <div class="profile-row">
                   <span class="profile-label">Height:</span>
                   <span class="profile-value">{{ body.height }} cm</span>
-                  <div class="change-button" (click)="toggleHeightInput()">Change</div>
+                  <div class="change-button" (click)="toggleInput('height')">Change</div>
                 </div>
                 <div class="change-weight-input" *ngIf="showHeightInput">
                   <input type="number" [(ngModel)]="newHeight" placeholder="New Height">
-                  <button (click)="updateHeight()">Update</button>
+                  <button (click)="updateBodyProfile('height', newHeight)">Update</button>
                 </div>
           
-
                 <div class="profile-row">
                   <span class="profile-label">Gender:</span>
                   <span class="profile-value">{{ body.gender }}</span>
-                  <div class="change-button" (click)="toggleGenderInput()">Change</div>
+                  <div class="change-button" (click)="toggleInput('gender')">Change</div>
               </div>
               <div class="change-weight-input" *ngIf="showGenderInput">
-                  <select [(ngModel)]="newGender" placeholder="New Gender">
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                  </select>
-                  <button (click)="updateGender()">Update</button>
+                <select [(ngModel)]="newGender" placeholder="New Gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <button (click)="updateBodyProfile('gender', newGender)">Update</button>
               </div>
               
-          
-
                 <div class="profile-row">
                   <span class="profile-label">Age:</span>
                   <span class="profile-value">{{ body.age }}</span>
-                  <div class="change-button" (click)="toggleAgeInput()">Change</div>
+                  <div class="change-button" (click)="toggleInput('age')">Change</div>
                 </div>
                 <div class="change-weight-input" *ngIf="showAgeInput">
                   <input type="number" [(ngModel)]="newAge" placeholder="New Age">
-                  <button (click)="updateAge()">Update</button>
+                  <button (click)="updateBodyProfile('age', newAge)">Update</button>
                 </div>
           
 
                 <div class="profile-row">
                   <span class="profile-label">Goals:</span>
                   <span class="profile-value">{{ body.goals }}</span>
-                  <div class="change-button" (click)="toggleGoalsInput()">Change</div>
+                  <div class="change-button" (click)="toggleInput('goals')">Change</div>
                 </div>
                 <div class="change-weight-input" *ngIf="showGoalsInput">
                   <input type="text" [(ngModel)]="newGoals" placeholder="New Goals">
-                  <button (click)="updateGoals()">Update</button>
+                  <button (click)="updateBodyProfile('goals', newGoals)">Update</button>
                 </div>
               </div>
             </div>

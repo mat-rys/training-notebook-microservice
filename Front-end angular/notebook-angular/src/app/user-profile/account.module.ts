@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountComponent } from './account/account.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common'; // Dodaj CommonModule
+import { CommonModule } from '@angular/common'; 
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarAccountComponent } from './account/navbar-account/navbar-account.component';
 
 
 const routes: Routes = [
@@ -11,13 +12,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccountComponent],
+  declarations: [AccountComponent,NavbarAccountComponent],
   imports: [  
     FormsModule,
     HttpClientModule,
     CommonModule,
     RouterModule.forChild(routes)
-  ], // Dodaj CommonModule],
-  exports: [AccountComponent], // Opcjonalnie eksportuj komponent, jeśli będzie używany poza tym modulem
+  ],
+  exports: [AccountComponent], 
 })
 export class AccountModule {}
