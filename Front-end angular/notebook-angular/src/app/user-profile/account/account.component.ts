@@ -4,6 +4,7 @@ import { AuthService } from '../../security-config/auth.service';
 import { AccountService } from '../account/services/account-data.service';
 import { Photo } from './models/photo.model';
 import { Body } from './models/body-profil.model';
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-account',
@@ -12,29 +13,18 @@ import { Body } from './models/body-profil.model';
   providers: [AuthService]
 })
 export class AccountComponent implements OnInit {
-  user: any = {}; 
+  user!: User; 
   body!: Body;
   photo!: Photo;
 
-  newEmail= '';
-  newFirstName = '';
-  newLastName = '';
-  newUsername = '';
-  
-  showEmailInput = false;
-  showFirstNameInput = false;
-  showLastNameInput = false;
-  showUsernameInput = false;
+
 
   token = this.authService.getToken();
 
-  constructor(private authService: AuthService,
-     private http: HttpClient,
-     private accountService: AccountService) { 
-     }
+  constructor(private authService: AuthService,private accountService: AccountService) { }
 
    ngOnInit(): void {
-    this.loadUser();
+    this.loadUserProfile();
     this.loadBodyProfil();
     this.loadPhoto(); 
   }
@@ -44,11 +34,11 @@ export class AccountComponent implements OnInit {
       this.photo = data;
       console.log(this.photo)
     });
-
   }
 
-  loadUser() {
+  loadUserProfile() {
     this.accountService.loadUser().subscribe(data => {
+      console.log(data)
       this.user = data;
     });
   }
@@ -63,40 +53,20 @@ export class AccountComponent implements OnInit {
     this.accountService.updateImage(updatedImageUrl).subscribe(() => {
       this.loadPhoto();
     });
-    this.toggleInput('photo');
   }
 
   updateBodyProfile(fieldName: string, updatedValue: any) {
     this.accountService.updateBodyProfile(fieldName, updatedValue).subscribe(() => {
       this.loadBodyProfil();
     });
-    this.toggleInput(fieldName);
   }
 
-  updateField(fieldName: string, updatedValue: any) {
+  updateUserProfile(fieldName: string, updatedValue: any) {
     this.accountService.updateField(fieldName, updatedValue).subscribe(() => {
-      this.loadUser();
+      this.loadUserProfile();
     });
-    this.toggleInput(fieldName);
   }
   
-  toggleInput(fieldName: string) {
-    switch(fieldName) {
-      case 'email':
-        this.showEmailInput = !this.showEmailInput;
-        break;
-      case 'firstName':
-        this.showFirstNameInput = !this.showFirstNameInput;
-        break;
-      case 'lastName':
-        this.showLastNameInput = !this.showLastNameInput;
-        break;
-      case 'username':
-        this.showUsernameInput = !this.showUsernameInput;
-        break;
-      default:
-        break;
-    }
-  }
+ 
 
 }

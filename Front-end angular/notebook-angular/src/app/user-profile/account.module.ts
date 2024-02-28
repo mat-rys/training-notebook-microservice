@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarAccountComponent } from './account/navbar-account/navbar-account.component';
 import { ProfilePhotoComponent } from './account/profile-photo/profile-photo.component';
 import { ProfileBodyComponent } from './account/profile-body/profile-body.component';
+import { ProfileUserComponent } from './account/profile-user/profile-user.component';
 
 
 
@@ -15,7 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccountComponent,NavbarAccountComponent, ProfilePhotoComponent, ProfileBodyComponent],
+  declarations: [AccountComponent,NavbarAccountComponent, ProfilePhotoComponent, ProfileBodyComponent, ProfileUserComponent],
   imports: [  
     FormsModule,
     HttpClientModule,
