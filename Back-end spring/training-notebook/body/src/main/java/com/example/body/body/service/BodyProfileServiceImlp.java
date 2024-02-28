@@ -1,5 +1,6 @@
 package com.example.body.body.service;
 
+import com.example.body.body.controller.BodyProfileDTO;
 import com.example.body.body.entitie.BodyProfile;
 import com.example.body.body.repository.BodyProfileRepo;
 import lombok.AllArgsConstructor;
@@ -30,87 +31,30 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
     }
 
     @Override
-    public BodyProfile updateWeight(String id, Double weight) {
+    public BodyProfile updateAttribute(String id, String attribute, BodyProfileDTO bodyProfileDTO) {
         Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
         if (optionalBodyProfile.isPresent()) {
             BodyProfile bodyProfile = optionalBodyProfile.get();
-            bodyProfile.setWeight(weight);
+            switch (attribute) {
+                case "weight":
+                    bodyProfile.setWeight(bodyProfileDTO.getWeight());
+                    break;
+                case "height":
+                    bodyProfile.setHeight(bodyProfileDTO.getHeight());
+                    break;
+                case "gender":
+                    bodyProfile.setGender(bodyProfileDTO.getGender());
+                    break;
+                case "age":
+                    bodyProfile.setAge(bodyProfileDTO.getAge());
+                    break;
+                case "goals":
+                    bodyProfile.setGoals(bodyProfileDTO.getGoals());
+                    break;
+            }
             return bodyProfileRepo.save(bodyProfile);
         } else {
-            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
-            BodyProfile newBodyProfile = BodyProfile.builder()
-                    .idUser(id)
-                    .weight(weight)
-                    .build();
-            return bodyProfileRepo.save(newBodyProfile);
-        }
-    }
-
-    @Override
-    public BodyProfile updateHeight(String id, Double height) {
-        Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
-        if (optionalBodyProfile.isPresent()) {
-            BodyProfile bodyProfile = optionalBodyProfile.get();
-            bodyProfile.setHeight(height);
-            return bodyProfileRepo.save(bodyProfile);
-        } else {
-            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
-            BodyProfile newBodyProfile = BodyProfile.builder()
-                    .idUser(id)
-                    .height(height)
-                    .build();
-            return bodyProfileRepo.save(newBodyProfile);
-        }
-    }
-
-    @Override
-    public BodyProfile updateGender(String id, String gender) {
-        Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
-        if (optionalBodyProfile.isPresent()) {
-            BodyProfile bodyProfile = optionalBodyProfile.get();
-            bodyProfile.setGender(gender);
-            return bodyProfileRepo.save(bodyProfile);
-        } else {
-            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
-            BodyProfile newBodyProfile = BodyProfile.builder()
-                    .idUser(id)
-                    .gender(gender)
-                    .build();
-            return bodyProfileRepo.save(newBodyProfile);
-        }
-    }
-
-    @Override
-    public BodyProfile updateAge(String id, Integer age) {
-        Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
-        if (optionalBodyProfile.isPresent()) {
-            BodyProfile bodyProfile = optionalBodyProfile.get();
-            bodyProfile.setAge(age);
-            return bodyProfileRepo.save(bodyProfile);
-        } else {
-            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
-            BodyProfile newBodyProfile = BodyProfile.builder()
-                    .idUser(id)
-                    .age(age)
-                    .build();
-            return bodyProfileRepo.save(newBodyProfile);
-        }
-    }
-
-    @Override
-    public BodyProfile updateGoals(String id, String goals) {
-        Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
-        if (optionalBodyProfile.isPresent()) {
-            BodyProfile bodyProfile = optionalBodyProfile.get();
-            bodyProfile.setGoals(goals);
-            return bodyProfileRepo.save(bodyProfile);
-        } else {
-            // Jeśli nie istnieje rekord, utwórz nowy i zapisz
-            BodyProfile newBodyProfile = BodyProfile.builder()
-                    .idUser(id)
-                    .goals(goals)
-                    .build();
-            return bodyProfileRepo.save(newBodyProfile);
+            throw new RuntimeException("BodyProfile with id " + id + " does not exist.");
         }
     }
 }

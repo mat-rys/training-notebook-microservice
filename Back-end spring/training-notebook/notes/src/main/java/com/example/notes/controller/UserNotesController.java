@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
@@ -25,7 +26,6 @@ public class UserNotesController {
 
     private final UserNotesService userNotesService;
 
-//    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping
     public ResponseEntity<Stream<UserNotes>> getAllNotes() {
         log.info("Getting all notes");
@@ -37,6 +37,12 @@ public class UserNotesController {
         String userId = principal.getName();
         log.info("Getting notes for userId: {}", userId);
         return ResponseEntity.ok().body(userNotesService.getNotesByUserId(userId).stream());
+    }
+
+    @GetMapping("/byUserIdAndStartDate")
+    public List<UserNotes> getNotesByUserIdAndStartDate(Principal principal, @RequestParam String startDate) {
+        log.info("Getting notes for userId: {} and startDate: {}", principal, startDate);
+        return userNotesService.findByUserIdAndStartDateLike(principal.getName(), startDate);
     }
 
     @GetMapping("/{noteId}")

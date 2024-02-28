@@ -2,11 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.entitie.Meals;
 import com.example.demo.service.MealsService;
+import com.example.demo.service.ProductMealsService;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -52,5 +54,14 @@ public class MealsController {
     public Meals updateMealData(@PathVariable Long id, @RequestBody Meals updatedData) {
         return mealsService.updateMealData(id, updatedData);
     }
+
+    @PutMapping("mealEdit/{id}")
+    public Meals updateMealData(@PathVariable Long id, @RequestBody UpdateMealDTO updateMealDTO) {
+        String title = updateMealDTO.getTitle();
+        Date day = updateMealDTO.getDay();
+        Time mealTime = updateMealDTO.getMealTime();
+        return mealsService.updateMealData(id, title, day, mealTime);
+    }
+
 
 }

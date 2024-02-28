@@ -57,6 +57,6 @@ public class UserNotes {
     private String description;
 
     @Column(name = "user_id") //Z keycloak id
-    private String userId;
+        private String userId;
 
 }

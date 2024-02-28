@@ -4,7 +4,9 @@ import com.example.demo.entitie.ProductsMeals;
 import com.example.demo.repository.ProductsMealsRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @AllArgsConstructor
@@ -40,6 +42,12 @@ public class ProductMealsServiceImpl implements ProductMealsService {
     @Override
     public List<ProductsMeals> getProductsForMeal(Long mealId) {
         return productMealsRepository.findAllByMealId(mealId);
+    }
+
+    @Override
+    @Transactional
+    public void deleteProductsByMealId(BigInteger mealId) {
+        productMealsRepository.deleteByMealId(mealId);
     }
 
 

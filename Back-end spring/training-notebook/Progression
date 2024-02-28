@@ -53,4 +53,47 @@ DO ZROBIENIA
 5* Załatwienie customowych login register i połaczonych z keyclok
 6* Udostępnienie w chmurze (pewnie jakiś cload kubernetes i dockery będą)
 
-Prawie finito
+
+07.02 Road to end inżynierki
+1.Dodałem cancel button w notes w angular
+2.Poprawiłem wizualnie startową stronę
+3.Usprawnienie wyszukiwarki produktów o autoamtyczne szukanie przy wpisywaniu i wyczekiwanie końcy typowania
+
+
+08.02
+1.Poprawa bmi w angular aktualizacja wyników bez wciskania buttona plus poprawa bmr wyników wzoru
+2.Dodałem element przewijania dni z notatkami
+3.
+
+09.02
+1.Poprawiłem body profil konta w angular
+2.Responsywne wyszukiwanie produktów w posiłkach
+3.Dodałem w wielu miejsca zapytania czy na pewno wykonać daną czynność
+4.Dodałem elementy informujące o nie pomyślnym logowaniu i rejestracji
+5.Pomniejsze usprawnienia
+6.Dodanie modułów osobnych dla komponentów w angular
+7.Rozszerzenie dat w notatkach o godzina:minuta
+
+10.02
+1.Update strony startowej
+2.Wyeliminowałem remember me bo mi nie wychodziło walić to
+3.
+
+11-14.02
+1.Duże porpawki wizualne front end
+2.Bardziej interaktywne interfejsy
+3.Eliminacja małych błędów frontend
+4.Struktura projektu komponenty moduły foldery poprawwione w angular
+5.Lazy loading w angular
+
+DO ZROBIENIA
+1.Dorobienie całego nowego serwisu z planami treningowymi  ???
+2.Wielowątkowość bakcend
+3.Poprawa jakości angulara
+4.Udostępnienie chmura azure
+
+
+
+
+
+

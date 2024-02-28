@@ -4,27 +4,18 @@ package com.example.account.controller;
 import com.example.account.dto.UserDetailsResponse;
 import com.example.account.service.AccountService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.security.Principal;
-import java.util.*;
+
 
 @RestController
 @Controller
 @AllArgsConstructor
 @RequestMapping("/account")
 public class AccountController {
-
-    private final JdbcTemplate jdbcTemplate;
     private final AccountService accountService;
 
 
@@ -34,7 +25,7 @@ public class AccountController {
         if (userDetailsResponse != null) {
             return ResponseEntity.ok(userDetailsResponse);
         } else {
-            return ResponseEntity.notFound().build(); // Lub odpowiedź błędu w zależności od Twojego przypadku użycia.
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -59,7 +50,7 @@ public class AccountController {
         }
     }
 
-    @PostMapping("/user/firstname")
+    @PutMapping("/user/firstname")
     public ResponseEntity<String> updateUserFirstName(Principal principal, @RequestBody String newFirstName) {
         boolean success = accountService.updateFirstName(principal.getName(), newFirstName);
         if (success) {
@@ -69,7 +60,7 @@ public class AccountController {
         }
     }
 
-    @PostMapping("/user/lastname")
+    @PutMapping("/user/lastname")
     public ResponseEntity<String> updateUserLastName(Principal principal, @RequestBody String newLastName) {
         boolean success = accountService.updateLastName(principal.getName(), newLastName);
         if (success) {

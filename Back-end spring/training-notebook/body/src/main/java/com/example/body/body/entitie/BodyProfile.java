@@ -24,8 +24,6 @@ public class BodyProfile {
         this.goals = goals;
     }
 
-
-
     @Id
     @Column(name = "id_user")
     private String idUser;

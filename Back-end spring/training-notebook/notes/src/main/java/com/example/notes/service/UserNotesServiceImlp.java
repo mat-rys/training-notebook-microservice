@@ -2,12 +2,17 @@ package com.example.notes.service;
 
 import com.example.notes.entitie.UserNotes;
 import com.example.notes.repository.UserNotesRepo;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -15,7 +20,18 @@ import java.util.Set;
 @AllArgsConstructor
 public class UserNotesServiceImlp implements UserNotesService {
 
+    @Autowired
+    private EntityManager entityManager;
     private final UserNotesRepo userNotesRepo;
+
+    @Override
+    public List<UserNotes> findByUserIdAndStartDateLike(String userId, String startDate) {
+        String queryString = "SELECT un FROM UserNotes un WHERE un.userId = :userId AND DATE(un.startDate) = DATE(:startDate)";
+        TypedQuery<UserNotes> query = entityManager.createQuery(queryString, UserNotes.class);
+        query.setParameter("userId", userId);
+        query.setParameter("startDate", Timestamp.valueOf(startDate + " 00:00:00"));
+        return query.getResultList();
+    }
 
     @Override
     public Optional<UserNotes> getNote(Long noteId) {

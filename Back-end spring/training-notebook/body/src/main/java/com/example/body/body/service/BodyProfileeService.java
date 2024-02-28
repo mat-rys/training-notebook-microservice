@@ -1,5 +1,6 @@
 package com.example.body.body.service;
 
+import com.example.body.body.controller.BodyProfileDTO;
 import com.example.body.body.entitie.BodyProfile;
 
 import java.util.Optional;
@@ -12,15 +13,6 @@ public interface BodyProfileeService {
 
     BodyProfile updateBodyProfile(String id, BodyProfile updatedBodyProfile);
 
-
-    BodyProfile updateWeight(String id, Double weight);
-
-    BodyProfile updateHeight(String id, Double height);
-
-    BodyProfile updateGender(String id, String gender);
-
-    BodyProfile updateAge(String id, Integer age);
-
-    BodyProfile updateGoals(String id, String goals);
+    public BodyProfile updateAttribute(String id, String attribute, BodyProfileDTO bodyProfileDTO);
 
 }

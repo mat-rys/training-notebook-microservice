@@ -10,4 +10,5 @@ import java.util.List;
 public interface UserNotesRepo extends JpaRepository<UserNotes,Long> {
 
     List<UserNotes> findByUserId(String userId);
+    List<UserNotes> findByUserIdAndStartDateLike(String userId, String startDate);
 }

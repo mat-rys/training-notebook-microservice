@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.entitie.Meals;
 import com.example.demo.repository.MealsRepo;
+import com.example.demo.repository.ProductsMealsRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +16,6 @@ import java.util.List;
 public class MealsServiceImpl implements MealsService {
 
     private final MealsRepo mealsRepository;
-
     @Override
     public Meals createMeal(Meals meal) {
         return mealsRepository.save(meal);
@@ -43,6 +44,24 @@ public class MealsServiceImpl implements MealsService {
     @Override
         public List<Meals> getMealsByDayAndUserId(Date day, String userId) {
         return mealsRepository.findByDayAndUserId(day, userId);
+    }
+
+    @Override
+    public Meals updateMealData(Long id, String title, Date day, Time mealTime) {
+        Meals existingMeal = mealsRepository.findById(id).orElse(null);
+        if (existingMeal != null) {
+            if (title != null) {
+                existingMeal.setTitle(title);
+            }
+            if (day != null) {
+                existingMeal.setDay(day);
+            }
+            if (mealTime != null) {
+                existingMeal.setMealTime(mealTime);
+            }
+            return mealsRepository.save(existingMeal);
+        }
+        return null; // Zwróć null, jeśli posiłek o podanym id nie istnieje
     }
 
     @Override

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @AllArgsConstructor
@@ -43,5 +44,10 @@ public class ProductMealsController {
     @GetMapping("/get-for-meal/{mealId}")
     public List<ProductsMeals> getProductsForMeal(@PathVariable Long mealId) {
         return productMealsService.getProductsForMeal(mealId);
+    }
+
+    @DeleteMapping("/delete-by-meal/{mealId}")
+    public void deleteProductsByMealId(@PathVariable BigInteger mealId) {
+        productMealsService.deleteProductsByMealId(mealId);
     }
 }
