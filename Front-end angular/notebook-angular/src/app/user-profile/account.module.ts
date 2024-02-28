@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common'; 
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarAccountComponent } from './account/navbar-account/navbar-account.component';
+import { ProfilePhotoComponent } from './account/profile-photo/profile-photo.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccountComponent,NavbarAccountComponent],
+  declarations: [AccountComponent,NavbarAccountComponent, ProfilePhotoComponent],
   imports: [  
     FormsModule,
     HttpClientModule,

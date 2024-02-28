@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { AccountService } from '../account/services/account-data.service';
+import { Photo } from './models/photo.model';
 
 @Component({
   selector: 'app-account',
@@ -12,12 +13,11 @@ import { AccountService } from '../account/services/account-data.service';
 export class AccountComponent implements OnInit {
   user: any = {}; 
   body: any = {};
-  photo: any = {};
+  photo!: Photo;
 
   currentSlideIndex = 0;
 
   newWeight: number = 0; 
-  newImageUrl = ''; 
   newHeight: number = 0;
   newGender= '';
   newAge: number = 0;
@@ -27,7 +27,6 @@ export class AccountComponent implements OnInit {
   newLastName = '';
   newUsername = '';
   
-  showImageInput = false; 
   showWeightInput = false;
   showHeightInput = false;
   showGenderInput = false;
@@ -55,7 +54,9 @@ export class AccountComponent implements OnInit {
   loadPhoto() {
     this.accountService.loadPhoto().subscribe(data => {
       this.photo = data;
+      console.log(this.photo)
     });
+
   }
 
   loadUser() {
@@ -70,10 +71,7 @@ export class AccountComponent implements OnInit {
     });
   }
 
-  updateImage() {
-    const updatedImageUrl = this.newImageUrl; 
-    this.showImageInput = false; 
-
+  updateImage(updatedImageUrl: string) {
     this.accountService.updateImage(updatedImageUrl).subscribe(() => {
       this.loadPhoto();
     });

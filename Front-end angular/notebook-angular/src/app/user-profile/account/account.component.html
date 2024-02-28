@@ -1,20 +1,13 @@
 
 <body>
 
-    <div id="photo-background" ></div>
-    <navbar-account>(logout)="handleLogout()"</navbar-account>
+  <div id="photo-background" ></div>
+  <navbar-account>(logout)="handleLogout()"</navbar-account>
 
-    <div class="profile-image-container">
-      <div class="change-button-photo" (click)="toggleInput('photo')">Change</div>
-      <div class="profile-image">
-        <img *ngIf="photo.photoUrl" [src]="photo.photoUrl" alt="User Image">
-      </div>
-    </div>
-    
-    <div class="change-image-input" *ngIf="showImageInput">
-      <input type="text" [(ngModel)]="newImageUrl" placeholder="Nowy URL obrazka">
-      <button (click)="updateImage()">Zatwierdź</button>
-    </div>
+  <app-profile-photo 
+    *ngIf="photo" [loadedImage]="photo.photoUrl" 
+    (updateImage)="updateImage($event)">
+  </app-profile-photo>  
 
     <section class="content">
       <div class="profile-form">
