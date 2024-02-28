@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { AccountService } from '../account/services/account-data.service';
 import { Photo } from './models/photo.model';
+import { Body } from './models/body-profil.model';
 
 @Component({
   selector: 'app-account',
@@ -12,31 +13,18 @@ import { Photo } from './models/photo.model';
 })
 export class AccountComponent implements OnInit {
   user: any = {}; 
-  body: any = {};
+  body!: Body;
   photo!: Photo;
 
-  currentSlideIndex = 0;
-
-  newWeight: number = 0; 
-  newHeight: number = 0;
-  newGender= '';
-  newAge: number = 0;
-  newGoals='';
   newEmail= '';
   newFirstName = '';
   newLastName = '';
   newUsername = '';
   
-  showWeightInput = false;
-  showHeightInput = false;
-  showGenderInput = false;
-  showAgeInput = false;
-  showGoalsInput = false;
   showEmailInput = false;
   showFirstNameInput = false;
   showLastNameInput = false;
   showUsernameInput = false;
-  showPhotoInput = false; 
 
   token = this.authService.getToken();
 
@@ -106,24 +94,6 @@ export class AccountComponent implements OnInit {
       case 'username':
         this.showUsernameInput = !this.showUsernameInput;
         break;
-      case 'weight':
-        this.showWeightInput = !this.showWeightInput;
-        break;
-      case 'height':
-        this.showHeightInput = !this.showHeightInput;
-        break;
-      case 'gender':
-        this.showGenderInput = !this.showGenderInput;
-        break;
-      case 'age':
-        this.showAgeInput = !this.showAgeInput;
-        break;
-      case 'goals':
-        this.showGoalsInput = !this.showGoalsInput;
-        break;  
-      case 'photo':
-        this.showPhotoInput = !this.showPhotoInput;
-        break;  
       default:
         break;
     }

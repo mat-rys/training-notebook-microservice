@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../../security-config/auth.service';
 import { Photo } from '../models/photo.model';
+import { Body } from '../models/body-profil.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AccountService {
   }
 
   loadPhoto() {
-    return this.http.get<any>('http://localhost:8222/body/photo', { headers: this.getHeaders() });
+    return this.http.get<Photo>('http://localhost:8222/body/photo', { headers: this.getHeaders() });
   }
 
   loadUser() {
@@ -26,7 +27,7 @@ export class AccountService {
   }
 
   loadBodyProfil() {
-    return this.http.get<any[]>('http://localhost:8222/body/get', { headers: this.getHeaders() });
+    return this.http.get<Body>('http://localhost:8222/body/get', { headers: this.getHeaders() });
   }
 
   updateImage(updatedImageUrl: string) {

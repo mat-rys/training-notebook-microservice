@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarAccountComponent } from './account/navbar-account/navbar-account.component';
 import { ProfilePhotoComponent } from './account/profile-photo/profile-photo.component';
+import { ProfileBodyComponent } from './account/profile-body/profile-body.component';
+
 
 
 const routes: Routes = [
@@ -13,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccountComponent,NavbarAccountComponent, ProfilePhotoComponent],
+  declarations: [AccountComponent,NavbarAccountComponent, ProfilePhotoComponent, ProfileBodyComponent],
   imports: [  
     FormsModule,
     HttpClientModule,
