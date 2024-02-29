@@ -9,18 +9,17 @@
     (updateImage)="updateImage($event)">
   </app-profile-photo>  
 
-    <section class="content">
+  <section class="content">
      
-      <app-profile-user 
-        *ngIf="user" [loadedUserProfile]="user"
-        (profileUpdate)="updateUserProfile($event.fieldName, $event.updatedValue)">
-      </app-profile-user>
+    <app-profile-user 
+      *ngIf="user" [loadedUserProfile]="user"
+      (profileUpdate)="updateUserProfile($event.fieldName, $event.updatedValue)">
+    </app-profile-user>
 
-      
-      <app-profile-body 
-        *ngIf="body" [loadedBodyProfile]="body" 
-        (profileUpdate)="updateBodyProfile($event.fieldName, $event.updatedValue)">
-      </app-profile-body>
+    <app-profile-body 
+      *ngIf="body" [loadedBodyProfile]="body" 
+      (profileUpdate)="updateBodyProfile($event.fieldName, $event.updatedValue)">
+    </app-profile-body>
       
     </section>
 </body>

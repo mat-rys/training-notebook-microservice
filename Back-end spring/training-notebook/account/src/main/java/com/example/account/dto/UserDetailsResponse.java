@@ -11,5 +11,4 @@ public class UserDetailsResponse {
     private String lastName;
     private String username;
     private boolean emailVerified;
-
 }

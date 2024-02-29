@@ -38,7 +38,8 @@ export class AccountService {
 
   updateBodyProfile(fieldName: string, updatedValue: any) {
     const apiEndpoint = `http://localhost:8222/body/${fieldName}`;
-    return this.http.put(apiEndpoint, updatedValue, { headers: this.getHeaders() });
+    const bodyProfileDTO = {[fieldName]: updatedValue};
+    return this.http.put(apiEndpoint, bodyProfileDTO, { headers: this.getHeaders() });
   }
 
   updateField(fieldName: string, updatedValue: any) {

@@ -34,10 +34,10 @@ public class AccountService {
             return userDetailsResponse;
         } catch (EmptyResultDataAccessException e) {
             log.warn("User with ID {} not found", idKeycloak);
-            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+            return null;
         } catch (Exception e) {
             log.error("An error occurred while fetching user", e);
-            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+            return null;
         }
     }
 
@@ -50,61 +50,22 @@ public class AccountService {
             return userId;
         } catch (EmptyResultDataAccessException e) {
             log.warn("User with ID {} not found", idKeycloak);
-            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+            return null;
         } catch (Exception e) {
             log.error("An error occurred while fetching user", e);
-            return null; // Lub możesz rzucić wyjątek lub zwrócić odpowiedź błędu, w zależności od Twojego przypadku użycia.
+            return null;
         }
     }
 
-
-    public boolean updateEmail(String idKeycloak, String newEmail) {
-        String sql = "UPDATE user_entity SET email = ? WHERE id = ?";
+    public boolean updateAttribute(String idKeycloak, String attribute, String newValue) {
+        String sql = "UPDATE user_entity SET " + attribute + " = ? WHERE id = ?";
 
         try {
-            int rowsAffected = jdbcTemplate.update(sql, newEmail, idKeycloak);
+            int rowsAffected = jdbcTemplate.update(sql, newValue, idKeycloak);
             return rowsAffected > 0;
         } catch (DataAccessException e) {
-            log.error("An error occurred while updating email", e);
+            log.error("An error occurred while updating " + attribute, e);
             return false;
         }
     }
-
-    public boolean updateFirstName(String idKeycloak, String newFirstName) {
-        String sql = "UPDATE user_entity SET first_name = ? WHERE id = ?";
-
-        try {
-            int rowsAffected = jdbcTemplate.update(sql, newFirstName, idKeycloak);
-            return rowsAffected > 0;
-        } catch (DataAccessException e) {
-            log.error("An error occurred while updating first name", e);
-            return false;
-        }
-    }
-
-    public boolean updateLastName(String idKeycloak, String newLastName) {
-        String sql = "UPDATE user_entity SET last_name = ? WHERE id = ?";
-
-        try {
-            int rowsAffected = jdbcTemplate.update(sql, newLastName, idKeycloak);
-            return rowsAffected > 0;
-        } catch (DataAccessException e) {
-            log.error("An error occurred while updating last name", e);
-            return false;
-        }
-    }
-
-    public boolean updateUsername(String idKeycloak, String newUsername) {
-        String sql = "UPDATE user_entity SET username = ? WHERE id = ?";
-
-        try {
-            int rowsAffected = jdbcTemplate.update(sql, newUsername, idKeycloak);
-            return rowsAffected > 0;
-        } catch (DataAccessException e) {
-            log.error("An error occurred while updating username", e);
-            return false;
-        }
-    }
-
-
 }

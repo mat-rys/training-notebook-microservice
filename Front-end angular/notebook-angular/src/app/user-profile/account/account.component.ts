@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { AccountService } from '../account/services/account-data.service';
 import { Photo } from './models/photo.model';
@@ -17,11 +16,7 @@ export class AccountComponent implements OnInit {
   body!: Body;
   photo!: Photo;
 
-
-
-  token = this.authService.getToken();
-
-  constructor(private authService: AuthService,private accountService: AccountService) { }
+  constructor(private accountService: AccountService) { }
 
    ngOnInit(): void {
     this.loadUserProfile();
@@ -66,7 +61,4 @@ export class AccountComponent implements OnInit {
       this.loadUserProfile();
     });
   }
-  
- 
-
 }

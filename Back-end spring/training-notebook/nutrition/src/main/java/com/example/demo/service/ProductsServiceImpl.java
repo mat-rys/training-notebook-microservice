@@ -34,12 +34,10 @@ public class ProductsServiceImpl implements ProductsService{
 
     @Override
     public Products updateProduct(Long id, Products product) {
-        // Check if the product with the given ID exists
         Products existingProduct = productsRepository.findById(id).orElse(null);
         if (existingProduct == null) {
-            return null; // Product not found
+            return null;
         }
-        // Update the fields of the existing product with the new values
         existingProduct.setTitle(product.getTitle());
         existingProduct.setCalories(product.getCalories());
         existingProduct.setGrams(product.getGrams());
@@ -47,7 +45,6 @@ public class ProductsServiceImpl implements ProductsService{
         existingProduct.setProtein(product.getProtein());
         existingProduct.setFat(product.getFat());
 
-        // Save the updated product
         return productsRepository.save(existingProduct);
     }
 }
