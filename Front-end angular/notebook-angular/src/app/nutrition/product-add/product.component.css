@@ -13,7 +13,7 @@ body {
   
   .star-web {
     display: flex;
-    justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
+    justify-content: center; 
     align-items: center;
     padding: 0px;
     background-color: #092640;
@@ -27,33 +27,32 @@ body {
   .nav-list {
     list-style-type: none;
     display: flex;
-    flex-direction: row; /* Zmień na poziomy układ */
+    flex-direction: row; 
     align-items: center;
-    justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
+    justify-content: flex-end;
    
     margin-top: 5px;
   
-    width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
+    width: auto; 
   }
   
   .nav-list .logo {
     display: flex;
-    justify-content: flex-end; /* Przesuń logo na prawy róg */
+    justify-content: flex-end;
     align-items: center;
-    margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
+    margin-right: 20px; 
   }
   
   .nav-list .logo a:hover {
-    color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
+    color: #4009A5; 
     color: #fff;
-    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+    border-radius: 20px;
   }
-  
-  /* Przyciski nawigacyjne */
+
   .nav-buttons {
     display: flex;
     align-items: center;
-    justify-content: center; /* Przesuń przyciski na środek */
+    justify-content: center; 
   
   }
   
@@ -72,14 +71,14 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
-    border-radius: 0; /* Usunięto border-radius z początkowego stylu */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; 
+    border-radius: 0; 
   }
   
   .nav-buttons button:hover {
     background-color: #4009A5;
     color: #fff;
-    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+    border-radius: 20px; 
   }
   
   .content {
@@ -252,19 +251,19 @@ input {
 }
 
 .products-list-button  button {
-  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  padding: 10px 20px; 
   font-size: 16px;
   background:  #480DF0;
   color: #fff;
   border: none;
-  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transition: transform 0.5s ease;
 }
 
 .products-list-button  button:hover {
-  background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  background-color:  #0056b3;
   transform: scale(1.1);
 }
 
@@ -278,7 +277,7 @@ input {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 999; /* Upewnij się, że wiadomość jest na wierzchu */
+  z-index: 999; 
 }
 
 .product-created-message p {
@@ -292,12 +291,12 @@ input {
   top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #f44336; /* Kolor czerwony */
+  background-color: #f44336; 
   color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 999; /* Upewnij się, że wiadomość jest na wierzchu */
+  z-index: 999; 
 }
 
 .product-error-message p {

@@ -1,5 +1,5 @@
-export interface Product {
-    id: number;
+export interface NewProduct {
+    id?: number;
     title: string;
     calories: number;
     grams: number;

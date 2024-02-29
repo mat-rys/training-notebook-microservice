@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from './models/product.model';
-import { FormsModule } from '@angular/forms';
+import { ProductsService } from '../services/products.service';
 import { AuthService } from '../../security-config/auth.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   successMessage: string = '';
   isEditing: boolean = false;
 
-  constructor(private authService: AuthService,private http: HttpClient) {}
+  constructor(private authService: AuthService, private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -38,40 +38,28 @@ export class ProductListComponent implements OnInit {
   }
 
   loadProducts() {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-
-    const url = 'http://localhost:8222/nutrition/products';
-    this.http.get<Product[]>(url, { headers }).subscribe((data) => {
+    this.productsService.loadProducts().subscribe((data) => {
       this.products = data;
     });
   }
 
-  
   deleteProduct(product: Product) {
-    const deleteHeaders = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-
-    this.http.delete(`http://localhost:8222/nutrition/products/${product.id}`, { headers: deleteHeaders })
-    .subscribe(() => {
+    this.productsService.deleteProduct(product.id).subscribe(() => {
       this.loadProducts();
-      this.successMessage = 'Product successfully deleted!'; // Ustaw komunikat o sukcesie
+      this.successMessage = 'Product successfully deleted!'; 
       setTimeout(() => {
-        this.successMessage = ''; // Schowaj komunikat po 0.1 sekundy
+        this.successMessage = ''; 
       }, 800);
     }, error => {
       console.error('Error deleting product:', error);
     });
-}
+  }
 
   deleteProductConfirmation(product: Product) {
     if (confirm('Czy na pewno chcesz usunąć ten produkt?')) {
       this.deleteProduct(product);
     }
   }
-
 
   editProduct(product: Product) {
     this.editingProduct = { ...product };
@@ -83,25 +71,19 @@ export class ProductListComponent implements OnInit {
   
   updateProduct() {
     if (this.editingProduct) {
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${this.token}`,
+      this.productsService.updateProduct(this.editingProduct.id, this.editingProduct).subscribe(() => {
+        this.loadProducts();
+        this.editingProduct = null;
+        this.successMessage = 'Product successfully updated!'; 
+        setTimeout(() => {
+          this.successMessage = ''; 
+        }, 800);
+      }, error => {
+        console.error('Error updating product:', error);
       });
-  
-      this.http.put(`http://localhost:8222/nutrition/products/${this.editingProduct.id}`, this.editingProduct, { headers })
-        .subscribe(() => {
-          this.loadProducts();
-          this.editingProduct = null;
-          this.successMessage = 'Product successfully updated!'; // Ustaw komunikat o sukcesie
-          setTimeout(() => {
-            this.successMessage = ''; // Schowaj komunikat po 0.1 sekundy
-          }, 800);
-        }, error => {
-          console.error('Error updating product:', error);
-        });
     }
   }
 
-  
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
