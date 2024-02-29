@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Product } from './product.model';
+import { Product } from './models/product.model';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../security-config/auth.service';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -11,14 +12,14 @@ import { AuthService } from '../../security-config/auth.service';
 export class ProductListComponent implements OnInit {
   logoPath = 'assets\\Training Notebook-logos.png';
   ramenPhoto = 'assets\\ramen.jpg';
-  searchQuery: string = ''; // Pole do przechowywania wyszukiwanej frazy
+  searchQuery: string = ''; 
   products: Product[] = [];
-  filteredProducts: Product[] = []; // Przechowuje przefiltrowane produkty
-  editingProduct: Product | null = null; // Notatka, która jest obecnie edytowana
+  filteredProducts: Product[] = []; 
+  editingProduct: Product | null = null; 
   token = this.authService.getToken();
   searchTimeout: any;
-  successMessage: string = ''; // Dodaj zmienną do obsługi komunikatu o sukcesie
-  isEditing: boolean = false; // Dodajemy pole isEditing
+  successMessage: string = '';
+  isEditing: boolean = false;
 
   constructor(private authService: AuthService,private http: HttpClient) {}
 
@@ -109,7 +110,7 @@ export class ProductListComponent implements OnInit {
     clearTimeout(this.searchTimeout);
     this.searchTimeout = setTimeout(() => {
       this.searchProducts();
-    }, 300); // Opóźnienie 0.3 sekundy (300 milisekund)
+    }, 300); 
   }
 }
 

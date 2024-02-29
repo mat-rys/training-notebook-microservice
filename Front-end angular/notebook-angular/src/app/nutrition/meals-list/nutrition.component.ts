@@ -1,12 +1,11 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {  Meals } from './meals.model';
-import {  Meal } from './meal.model';
-import { formatDate } from '@angular/common';
+import {  Meals } from './models/meals.model';
+import {  Meal } from './models/meal.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../../security-config/auth.service';
-import { NutritionTip } from '../meals-list/advices/advice.model';
-import { NutritionTipService } from '../meals-list/services/nutrition-tip.service';
+import { NutritionTip } from './models/advice.model';
+import { NutritionTipService } from '../services/nutrition-tip.service';
 
 
 @Component({

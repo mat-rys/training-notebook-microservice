@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { NutritionTip } from '../advices/advice.model';
+import { NutritionTip } from '../meals-list/models/advice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +17,8 @@ export class NutritionTipService {
   getRandomSortedNutritionTip(): Observable<NutritionTip> {
     return this.getNutritionTips().pipe(
       map(tips => {
-        // Sortowanie porad
         tips.sort((a, b) => a.tip.localeCompare(b.tip));
-        // Losowanie indeksu
         const randomIndex = Math.floor(Math.random() * tips.length);
-        // Zwracanie wybranej losowo porady
         return tips[randomIndex];
       })
     );

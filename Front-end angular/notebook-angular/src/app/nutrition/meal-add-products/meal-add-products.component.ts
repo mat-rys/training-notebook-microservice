@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Product } from './product.model';
+import { Product } from './models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { ProductMeal } from './product-meal.model';
-import { Meals } from './meals.model';
+import { ProductMeal } from './models/product-meal.model';
+import { Meals } from './models/meals.model';
 import { AuthService } from '../../security-config/auth.service';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';

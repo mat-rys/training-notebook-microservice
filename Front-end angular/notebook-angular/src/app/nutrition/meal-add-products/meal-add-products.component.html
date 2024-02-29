@@ -26,7 +26,6 @@
 
   <section class="content">
     <div class="hero">
-      <!-- Dodaj pasek wyszukiwania -->
       <div class="search-bar">
         <input type="text" placeholder="Search for products" [(ngModel)]="searchQuery" (input)="searchProducts()" />
         <button (click)="searchProducts()"><i class="fas fa-search"></i></button>
@@ -41,10 +40,9 @@
         <input [(ngModel)]="editingProduct.fat" placeholder="Fat">
         <input [(ngModel)]="editingProduct.protein" placeholder="Protein">
         <button (click)="updateProduct()">Update</button>
-        <button (click)="cancelEdit()">Cancel</button> <!-- Dodaj przycisk "Cancel" -->
+        <button (click)="cancelEdit()">Cancel</button> 
       </div>
   
-      <!-- Lista przefiltrowanych produktów (jeśli jest zdefiniowana fraza) -->
       <div class="product-list" *ngIf="searchQuery">
         <div *ngFor="let product of filteredProducts" class="product-item">
           <div class="product-header">
@@ -65,7 +63,6 @@
         </div>
       </div>
   
-      <!-- Lista wszystkich produktów (jeśli nie ma zdefiniowanej frazy) -->
       <div class="product-list" *ngIf="!searchQuery">
         <div *ngFor="let product of products" class="product-item">
           <div class="product-header">
@@ -104,7 +101,6 @@
         <td>{{ totalCarbs | number:'1.0-1' }} g</td>
       </tr>
     </table>
-     <!-- Dodaj ten blok HTML w sekcji "Added Products" -->
      <div class="added-products">
       <h3>Selected Products</h3>
       <ul>
