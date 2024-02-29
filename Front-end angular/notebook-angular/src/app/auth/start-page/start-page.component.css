@@ -8,7 +8,7 @@ body {
     width: 100.95%;
     max-height: 100%;
    
-    user-select: none; /* Unselectable text */
+    user-select: none; 
 }
 
 .star-web {
@@ -68,7 +68,7 @@ body {
     margin-top: 170px;
     margin-left: -500px;
     margin-bottom: 0px;
-    font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+    font-family: 'Different Font Name', playfire display; 
     user-select: none;
 }
 
@@ -207,56 +207,43 @@ body {
     user-select: none; 
 }
 
-
-/* KONIEC HERO */
-/* Styl dla sekcji "Personal Account" */
-/* Styl dla sekcji "Personal Account" */
 .Personal.Account {
-    position: relative; /* Ustawienie pozycji relative dla sekcji */
-
+    position: relative; 
     margin-top: 200px;
     margin-bottom: 590px;
-    text-align: center; /* Wycentrowanie tekstu */
+    text-align: center; 
     color: #fff;
 }
-
-
-
 
 .profile-title {
     font-size: 52px;
     text-align: center;
-   
     margin-top: -450px;
     margin-left: 1470px;
-    max-width: 400px; /* Maksymalna szerokość tekstu */
-    font-family: 'Different Font Name', playfire display; /* Inna czcionka dla nagłówka */
+    max-width: 400px; 
+    font-family: 'Different Font Name', playfire display; 
     color: #fff;
-    user-select: none; /* Unselectable text */
+    user-select: none;
 }
 
 .profile-description {
    
     color: #fff;
-    max-width: 500px; /* Maksymalna szerokość tekstu */
+    max-width: 500px; 
     font-size: 24px;
     text-align: center;
     margin-left: 1420px;
     margin-top: -30px;
     white-space: pre-line;
 
-    user-select: none; /* Unselectable text */
+    user-select: none; 
 }
 
 .Personal.Account img {
     margin-left: -590px;
-    box-shadow: 20px 10px 100px rgba(0, 0, 0, 0.4); /* Dodaj cień obrazu */
-    border: 1px solid rgb(0, 0, 0); /* Grubsza ramka wokół obrazka */
+    box-shadow: 20px 10px 100px rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgb(0, 0, 0); 
 }
-
-
-
-
 
 .dot-container {
     text-align: center;
@@ -282,12 +269,10 @@ body {
 }
   
 .hero2 {
-    margin-top: 10px; /* Zmień margines na odpowiednią wartość, aby sekcja przylegała do separatora */
-
+    margin-top: 10px;
 }
 
 .hero2 img{
     width: 100%;
-    min-height: 980px;
-    
+    min-height: 980px;    
 }

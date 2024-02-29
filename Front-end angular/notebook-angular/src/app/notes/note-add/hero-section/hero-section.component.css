@@ -57,7 +57,7 @@
 
   
   .black-text {
-    color: #000; /* Kolor tekstu czarny */
+    color: #000; 
   }
   
   .search-container input, .search-container textarea {
@@ -68,7 +68,7 @@
     width: 400px;
   }
   
-  /* Dodaj nową klasę dla stylu button */
+
   .submit-button {
     padding: 8px 20px;
     background: linear-gradient(to bottom, #C889A9, #BA2C84);

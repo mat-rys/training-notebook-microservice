@@ -156,10 +156,8 @@
     background-color: #BA2C84;
   }
   
-  /* Styl dla formularza edycji notatki */
   .edit-form {
-    
-    border-radius: 10px; /* Zaokrąglij rogi formularza */
+    border-radius: 10px;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -173,7 +171,7 @@
   
   .edit-form h2 {
     font-size: 24px;
-    color:#fff; /* Kolor tytułu */
+    color:#fff;
     margin-bottom: 20px;
   }
   
@@ -182,7 +180,7 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     width: 100%;
-    border-radius: 10px; /* Zaokrąglij rogi inputów */
+    border-radius: 10px; 
     margin: 10px 0;
     font-size: 16px;
   }

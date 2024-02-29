@@ -13,7 +13,7 @@ body {
   
   .star-web {
     display: flex;
-    justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
+    justify-content: center;
     align-items: center;
     padding: 0px;
    
@@ -27,33 +27,32 @@ body {
   .nav-list {
     list-style-type: none;
     display: flex;
-    flex-direction: row; /* Zmień na poziomy układ */
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
+    justify-content: flex-end; 
    
     margin-top: 5px;
   
-    width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
+    width: auto;
   }
   
   .nav-list .logo {
     display: flex;
-    justify-content: flex-end; /* Przesuń logo na prawy róg */
+    justify-content: flex-end; 
     align-items: center;
-    margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
+    margin-right: 20px; 
   }
   
   .nav-list .logo a:hover {
-    color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
+    color: #4009A5; 
     color: #fff;
-    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+    border-radius: 20px; 
   }
   
-  /* Przyciski nawigacyjne */
   .nav-buttons {
     display: flex;
     align-items: center;
-    justify-content: center; /* Przesuń przyciski na środek */
+    justify-content: center; 
   
   }
   
@@ -72,20 +71,17 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
-    border-radius: 0; /* Usunięto border-radius z początkowego stylu */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; 
+    border-radius: 0; 
   }
   
   .nav-buttons button:hover {
     background-color: #4009A5;
     color: #fff;
-    border-radius: 20px; /* Dodano zaokrąglenie na hover */
+    border-radius: 20px; 
   }
   
-  
-  
-  
-    .background-content-photo {
+  .background-content-photo {
       position: fixed;
       top: 0;
       left: 0;
@@ -95,8 +91,8 @@ body {
       height: 100%;
       object-fit: cover;
       filter: brightness(50%);
-      transform: scale(1.1); /* Przykładowe powiększenie o 10% */
-    }
+      transform: scale(1.1); 
+  }
   
 
 
@@ -104,8 +100,8 @@ body {
     .product-list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around; /* Rozłoży produkty na przestrzeni dostępnej szerokości */
-        align-items: flex-start; /* Rozpocznij produkty od góry */
+        justify-content: space-around; 
+        align-items: flex-start; 
       }
       
       .product-item {
@@ -130,9 +126,6 @@ body {
       }
       
 
-      /* styles.css lub styles.scss */
-
-/* Styl dla wyszukiwarki */
 .search-container {
     display: flex;
     align-items: center;
@@ -169,7 +162,6 @@ body {
     background-color: #0056b3;
   }
   
-  /* Styl dla listy produktów */
   .product-list {
     display: flex;
     flex-direction: column;
@@ -210,9 +202,6 @@ body {
     margin: 5px 0;
   }
   
-  /* Pozostałe style pozostaw bez zmian */
-  
-  
   .product-title {
     font-size: 20px;
     font-weight: bold;
@@ -236,22 +225,20 @@ body {
   }
   
   .add-product-button button {
-    padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+    padding: 10px 20px; 
     font-size: 16px;
     background:  #480DF0;
     color: #fff;
     border: none;
-    border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
   }
   
   .add-product-button button:hover {
-    background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+    background-color:  #0056b3; 
   }
 
-
-  /* Styl dla kontenera paska wyszukiwania */
 .search-bar {
   display: flex;
   align-items: center;
@@ -262,16 +249,14 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Styl dla pola tekstowego wyszukiwania */
 .search-bar input[type="text"] {
   flex: 1;
   border: none;
   padding: 5px;
   font-size: 16px;
-  outline: none; /* Usuń standardowy obramowanie pola */
+  outline: none; 
 }
 
-/* Styl dla przycisku wyszukiwania */
 .search-bar button {
   background-color: #007BFF;
   color: #fff;
@@ -281,17 +266,14 @@ body {
   cursor: pointer;
 }
 
-/* Styl dla ikony w przycisku */
 .search-bar button i {
   font-size: 18px;
 }
 
-/* Styl po najechaniu na przycisk wyszukiwania */
 .search-bar button:hover {
   background-color: #0056b3;
 }
 
-/* Styl dla przycisków "Edit" i "Delete" */
 .product-buttons {
   display: flex;
   gap: 10px;
@@ -313,13 +295,8 @@ body {
   background: #0056b3;
 }
 
-
-
-
-
-/* Styl dla formularza edycji notatki */
 .edit-form {
-  border-radius: 10px; /* Zaokrąglij rogi formularza */
+  border-radius: 10px; 
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -332,7 +309,7 @@ body {
 
 .edit-form h2 {
   font-size: 24px;
-  color:#fff; /* Kolor tytułu */
+  color:#fff; 
   margin-bottom: 20px;
 }
 
@@ -341,7 +318,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 100%;
-  border-radius: 10px; /* Zaokrąglij rogi inputów */
+  border-radius: 10px;
   margin: 10px 0;
   font-size: 16px;
 }
@@ -361,7 +338,6 @@ body {
   background-color: #0056b3;
 }
 
-/* Styl dla listy dodanych produktów */
 .added-products {
     border: 1px solid black;
     padding: 10px;
@@ -402,44 +378,43 @@ body {
   }
   
 
-  /* CSS for the totals table */
 .totals {
-  margin-top: 20px; /* Add some spacing from the previous content */
-  border-collapse: collapse; /* Collapse borders for a cleaner look */
+  margin-top: 20px; 
+  border-collapse: collapse; 
   color:#ddd;
-  width: 100%; /* Make the table take the full width available */
+  width: 100%; 
 }
 
 .totals th {
-  border: 1px solid #ddd; /* Add borders to table cells */
-  padding: 8px; /* Add padding to the cells for spacing */
-  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left; 
   color: black;
 }
 
 .totals td{
-  border: 1px solid #ddd; /* Add borders to table cells */
-  padding: 8px; /* Add padding to the cells for spacing */
-  text-align: left; /* Align text to the left */
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left; 
 }
 
 .totals th {
-  background-color: #f2f2f2; /* Add a light gray background to header cells */
+  background-color: #f2f2f2;
 }
 
-/* Style the total values */
+
 .totals td {
-  font-weight: bold; /* Make the total values bold */
+  font-weight: bold; 
 }
 
 .added-products-section {
   position: absolute;
-  left: 1350px; /* Określa odległość od lewej krawędzi strony */
-  top: 50px; /* Określa odległość od górnej krawędzi strony */
+  left: 1350px;
+  top: 50px; 
 }
 
 .added-products {
-  text-align: center; /* Wyśrodkowanie zawartości wewnątrz "added-products" */
+  text-align: center;
 }
 
 .added-products ul {
@@ -462,5 +437,5 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  margin-top: 20px; /* Dodaj odstęp od poprzedniego elementu */
+  margin-top: 20px; 
 }

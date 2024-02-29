@@ -41,7 +41,6 @@
 }
 }
 
-/* Styl dla przycisku "Add Note" */
 .add-note-button {
   justify-content: flex-end;
   transition: transform 0.4s ease;
@@ -59,18 +58,18 @@
 .add-note-button button {
  
 
-  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  padding: 10px 20px; 
   font-size: 16px;
   background: linear-gradient(to bottom, #C889A9, #BA2C84);
   color: #fff;
   border: none;
-  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  border-radius: 30px; 
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 }
 
 .add-note-button button:hover {
-  background-color: #1a5a9f; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  background-color: #1a5a9f; 
 }
 
 

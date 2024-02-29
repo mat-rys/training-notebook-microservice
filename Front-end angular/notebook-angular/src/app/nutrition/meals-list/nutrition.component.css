@@ -356,52 +356,45 @@ input {
 }
 
 .add-meal-button button {
-  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  padding: 10px 20px;
   font-size: 16px;
   background:  #480DF0;
   color: #fff;
   border: none;
-  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transition: transform 0.5s ease;
 }
 
 .add-meal-button button:hover {
-  background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  background-color:  #0056b3;
   transform: scale(1.1);
 }
-
-
 
 .add-product-button {
   display: flex;
   justify-content: flex-end;
   margin-left: 950px;
   margin-top: 12px;
- 
-
 }
 
 .add-product-button button {
-  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  padding: 10px 20px;
   font-size: 16px;
   background:  #480DF0;
   color: #fff;
   border: none;
-  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transition: transform 0.5s ease;
 }
 
 .add-product-button button:hover {
-  background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  background-color:  #0056b3;
   transform: scale(1.1);
 }
-
-
-
 
 .products-list-button {
   display: flex;
@@ -411,22 +404,21 @@ input {
 }
 
 .products-list-button  button {
-  padding: 10px 20px; /* Zwiększ odstępy wewnątrz przycisku */
+  padding: 10px 20px;
   font-size: 16px;
   background:  #480DF0;
   color: #fff;
   border: none;
-  border-radius: 30px; /* Zaokrąglij krawędzie przycisku */
+  border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transition: transform 0.5s ease;
 }
 
 .products-list-button  button:hover {
-  background-color:  #0056b3; /* Kolor przycisku "Add Note" po najechaniu myszką */
+  background-color:  #0056b3;
   transform: scale(1.1);
 }
-
 
 .calendar-container{
   margin-left: px;
@@ -438,12 +430,12 @@ input {
   top: 13%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #32CD32; /* Zielony kolor */
+  background-color: #32CD32;
   color: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 999; /* Upewnij się, że wiadomość jest na wierzchu */
+  z-index: 999;
 }
 
 .success-message p {
@@ -455,19 +447,18 @@ input {
 .tips-container {
   position: fixed;
   width: 300px;
-  top: 350px; /* dostosuj pozycję pionową */
-  right: 220px; /* dostosuj pozycję poziomą */
-  background-color: rgba(255, 255, 255, 0.8); /* użyj koloru tła z przezroczystością */
-  padding: 20px; /* dodaj wypełnienie */
-  border-radius: 10px; /* zaokrągl brzegi */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* dodaj cień */
+  top: 350px;
+  right: 220px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-  .tips-container .tip {
-    margin-bottom: 10px; /* dodaj odstęp między poradami */
-  }
+.tips-container .tip {
+  margin-bottom: 10px;
+}
 
-  /* Dodatkowo możesz dodać stylowanie dla nagłówków i paragrafów w poradach */
   .tips-container h3 {
     font-size: 16px;
     font-weight: bold;
