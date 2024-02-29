@@ -1,17 +1,16 @@
 package com.example.demo.service;
 
-import com.example.demo.entitie.Meals;
 import com.example.demo.entitie.ProductsMeals;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductMealsService {
 
     ProductsMeals createProductMeal(ProductsMeals productMeal);
 
-    ProductsMeals getProductMealById(Long id);
+    Optional<ProductsMeals> getProductMealById(Long id);
 
     List<ProductsMeals> getAllProductMeals();
 

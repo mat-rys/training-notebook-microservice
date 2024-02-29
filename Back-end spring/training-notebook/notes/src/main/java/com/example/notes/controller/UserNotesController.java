@@ -54,7 +54,6 @@ public class UserNotesController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-
     @PostMapping
     public void createNote(@RequestBody UserNotes userNotes, Principal principal) {
         String userId = principal.getName();

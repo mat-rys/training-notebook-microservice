@@ -2,14 +2,13 @@ package com.example.demo.service;
 
 import com.example.demo.entitie.Meals;
 import com.example.demo.repository.MealsRepo;
-import com.example.demo.repository.ProductsMealsRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -22,8 +21,8 @@ public class MealsServiceImpl implements MealsService {
     }
 
     @Override
-    public Meals getMealById(Long id) {
-        return mealsRepository.findById(id).orElse(null);
+    public Optional<Meals> getMealById(Long id) {
+        return Optional.ofNullable(mealsRepository.findById(id).orElse(null));
     }
 
     @Override
@@ -61,13 +60,12 @@ public class MealsServiceImpl implements MealsService {
             }
             return mealsRepository.save(existingMeal);
         }
-        return null; // Zwróć null, jeśli posiłek o podanym id nie istnieje
+        return null;
     }
 
     @Override
     public Meals updateMealData(Long id, Meals updatedData) {
         Meals existingMeal = mealsRepository.findById(id).orElse(null);
-
         if (existingMeal != null) {
             if (updatedData.getTitle() != null) {
                 existingMeal.setTitle(updatedData.getTitle());
@@ -90,10 +88,8 @@ public class MealsServiceImpl implements MealsService {
             if (updatedData.getMealTime() != null) {
                 existingMeal.setMealTime(updatedData.getMealTime());
             }
-
             return mealsRepository.save(existingMeal);
         }
-
-        return null; // Zwróć null, jeśli posiłek o podanym id nie istnieje
+        return null;
     }
 }

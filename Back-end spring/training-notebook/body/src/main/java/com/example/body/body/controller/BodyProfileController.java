@@ -23,13 +23,6 @@ public class BodyProfileController {
     private final BodyProfileeService bodyProfileService;
     private PhotoRepo photoRepo;
 
-    @PostMapping("/photo")
-    public ResponseEntity<String> createPhoto(@RequestBody Photo photo, Principal principal) {
-        photo.setIdUser(principal.getName());
-        photoRepo.save(photo);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Zapisano nowy obrazek profilowy.");
-    }
-
     @GetMapping("/photo")
     public ResponseEntity<Photo> getPhoto(Principal principal) {
         Photo photo = photoRepo.findByIdUser(principal.getName());
@@ -40,6 +33,13 @@ public class BodyProfileController {
     public ResponseEntity<BodyProfile> getBodyProfile(Principal principal) {
         Optional<BodyProfile> bodyProfile = bodyProfileService.getBodyProfileById(principal.getName());
         return bodyProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/photo")
+    public ResponseEntity<String> createPhoto(@RequestBody Photo photo, Principal principal) {
+        photo.setIdUser(principal.getName());
+        photoRepo.save(photo);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Zapisano nowy obrazek profilowy.");
     }
 
     @PostMapping("/post")

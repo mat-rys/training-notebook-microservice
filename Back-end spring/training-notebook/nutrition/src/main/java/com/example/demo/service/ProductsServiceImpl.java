@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -18,8 +19,8 @@ public class ProductsServiceImpl implements ProductsService{
     }
 
     @Override
-    public Products getProductById(Long id) {
-        return productsRepository.findById(id).orElse(null);
+    public Optional<Products> getProductById(Long id) {
+        return Optional.ofNullable(productsRepository.findById(id).orElse(null));
     }
 
     @Override

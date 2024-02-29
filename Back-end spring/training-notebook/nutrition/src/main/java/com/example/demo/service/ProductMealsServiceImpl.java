@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -20,8 +21,8 @@ public class ProductMealsServiceImpl implements ProductMealsService {
     }
 
     @Override
-    public ProductsMeals getProductMealById(Long id) {
-        return productMealsRepository.findById(id).orElse(null);
+    public Optional<ProductsMeals> getProductMealById(Long id) {
+        return Optional.ofNullable(productMealsRepository.findById(id).orElse(null));
     }
 
     @Override
