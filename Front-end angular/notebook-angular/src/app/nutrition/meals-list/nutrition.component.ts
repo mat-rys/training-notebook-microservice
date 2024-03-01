@@ -35,7 +35,6 @@ export class NutritionComponent implements OnInit {
   idMeal!: number;
   @Input() mealId: number = 0; 
 
-
   title: string = '';
   day!: Date; 
   mealTime!: string;
@@ -52,7 +51,7 @@ export class NutritionComponent implements OnInit {
 
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0'); // Miesiące są numerowane od 0, dlatego dodajemy 1
+    const month = String(today.getMonth() + 1).padStart(2, '0'); 
     const year = today.getFullYear();
     this.selectedDate = `${year}-${month}-${day}`
     this.loadMeals(this.selectedDate);
@@ -61,7 +60,7 @@ export class NutritionComponent implements OnInit {
 
   loadRandomTip() {
     this.tipService.getRandomSortedNutritionTip().subscribe(randomTip => {
-      this.tips = [randomTip]; // Umieść losową poradę w tablicy, aby można ją było użyć w szablonie
+      this.tips = [randomTip]; 
     });
     this.loadRandomImage();
   }
@@ -76,7 +75,7 @@ export class NutritionComponent implements OnInit {
   }
 
   loadMeals(formattedDate: string) {
-    this.meals = []; // Resetuj tablicę posiłków
+    this.meals = [];
     this.mealsService.loadMeals(formattedDate).subscribe((data) => {
       this.meals = data;
       this.sortMealsByTime();
@@ -167,8 +166,6 @@ toggleMealFormAdd() {
   this.showMealFormEdit = false;
 }
 
-
-
 createMeal() {
   const selectedTime = this.mealTime.split(':');
 
@@ -195,10 +192,9 @@ createMeal() {
     }
   ); 
 }
-
-  
+ 
   addProductsToMeal(mealId: number) {
-    this.router.navigate(['/meal-add-products'], { queryParams: { mealId: mealId } });
+    this.router.navigate(['/nutrition/meal-add-products'], { queryParams: { mealId: mealId } });
   }
 
   editMeal(meal: Meals) {
@@ -222,8 +218,6 @@ createMeal() {
       alert('Please select a valid date.');
     }
   }
-  
-  
   
   submitEditedMeal() {
     if (!this.day || !this.mealTime) {
@@ -256,8 +250,6 @@ createMeal() {
       }
     );
   }
-  
-  
   
   toggleMealFormEdit() {
     this.showMealFormEdit = !this.showMealFormEdit;

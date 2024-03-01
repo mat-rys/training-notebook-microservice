@@ -8,6 +8,7 @@ import { Meals } from './models/meals.model';
 import { AuthService } from '../../security-config/auth.service';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { MealsProductsService } from '../services/meals-products.service'; // Importuj serwis
 
 @Component({
   selector: 'app-meal-add-products',
@@ -40,7 +41,8 @@ export class MealAddProductsComponent implements OnInit {
 
   token = this.authService.getToken();
 
-  constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute,  private router: Router) {}
+  constructor(private authService: AuthService, private http: HttpClient, 
+    private route: ActivatedRoute,  private router: Router, private mealsProductsService: MealsProductsService) {}
 
   ngOnInit(): void {
     this.searchTerms.pipe(debounceTime(600)).subscribe(() => {
@@ -64,29 +66,18 @@ export class MealAddProductsComponent implements OnInit {
   }
 
   loadProducts() {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-
-    const url = 'http://localhost:8222/nutrition/products';
-
-    this.http.get<Product[]>(url, { headers }).subscribe((data) => {
+    this.mealsProductsService.loadProducts().subscribe((data) => {
       this.products = data;
     });
   }
 
   
   deleteProduct(product: Product) {
-    const deleteHeaders = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
+    this.mealsProductsService.deleteProduct(product.id).subscribe(() => {
+      this.loadProducts();
+    }, error => {
+      console.error('Błąd podczas usuwania notatki:', error);
     });
-
-    this.http.delete(`http://localhost:8222/nutrition/products/${product.id}`, { headers: deleteHeaders })
-      .subscribe(() => {
-        this.loadProducts();
-      }, error => {
-        console.error('Błąd podczas usuwania notatki:', error);
-      });
   }
 
   deleteProductConfirmation(product: Product) {
@@ -100,36 +91,27 @@ export class MealAddProductsComponent implements OnInit {
   }
 
   cancelEdit() {
-    this.editingProduct = null; // Ukryj formularz edycji
+    this.editingProduct = null; 
   }
 
   updateProduct() {
     if (this.editingProduct) {
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${this.token}`,
+      this.mealsProductsService.updateProduct(this.editingProduct).subscribe(response => {
+        this.loadProducts();
+        this.editingProduct = null;
+      }, error => {
+        console.error('Error updating product:', error);
       });
-
-      this.http.put(`http://localhost:8222/nutrition/products/${this.editingProduct.id}`, this.editingProduct, { headers })
-        .subscribe(response => {
-          this.loadProducts();
-          this.editingProduct = null;
-        }, error => {
-          console.error('Error updating product:', error);
-        });
     }
   }
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 
-   loadProductsForMeal(mealId: number) {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-
-    const url = `http://localhost:8222/nutrition/products-meals/get-for-meal/${mealId}`;
-    this.http.get<Product[]>(url, { headers }).subscribe((data) => {
+  loadProductsForMeal(mealId: number) {
+    this.mealsProductsService.loadProductsForMeal(mealId).subscribe((data) => {
       this.selectedProducts = data;
       this.calculateSelectedProductsTotals();
     });
@@ -151,93 +133,46 @@ export class MealAddProductsComponent implements OnInit {
   this.updateMealTotals(updatedTotals);
 }
   
-  updateMealTotals(updatedTotals: Meals) {  
-    this.route.queryParams.subscribe(params => {
-      this.idMeal = params['mealId'];
-    });
+ updateMealTotals(updatedTotals: Meals) {
+  this.mealsProductsService.updateMealTotals(this.idMeal, updatedTotals).subscribe(
+    (response) => {
+      console.log('Meal totals updated:', response);
+    },
+    (error) => {
+      console.error('Error updating meal totals:', error);
+    }
+  ); 
+}
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
+addSelectedProductToMeal(product: Product) {
+  const existingProduct = this.selectedProducts.find(p => p.title === product.title);
   
-    const url = `http://localhost:8222/nutrition/meals/${this.idMeal}`;
-  
-    this.http.put<Meals>(url, updatedTotals, { headers }).subscribe(
-      (response) => {
-        console.log('Meal totals updated:', response);
-      },
-      (error) => {
-        console.error('Error updating meal totals:', error);
-     }
-    ); 
+  if (existingProduct) {
+    alert('Ten produkt został już dodany do listy.');
+    return;
   }
 
-  addSelectedProductToMeal(product: Product) {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-  
-    this.route.queryParams.subscribe(params => {
-      this.idMeal = params['mealId'];
-    });
-  
-    const existingProduct = this.selectedProducts.find(p => p.title === product.title);
-  
-    if (existingProduct) {
-      alert('Ten produkt został już dodany do listy.');
+  const gramsToAdd = prompt(`Enter grams for ${product.title}:`, '100');
+  if (gramsToAdd !== null) {
+    const grams = parseFloat(gramsToAdd);
+    if (!isNaN(grams) && grams > 0) {
+      this.mealsProductsService.addSelectedProductToMeal(product, this.idMeal, grams).subscribe(
+        () => { this.calculateSelectedProductsTotals(); this.ngOnInit(); },
+        (error) => console.error('Error adding product to meal:', error)
+      );
     } else {
-      const gramsToAdd = prompt(`Enter grams for ${product.title}:`, '100');
-      if (gramsToAdd !== null) {
-        const grams = parseFloat(gramsToAdd);
-        if (!isNaN(grams) && grams > 0) {
-          const calories = (grams / 100) * product.calories;
-          const fat = (grams / 100) * product.fat;
-          const protein = (grams / 100) * product.protein;
-          const carbs = (grams / 100) * product.carbs;
-  
-          const productToAdd: ProductMeal = {
-            title: product.title,
-            calories: calories,
-            grams: grams,
-            carbs: carbs,
-            protein: protein,
-            fat: fat,
-            mealId: this.idMeal,
-          };
-  
-          this.http.post('http://localhost:8222/nutrition/products-meals', productToAdd, { headers }).subscribe(
-            (response) => {
-              console.log('Product added to meal:', response);
-              this.calculateSelectedProductsTotals(); // Zaktualizuj sumy wybranych produktów
-              this.ngOnInit();
-            },
-            (error) => {
-              console.error('Error adding product to meal:', error);
-            }
-          );
-        } else {
-          alert('Wprowadź poprawną wartość dla gramów (liczbę większą od zera lub nie jako znak).');
-        }
-      }
+      alert('Wprowadź poprawną wartość dla gramów (liczbę większą od zera lub nie jako znak).');
     }
   }
-  
+}
 
-  removeProduct(product: Product) {  
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
-    this.http.delete(`http://localhost:8222/nutrition/products-meals/${product.id}`, { headers })
-      .subscribe(
-        () => {
-          this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id);
-          this.calculateSelectedProductsTotals();
-        },
-        (error) => {
-          console.error('Error removing product from meal:', error);
-        }
-      );
-  }
+removeProduct(product: Product) {
+  this.mealsProductsService.removeProduct(product.id).subscribe(
+    () => { this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id); this.calculateSelectedProductsTotals(); },
+    (error) => console.error('Error removing product from meal:', error)
+  );
+}
+
 
   removeAddedProductConfirmation(product: Product) {
     if (confirm('Czy na pewno chcesz usunąć z listy dodanych ten produkt?')) {
