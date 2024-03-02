@@ -27,7 +27,7 @@ export class ProductComponent implements OnInit {
   constructor(private authService: AuthService, private productsService: ProductsService) {}
   ngOnInit(): void {}
 
-  logout() {
+  handleLogout() {
     this.authService.removeToken();
   }
   
