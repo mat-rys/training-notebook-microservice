@@ -201,11 +201,7 @@ createMeal() {
     this.title = meal.title;
     this.day = new Date(meal.day);
     this.mealTime = meal.mealTime.slice(0, 5); 
-
-    console.log(this.day)
-  
     this.idMeal = meal.id;
-
     this.showMealFormEdit = !this.showMealFormEdit;
     this.showMealFormAdd = false
   }
