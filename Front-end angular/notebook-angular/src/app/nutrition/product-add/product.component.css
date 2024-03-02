@@ -11,79 +11,10 @@ body {
     justify-content: flex-start;
   }
   
-  .star-web {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    padding: 0px;
-    background-color: #092640;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    justify-content: flex-end;
-   
-    margin-top: 5px;
-  
-    width: auto; 
-  }
-  
-  .nav-list .logo {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-right: 20px; 
-  }
-  
-  .nav-list .logo a:hover {
-    color: #4009A5; 
-    color: #fff;
-    border-radius: 20px;
-  }
-
-  .nav-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-  
-  }
-  
-  .nav-buttons a {
-    text-decoration: none;
-  }
-  
-  .nav-buttons button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; 
-    border-radius: 0; 
-  }
-  
-  .nav-buttons button:hover {
-    background-color: #4009A5;
-    color: #fff;
-    border-radius: 20px; 
-  }
-  
   .content {
     flex-grow: 1;
     margin-left: 200px; 
+    top: 200px;
   }
      
     .hero {
@@ -118,8 +49,8 @@ body {
     }
     
   
-  
-    .background-content-photo {
+    #photo-background{
+      background-image: url("../../../assets/ramen.jpg");
       position: fixed;
       top: 0;
       left: 0;
@@ -127,9 +58,8 @@ body {
       opacity: 1;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      filter: brightness(50%);
-      transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+      filter: brightness(40%);
+      background-size: cover; 
     }
 
 
@@ -137,6 +67,7 @@ body {
     .content {
       flex-grow: 1;
       margin-left: 200px;
+      margin-top: 200px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -176,19 +107,6 @@ body {
       background-color: white;
       color: white;
       cursor: pointer;
-    }
-    
-    .background-content-photo {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      opacity: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(40%);
-      transform: scale(1.1);
     }
     
     .submit-button {
@@ -247,7 +165,7 @@ input {
   display: flex;
   justify-content: flex-end;
   margin-left: 950px;
-  margin-top: 12px;
+  margin-top: 80px;
 }
 
 .products-list-button  button {

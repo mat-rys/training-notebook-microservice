@@ -8,6 +8,8 @@ import { ProductListComponent } from './products-list/product-list.component';
 import { ProductComponent } from './product-add/product.component';
 import { MealAddProductsComponent } from './meal-add-products/meal-add-products.component';
 import { NutritionComponent } from './meals-list/nutrition.component';
+import { NavbarComponent } from './shared-child-component/navbar/navbar.component';
+import { ListComponent } from './products-list/list/list.component';
 
 const routes: Routes = [
   { path: 'product-add', component: ProductComponent },
@@ -21,7 +23,9 @@ const routes: Routes = [
     ProductListComponent,
     ProductComponent,
     MealAddProductsComponent,
-    NutritionComponent
+    NutritionComponent,
+    NavbarComponent,
+    ListComponent
   ],
   imports: [  
     HttpClientModule,
