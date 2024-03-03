@@ -35,6 +35,7 @@ export class MealsService {
   }
 
   updateMeal(id: number, updatedData: Meal): Observable<Meal> {
+    console.log(updatedData)
     return this.http.put<Meal>(`http://localhost:8222/nutrition/meals/mealEdit/${id}`, updatedData, { headers: this.headers });
   }
 }

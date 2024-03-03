@@ -48,7 +48,6 @@ body {
       cursor: pointer;
     }
     
-  
     #photo-background{
       background-image: url("../../../assets/ramen.jpg");
       position: fixed;
@@ -61,8 +60,6 @@ body {
       filter: brightness(40%);
       background-size: cover; 
     }
-
-
 
     .content {
       flex-grow: 1;

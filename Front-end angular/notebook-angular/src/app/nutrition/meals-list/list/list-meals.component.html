@@ -1,0 +1,58 @@
+<!-- Meals, totals and date -->
+
+<div class="header">
+  <span class="arrow-left" (click)="changeDate(-1)">&lt;</span>
+  <span class="date">{{ selectedDate }}</span>
+  <span class="arrow-right" (click)="changeDate(1)">&gt;</span>
+  <div class="calendar-container">
+      <input type="date" [(ngModel)]="selectedDate" (change)="changeDateFromInput()">
+  </div>
+  <!-- <label>
+      Sort Hours:
+      <select [(ngModel)]="sortDirection" (change)="sortMealsByTime()">
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+      </select>
+  </label>  -->
+</div>
+
+<table class="nutrition-table" *ngIf="loadedMeals.length > 0">
+  <tr>
+    <td>Calories</td>
+    <td id="calories">{{ totalCalories  | number: '1.0-0' }} kcal</td>
+  </tr>
+  <tr>
+    <td>Fat</td>
+    <td id="fat">{{ totalFat | number: '1.0-1' }}g</td>
+  </tr>
+  <tr>
+    <td>Carbs</td>
+    <td id="carbs">{{ totalCarbs | number: '1.0-1' }}g</td>
+  </tr>
+  <tr>
+    <td>Protein</td>
+    <td id="protein">{{ totalProtein | number: '1.0-1' }}g</td>
+  </tr>
+</table>
+
+<div class="meals">
+    <div *ngFor="let meal of loadedMeals" class="meal">
+      <div class="meal-info">
+        <p class="meal-time">{{ meal.mealTime | slice:0:5 }}</p> 
+        <p class="meal-name">{{ meal.title }}</p>
+      </div>
+      <div class="meal-nutrition">
+        <br>
+        <br>
+        <p class="meal-nutrient">Calories: {{ meal.calories | number: '1.0-0' }} kcal</p>
+        <p class="meal-nutrient">Fat: {{ meal.fat | number: '1.0-1' }}g</p>
+        <p class="meal-nutrient">Carbs: {{ meal.carbs | number: '1.0-1' }}g</p>
+        <p class="meal-nutrient">Protein: {{ meal.protein | number: '1.0-1' }}g</p>
+      </div>
+      <div class="meal-actions">
+        <button class="edit-button" (click)="sendMealToEdit(meal)">Edit meal</button>
+        <button class="add-button" (click)="addProductsToMeal(meal.id)">Add products</button>
+        <button class="delete-button" (click)="onDeleteMeal(meal.id)">Delete</button>
+      </div>
+    </div>
+  </div> 
