@@ -1,0 +1,163 @@
+
+.meals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .meal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .meal-info {
+    flex: 2;
+    padding: 10px;
+  }
+  
+  
+  .meal-nutrition {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .meal-nutrient {
+    margin: 5px 0;
+  }
+
+  
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    min-width: 535px;
+  }
+  
+  .arrow-left,
+  .arrow-right {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .date {
+    font-weight: bold;
+  }
+  
+  .meal {
+    transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .meal:hover {
+    transform: scale(1.05);
+  }
+  
+  .meal-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .edit-button,
+.delete-button,
+.add-button {
+  background-color: #480DF0;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+
+  background-color: #4009A5; 
+  border-radius: 4px;
+  padding: 10px;
+  color: #fff; 
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 20px;
+  color: #fff;
+}
+
+.date {
+  font-size: 18px;
+  color: #fff;
+}
+
+.nutrition-table {
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  background-color: #4009A5; 
+  color: #fff;
+  
+  margin-bottom: 20px;
+}
+
+.nutrition-table td {
+  flex: 1; 
+  padding: 10px;
+  text-align: center; 
+  border: 1px solid #fff; 
+  min-width: 40px;
+}
+
+.nutrition-table td.percent {
+  flex: 1; 
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #fff; 
+  
+}
+
+.nutrition-table th {
+  display: none; 
+}
+  
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  min-width: 535px;
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.date {
+  font-weight: bold;
+}

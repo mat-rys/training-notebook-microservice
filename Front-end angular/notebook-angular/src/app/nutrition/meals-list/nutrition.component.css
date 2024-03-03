@@ -87,46 +87,6 @@ body {
   margin-left: 200px; 
 }
   
-.input-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-  margin-left: -0px;
-  width:400px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-label {
-  flex: 1;
-  padding: 5px;
-  color: #fff;
-}
-
-input {
-  flex: 3;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-}
-  
-.heroAdd,
-.heroEdit {
-  padding: 50px;
-  text-align: center;
-}
-  .submit-button {
-    padding: 8px 20px;
-    background: linear-gradient(to bottom, #00B2C8, #480DF0);
-    color: #fff;
-    border: none;
-    margin: 0px;
-    margin-left: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
   
   .search-container {
     display: flex;
@@ -154,9 +114,8 @@ input {
     cursor: pointer;
   }
   
-
-
-  .background-content-photo {
+  #photo-background{
+    background-image: url("../../../assets/ramen.jpg");
     position: fixed;
     top: 0;
     left: 0;
@@ -164,15 +123,10 @@ input {
     opacity: 1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(50%);
-    transform: scale(1.1); /* Przykładowe powiększenie o 10% */
+    filter: brightness(40%);
+    background-size: cover; 
   }
 
-
-
-
-/* Styl dla całej sekcji content */
 .content {
   margin-top: -120px;
   margin-left: -12px;
@@ -182,171 +136,6 @@ input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
-
-/* Styl dla nagłówka z datą i strzałkami */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Rozsuń strzałki i datę na boki */
-
-  background-color: #4009A5; /* Fioletowe tło */
-  border-radius: 4px;
-  padding: 10px;
-  color: #fff; /* Biały kolor tekstu */
-}
-
-
-/* Styl dla strzałek w nagłówku */
-.arrow-left,
-.arrow-right {
-  font-size: 24px;
-  cursor: pointer;
-  margin: 0 20px;
-  color: #fff;
-}
-
-/* Styl dla daty w nagłówku */
-.date {
-  font-size: 18px;
-  color: #fff;
-}
-
-/* Styl dla tabeli z treścią */
-.nutrition-table {
-  width: 100%;
-  display: flex;
-  flex-direction: row; /* Układ poziomy */
-  background-color: #4009A5; /* Fioletowe tło */
-  color: #fff;
-  
-  margin-bottom: 20px;
-}
-
-/* Styl dla komórek w tabeli */
-.nutrition-table td {
-  flex: 1; /* Rozciągnij komórki, aby zajmować tyle miejsca, ile jest dostępne */
-  padding: 10px;
-  text-align: center; /* Wycentrowanie tekstu */
-  border: 1px solid #fff; /* Ramka komórki */
-  min-width: 40px;
-}
-
-/* Dodaj styl dla komórki z procentami Dziennego Wartości */
-.nutrition-table td.percent {
-  flex: 1; /* Rozciągnij komórkę procentów */
-  padding: 10px;
-  text-align: center; /* Wycentrowanie tekstu */
-  border: 1px solid #fff; /* Ramka komórki */
-  
-}
-
-/* Dodaj margines na dole dla wszystkich wierszy poza pierwszym */
-
-
-
-
-/* Styl dla nagłówka tabeli */
-.nutrition-table th {
-  display: none; /* Ukryj nagłówek */
-}
-  
-
-
-
-
-
-
-
-/* Dodaj te style do swojego pliku CSS lub styli Angulara */
-
-.meals {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.meal {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 10px;
-  background-color: #f7f7f7;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-.meal-info {
-  flex: 2;
-  padding: 10px;
-}
-
-
-.meal-nutrition {
-  flex: 1;
-  text-align: right;
-}
-
-.meal-nutrient {
-  margin: 5px 0;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  min-width: 535px;
-}
-
-.arrow-left,
-.arrow-right {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.date {
-  font-weight: bold;
-}
-
-.meal {
-  transition: transform 0.3s;
-  position: relative;
-}
-
-.meal:hover {
-  transform: scale(1.05);
-}
-
-.meal-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-.edit-button,
-.delete-button,
-.add-button {
-  background-color: #480DF0;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.edit-button:hover,
-.delete-button:hover,
-.add-button:hover {
-  background-color: #0056b3;
-}
-
 
 
 .add-meal-button {
@@ -362,6 +151,7 @@ input {
   color: #fff;
   border: none;
   border-radius: 30px;
+  margin-top: 100px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   transition: transform 0.5s ease;

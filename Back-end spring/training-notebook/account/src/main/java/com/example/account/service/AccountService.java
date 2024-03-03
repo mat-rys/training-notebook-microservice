@@ -46,7 +46,6 @@ public class AccountService {
             log.info("Fetching user with ID: {}", idKeycloak);
             String userId = jdbcTemplate.queryForObject("SELECT id FROM user_entity WHERE id = ?", String.class, idKeycloak);
             System.out.println("User ID: " + userId);
-
             return userId;
         } catch (EmptyResultDataAccessException e) {
             log.warn("User with ID {} not found", idKeycloak);
@@ -59,7 +58,6 @@ public class AccountService {
 
     public boolean updateAttribute(String idKeycloak, String attribute, String newValue) {
         String sql = "UPDATE user_entity SET " + attribute + " = ? WHERE id = ?";
-
         try {
             int rowsAffected = jdbcTemplate.update(sql, newValue, idKeycloak);
             return rowsAffected > 0;
