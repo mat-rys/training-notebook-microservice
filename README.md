@@ -1,3 +1,22 @@
+## Project Overview
+
+The project is aimed at assisting users in their pursuit of physical fitness by providing a comprehensive suite of functionalities accessible in one place. Currently, it includes the following features:
+
+- 💪 **Training Notes**: Allows users to keep track of their workout routines, progress, and performance metrics.
+  
+- 🍽️ **Meal and Product Management**: Facilitates planning and monitoring of dietary intake, enabling users to manage meals and track nutritional information for various products.
+  
+- 📊 **Nutritional Calculators**: Provides tools for calculating and analyzing nutritional values, aiding users in making informed dietary decisions.
+
+In addition, the project is highly scalable and open to extensive future development. Planned enhancements include:
+
+- 🚀 **Motivational Elements**: Incorporating motivational features to inspire and encourage users on their fitness journey.
+  
+- 📈 **Statistical Insights**: Offering detailed statistics and analytics to help users track their progress and identify areas for improvement.
+  
+- 🌐 **Community Engagement**: Creating a vibrant sports community within the platform, fostering interaction, support, and collaboration among users with similar fitness goals.
+
+
 ## **✏️ Important information:**
 At the moment, the project is not ready for external use due to Keycloak. However, I will resolve this issue soon by making keycloak available in the cloud.
 
