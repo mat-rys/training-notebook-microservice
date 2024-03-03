@@ -15,19 +15,17 @@ Front-end
 UI/UX
 ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
-## **🧩 Important Functionalities utilized in the Project
+## **🧩 Important Functionalities utilized in the Project**
 * **Multi-threaded Routing API Gateway**: Distributes traffic across user services with multi-threaded routing capabilities.
 * **Security Provided by External Tool Keycloak**: Ensures robust security, particularly beneficial for larger applications like microservices.
 * **External Security Does Not Constrain Us During Component Operations**: External security measures do not limit our ability to operate any component.
 * **Service Segmentation Allows Project to Function Despite Certain Components Being Non-Operational**: Division into services enables the project to continue functioning even if specific elements are non-operational.
 
-## **🔒 Security
+## **🔒 Security**
 * The project utilizes an authentication token that does not contain sensitive data.
 * It employs the external tool Keycloak for authorization.
 * The API gateway is open to requests, however, access to each service is not provided without authentication.
 * Tokens are established in Keycloak, for example, temporally or based on scopes.
-
-## **  Important functionalities that project use
 
 ## **📚 Summary: The look of website:**
 ![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/f14a0552-fa58-4a25-9c46-f0f5578ced1f)
