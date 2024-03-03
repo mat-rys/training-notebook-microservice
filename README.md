@@ -8,8 +8,10 @@ At the moment, the project is not ready for external use due to Keycloak. Howeve
 Back-end
 ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white) ![Spring](https://img.shields.io/badge/-Spring-6DB33F?style=flat-square&logo=spring&logoColor=white) ![Hibernate](https://img.shields.io/badge/-Hibernate-59666C?style=flat-square&logo=hibernate&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![PostgreSql](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![InteliJ](https://img.shields.io/badge/-IntelliJ%20IDEA-000000?style=flat-square&logo=intellij-idea&logoColor=white) ![Maven](https://img.shields.io/badge/-Maven-C71A36?style=flat-square&logo=apache-maven&logoColor=white) ![Swagger](https://img.shields.io/badge/-Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black) ![Keycloak](https://img.shields.io/badge/-Keycloak-0052CC?style=flat-square&logo=keycloak&logoColor=white) ![Zipkin and Grafana](https://img.shields.io/badge/-Zipkin%20%26%20Grafana-FFCA28?style=flat-square&logo=grafana&logoColor=black)
+
 Front-end
 ![Angular](https://img.shields.io/badge/-Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
+
 UI/UX
 ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
@@ -20,10 +22,10 @@ UI/UX
 * **Service Segmentation Allows Project to Function Despite Certain Components Being Non-Operational**: Division into services enables the project to continue functioning even if specific elements are non-operational.
 
 ## **🔒 Security
-* **The project utilizes an authentication token that does not contain sensitive data.
-* **It employs the external tool Keycloak for authorization.
-* **The API gateway is open to requests, however, access to each service is not provided without authentication.
-* **Tokens are established in Keycloak, for example, temporally or based on scopes.
+* The project utilizes an authentication token that does not contain sensitive data.
+* It employs the external tool Keycloak for authorization.
+* The API gateway is open to requests, however, access to each service is not provided without authentication.
+* Tokens are established in Keycloak, for example, temporally or based on scopes.
 
 ## **  Important functionalities that project use
 
