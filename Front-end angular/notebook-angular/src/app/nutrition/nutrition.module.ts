@@ -13,6 +13,8 @@ import { ListComponent } from './products-list/list/list.component';
 import { ListMealsComponent } from './meals-list/list/list-meals.component';
 import { CreateMealComponent } from './meals-list/create-meal/create-meal.component';
 import { EditMealComponent } from './meals-list/edit-meal/edit-meal.component';
+import { ListSearchProductsComponent } from './meal-add-products/list-search-products/list-search-products.component';
+import { ListAddedMealProductsComponent } from './meal-add-products/list-added-meal-products/list-added-meal-products.component';
 
 const routes: Routes = [
   { path: 'product-add', component: ProductComponent },
@@ -31,7 +33,9 @@ const routes: Routes = [
     ListComponent,
     ListMealsComponent,
     CreateMealComponent,
-    EditMealComponent
+    EditMealComponent,
+    ListSearchProductsComponent,
+    ListAddedMealProductsComponent
 
   ],
   imports: [  
