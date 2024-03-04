@@ -79,67 +79,38 @@ export class MealAddProductsComponent implements OnInit {
   loadProductsForMeal(mealId: number) {
     this.mealsProductsService.loadProductsForMeal(mealId).subscribe((data) => {
       this.selectedProducts = data;
-      this.calculateSelectedProductsTotals();
     });
   }
 
-  calculateSelectedProductsTotals() {
-    this.totalCalories = this.selectedProducts.reduce((sum, product) => sum + product.calories, 0);
-    this.totalFat = this.selectedProducts.reduce((sum, product) => sum + product.fat, 0);
-    this.totalProtein = this.selectedProducts.reduce((sum, product) => sum + product.protein, 0);
-    this.totalCarbs = this.selectedProducts.reduce((sum, product) => sum + product.carbs, 0);
-    
-    const updatedTotals: Meals = {
-      calories: this.totalCalories,
-      carbs: this.totalCarbs,
-      protein: this.totalProtein,
-      fat: this.totalFat,
-    };
-    this.updateMealTotals(updatedTotals);
-}
-  
- updateMealTotals(updatedTotals: Meals) {
-  this.mealsProductsService.updateMealTotals(this.idMeal, updatedTotals).subscribe(
-    (response) => {console.log('Meal totals updated:', response);},
-    (error) => {console.error('Error updating meal totals:', error);}
-  ); 
-}
-
-addSelectedProductToMeal(product: Product) {
-  const existingProduct = this.selectedProducts.find(p => p.title === product.title);
-  
-  if (existingProduct) {
-    alert('Ten produkt został już dodany do listy.');
-    return;
+  updateMealTotals(updatedTotals: Meals) {
+    this.mealsProductsService.updateMealTotals(this.idMeal, updatedTotals).subscribe(
+      (response) => {console.log('Meal totals updated:', response);},
+      (error) => {console.error('Error updating meal totals:', error);}
+    ); 
   }
 
-  const gramsToAdd = prompt(`Enter grams for ${product.title}:`, '100');
-  if (gramsToAdd !== null) {
-    const grams = parseFloat(gramsToAdd);
-    if (!isNaN(grams) && grams > 0) {
-      this.mealsProductsService.addSelectedProductToMeal(product, this.idMeal, grams).subscribe(
-        () => { this.calculateSelectedProductsTotals(); this.ngOnInit(); },
-        (error) => console.error('Error adding product to meal:', error)
-      );
-    } else {
-      alert('Wprowadź poprawną wartość dla gramów (liczbę większą od zera lub nie jako znak).');
-    }
-  }
-}
-
-removeProduct(product: Product) {
-  this.mealsProductsService.removeProduct(product.id).subscribe(
-    () => { this.selectedProducts = this.selectedProducts.filter(p => p.id !== product.id); this.calculateSelectedProductsTotals(); },
-    (error) => console.error('Error removing product from meal:', error)
-  );
-}
-
-  removeAddedProductConfirmation(product: Product) {
-    if (confirm('Czy na pewno chcesz usunąć z listy dodanych ten produkt?')) {
-      this.removeProduct(product);
+  addSelectedProductToMeal(product: Product) {
+    const gramsToAdd = prompt(`Enter grams for ${product.title}:`, '100');
+    if (gramsToAdd !== null) {
+      const grams = parseInt(gramsToAdd);
+      if (!isNaN(grams) && grams > 0) {
+        this.mealsProductsService.addSelectedProductToMeal(product, this.idMeal, grams).subscribe(
+          () => { this.loadProductsForMeal(this.idMeal); },
+          (error) => console.error('Error adding product to meal:', error)
+        );
+      } else {
+        alert('Wprowadź poprawną wartość dla gramów (liczbę większą od zera).');
+      }
     }
   }
   
+
+  removeProduct(product: Product) {
+    this.mealsProductsService.removeProduct(product.id).subscribe(
+      () => { this.loadProductsForMeal(this.idMeal); },
+      (error) => console.error('Error removing product from meal:', error)
+    );
+  }
 }
   
 

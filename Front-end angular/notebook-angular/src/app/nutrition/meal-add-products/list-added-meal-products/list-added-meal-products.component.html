@@ -1,1 +1,23 @@
-<p>list-added-meal-products works!</p>
+<table class="totals">
+    <tr>
+      <th>Total Calories</th>
+      <th>Total Fat</th>
+      <th>Total Protein</th>
+      <th>Total Carbs</th>
+    </tr>
+    <tr>
+      <td>{{ totalCalories | number:'1.0-1' }} kcal</td>
+      <td>{{ totalFat | number:'1.0-1' }} g</td>
+      <td>{{ totalProtein | number:'1.0-1' }} g</td>
+      <td>{{ totalCarbs | number:'1.0-1' }} g</td>
+    </tr>
+  </table>
+   <div class="added-products">
+    <h3>Selected Products</h3>
+    <ul>
+      <li *ngFor="let product of selectedProducts">
+        <span>{{ product.title }} ({{ product.grams }} g)</span>
+        <button (click)="removeAddedProductConfirmation(product)">Remove</button>
+      </li>
+    </ul>
+  </div>
