@@ -37,7 +37,7 @@
   .added-products li button:hover {
     background-color: #c0392b;
   }
-  
+
 .totals {
     margin-top: 20px; 
     border-collapse: collapse; 
@@ -67,11 +67,7 @@
     font-weight: bold; 
   }
   
-  .added-products-section {
-    position: absolute;
-    left: 1350px;
-    top: 50px; 
-  }
+ 
   
   .added-products {
     text-align: center;

@@ -7,13 +7,13 @@
   <div class="calendar-container">
       <input type="date" [(ngModel)]="selectedDate" (change)="changeDateFromInput()">
   </div>
-  <!-- <label>
+  <label>
       Sort Hours:
       <select [(ngModel)]="sortDirection" (change)="sortMealsByTime()">
           <option value="asc">Ascending</option>
           <option value="desc">Descending</option>
       </select>
-  </label>  -->
+  </label> 
 </div>
 
 <table class="nutrition-table" *ngIf="loadedMeals.length > 0">
