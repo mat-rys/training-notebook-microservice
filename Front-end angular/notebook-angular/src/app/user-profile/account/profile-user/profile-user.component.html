@@ -20,7 +20,7 @@
       </div>
       <div class="change-weight-input" *ngIf="showFirstNameInput">
         <input type="text" [(ngModel)]="newFirstName" placeholder="New first name">
-        <button (click)="onProfileUpdate('firstName', newFirstName)">Update</button>
+        <button (click)="onProfileUpdate('first_name', newFirstName)">Update</button>
       </div>
 
       <div class="profile-row">
@@ -30,7 +30,7 @@
       </div>
       <div class="change-weight-input" *ngIf="showLastNameInput">
         <input type="text" [(ngModel)]="newLastName" placeholder="New last name">
-        <button (click)="onProfileUpdate('lastName', newLastName)">Update</button>
+        <button (click)="onProfileUpdate('last_name', newLastName)">Update</button>
       </div>
 
       <div class="profile-row">

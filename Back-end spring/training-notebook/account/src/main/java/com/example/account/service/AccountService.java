@@ -57,6 +57,7 @@ public class AccountService {
     }
 
     public boolean updateAttribute(String idKeycloak, String attribute, String newValue) {
+        System.out.println(attribute);
         String sql = "UPDATE user_entity SET " + attribute + " = ? WHERE id = ?";
         try {
             int rowsAffected = jdbcTemplate.update(sql, newValue, idKeycloak);
