@@ -72,4 +72,9 @@ public class UserNotesServiceImlp implements UserNotesService {
         existingNote.setDescription(updatedNote.getDescription());
         return userNotesRepo.save(existingNote);
     }
+
+    @Override
+    public List<UserNotes> findByUserIdAndYearMonth(String userId, String yearMonth) {
+        return userNotesRepo.findByUserIdAndYearMonth(userId, yearMonth);
+    }
 }

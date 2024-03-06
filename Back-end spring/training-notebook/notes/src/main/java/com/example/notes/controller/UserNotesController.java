@@ -25,6 +25,10 @@ import java.util.stream.Stream;
 public class UserNotesController {
 
     private final UserNotesService userNotesService;
+    @GetMapping("/year-month/{yearMonth}")
+    public List<UserNotes> getNotesForMonth(Principal principal, @PathVariable String yearMonth) {
+        return userNotesService.findByUserIdAndYearMonth(principal.getName(), yearMonth);
+    }
 
     @GetMapping
     public ResponseEntity<Stream<UserNotes>> getAllNotes() {
