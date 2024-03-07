@@ -10,6 +10,7 @@ import { NavbarComponent } from './shared-child-component/navbar/navbar.componen
 import { HeroSectionComponent } from './note-add/hero-section/hero-section.component';
 import { DateSelectorComponent } from './notes-list/date-selector/date-selector.component';
 import { ContentComponent } from './notes-list/content/content.component'; 
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatDatepickerModule
   ], 
   exports: [NoteComponent], 
 })

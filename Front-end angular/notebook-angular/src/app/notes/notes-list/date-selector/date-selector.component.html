@@ -6,13 +6,13 @@
         <span class="arrow-right" (click)="onNextDate()">></span>
     </div>
       
-    <div class="calendar-container">
-    <input 
-      type="date" 
-      [ngModel]="selectedDate | date:'yyyy-MM-dd'" 
-      (change)="onDateChange($event)"
-    >
-    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Wybierz datę</mat-label>
+      <input matInput [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateChange($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
 </section>
 
   

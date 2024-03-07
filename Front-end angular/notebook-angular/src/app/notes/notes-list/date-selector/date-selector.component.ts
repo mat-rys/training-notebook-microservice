@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class DateSelectorComponent {
   @Input() selectedDate!: Date;
+  @Input() daysForMonth!: Number[];
   @Output() dateChange = new EventEmitter<Date>();
   @Output() nextDate = new EventEmitter<void>();
   @Output() prevDate = new EventEmitter<void>();
@@ -30,4 +31,10 @@ export class DateSelectorComponent {
   onPrevDate() {
     this.prevDate.emit();
   }
+
+  isDayInList(date: Date): boolean {
+    const day = date.getDate();
+    return this.daysForMonth.includes(day);
+  }
+  
 }

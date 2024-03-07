@@ -15,6 +15,7 @@ export class NoteComponent implements OnInit {
   successMessage: string = '';
   datesWithNotes: string[] = [];
   activityTypes: any[] = [];
+  daysForMonth: Number[] = [];
 
   constructor(private authService: AuthService,
      private noteService: NoteService,
@@ -22,8 +23,17 @@ export class NoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadNotes();
+    this.loadDaysForMonth();
     this.activityTypeService.getActivityTypes().subscribe(types => {
       this.activityTypes = types.map(activity => activity.activity_type);
+    });
+  }
+
+  loadDaysForMonth() {
+    const yearMonth = `${this.selectedDate.getFullYear()}-${('0' + (this.selectedDate.getMonth() + 1)).slice(-2)}`;
+    this.noteService.getDaysForMonth(yearMonth).subscribe(data => {
+      this.daysForMonth = data;
+      console.log(this.daysForMonth)
     });
   }
 
@@ -55,11 +65,13 @@ export class NoteComponent implements OnInit {
     currentDate.setDate(currentDate.getDate() + offset);
     this.selectedDate = currentDate;
     this.loadNotes();
+    this.loadDaysForMonth();
   }
   
   onDateChange(date: Date) {
     this.selectedDate = date;
     this.loadNotes();
+    this.loadDaysForMonth();
   }
   
  

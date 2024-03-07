@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../../security-config/auth.service';
 import { Note } from '../notes-list/note.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,4 +34,14 @@ export class NoteService {
     });
     return this.http.put(`http://localhost:8222/notes/${editingNote.id}`, editingNote, { headers });
   }
+
+  getDaysForMonth(yearMonth: string): Observable<Number[]> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    });
+    return this.http.get<Number[]>(`http://localhost:8222/notes/year-month/${yearMonth}`, { headers });
+  }
+  
+
+  
 }

@@ -57,3 +57,7 @@
     box-shadow: 0 0 5px dodgerblue;
   }
   
+  input[type="date"].highlight {
+    background-color: #ff0; /* Zmień na kolor, który chcesz użyć do podświetlenia */
+  }
+  

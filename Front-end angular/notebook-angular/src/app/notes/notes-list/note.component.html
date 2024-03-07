@@ -4,6 +4,7 @@
 
   <app-date-selector 
     [selectedDate]="selectedDate" 
+    [daysForMonth]="daysForMonth" 
     (dateChange)="onDateChange($event)" 
     (nextDate)="changeDate(1)" 
     (prevDate)="changeDate(-1)">
