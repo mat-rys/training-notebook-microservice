@@ -14,7 +14,4 @@ public interface UserNotesRepo extends JpaRepository<UserNotes,Long> {
     List<UserNotes> findByUserIdAndStartDateLike(String userId, String startDate);
     @Query("SELECT DISTINCT EXTRACT(DAY FROM u.startDate) FROM UserNotes u WHERE u.userId = :userId AND SUBSTRING(TO_CHAR(u.startDate, 'YYYY-MM'), 1, 7) = :yearMonth")
     List<Integer> findDistinctDayByUserIdAndYearMonth(String userId, String yearMonth);
-
-
-
 }

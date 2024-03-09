@@ -61,3 +61,94 @@
     background-color: #ff0; /* Zmień na kolor, który chcesz użyć do podświetlenia */
   }
   
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.my-datepicker{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  font-size: 0.9rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-datepicker-content {
+position: absolute;
+top: 50px;
+left: 350px; 
+transform: scale(0.75);
+background-color: #f0f0f0; 
+color: white;
+}
+
+/* Dopisek jaki miesiać u góry */
+::ng-deep .mat-calendar-body{
+  font-size: 0.75rem;
+  color: white
+
+}
+
+::ng-deep .mat-calendar-period-button {
+  font-size: 0.75rem;
+  color: white !important; /* Dodajemy tę linię */
+}
+
+
+
+::ng-deep .mat-calendar-period-button {
+  font-size: 0.75rem;
+  color: white !important;
+}
+
+::ng-deep .mat-calendar-previous-button,
+::ng-deep .mat-calendar-next-button{
+  font-size: 0.75rem;
+  color: #ccc !important;
+}
+
+
+/* Dni tygodnia u góry */
+::ng-deep .mat-calendar-table-header {
+  color: white;
+}
+
+
+
+/* Kolor tła dla strzałek nawigacyjnych */
+::ng-deep .mat-calendar-previous-button,
+::ng-deep .mat-calendar-next-button {
+  background-color: white;
+}
+
+/* Kolor tła dla dni miesiąca */
+::ng-deep .mat-calendar-body-cell-content {
+  position: absolute; 
+  background-color: white;
+}
+
+::ng-deep button.example-custom-date-class  {
+  color: red !important;
+}
+
+
+
+
+

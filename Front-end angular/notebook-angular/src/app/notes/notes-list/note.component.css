@@ -1,6 +1,7 @@
 
 #photo-background{
   background-image: url("../../../assets/flat-lay-pink-sports-attributes-with-clipboard.jpg");
+  /* background-color:#fff; */
   position: fixed;
   top: 0;
   left: 0;

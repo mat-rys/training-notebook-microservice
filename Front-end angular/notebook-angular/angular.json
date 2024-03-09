@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "notebook-angular:build:production"
+              "buildTarget": "notebook-angular:build:production"
             },
             "development": {
-              "browserTarget": "notebook-angular:build:development"
+              "buildTarget": "notebook-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "notebook-angular:build"
+            "buildTarget": "notebook-angular:build"
           }
         },
         "test": {

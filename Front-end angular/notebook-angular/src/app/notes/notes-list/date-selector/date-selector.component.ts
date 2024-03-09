@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-date-selector',
   templateUrl: './date-selector.component.html',
-  styleUrls: ['./date-selector.component.css']
+  styleUrls: ['./date-selector.component.css'],
 })
 export class DateSelectorComponent {
   @Input() selectedDate!: Date;
@@ -11,19 +13,29 @@ export class DateSelectorComponent {
   @Output() dateChange = new EventEmitter<Date>();
   @Output() nextDate = new EventEmitter<void>();
   @Output() prevDate = new EventEmitter<void>();
-  constructor() { }
 
+  dateClass: MatCalendarCellClassFunction<Date> = (cellDate: Date, view: string) => {
+    if (view === 'month') {
+      const date = cellDate.getDate();
+      return this.daysForMonth.includes(date) ? 'example-custom-date-class' : '';
+    }
+    return '';
+  };
+  
+  constructor() { }
   ngOnInit(): void {
   }
 
-  onDateChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    if (target && target.value) {
-      this.selectedDate = new Date(target.value);
-      this.dateChange.emit(this.selectedDate);
+  onDateChange(event: MatDatepickerInputEvent<Date>) {
+    if (event.value) {
+      this.selectedDate = event.value;
+      const formattedDate = new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth(), this.selectedDate.getDate());
+      this.dateChange.emit(formattedDate);
+      console.log(formattedDate)
     }
   }
-
+  
+  
   onNextDate() {
     this.nextDate.emit();
   }

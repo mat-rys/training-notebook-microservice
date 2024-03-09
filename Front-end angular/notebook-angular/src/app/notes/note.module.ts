@@ -10,7 +10,10 @@ import { NavbarComponent } from './shared-child-component/navbar/navbar.componen
 import { HeroSectionComponent } from './note-add/hero-section/hero-section.component';
 import { DateSelectorComponent } from './notes-list/date-selector/date-selector.component';
 import { ContentComponent } from './notes-list/content/content.component'; 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -25,7 +28,10 @@ const routes: Routes = [
     HttpClientModule,
     CommonModule,
     RouterModule.forChild(routes),
-    MatDatepickerModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ], 
   exports: [NoteComponent], 
 })
