@@ -46,6 +46,11 @@ public class MealsController {
         return meals != null && !meals.isEmpty() ? new ResponseEntity<>(meals, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/distinctDays")
+    public List<Date> getDistinctDaysByUserId(Principal principal) {
+        return mealsService.getDistinctDaysByUserId(principal.getName());
+    }
+
     @PostMapping
     public ResponseEntity<Meals> createMeal(@RequestBody Meals meal, Principal principal) {
         meal.setUserId(principal.getName());

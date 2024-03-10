@@ -111,8 +111,6 @@ color: white;
   color: white !important; /* Dodajemy tę linię */
 }
 
-
-
 ::ng-deep .mat-calendar-period-button {
   font-size: 0.75rem;
   color: white !important;
@@ -124,12 +122,10 @@ color: white;
   color: #ccc !important;
 }
 
-
 /* Dni tygodnia u góry */
 ::ng-deep .mat-calendar-table-header {
   color: white;
 }
-
 
 
 /* Kolor tła dla strzałek nawigacyjnych */
@@ -145,22 +141,20 @@ color: white;
 }
 
 ::ng-deep button.example-custom-date-class  {
-  color: green !important;
+  color: #B251B7 !important;
 }
-
 
 /* Kolor tekstu dla numeru dnia w wybranych dniach miesiąca */
 ::ng-deep .example-custom-date-class .mat-calendar-body-cell-content {
-  background-color: #2BA844 !important;
+  background-color: #B251B7 !important;
   color: white !important;
 }
 
-
-::ng-deep .mat-calendar-close {
+/* ::ng-deep .mat-calendar-close {
   position: relative;
   top: -1000px;
   color: #2BA844;
-}
+} */
 
 
 

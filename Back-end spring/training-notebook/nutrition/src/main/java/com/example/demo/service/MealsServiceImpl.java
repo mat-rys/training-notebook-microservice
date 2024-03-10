@@ -47,49 +47,30 @@ public class MealsServiceImpl implements MealsService {
 
     @Override
     public Meals updateMealData(Long id, String title, Date day, Time mealTime) {
-        Meals existingMeal = mealsRepository.findById(id).orElse(null);
-        if (existingMeal != null) {
-            if (title != null) {
-                existingMeal.setTitle(title);
-            }
-            if (day != null) {
-                existingMeal.setDay(day);
-            }
-            if (mealTime != null) {
-                existingMeal.setMealTime(mealTime);
-            }
+        return mealsRepository.findById(id).map(existingMeal -> {
+            Optional.ofNullable(title).ifPresent(existingMeal::setTitle);
+            Optional.ofNullable(day).ifPresent(existingMeal::setDay);
+            Optional.ofNullable(mealTime).ifPresent(existingMeal::setMealTime);
             return mealsRepository.save(existingMeal);
-        }
-        return null;
+        }).orElse(null);
     }
 
     @Override
     public Meals updateMealData(Long id, Meals updatedData) {
-        Meals existingMeal = mealsRepository.findById(id).orElse(null);
-        if (existingMeal != null) {
-            if (updatedData.getTitle() != null) {
-                existingMeal.setTitle(updatedData.getTitle());
-            }
-            if (updatedData.getCalories() != null) {
-                existingMeal.setCalories(updatedData.getCalories());
-            }
-            if (updatedData.getCarbs() != null) {
-                existingMeal.setCarbs(updatedData.getCarbs());
-            }
-            if (updatedData.getProtein() != null) {
-                existingMeal.setProtein(updatedData.getProtein());
-            }
-            if (updatedData.getFat() != null) {
-                existingMeal.setFat(updatedData.getFat());
-            }
-            if (updatedData.getDay() != null) {
-                existingMeal.setDay(updatedData.getDay());
-            }
-            if (updatedData.getMealTime() != null) {
-                existingMeal.setMealTime(updatedData.getMealTime());
-            }
+        return mealsRepository.findById(id).map(existingMeal -> {
+            Optional.ofNullable(updatedData.getTitle()).ifPresent(existingMeal::setTitle);
+            Optional.ofNullable(updatedData.getCalories()).ifPresent(existingMeal::setCalories);
+            Optional.ofNullable(updatedData.getCarbs()).ifPresent(existingMeal::setCarbs);
+            Optional.ofNullable(updatedData.getProtein()).ifPresent(existingMeal::setProtein);
+            Optional.ofNullable(updatedData.getFat()).ifPresent(existingMeal::setFat);
+            Optional.ofNullable(updatedData.getDay()).ifPresent(existingMeal::setDay);
+            Optional.ofNullable(updatedData.getMealTime()).ifPresent(existingMeal::setMealTime);
             return mealsRepository.save(existingMeal);
-        }
-        return null;
+        }).orElse(null);
+    }
+
+    @Override
+    public List<Date> getDistinctDaysByUserId(String userId) {
+        return mealsRepository.findDistinctDaysByUserId(userId);
     }
 }

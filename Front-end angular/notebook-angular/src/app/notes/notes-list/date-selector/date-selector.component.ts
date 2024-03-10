@@ -13,9 +13,6 @@ export class DateSelectorComponent {
   @Output() dateChange = new EventEmitter<Date>();
   @Output() nextDate = new EventEmitter<void>();
   @Output() prevDate = new EventEmitter<void>();
-  selectedDates: Date[] = [new Date(2024, 2, 3), new Date(2024, 1, 2)]; // Ustaw daty, które chcesz podkreślić
-
-
   constructor() { }
   
   ngOnInit(): void {
@@ -25,13 +22,11 @@ export class DateSelectorComponent {
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate: Date, view: string) => {
     if (view === 'month') {
       const formattedCellDate = `${cellDate.getFullYear()}-${('0' + (cellDate.getMonth() + 1)).slice(-2)}-${('0' + cellDate.getDate()).slice(-2)}`;
-  
       return this.datesWithNotes.includes(formattedCellDate) ? 'example-custom-date-class' : '';
     }
     return '';
   };
   
-
   onDateChange(event: MatDatepickerInputEvent<Date>) {
     if (event.value) {
       this.selectedDate = event.value;
@@ -39,7 +34,6 @@ export class DateSelectorComponent {
       this.dateChange.emit(formattedDate);
     }
   }
-  
   
   onNextDate() {
     this.nextDate.emit();

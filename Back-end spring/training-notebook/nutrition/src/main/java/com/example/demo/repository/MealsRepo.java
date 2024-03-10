@@ -2,6 +2,8 @@
 
     import com.example.demo.entitie.Meals;
     import org.springframework.data.jpa.repository.JpaRepository;
+    import org.springframework.data.jpa.repository.Query;
+    import org.springframework.data.repository.query.Param;
     import org.springframework.stereotype.Repository;
 
     import java.util.Date;
@@ -11,5 +13,7 @@
     public interface MealsRepo extends JpaRepository<Meals, Long> {
         List<Meals> findByDay(Date day);
         List<Meals> findByDayAndUserId(Date day, String userId);
+        @Query("SELECT DISTINCT m.day FROM Meals m WHERE m.userId = :userId")
+        List<Date> findDistinctDaysByUserId(@Param("userId") String userId);
     }
 

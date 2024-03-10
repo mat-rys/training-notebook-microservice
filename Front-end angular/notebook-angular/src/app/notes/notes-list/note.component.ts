@@ -32,13 +32,11 @@ export class NoteComponent implements OnInit {
   loadDaysForMonth() {
     this.noteService.getDaysForMonth().subscribe(data => {
       this.datesWithNotes = data;
-      console.log(this.datesWithNotes)
     });
 }
 
   loadNotes() {
     this.noteService.getNotes(this.selectedDate).subscribe(data => {
-      // this.datesWithNotes = data.map(note => new Date(note.startDate).toISOString().split('T')[0]);
       this.notes = data.sort((a, b) => {
         const dateA = new Date(a.startDate);
         const dateB = new Date(b.startDate);
@@ -53,9 +51,7 @@ export class NoteComponent implements OnInit {
         this.loadNotes();
         this.successMessage = 'Note updated successfully';
         setTimeout(() => {this.successMessage = '';}, 1000);
-      }, 
-      error => {console.error('Error updating note:', error);
-      });
+      }, error => {console.error('Error updating note:', error);});
     }
   }
 
@@ -70,9 +66,6 @@ export class NoteComponent implements OnInit {
     this.selectedDate = date;
     this.loadNotes();
   }
-
-
-  
  
   deleteNoteConfirmation(noteId: string) {
     if (confirm('Czy na pewno chcesz usunąć tę notatkę?')) {
@@ -88,6 +81,4 @@ export class NoteComponent implements OnInit {
   handleLogout() {
     this.authService.removeToken();
   }
-
- 
 }
