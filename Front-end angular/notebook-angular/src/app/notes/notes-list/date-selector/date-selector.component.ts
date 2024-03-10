@@ -29,7 +29,7 @@ export class DateSelectorComponent {
   onDateChange(event: MatDatepickerInputEvent<Date>) {
     if (event.value) {
       this.selectedDate = event.value;
-      const formattedDate = new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth(), this.selectedDate.getDate());
+      const formattedDate = new Date(Date.UTC(this.selectedDate.getFullYear(), this.selectedDate.getMonth(), this.selectedDate.getDate()));
       this.dateChange.emit(formattedDate);
       console.log(formattedDate)
     }
