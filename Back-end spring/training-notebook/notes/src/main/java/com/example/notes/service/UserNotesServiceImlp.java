@@ -74,7 +74,7 @@ public class UserNotesServiceImlp implements UserNotesService {
     }
 
     @Override
-    public List<Integer> findByUserIdAndYearMonth(String userId, String yearMonth) {
-        return userNotesRepo.findDistinctDayByUserIdAndYearMonth(userId, yearMonth);
+    public List<String> findByUserIdAndYearMonth(String userId) {
+        return userNotesRepo.findAllDistinctStartDatesByUserId(userId);
     }
 }

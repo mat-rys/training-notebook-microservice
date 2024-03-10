@@ -2,7 +2,6 @@ package com.example.notes.controller;
 
 import com.example.notes.entitie.UserNotes;
 import com.example.notes.service.UserNotesService;
-import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -14,7 +13,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Stream;
 
 @RestController
@@ -25,9 +23,9 @@ import java.util.stream.Stream;
 public class UserNotesController {
 
     private final UserNotesService userNotesService;
-    @GetMapping("/year-month/{yearMonth}")
-    public List<Integer> getNotesForMonth(Principal principal, @PathVariable String yearMonth) {
-        return userNotesService.findByUserIdAndYearMonth(principal.getName(), yearMonth);
+    @GetMapping("/datepicker-dates")
+    public List<String> getNotesForMonth(Principal principal) {
+        return userNotesService.findByUserIdAndYearMonth(principal.getName());
     }
 
     @GetMapping

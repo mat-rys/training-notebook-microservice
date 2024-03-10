@@ -145,8 +145,24 @@ color: white;
 }
 
 ::ng-deep button.example-custom-date-class  {
-  color: red !important;
+  color: green !important;
 }
+
+
+/* Kolor tekstu dla numeru dnia w wybranych dniach miesiąca */
+::ng-deep .example-custom-date-class .mat-calendar-body-cell-content {
+  background-color: #2BA844 !important;
+  color: white !important;
+}
+
+
+::ng-deep .mat-calendar-close {
+  position: relative;
+  top: -1000px;
+  color: #2BA844;
+}
+
+
 
 
 

@@ -30,16 +30,15 @@ export class NoteComponent implements OnInit {
   }
 
   loadDaysForMonth() {
-    const yearMonth = `${this.selectedDate.getFullYear()}-${('0' + (this.selectedDate.getMonth() + 1)).slice(-2)}`;
-    this.noteService.getDaysForMonth(yearMonth).subscribe(data => {
-      this.daysForMonth = data;
-      console.log(this.daysForMonth)
+    this.noteService.getDaysForMonth().subscribe(data => {
+      this.datesWithNotes = data;
+      console.log(this.datesWithNotes)
     });
-  }
+}
 
   loadNotes() {
     this.noteService.getNotes(this.selectedDate).subscribe(data => {
-      this.datesWithNotes = data.map(note => new Date(note.startDate).toISOString().split('T')[0]);
+      // this.datesWithNotes = data.map(note => new Date(note.startDate).toISOString().split('T')[0]);
       this.notes = data.sort((a, b) => {
         const dateA = new Date(a.startDate);
         const dateB = new Date(b.startDate);
@@ -65,14 +64,14 @@ export class NoteComponent implements OnInit {
     currentDate.setDate(currentDate.getDate() + offset);
     this.selectedDate = currentDate;
     this.loadNotes();
-    this.loadDaysForMonth();
   }
   
   onDateChange(date: Date) {
     this.selectedDate = date;
     this.loadNotes();
-    this.loadDaysForMonth();
   }
+
+
   
  
   deleteNoteConfirmation(noteId: string) {

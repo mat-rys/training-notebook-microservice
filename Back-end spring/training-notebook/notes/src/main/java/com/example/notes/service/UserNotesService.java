@@ -17,6 +17,6 @@ public interface UserNotesService {
     Set<UserNotes> getNotes();
     Set<UserNotes> getNotesByUserId(String userId);
     UserNotes updateNote(Long noteId, UserNotes updatedNote);
-    List<Integer> findByUserIdAndYearMonth(String userId, String yearMonth);
+    List<String> findByUserIdAndYearMonth(String userId);
 
 }

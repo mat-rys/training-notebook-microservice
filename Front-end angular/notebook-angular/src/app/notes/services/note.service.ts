@@ -35,13 +35,10 @@ export class NoteService {
     return this.http.put(`http://localhost:8222/notes/${editingNote.id}`, editingNote, { headers });
   }
 
-  getDaysForMonth(yearMonth: string): Observable<Number[]> {
+  getDaysForMonth(): Observable<string[]> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.token}`
     });
-    return this.http.get<Number[]>(`http://localhost:8222/notes/year-month/${yearMonth}`, { headers });
-  }
-  
-
-  
+    return this.http.get<string[]>(`http://localhost:8222/notes/datepicker-dates`, { headers });
+  } 
 }
