@@ -1,4 +1,6 @@
-import { Component, Input, Output, OnInit ,EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, Input, Output, OnInit ,EventEmitter, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { Meals } from '../models/meals.model';
 
 @Component({
@@ -8,6 +10,7 @@ import { Meals } from '../models/meals.model';
 })
 export class ListMealsComponent implements OnInit, OnChanges  {
   @Input() loadedMeals: Meals[] = [];
+  @Input() datesWithNotes!: string[];
   @Output() deleteMeal = new EventEmitter<number>();
   @Output() addProducts = new EventEmitter<number>();
   @Output() mealToEdit = new EventEmitter<Meals>();
@@ -26,11 +29,31 @@ export class ListMealsComponent implements OnInit, OnChanges  {
     this.sortMealsByTime();
   }
 
+  dateClass: MatCalendarCellClassFunction<Date> = (cellDate: Date, view: string) => {
+    if (view === 'month') {
+      const formattedCellDate = `${cellDate.getFullYear()}-${('0' + (cellDate.getMonth() + 1)).slice(-2)}-${('0' + cellDate.getDate()).slice(-2)}`;
+      return this.datesWithNotes.includes(formattedCellDate) ? 'example-custom-date-class' : '';
+    }
+    return '';
+  };
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['loadedMeals']) {
       this.calculateTotals();
     }
   }
+
+  changeDateFromInput(event: MatDatepickerInputEvent<Date>) {
+    if (event.value) {
+      const date = event.value;
+      const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+      const formattedDate = utcDate.toISOString().split('T')[0];
+      this.selectedDate = formattedDate;
+      this.loadMealsEvent.emit(formattedDate);
+      this.dateChanged.emit(formattedDate); 
+    }
+  }
+  
   
   onDeleteMeal(id: number) {
     confirm('Are you sure you want to remove the meal?') ? this.deleteMeal.emit(id) : null;
@@ -59,11 +82,7 @@ export class ListMealsComponent implements OnInit, OnChanges  {
     currentDate.setDate(currentDate.getDate() + offset);
     this.selectedDate = currentDate.toISOString().split('T')[0];
     this.loadMealsEvent.emit(this.selectedDate);
-  }
-
-  changeDateFromInput() {
-    const inputDate = new Date(this.selectedDate);
-    this.loadMealsEvent.emit(inputDate.toISOString().split('T')[0]);
+    this.dateChanged.emit(this.selectedDate); 
   }
 
   calculateTotals() {

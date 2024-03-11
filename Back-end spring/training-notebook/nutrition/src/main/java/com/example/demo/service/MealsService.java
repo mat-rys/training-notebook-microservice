@@ -16,6 +16,6 @@ public interface MealsService {
     public List<Meals> getMealsByDayAndUserId(Date day, String userId);
     Meals updateMealData(Long id, Meals updatedData) ;
     Meals updateMealData(Long id, String title, Date day, Time mealTime);
-    List<Date> getDistinctDaysByUserId(String userId);
+    List<String> getDistinctDaysByUserId(String userId);
 }
 

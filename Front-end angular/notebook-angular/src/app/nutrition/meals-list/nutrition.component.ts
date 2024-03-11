@@ -28,6 +28,8 @@ export class NutritionComponent implements OnInit {
   editedMeal!: Meal;
   tips: NutritionTip[] = [];
 
+  datesWithNotes: string[] = [];
+
   constructor(private authService: AuthService,  private router: Router, 
     private tipService: NutritionTipService, private mealsService: MealsService) {}
 
@@ -39,13 +41,19 @@ export class NutritionComponent implements OnInit {
     this.selectedDate = `${year}-${month}-${day}`
     this.loadMeals(this.selectedDate);
     this.loadRandomTip();
+    this.loadDaysForMonth();
   }
+
+  loadDaysForMonth() {
+    this.mealsService.getDistinctDays().subscribe(data => {
+      this.datesWithNotes = data;
+    });
+}
 
   loadMeals(formattedDate: string) {
     this.meals = [];
     this.mealsService.loadMeals(formattedDate).subscribe((data) => {
       this.meals = data;
-      // this.calculateTotals();
     });
   }
 

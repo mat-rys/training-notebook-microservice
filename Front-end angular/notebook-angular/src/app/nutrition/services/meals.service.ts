@@ -35,7 +35,11 @@ export class MealsService {
   }
 
   updateMeal(id: number, updatedData: Meal): Observable<Meal> {
-    console.log(updatedData)
     return this.http.put<Meal>(`http://localhost:8222/nutrition/meals/mealEdit/${id}`, updatedData, { headers: this.headers });
   }
+
+  getDistinctDays(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8222/nutrition/meals/distinctDays', { headers: this.headers });
+  }
+  
 }

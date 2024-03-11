@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -70,7 +72,16 @@ public class MealsServiceImpl implements MealsService {
     }
 
     @Override
-    public List<Date> getDistinctDaysByUserId(String userId) {
-        return mealsRepository.findDistinctDaysByUserId(userId);
+    public List<String> getDistinctDaysByUserId(String userId) {
+        List<Date> dates = mealsRepository.findDistinctDaysByUserId(userId);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        List<String> formattedDates = new ArrayList<>();
+        for (Date date : dates) {
+            if (date != null) {
+                formattedDates.add(formatter.format(date));
+            }
+        }
+        return formattedDates;
     }
+
 }

@@ -43,10 +43,12 @@
   
   <app-list-meals 
   [loadedMeals]="meals"
+  [datesWithNotes]="datesWithNotes" 
   (deleteMeal)="deleteMeal($event)"
   (addProducts)="addProductsToMeal($event)"
   (mealToEdit)="editMeal($event)"
-  (loadMealsEvent)="loadMeals($event)"> 
+  (loadMealsEvent)="loadMeals($event)"
+  (dateChanged)="onDateChanged($event)"> 
 </app-list-meals>
 
 

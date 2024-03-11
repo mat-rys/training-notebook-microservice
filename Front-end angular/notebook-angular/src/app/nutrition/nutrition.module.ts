@@ -15,6 +15,10 @@ import { CreateMealComponent } from './meals-list/create-meal/create-meal.compon
 import { EditMealComponent } from './meals-list/edit-meal/edit-meal.component';
 import { ListSearchProductsComponent } from './meal-add-products/list-search-products/list-search-products.component';
 import { ListAddedMealProductsComponent } from './meal-add-products/list-added-meal-products/list-added-meal-products.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 
 const routes: Routes = [
   { path: 'product-add', component: ProductComponent },
@@ -42,7 +46,11 @@ const routes: Routes = [
     HttpClientModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [ 
     ProductListComponent,

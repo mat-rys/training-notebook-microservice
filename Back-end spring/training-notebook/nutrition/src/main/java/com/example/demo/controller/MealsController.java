@@ -47,7 +47,7 @@ public class MealsController {
     }
 
     @GetMapping("/distinctDays")
-    public List<Date> getDistinctDaysByUserId(Principal principal) {
+    public List<String> getDistinctDaysByUserId(Principal principal) {
         return mealsService.getDistinctDaysByUserId(principal.getName());
     }
 
