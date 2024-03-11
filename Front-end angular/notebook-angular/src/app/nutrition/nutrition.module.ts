@@ -19,11 +19,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MealsStatisticsComponent } from './meals-statistics/meals-statistics.component';
 
 const routes: Routes = [
   { path: 'product-add', component: ProductComponent },
   { path: 'products-list', component: ProductListComponent },
   { path: 'meal-add-products', component: MealAddProductsComponent },
+  { path: 'statistics', component: MealsStatisticsComponent },
   { path: '', component: NutritionComponent },
 ];
 
@@ -39,7 +41,8 @@ const routes: Routes = [
     CreateMealComponent,
     EditMealComponent,
     ListSearchProductsComponent,
-    ListAddedMealProductsComponent
+    ListAddedMealProductsComponent,
+    MealsStatisticsComponent
 
   ],
   imports: [  

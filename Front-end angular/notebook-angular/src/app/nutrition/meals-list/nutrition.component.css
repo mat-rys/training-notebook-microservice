@@ -11,108 +11,10 @@ body {
   justify-content: flex-start;
 }
 
-.star-web {
-  display: flex;
-  justify-content: center; /* Wyśrodkuj pasek nawigacyjny w poziomie */
-  align-items: center;
-  padding: 0px;
-  background-color: #092640;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-.nav-list {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row; /* Zmień na poziomy układ */
-  align-items: center;
-  justify-content: flex-end; /* Przesuń przyciski na prawą stronę */
- 
-  margin-top: 5px;
-
-  width: auto; /* Ustaw szerokość na auto, aby dopasować do ilości przycisków */
-}
-
-.nav-list .logo {
-  display: flex;
-  justify-content: flex-end; /* Przesuń logo na prawy róg */
-  align-items: center;
-  margin-right: 20px; /* Przesuń logo tylko o 20px w prawo */
-}
-
-.nav-list .logo a:hover {
-  color: #4009A5; /* Ustaw kolor tekstu na fioletowy */
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
-}
-
-/* Przyciski nawigacyjne */
-.nav-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Przesuń przyciski na środek */
-
-}
-
-.nav-buttons a {
-  text-decoration: none;
-}
-
-.nav-buttons button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Dodano transition na border-radius */
-  border-radius: 0; /* Usunięto border-radius z początkowego stylu */
-}
-
-.nav-buttons button:hover {
-  background-color: #4009A5;
-  color: #fff;
-  border-radius: 20px; /* Dodano zaokrąglenie na hover */
-}
-
 .content {
   flex-grow: 1;
   margin-left: 200px; 
 }
-  
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-container input {
-    padding: 10px;
-    border: none;
-    border-radius: 29px; 
-    margin-right: 10px;
-    width: 400px; 
-    height: 20px; 
-  }
-  
-  .round-button {
-    padding: 12px;
-    border: none;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px; 
-    background-color: white;;
-    color: white;
-    cursor: pointer;
-  }
   
   #photo-background{
     background-image: url("../../../assets/ramen.jpg");
@@ -128,9 +30,8 @@ body {
   }
 
 .content {
-  margin-top: -160px;
+  margin-top: -220px;
   margin-left: -12px;
-
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -186,14 +87,16 @@ body {
   transform: scale(1.1);
 }
 
-.products-list-button {
+.products-list-button,
+.go-statisctics-button {
   display: flex;
   justify-content: flex-end;
   margin-left: 950px;
   margin-top: 12px;
 }
 
-.products-list-button  button {
+.products-list-button  button,
+.go-statisctics-button button {
   padding: 10px 20px;
   font-size: 16px;
   background:  #480DF0;
@@ -205,14 +108,10 @@ body {
   transition: transform 0.5s ease;
 }
 
-.products-list-button  button:hover {
+.products-list-button  button:hover,
+.go-statisctics-button button:hover{
   background-color:  #0056b3;
   transform: scale(1.1);
-}
-
-.calendar-container{
-  margin-left: px;
-  margin-right: 5px;
 }
 
 .success-message {
@@ -265,8 +164,7 @@ body {
   }
 
   .random-image {
-    width: 100px; /* Dostosuj szerokość obrazka */
-    height: auto; /* Ustaw automatyczną wysokość, aby zachować proporcje */
-  
-    padding: 10px; /* Dodaj wypełnienie dla tła obrazka */
+    width: 100px;
+    height: auto;
+    padding: 10px; 
   }

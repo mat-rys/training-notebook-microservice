@@ -1,0 +1,50 @@
+#photo-background{
+    background-image: url("../../../assets/ramen.jpg");
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(40%);
+    background-size: cover; 
+}
+
+.content{
+    margin-top: 100px;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.search-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #4009A5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+select, input[type="date"] {
+    width: 150px;
+    height: 35px; 
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #6A42F8;
+    color: #FFFFFF;
+}
+
+label {
+    color: #FFFFFF;
+}

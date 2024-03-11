@@ -1,0 +1,27 @@
+<body>
+    <div id="photo-background" ></div>
+    <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+    <section class="content">
+        <div class="center-content">
+            <div class="search-header">
+                <select [(ngModel)]="selectedOption" (change)="loadStatistics()">
+                    <option *ngFor="let option of options" [value]="option">{{option}}</option>
+                </select>
+
+                <label>
+                    Start date:
+                    <input type="date" [(ngModel)]="startDate" (change)="loadStatistics()">
+                </label>
+                <label>
+                    End date:
+                    <input type="date" [(ngModel)]="endDate" (change)="loadStatistics()">
+                </label>
+            </div>
+
+            <div *ngIf="statistics">
+
+            </div>
+        </div>
+    </section>
+</body>

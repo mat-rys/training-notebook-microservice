@@ -11,7 +11,9 @@
   <div class="products-list-button">
     <a href="/nutrition/products-list"><button><i class="fas fa-add"></i> Products list</button></a>
   </div>
-
+  <div class="go-statisctics-button">
+    <a href="/nutrition/statistics"><button><i class="fas fa-add"></i> Statistics</button></a>
+  </div>
 
   <div class="tips-container">
     <div *ngFor="let tip of tips" class="tip">
@@ -23,39 +25,30 @@
     </div>
   </div>
   
-  
   <section class="content">
-
     <app-create-meal 
       [showMealFormAdd]="showMealFormAdd" 
       (create)="handleCreateMeal($event)">
     </app-create-meal>
 
-    
-  <app-edit-meal 
-    [showMealFormEdit]="showMealFormEdit"
-    [editedMeal]="editedMeal"
-    (edit)="handleEditMeal($event)">
-  </app-edit-meal>
+    <app-edit-meal 
+      [showMealFormEdit]="showMealFormEdit"
+      [editedMeal]="editedMeal"
+      (edit)="handleEditMeal($event)">
+    </app-edit-meal>
   
-
-
-  
-  <app-list-meals 
-  [loadedMeals]="meals"
-  [datesWithNotes]="datesWithNotes" 
-  (deleteMeal)="deleteMeal($event)"
-  (addProducts)="addProductsToMeal($event)"
-  (mealToEdit)="editMeal($event)"
-  (loadMealsEvent)="loadMeals($event)"
-  (dateChanged)="onDateChanged($event)"> 
-</app-list-meals>
-
-
+    <app-list-meals 
+      [loadedMeals]="meals"
+      [datesWithNotes]="datesWithNotes" 
+      (deleteMeal)="deleteMeal($event)"
+      (addProducts)="addProductsToMeal($event)"
+      (mealToEdit)="editMeal($event)"
+      (loadMealsEvent)="loadMeals($event)"
+      (dateChanged)="onDateChanged($event)"> 
+    </app-list-meals>
   </section>
   
   <div *ngIf="successMessage" class="success-message">
     {{ successMessage }}
-  </div>
-    
+  </div> 
 </body>
