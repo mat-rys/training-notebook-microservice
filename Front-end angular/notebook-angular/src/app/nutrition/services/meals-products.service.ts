@@ -50,12 +50,10 @@ export class MealsProductsService {
       carbs: (grams / 100) * product.carbs,
       protein: (grams / 100) * product.protein,
       fat: (grams / 100) * product.fat,
-      mealId: mealId,
     };
-  
-    const url = 'http://localhost:8222/nutrition/products-meals';
+    const url = `http://localhost:8222/nutrition/products-meals?mealId=${mealId}`;
     return this.http.post<ProductMeal>(url, productToAdd, { headers: this.headers });
-  }
+}
   
   removeProduct(productId: number): Observable<void> {
     const url = `http://localhost:8222/nutrition/products-meals/${productId}`;

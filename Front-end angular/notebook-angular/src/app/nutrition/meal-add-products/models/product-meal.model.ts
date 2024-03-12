@@ -5,6 +5,5 @@ export interface ProductMeal {
     carbs: number;
     protein: number;
     fat: number;
-    mealId: number;
   }
   

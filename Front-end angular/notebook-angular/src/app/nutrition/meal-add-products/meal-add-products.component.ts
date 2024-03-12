@@ -64,8 +64,6 @@ export class MealAddProductsComponent implements OnInit {
     });
   }
 
- 
-
   updateProduct(editingProduct: Product) {
     if (editingProduct) {
       this.mealsProductsService.updateProduct(editingProduct).subscribe(response => {
@@ -104,7 +102,6 @@ export class MealAddProductsComponent implements OnInit {
     }
   }
   
-
   removeProduct(product: Product) {
     this.mealsProductsService.removeProduct(product.id).subscribe(
       () => { this.loadProductsForMeal(this.idMeal); },

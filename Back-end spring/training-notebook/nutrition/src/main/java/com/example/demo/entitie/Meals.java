@@ -1,5 +1,6 @@
     package com.example.demo.entitie;
 
+    import com.fasterxml.jackson.annotation.JsonManagedReference;
     import jakarta.persistence.*;
     import lombok.*;
 
@@ -7,6 +8,7 @@
     import java.sql.Timestamp;
     import java.util.Date;
     import java.util.List;
+    import java.util.Set;
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -66,4 +68,9 @@
         private Time mealTime;
 
         private String userId;
+
+        @OneToMany(mappedBy = "meals")
+        @JsonManagedReference
+        private Set<ProductsMeals> productsMeals;
+
     }

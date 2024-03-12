@@ -19,8 +19,12 @@
                 </label>
             </div>
 
-            <div *ngIf="statistics">
+            <div id="chart-container">
+                <canvas id="canvas"></canvas>
+            </div>
 
+            <div *ngIf="statistics">
+              <!-- Other elements that depend on 'statistics' -->
             </div>
         </div>
     </section>

@@ -1,14 +1,19 @@
 package com.example.demo.controller;
 
+import com.example.demo.entitie.Meals;
 import com.example.demo.entitie.ProductsMeals;
+import com.example.demo.service.MealsService;
 import com.example.demo.service.ProductMealsService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigInteger;
+import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +23,13 @@ import java.util.Optional;
 public class ProductMealsController {
 
     private final ProductMealsService productMealsService;
+    private final MealsService mealsService;
+    @GetMapping("/user-stats")
+    public List<ProductsMealsStatsDTO> getMealStats(Principal principal,
+                                                    @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+                                                    @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+        return productMealsService.getProductsStatsForUser(principal.getName(), startDate, endDate);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductsMeals> getProductMealById(@PathVariable Long id) {
@@ -56,8 +68,12 @@ public class ProductMealsController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductsMeals> createProductMeal(@RequestBody ProductsMeals productMeal) {
+    public ResponseEntity<ProductsMeals> createProductMeal(@RequestBody ProductsMeals productMeal, @RequestParam Long mealId){
+        Meals meal = mealsService.getMealById(mealId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Meal not found"));
+        productMeal.setMeals(meal);
         ProductsMeals createdProductMeal = productMealsService.createProductMeal(productMeal);
         return new ResponseEntity<>(createdProductMeal, HttpStatus.CREATED);
     }
+
 }

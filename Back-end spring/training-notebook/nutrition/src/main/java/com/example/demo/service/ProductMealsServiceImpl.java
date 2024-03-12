@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.ProductsMealsStatsDTO;
 import com.example.demo.entitie.ProductsMeals;
 import com.example.demo.repository.ProductsMealsRepo;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +16,11 @@ import java.util.Optional;
 @Service
 public class ProductMealsServiceImpl implements ProductMealsService {
     private final ProductsMealsRepo productMealsRepository;
+
+    @Override
+    public List<ProductsMealsStatsDTO> getProductsStatsForUser(String userId, Date startDate, Date endDate) {
+        return productMealsRepository.findMostFrequentMeals(userId, startDate, endDate);
+    }
 
     @Override
     public ProductsMeals createProductMeal(ProductsMeals productMeal) {
@@ -42,13 +49,13 @@ public class ProductMealsServiceImpl implements ProductMealsService {
 
     @Override
     public List<ProductsMeals> getProductsForMeal(Long mealId) {
-        return productMealsRepository.findAllByMealId(mealId);
+        return productMealsRepository.findAllByMeals_Id(mealId);
     }
 
     @Override
     @Transactional
     public void deleteProductsByMealId(BigInteger mealId) {
-        productMealsRepository.deleteByMealId(mealId);
+        productMealsRepository.deleteByMeals_Id(mealId);
     }
 
 

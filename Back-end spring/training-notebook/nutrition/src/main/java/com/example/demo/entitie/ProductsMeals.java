@@ -1,5 +1,6 @@
 package com.example.demo.entitie;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -38,9 +39,12 @@ public class ProductsMeals {
     private Double carbs;
     private Double protein;
     private Double fat;
-    @Column(name = "meal_id")
-    private BigInteger mealId;
+    @ManyToOne
+    @JoinColumn(name = "meal_id")
+    @JsonBackReference
+    private Meals meals;
 
 
-    
+
+
 }
