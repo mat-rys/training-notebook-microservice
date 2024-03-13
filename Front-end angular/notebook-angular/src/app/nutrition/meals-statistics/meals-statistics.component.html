@@ -1,5 +1,5 @@
 <body>
-    <div id="photo-background" ></div>
+    <div id="photo-background"></div>
     <app-navbar (logout)="handleLogout()"></app-navbar> 
 
     <section class="content">
@@ -20,11 +20,10 @@
             </div>
 
             <div id="chart-container">
-                <canvas id="canvas"></canvas>
+                <canvas id="canvas" ></canvas>
             </div>
 
             <div *ngIf="statistics">
-              <!-- Other elements that depend on 'statistics' -->
             </div>
         </div>
     </section>

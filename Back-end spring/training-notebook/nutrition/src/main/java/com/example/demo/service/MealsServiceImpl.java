@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.AverageDTO;
+import com.example.demo.controller.CaloriesDTO;
 import com.example.demo.entitie.Meals;
 import com.example.demo.repository.MealsRepo;
 import lombok.AllArgsConstructor;
@@ -17,6 +19,16 @@ import java.util.Optional;
 public class MealsServiceImpl implements MealsService {
 
     private final MealsRepo mealsRepository;
+
+    @Override
+    public List<CaloriesDTO> getSumCaloriesByUserIdAndDateRange(String userId, Date startDate, Date endDate) {
+        return mealsRepository.findSumCaloriesByUserIdAndDateRange(userId, startDate, endDate);
+    }
+
+    @Override
+    public List<AverageDTO> getAverageNutrients(String userId, Date startDate, Date endDate) {
+        return mealsRepository.findSumNutrientsByUserIdAndDateRange(userId, startDate, endDate);
+    }
     @Override
     public Meals createMeal(Meals meal) {
         return mealsRepository.save(meal);

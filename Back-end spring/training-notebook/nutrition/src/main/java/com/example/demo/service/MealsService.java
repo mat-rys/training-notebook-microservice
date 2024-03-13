@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import com.example.demo.controller.AverageDTO;
+import com.example.demo.controller.CaloriesDTO;
 import com.example.demo.entitie.Meals;
 
 import java.sql.Time;
@@ -8,6 +10,8 @@ import java.util.Date;
 import java.util.Optional;
 
 public interface MealsService {
+    List<CaloriesDTO> getSumCaloriesByUserIdAndDateRange(String userId, Date startDate, Date endDate);
+    List<AverageDTO> getAverageNutrients(String userId, Date startDate, Date endDate);
     Meals createMeal(Meals meal);
     Optional<Meals> getMealById(Long id);
     List<Meals> getAllMeals();

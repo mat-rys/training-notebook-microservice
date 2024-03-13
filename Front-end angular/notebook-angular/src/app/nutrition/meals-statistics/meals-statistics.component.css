@@ -48,9 +48,13 @@ select, input[type="date"] {
 label {
     color: #FFFFFF;
 }
+#canvas {
+    height: 550px;
+    width: 550px;
+}
 
 #chart-container {
-    width: 50%; /* Adjust this to change the chart size */
-    margin: auto; /* Center the chart */
-    padding-top: 50px; /* Move the chart down */
+    width: 100%; 
+    margin: auto;
+    padding-top: 40px; 
 }

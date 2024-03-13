@@ -22,6 +22,21 @@ import java.util.Optional;
 public class MealsController {
     private final MealsService mealsService;
 
+    @GetMapping("/sumCalories")
+    public List<CaloriesDTO> getSumCaloriesByUserIdAndDateRange(Principal principal,
+                                                                @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date startDate,
+                                                                @RequestParam @DateTimeFormat(pattern="yyyy-MM-dd") Date endDate) {
+        return mealsService.getSumCaloriesByUserIdAndDateRange(principal.getName(), startDate, endDate);
+    }
+
+
+    @GetMapping("/average")
+    public List<AverageDTO> getAverageNutrients(Principal principal,
+                                                @RequestParam("startDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date startDate,
+                                                @RequestParam("endDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date endDate) {
+        return mealsService.getAverageNutrients(principal.getName(), startDate, endDate);
+    }
+
     @GetMapping("/id")
     public ResponseEntity<Meals> getMealById(@RequestBody Long id) {
         Optional<Meals> meal = mealsService.getMealById(id);
