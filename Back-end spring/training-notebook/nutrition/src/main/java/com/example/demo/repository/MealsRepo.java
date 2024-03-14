@@ -19,12 +19,10 @@
         @Query("SELECT DISTINCT m.day FROM Meals m WHERE m.userId = :userId")
         List<Date> findDistinctDaysByUserId(@Param("userId") String userId);
 
-        @Query("SELECT new com.example.demo.controller.AverageDTO(m.day, ROUND(SUM(m.fat), 2), ROUND(SUM(m.carbs), 2), ROUND(SUM(m.protein), 2)) " +
+        @Query("SELECT new com.example.demo.controller.AverageDTO(ROUND(SUM(m.fat), 2), ROUND(SUM(m.carbs), 2), ROUND(SUM(m.protein), 2)) " +
                 "FROM Meals m " +
                 "WHERE m.userId = :userId " +
-                "AND m.day BETWEEN :startDate AND :endDate " +
-                "GROUP BY m.day " +
-                "ORDER BY m.day")
+                "AND m.day BETWEEN :startDate AND :endDate ")
         List<AverageDTO> findSumNutrientsByUserIdAndDateRange(@Param("userId") String userId, @Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
         @Query("SELECT new com.example.demo.controller.CaloriesDTO(m.day, ROUND(SUM(m.calories), 2)) " +

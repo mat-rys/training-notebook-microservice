@@ -8,7 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class AverageDTO {
-    private Double avgCalories;
     private Double avgProtein;
     private Double avgCarbs;
     private Double avgFat;

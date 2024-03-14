@@ -13,7 +13,7 @@ Chart.register(PieController, ArcElement, CategoryScale, Tooltip, Legend, LineCo
   styleUrls: ['./meals-statistics.component.css']
 })
 export class MealsStatisticsComponent implements OnInit {
-  options = ['Most used products', 'Average statistics', 'Calories statistics'];
+  options = ['Most used products', 'Average nutrition daily', 'Calories statistics'];
   selectedOption!: string;
   statistics: any;
   startDate!: string;
@@ -47,7 +47,7 @@ export class MealsStatisticsComponent implements OnInit {
           );
         }
         break;
-      case 'Average statistics':
+      case 'Average nutrition daily':
         if (this.startDate && this.endDate) {
           this.nutritionStatsService.getAverageNutrients(this.startDate, this.endDate).subscribe(
             data => {
