@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.AverageDTO;
-import com.example.demo.controller.CaloriesDTO;
+import com.example.demo.dto.AverageDTO;
+import com.example.demo.dto.CaloriesDTO;
 import com.example.demo.entitie.Meals;
 
 import java.sql.Time;

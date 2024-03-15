@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.controller.ProductsMealsStatsDTO;
+import com.example.demo.dto.ProductsMealsStatsDTO;
 import com.example.demo.entitie.ProductsMeals;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,7 +16,7 @@ public interface ProductsMealsRepo extends JpaRepository<ProductsMeals, Long> {
     List<ProductsMeals> findAllByMeals_Id(Long mealId);
     void deleteByMeals_Id(BigInteger mealId);
 
-    @Query("SELECT new com.example.demo.controller.ProductsMealsStatsDTO(p.title, COUNT(p.title)) " +
+    @Query("SELECT new com.example.demo.dto.ProductsMealsStatsDTO(p.title, COUNT(p.title)) " +
             "FROM Meals m JOIN m.productsMeals p " +
             "WHERE m.userId = :userId " +
             "AND m.day BETWEEN :startDate AND :endDate " +

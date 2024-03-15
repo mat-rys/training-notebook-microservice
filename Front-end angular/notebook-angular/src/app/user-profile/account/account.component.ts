@@ -4,6 +4,8 @@ import { AccountService } from '../account/services/account-data.service';
 import { Photo } from './models/photo.model';
 import { Body } from './models/body-profil.model';
 import { User } from './models/user.model';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-account',
@@ -25,30 +27,61 @@ export class AccountComponent implements OnInit {
   }
 
   loadPhoto() {
-    this.accountService.loadPhoto().subscribe(data => {
-      this.photo = data;
-      console.log(this.photo)
-    });
+    this.accountService.loadPhoto().subscribe(
+      data => {
+        this.photo = data;
+      },
+      error => {
+        if (error.status === 404) {
+          this.createImage('');
+        }
+      }
+    );
   }
 
   loadUserProfile() {
     this.accountService.loadUser().subscribe(data => {
-      console.log(data)
       this.user = data;
     });
   }
 
   loadBodyProfil() {
-    this.accountService.loadBodyProfil().subscribe(data => {
-      this.body = data;
-    });
+    this.accountService.loadBodyProfil().subscribe(
+      data => {
+        this.body = data;
+      },
+      error => {
+        if (error.status === 404) {
+          const emptyBodyProfile: Body = {
+            weight: 0,
+            height: 0,
+            gender: '',
+            age: 0,
+            goals: ''
+          };
+          this.createBodyProfile(emptyBodyProfile);
+        }
+      }
+    );
+  }
+  
+createBodyProfile(bodyProfile: Body) {
+  this.accountService.createBodyProfile(bodyProfile).subscribe(() => {
+    this.loadBodyProfil();
+  });
+}
+
+updateImage(updatedImageUrl: string) {
+  this.accountService.updateImage(updatedImageUrl).subscribe(() => {
+    this.loadPhoto();
+  });
   }
 
-  updateImage(updatedImageUrl: string) {
-    this.accountService.updateImage(updatedImageUrl).subscribe(() => {
+  createImage(updatedImageUrl: string) {
+    this.accountService.createImage(updatedImageUrl).subscribe(() => {
       this.loadPhoto();
     });
-  }
+    }
 
   updateBodyProfile(fieldName: string, updatedValue: any) {
     this.accountService.updateBodyProfile(fieldName, updatedValue).subscribe(() => {

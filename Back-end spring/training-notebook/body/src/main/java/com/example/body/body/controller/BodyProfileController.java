@@ -2,7 +2,6 @@ package com.example.body.body.controller;
 
 import com.example.body.body.entitie.BodyProfile;
 import com.example.body.body.entitie.Photo;
-import com.example.body.body.repository.PhotoRepo;
 import com.example.body.body.service.BodyProfileeService;
 
 import lombok.AllArgsConstructor;
@@ -21,12 +20,11 @@ import java.util.Optional;
 public class BodyProfileController {
 
     private final BodyProfileeService bodyProfileService;
-    private PhotoRepo photoRepo;
 
     @GetMapping("/photo")
-    public ResponseEntity<Photo> getPhoto(Principal principal) {
-        Photo photo = photoRepo.findByIdUser(principal.getName());
-        return (photo != null) ? ResponseEntity.ok(photo) : ResponseEntity.notFound().build();
+    public ResponseEntity<Optional<Photo>> getPhoto(Principal principal) {
+        Optional<Photo> photo =  bodyProfileService.findUserPhoto(principal.getName());
+        return (photo.isPresent()) ? ResponseEntity.ok(photo) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/get")
@@ -35,11 +33,18 @@ public class BodyProfileController {
         return bodyProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/photo")
-    public ResponseEntity<String> createPhoto(@RequestBody Photo photo, Principal principal) {
+    @PostMapping("/photo/post")
+    public ResponseEntity<Photo> createPhoto(@RequestBody Photo photo, Principal principal) {
         photo.setIdUser(principal.getName());
-        photoRepo.save(photo);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Zapisano nowy obrazek profilowy.");
+        Photo photoProfile = bodyProfileService.createPhotoProfile(photo);
+        return new ResponseEntity<>(photoProfile, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/photo/put")
+    public ResponseEntity<Photo> updatePhoto(@RequestBody Photo photo, Principal principal) {
+        photo.setIdUser(principal.getName());
+        Optional<Photo> photoProfile = Optional.ofNullable(bodyProfileService.updatePhoto(photo));
+        return ResponseEntity.ok(photoProfile.get());
     }
 
     @PostMapping("/post")

@@ -32,15 +32,24 @@ export class AccountService {
     return this.http.get<Body>('http://localhost:8222/body/get', { headers: this.getHeaders() });
   }
 
-  updateImage(updatedImageUrl: string) {
-    return this.http.post('http://localhost:8222/body/photo', { photoUrl: updatedImageUrl }, { headers: this.getHeaders() });
+  updateImage(updatedImageUrl: string): Observable<Photo> {
+    return this.http.put<Photo>('http://localhost:8222/body/photo/put', { photoUrl: updatedImageUrl }, { headers: this.getHeaders() });
   }
 
+  createImage(updatedImageUrl: string): Observable<Photo> {
+    return this.http.post<Photo>('http://localhost:8222/body/photo/post', { photoUrl: updatedImageUrl }, { headers: this.getHeaders() });
+  }
+  
   updateBodyProfile(fieldName: string, updatedValue: any) {
     const apiEndpoint = `http://localhost:8222/body/${fieldName}`;
     const bodyProfileDTO = {[fieldName]: updatedValue};
     return this.http.put(apiEndpoint, bodyProfileDTO, { headers: this.getHeaders() });
   }
+
+  createBodyProfile(bodyProfile: Body) {
+    const apiEndpoint = `http://localhost:8222/body/post`;
+    return this.http.post(apiEndpoint, bodyProfile, { headers: this.getHeaders() });
+}
 
   updateField(fieldName: string, updatedValue: any) {
     const apiEndpoint = `http://localhost:8222/account/user/${fieldName}`;

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.ProductsMealsStatsDTO;
+import com.example.demo.dto.ProductsMealsStatsDTO;
 import com.example.demo.entitie.ProductsMeals;
 import com.example.demo.repository.ProductsMealsRepo;
 import lombok.AllArgsConstructor;

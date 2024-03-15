@@ -1,5 +1,5 @@
 export interface Body {
-    id: string;
+    id?: string;
     weight: number;
     height: number;
     gender: string;

@@ -8,8 +8,3 @@ CREATE TABLE body_profile (
     age INTEGER ,
     goals VARCHAR(255)
 );
-
-
-
-
-

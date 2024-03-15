@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +12,5 @@ public class UpdateMealDTO {
     private String title;
     private Date day;
     private Time mealTime;
-
 }
 

@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,4 @@ import lombok.Setter;
 public class ProductsMealsStatsDTO {
     private String title;
     private Long count;
-
-
 }

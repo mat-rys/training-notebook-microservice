@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.AverageDTO;
+import com.example.demo.dto.CaloriesDTO;
+import com.example.demo.dto.UpdateMealDTO;
 import com.example.demo.entitie.Meals;
 import com.example.demo.service.MealsService;
-import com.example.demo.service.ProductMealsService;
 import lombok.AllArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.sql.Time;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;

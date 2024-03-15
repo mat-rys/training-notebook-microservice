@@ -2,17 +2,23 @@ package com.example.body.body.service;
 
 import com.example.body.body.controller.BodyProfileDTO;
 import com.example.body.body.entitie.BodyProfile;
+import com.example.body.body.entitie.Photo;
 import com.example.body.body.repository.BodyProfileRepo;
+import com.example.body.body.repository.PhotoRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 @Service
 @AllArgsConstructor
 public class BodyProfileServiceImlp implements BodyProfileeService {
 
     private final BodyProfileRepo bodyProfileRepo;
+    private final PhotoRepo photoRepo;
 
     @Override
     public Optional<BodyProfile> getBodyProfileById(String id) {
@@ -32,29 +38,36 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
 
     @Override
     public BodyProfile updateAttribute(String id, String attribute, BodyProfileDTO bodyProfileDTO) {
-        Optional<BodyProfile> optionalBodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id));
-        if (optionalBodyProfile.isPresent()) {
-            BodyProfile bodyProfile = optionalBodyProfile.get();
-            switch (attribute) {
-                case "weight":
-                    bodyProfile.setWeight(bodyProfileDTO.getWeight());
-                    break;
-                case "height":
-                    bodyProfile.setHeight(bodyProfileDTO.getHeight());
-                    break;
-                case "gender":
-                    bodyProfile.setGender(bodyProfileDTO.getGender());
-                    break;
-                case "age":
-                    bodyProfile.setAge(bodyProfileDTO.getAge());
-                    break;
-                case "goals":
-                    bodyProfile.setGoals(bodyProfileDTO.getGoals());
-                    break;
-            }
-            return bodyProfileRepo.save(bodyProfile);
-        } else {
-            throw new RuntimeException("BodyProfile with id " + id + " does not exist.");
+        BodyProfile bodyProfile = Optional.ofNullable(bodyProfileRepo.findByIdUser(id))
+                .orElseThrow(() -> new RuntimeException("BodyProfile with id " + id + " does not exist."));
+
+        Map<String, BiConsumer<BodyProfile, BodyProfileDTO>> attributeUpdaters = new HashMap<>();
+        attributeUpdaters.put("weight", (bp, bpDTO) -> bp.setWeight(bpDTO.getWeight()));
+        attributeUpdaters.put("height", (bp, bpDTO) -> bp.setHeight(bpDTO.getHeight()));
+        attributeUpdaters.put("gender", (bp, bpDTO) -> bp.setGender(bpDTO.getGender()));
+        attributeUpdaters.put("age", (bp, bpDTO) -> bp.setAge(bpDTO.getAge()));
+        attributeUpdaters.put("goals", (bp, bpDTO) -> bp.setGoals(bpDTO.getGoals()));
+
+        if (attributeUpdaters.containsKey(attribute)) {
+            attributeUpdaters.get(attribute).accept(bodyProfile, bodyProfileDTO);
         }
+
+        return bodyProfileRepo.save(bodyProfile);
     }
+
+    @Override
+    public Optional<Photo> findUserPhoto(String id) {
+        return Optional.ofNullable(photoRepo.findByIdUser(id));
+    }
+
+    @Override
+    public Photo createPhotoProfile(Photo photoProfile) {
+        return photoRepo.save(photoProfile);
+    }
+
+    @Override
+    public Photo updatePhoto(Photo photo) {
+        return photoRepo.save(photo);
+    }
+
 }

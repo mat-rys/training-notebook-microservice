@@ -43,8 +43,4 @@ public class ProductsMeals {
     @JoinColumn(name = "meal_id")
     @JsonBackReference
     private Meals meals;
-
-
-
-
 }

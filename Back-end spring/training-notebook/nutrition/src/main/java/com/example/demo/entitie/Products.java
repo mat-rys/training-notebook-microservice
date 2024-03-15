@@ -13,8 +13,6 @@ import lombok.*;
 @Entity
 @Table(name = "products")
 public class Products {
-
-
     public Products(String title, Double calories, Integer grams, Double carbs, Double protein, Double fat) {
         this.title = title;
         this.calories = calories;
