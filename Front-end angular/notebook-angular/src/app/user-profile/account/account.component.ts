@@ -4,8 +4,7 @@ import { AccountService } from '../account/services/account-data.service';
 import { Photo } from './models/photo.model';
 import { Body } from './models/body-profil.model';
 import { User } from './models/user.model';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Limits } from './models/limits.model';
 
 @Component({
   selector: 'app-account',
@@ -17,6 +16,7 @@ export class AccountComponent implements OnInit {
   user!: User; 
   body!: Body;
   photo!: Photo;
+  limits!: Limits;
 
   constructor(private accountService: AccountService) { }
 
@@ -24,18 +24,13 @@ export class AccountComponent implements OnInit {
     this.loadUserProfile();
     this.loadBodyProfil();
     this.loadPhoto(); 
+    this.loadLimitsProfile();
   }
 
   loadPhoto() {
     this.accountService.loadPhoto().subscribe(
-      data => {
-        this.photo = data;
-      },
-      error => {
-        if (error.status === 404) {
-          this.createImage('');
-        }
-      }
+      data => {this.photo = data;},
+      error => {if (error.status === 404) {this.createImage('');}}
     );
   }
 
@@ -47,9 +42,7 @@ export class AccountComponent implements OnInit {
 
   loadBodyProfil() {
     this.accountService.loadBodyProfil().subscribe(
-      data => {
-        this.body = data;
-      },
+      data => {this.body = data;},
       error => {
         if (error.status === 404) {
           const emptyBodyProfile: Body = {
@@ -94,4 +87,38 @@ updateImage(updatedImageUrl: string) {
       this.loadUserProfile();
     });
   }
+
+  loadLimitsProfile() {
+    this.accountService.loadLimitsProfile().subscribe(
+      data => {this.limits = data;},
+      error => {
+        if (error.status === 404) {
+          const emptyLimitsProfile: Limits = {
+            limitCalories: 0,
+            limitCarbs: 0,
+            limitFats: 0,
+            limitProteins: 0
+          };
+          this.createLimitsProfile(emptyLimitsProfile);
+        }
+      }
+    );
+  }
+  
+  createLimitsProfile(limitsProfile: Limits) {
+    this.accountService.createLimits(limitsProfile).subscribe(() => {
+      this.loadLimitsProfile();
+    });
+  }
+  
+  updateLimitsProfile(fieldName: string, updatedValue: any) {
+    console.log(fieldName,updatedValue)
+    this.accountService.updateLimitsProfile(fieldName, updatedValue).subscribe(() => {
+      this.loadLimitsProfile();
+    });
+}
+
+  
+
+
 }

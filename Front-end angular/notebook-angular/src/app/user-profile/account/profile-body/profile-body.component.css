@@ -1,6 +1,5 @@
 .content {
-    margin-left: 1000px;
-   
+     margin-left: 1000px;
      margin-bottom: 220px;
      text-align: center;
    }
@@ -45,7 +44,7 @@
    .Body {
     background-color: #E9E9E9;
      margin-left:-840px; 
-     margin-top: 100px;
+     margin-top: 70px;
      padding: 40px;
      border-radius: 15px;
      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

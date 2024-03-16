@@ -1,6 +1,7 @@
 package com.example.body.body.controller;
 
 import com.example.body.body.entitie.BodyProfile;
+import com.example.body.body.entitie.LimitsProfile;
 import com.example.body.body.entitie.Photo;
 import com.example.body.body.service.BodyProfileeService;
 
@@ -21,16 +22,11 @@ public class BodyProfileController {
 
     private final BodyProfileeService bodyProfileService;
 
+    //PHOTO
     @GetMapping("/photo")
     public ResponseEntity<Optional<Photo>> getPhoto(Principal principal) {
         Optional<Photo> photo =  bodyProfileService.findUserPhoto(principal.getName());
         return (photo.isPresent()) ? ResponseEntity.ok(photo) : ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/get")
-    public ResponseEntity<BodyProfile> getBodyProfile(Principal principal) {
-        Optional<BodyProfile> bodyProfile = bodyProfileService.getBodyProfileById(principal.getName());
-        return bodyProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping("/photo/post")
@@ -47,6 +43,13 @@ public class BodyProfileController {
         return ResponseEntity.ok(photoProfile.get());
     }
 
+    //BODY
+    @GetMapping("/get")
+    public ResponseEntity<BodyProfile> getBodyProfile(Principal principal) {
+        Optional<BodyProfile> bodyProfile = bodyProfileService.getBodyProfileById(principal.getName());
+        return bodyProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @PostMapping("/post")
     public ResponseEntity<BodyProfile> createBodyProfile(@RequestBody BodyProfile bodyProfile, Principal principal) {
         bodyProfile.setIdUser(principal.getName());
@@ -54,9 +57,33 @@ public class BodyProfileController {
         return new ResponseEntity<>(createdProfile, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{attribute}")
-    public ResponseEntity<BodyProfile> updateAttribute(Principal principal, @PathVariable String attribute, @RequestBody BodyProfileDTO bodyProfileDTO) {
-        BodyProfile updatedProfile = bodyProfileService.updateAttribute(principal.getName(), attribute, bodyProfileDTO);
+    @PutMapping("/body/{attribute}")
+    public ResponseEntity<BodyProfile> updateBodyAttribute(Principal principal, @PathVariable String attribute, @RequestBody BodyProfileDTO bodyProfileDTO) {
+        BodyProfile updatedProfile = bodyProfileService.updateBodyAttribute(principal.getName(), attribute, bodyProfileDTO);
         return ResponseEntity.ok(updatedProfile);
     }
+
+    //LIMITS
+    @GetMapping("/limits")
+    public ResponseEntity<Optional<LimitsProfile>> getLimits(Principal principal) {
+        Optional<LimitsProfile> limitsProfile = bodyProfileService.findUserLimits(principal.getName());
+        return (limitsProfile.isPresent()) ? ResponseEntity.ok(limitsProfile) : ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/limits/post")
+    public ResponseEntity<LimitsProfile> createLimitsProfile(@RequestBody LimitsProfile limitsProfile, Principal principal) {
+        limitsProfile.setIdUser(principal.getName());
+        LimitsProfile newLimitsProfile = bodyProfileService.createLimitsProfile(limitsProfile);
+        return new ResponseEntity<>(newLimitsProfile, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/limits/{attribute}")
+    public ResponseEntity<LimitsProfile> updateAttribute(Principal principal, @PathVariable String attribute, @RequestBody LimitsProfileDTO limitsProfileDTO) {
+        System.out.println(attribute);
+        System.out.println(limitsProfileDTO);
+        LimitsProfile updatedProfile = bodyProfileService.updateLimitsAttribute(principal.getName(), attribute, limitsProfileDTO);
+        return ResponseEntity.ok(updatedProfile);
+    }
+
+
 }

@@ -1,8 +1,49 @@
 <section class="Body">
     <div class="additional-section">
-      <div class="additional-box">
+      <div class="additional-box" >
         <h2>Body informations</h2>
   
+        <div class="profile-row">
+          <span class="profile-label">Limit calories:</span>
+          <span class="profile-value">{{loadedLimitsProfile.limitCalories }} kcal</span>
+          <div class="change-button" (click)="toggleInput('limitCalories')">Change</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showCaloriesInput">
+          <input type="number" [(ngModel)]="newCalories" placeholder="New Calories">
+          <button (click)="updateLimitsProfile('limitCalories', newCalories)">Update</button>
+        </div>
+        
+        <div class="profile-row">
+          <span class="profile-label">Limit carbs:</span>
+          <span class="profile-value">{{ loadedLimitsProfile.limitCarbs }} g </span>
+          <div class="change-button" (click)="toggleInput('limitCarbs')">Change</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showCarbsInput">
+          <input type="number" [(ngModel)]="newCarbs" placeholder="New Carbs">
+          <button (click)="updateLimitsProfile('limitCarbs', newCarbs)">Update</button>
+        </div>
+        
+        <div class="profile-row">
+          <span class="profile-label">Limit fats:</span>
+          <span class="profile-value">{{ loadedLimitsProfile.limitFats }} g</span>
+          <div class="change-button" (click)="toggleInput('limitFats')">Change</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showFatsInput">
+          <input type="number" [(ngModel)]="newFats" placeholder="New Fats">
+          <button (click)="updateLimitsProfile('limitFats', newFats)">Update</button>
+        </div>
+        
+        <div class="profile-row">
+          <span class="profile-label">Limit proteins:</span>
+          <span class="profile-value">{{ loadedLimitsProfile.limitProteins }} g</span>
+          <div class="change-button" (click)="toggleInput('limitProteins')">Change</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showProteinsInput">
+          <input type="number" [(ngModel)]="newProteins" placeholder="New proteins">
+          <button (click)="updateLimitsProfile('limitProteins', newProteins)">Update</button>
+        </div>
+
+
         <div class="profile-row">
           <span class="profile-label">Weight:</span>
           <span class="profile-value">{{ loadedBodyProfile.weight }} kg</span>

@@ -17,9 +17,13 @@
     </app-profile-user>
 
     <app-profile-body 
-      *ngIf="body" [loadedBodyProfile]="body" 
-      (profileUpdate)="updateBodyProfile($event.fieldName, $event.updatedValue)">
-    </app-profile-body>
+    [loadedLimitsProfile]="limits" 
+    [loadedBodyProfile]="body" 
+    *ngIf="body && limits"
+    (profileUpdate)="updateBodyProfile($event.fieldName, $event.updatedValue)"
+    (limitUpdate)="updateLimitsProfile($event.fieldName, $event.updatedValue)">
+  </app-profile-body>
+  
       
     </section>
 </body>
