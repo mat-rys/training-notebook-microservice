@@ -5,7 +5,6 @@ import { Photo } from '../models/photo.model';
 import { Body } from '../models/body-profil.model';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
-import { Limits } from '../models/limits.model';
 
 @Injectable({
   providedIn: 'root'
@@ -58,20 +57,4 @@ export class AccountService {
     const apiEndpoint = `http://localhost:8222/body/post`;
     return this.http.post(apiEndpoint, bodyProfile, { headers: this.getHeaders() });
 }
-
-//LIMITS
-  loadLimitsProfile(): Observable<Limits> {
-    return this.http.get<Limits>('http://localhost:8222/body/limits', { headers: this.getHeaders() });
-  }
-
-  updateLimitsProfile(fieldName: string, updatedValue: any): Observable<Limits> {
-    console.log(fieldName,updatedValue,"hej")
-    const apiEndpoint = `http://localhost:8222/limits/${fieldName}`;
-    const limitsProfileDTO = {[fieldName]: updatedValue};
-    return this.http.put<Limits>(apiEndpoint, limitsProfileDTO, { headers: this.getHeaders() });
-}
-
-  createLimits(limitsProfile: Limits): Observable<Limits> {
-    return this.http.post<Limits>('http://localhost:8222/body/limits/post', limitsProfile, { headers: this.getHeaders() });
-  }
 }

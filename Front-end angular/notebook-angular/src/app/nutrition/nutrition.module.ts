@@ -20,12 +20,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MealsStatisticsComponent } from './meals-statistics/meals-statistics.component';
+import { LimitsComponent } from './limits/limits.component';
 
 const routes: Routes = [
   { path: 'product-add', component: ProductComponent },
   { path: 'products-list', component: ProductListComponent },
   { path: 'meal-add-products', component: MealAddProductsComponent },
   { path: 'statistics', component: MealsStatisticsComponent },
+  { path: 'limits', component: LimitsComponent },
   { path: '', component: NutritionComponent },
 ];
 
@@ -42,8 +44,8 @@ const routes: Routes = [
     EditMealComponent,
     ListSearchProductsComponent,
     ListAddedMealProductsComponent,
-    MealsStatisticsComponent
-
+    MealsStatisticsComponent,
+    LimitsComponent
   ],
   imports: [  
     HttpClientModule,

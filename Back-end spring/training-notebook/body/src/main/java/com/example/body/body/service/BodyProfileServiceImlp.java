@@ -85,7 +85,7 @@ public class BodyProfileServiceImlp implements BodyProfileeService {
 
     @Override
     public LimitsProfile updateLimitsAttribute(String id, String attribute,  LimitsProfileDTO limitsProfileDTO) {
-        Optional<LimitsProfile> limitsProfile = Optional.ofNullable(limitsProfileRepo.findById(id))
+        Optional<LimitsProfile> limitsProfile = Optional.of(limitsProfileRepo.findById(id))
                 .orElseThrow(() -> new RuntimeException("LimitsProfile with id " + id + " does not exist."));
 
         Map<String, BiConsumer<LimitsProfile, LimitsProfileDTO>> attributeUpdaters = new HashMap<>();

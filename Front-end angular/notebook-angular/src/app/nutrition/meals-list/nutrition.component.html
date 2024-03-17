@@ -5,6 +5,9 @@
   <div class="add-meal-button">
     <button (click)="toggleMealFormAdd()">Add new Meal</button>
   </div>
+  <div class="go-statisctics-button">
+    <a href="/nutrition/limits"><button><i class="fas fa-add"></i> Limits nutrition</button></a>
+  </div>
   <div class="add-product-button">
     <a href="/nutrition/product-add"><button><i class="fas fa-add"></i> Add new product</button></a>
   </div>
@@ -14,6 +17,7 @@
   <div class="go-statisctics-button">
     <a href="/nutrition/statistics"><button><i class="fas fa-add"></i> Statistics</button></a>
   </div>
+
 
   <div class="tips-container">
     <div *ngFor="let tip of tips" class="tip">

@@ -1,0 +1,35 @@
+<body>
+    <div id="photo-background"></div>
+    <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+    <div class="limits-container">
+        <h1>Nutrition limits</h1>
+        <div class="limit-item">
+            <h2>Calories</h2>
+            <p>{{limits.limitCalories}} kcal</p>
+            <button (click)="showInput('calories')">Change</button>
+            <input *ngIf="showCaloriesInput" [(ngModel)]="limits.limitCalories" (ngModelChange)="onInputChange('limitCalories', $event)">
+        </div>
+        <div class="limit-item">
+            <h2>Carbs</h2>
+            <p>{{limits.limitCarbs}} g</p>
+            <button (click)="showInput('carbs')">Change</button>
+            <input *ngIf="showCarbsInput" [(ngModel)]="limits.limitCarbs" (blur)="updateLimitsProfile('limitCarbs', limits.limitCarbs)">
+        </div>
+        <div class="limit-item">
+            <h2>Fats</h2>
+            <p>{{limits.limitFats}} g</p>
+            <button (click)="showInput('fats')">Change</button>
+            <input *ngIf="showFatsInput" [(ngModel)]="limits.limitFats" (blur)="updateLimitsProfile('limitFats', limits.limitFats)">
+        </div>
+        <div class="limit-item">
+            <h2>Proteins</h2>
+            <p>{{limits.limitProteins}} g</p>
+            <button (click)="showInput('proteins')">Change</button>
+            <input *ngIf="showProteinsInput" [(ngModel)]="limits.limitProteins" (blur)="updateLimitsProfile('limitProteins', limits.limitProteins)">
+        </div>
+    </div>
+    <div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
