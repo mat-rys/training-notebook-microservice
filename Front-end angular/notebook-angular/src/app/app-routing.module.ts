@@ -13,8 +13,7 @@
     { path: 'bmi-chart', loadChildren: () => import('./bmi-chart/bmi-chart.module').then(m => m.BmiChartModule), canActivate: [AuthGuard] },
 
     { path: 'notes', loadChildren: () => import('./notes/note.module').then(m => m.NoteModule), canActivate: [AuthGuard] },
-    { path: 'notes-add', component: NoteAddComponent, canActivate: [AuthGuard] },
-
+    
     { path: 'nutrition', loadChildren: () => import('./nutrition/nutrition.module').then(m => m.NutritionModule), canActivate: [AuthGuard]} ,
 
     { path: '', loadChildren: () => import('./auth/before-auth.module').then(m => m.BeforeAuthModule)},
