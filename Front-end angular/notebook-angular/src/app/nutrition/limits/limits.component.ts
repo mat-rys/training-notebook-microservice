@@ -31,16 +31,16 @@ export class LimitsComponent implements OnInit {
   ngOnInit(): void {
     this.loadLimitsProfile();
 
-    this.limitCaloriesSubject.pipe(debounceTime(2000)).subscribe(updatedValue => {
+    this.limitCaloriesSubject.pipe(debounceTime(2200)).subscribe(updatedValue => {
       this.updateLimitsProfile('limitCalories', updatedValue);
     });
-    this.limitCarbsSubject.pipe(debounceTime(2000)).subscribe(updatedValue => {
+    this.limitCarbsSubject.pipe(debounceTime(2200)).subscribe(updatedValue => { 
       this.updateLimitsProfile('limitCarbs', updatedValue);
     });
-    this.limitFatsSubject.pipe(debounceTime(2000)).subscribe(updatedValue => {
+    this.limitFatsSubject.pipe(debounceTime(2200)).subscribe(updatedValue => {
       this.updateLimitsProfile('limitFats', updatedValue);
     });
-    this.limitProteinsSubject.pipe(debounceTime(2000)).subscribe(updatedValue => {
+    this.limitProteinsSubject.pipe(debounceTime(2200)).subscribe(updatedValue => {
       this.updateLimitsProfile('limitProteins', updatedValue);
     });
   }
@@ -149,17 +149,21 @@ export class LimitsComponent implements OnInit {
   createPieChart() {
     const labels = ['Fat', 'Protein', 'Carbs'];
     const data = [this.limits.limitFats, this.limits.limitProteins, this.limits.limitCarbs];
-  
+    
+
+    const total = data.reduce((a, b) => a + b, 0);
+    const percentageData = data.map(value => (value / total * 100).toFixed(2));
+    
     const backgroundColors = labels.map(() => `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)},
      ${Math.floor(Math.random() * 255)}, 0.9)`); 
     const borderColors = backgroundColors.map((color: string) => color.replace('0.9', '1'));
-  
+    
     this.chart = new Chart('canvas', {
       type: 'pie',
       data: {
         labels: labels,
         datasets: [{
-          data: data,
+          data: percentageData,  
           backgroundColor: backgroundColors,
           borderColor: borderColors,
           borderWidth: 1
@@ -173,9 +177,18 @@ export class LimitsComponent implements OnInit {
             labels: {
               color: 'white',
             }
+          },
+          tooltip: {  
+            callbacks: {
+              label: function(context) {
+                let label = context.label;
+                let value = context.parsed;
+                return `${label}: ${value}%`;  
+              }
+            }
           }
         }
       }
     });
-  }
+  }    
 }

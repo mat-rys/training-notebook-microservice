@@ -14,19 +14,19 @@
             <h2>Carbs</h2>
             <p>{{limits.limitCarbs}} g</p>
             <button (click)="showInput('carbs')">Change</button>
-            <input *ngIf="showCarbsInput" [(ngModel)]="limits.limitCarbs" (blur)="updateLimitsProfile('limitCarbs', limits.limitCarbs)">
+            <input *ngIf="showCarbsInput" [(ngModel)]="limits.limitCarbs" (ngModelChange)="onInputChange('limitCarbs', $event)">
         </div>
         <div class="limit-item">
             <h2>Fats</h2>
             <p>{{limits.limitFats}} g</p>
             <button (click)="showInput('fats')">Change</button>
-            <input *ngIf="showFatsInput" [(ngModel)]="limits.limitFats" (blur)="updateLimitsProfile('limitFats', limits.limitFats)">
+            <input *ngIf="showFatsInput" [(ngModel)]="limits.limitFats" (ngModelChange)="onInputChange('limitFats', $event)">
         </div>
         <div class="limit-item">
             <h2>Proteins</h2>
             <p>{{limits.limitProteins}} g</p>
             <button (click)="showInput('proteins')">Change</button>
-            <input *ngIf="showProteinsInput" [(ngModel)]="limits.limitProteins" (blur)="updateLimitsProfile('limitProteins', limits.limitProteins)">
+            <input *ngIf="showProteinsInput" [(ngModel)]="limits.limitProteins" (ngModelChange)="onInputChange('limitProteins', $event)">
         </div>
     </div>
     <div>
