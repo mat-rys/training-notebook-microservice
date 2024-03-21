@@ -29,11 +29,25 @@
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #4009A5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #6A42F8; /* Zmieniamy kolor tła na bardziej jasny odcień fioletu */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25); /* Zwiększamy cień, aby dodać głębi */
+    color: #FFFFFF; /* Ustawiamy kolor tekstu na biały dla lepszej czytelności */
+    font-size: 1.2em; /* Zwiększamy rozmiar czcionki */
 }
 
-select, input[type="date"] {
+select{
+    width: 150px;
+    height: 45px; 
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background-color: #4009A5; /* Zmieniamy kolor tła na ciemniejszy odcień fioletu */
+    color: #FFFFFF;
+}
+
+input[type="date"] {
     width: 150px;
     height: 35px; 
     padding: 5px;
@@ -41,13 +55,15 @@ select, input[type="date"] {
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    background-color: #6A42F8;
+    background-color: #4009A5; /* Zmieniamy kolor tła na ciemniejszy odcień fioletu */
     color: #FFFFFF;
 }
 
 label {
     color: #FFFFFF;
+    font-weight: bold; /* Dodajemy pogrubienie do etykiet */
 }
+
 #canvas {
     height: 550px;
     width: 550px;
