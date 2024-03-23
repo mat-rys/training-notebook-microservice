@@ -5,17 +5,17 @@
     <section class="content">
         <div class="center-content">
             <div class="search-header">
-                <select [(ngModel)]="selectedOption" (change)="loadStatistics()">
+                <select [(ngModel)]="selectedOption" (ngModelChange)="loadStatistics()">
                     <option *ngFor="let option of options" [value]="option">{{option}}</option>
                 </select>
 
                 <label>
                     Start date:
-                    <input type="date" [(ngModel)]="startDate" (change)="loadStatistics()">
+                    <input type="date" [(ngModel)]="startDate" (ngModelChange)="loadStatistics()">
                 </label>
                 <label>
                     End date:
-                    <input type="date" [(ngModel)]="endDate" (change)="loadStatistics()">
+                    <input type="date" [(ngModel)]="endDate" (ngModelChange)="loadStatistics()">
                 </label>
             </div>
 

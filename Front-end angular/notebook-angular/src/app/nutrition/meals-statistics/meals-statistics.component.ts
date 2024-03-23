@@ -79,6 +79,10 @@ export class MealsStatisticsComponent implements OnInit {
     }
 
     createLineChart(chartType: string) {
+      if (this.chart) {
+        this.chart.destroy();
+      }
+
       let labels, data;
       if (chartType === 'Calories statistics') {
         labels = this.statistics.map((stat: any) => new Date(stat.day).toISOString().split('T')[0]);
@@ -138,6 +142,11 @@ export class MealsStatisticsComponent implements OnInit {
     
   
   createPieChart(chartType: string) {
+
+    if (this.chart) {
+      this.chart.destroy();
+    }
+    
     let labels, data;
     if (chartType === 'Most used products') {
       labels = this.statistics.map((stat: any) => stat.title);
