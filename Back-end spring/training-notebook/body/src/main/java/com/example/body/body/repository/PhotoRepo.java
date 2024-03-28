@@ -8,3 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface PhotoRepo extends JpaRepository<Photo,String> {
     Photo findByIdUser(String idUser);
 }
+

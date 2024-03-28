@@ -11,7 +11,7 @@ import java.util.List;
 public interface UserNotesRepo extends JpaRepository<UserNotes,Long> {
 
     List<UserNotes> findByUserId(String userId);
-    List<UserNotes> findByUserIdAndStartDateLike(String userId, String startDate);
+
     @Query("SELECT DISTINCT TO_CHAR(u.startDate, 'YYYY-MM-DD') " +
             "FROM UserNotes u WHERE u.userId = :userId")
     List<String> findAllDistinctStartDatesByUserId(String userId);
