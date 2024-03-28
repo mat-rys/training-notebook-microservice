@@ -43,6 +43,7 @@ export class MealAddProductsComponent implements OnInit {
       this.loadProductsForMeal(this.idMeal); 
     });
     this.loadProducts();
+  
   }
 
   handleLogout() {
@@ -77,6 +78,7 @@ export class MealAddProductsComponent implements OnInit {
   loadProductsForMeal(mealId: number) {
     this.mealsProductsService.loadProductsForMeal(mealId).subscribe((data) => {
       this.selectedProducts = data;
+      console.log(this.selectedProducts)
     });
   }
 

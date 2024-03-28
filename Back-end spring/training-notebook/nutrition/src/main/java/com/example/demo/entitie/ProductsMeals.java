@@ -43,4 +43,19 @@ public class ProductsMeals {
     @JoinColumn(name = "meal_id")
     @JsonBackReference
     private Meals meals;
+
+    @Override
+    public String toString() {
+        return "ProductsMeals { " +
+                "id: " + id +
+                ", title: '" + title + '\'' +
+                ", calories: " + calories +
+                ", grams: " + grams +
+                ", carbs: " + carbs +
+                ", protein: " + protein +
+                ", fat: " + fat +
+                " }";
+    }
+
+
 }
