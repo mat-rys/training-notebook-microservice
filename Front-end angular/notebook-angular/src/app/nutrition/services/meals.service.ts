@@ -17,6 +17,11 @@ export class MealsService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  generateAiMealsOpinion(formattedDate: string): Observable<any> {
+    const url = `http://localhost:8222/nutrition/ai/generate/meals/${formattedDate}`;
+    return this.http.get(url, { headers: this.headers });
+  }
+
   loadMeals(formattedDate: string): Observable<Meals[]> {
     const url = `http://localhost:8222/nutrition/meals/${formattedDate}/userId`;
     return this.http.get<Meals[]>(url, { headers: this.headers });

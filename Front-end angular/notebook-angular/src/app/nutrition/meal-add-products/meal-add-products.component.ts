@@ -8,8 +8,7 @@ import { Meals } from './models/meals.model';
 import { AuthService } from '../../security-config/auth.service';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { MealsProductsService } from '../services/meals-products.service'; // Importuj serwis
-
+import { MealsProductsService } from '../services/meals-products.service'; 
 @Component({
   selector: 'app-meal-add-products',
   templateUrl: './meal-add-products.component.html',
@@ -52,7 +51,7 @@ export class MealAddProductsComponent implements OnInit {
     this.isLoading = true;
     this.aiOpinion = "Please wait, I'm generating an answer...";
     this.mealsProductsService.generateAiProductsOpinion(this.idMeal).subscribe(response => {
-      this.aiOpinion = response.generation;
+      this.aiOpinion = response.generation.replace(/(?!^1\.)((\d+)\.)/g, '<br>$1');
       this.isLoading = false;
     });
   }

@@ -22,11 +22,10 @@
 
   <div class="ai-div">
     <button class="ai-button" (click)="getAiOpinion()" [disabled]="isLoading">Generate AI opinion on products</button>
-    <div class="ai-opinion">
-      {{ aiOpinion }}
+    <div class="ai-opinion" 
+    [innerHTML]="aiOpinion">
     </div>
-  </div>
-
+</div>
  
 
 </body>

@@ -19,15 +19,20 @@
   </div>
 
 
-  <div class="tips-container">
-    <div *ngFor="let tip of tips" class="tip">
-      <h3>{{ tip.tip }}</h3>
-      <p>{{ tip.statystyka }}</p>
-    </div>
-    <div class="image-container">
-      <img *ngIf="imageUrl" [src]="imageUrl" alt="Random Image" class="random-image" />
-    </div>
+  
+<div class="tips-container">
+  <button class="ai-button" (click)="loadAiOpinion()">Generate AI opinion on meals</button>
+  <div *ngIf="aiOpinionLoading">Loading AI opinion, please wait...</div>
+  <div *ngIf="aiOpinion" class="ai-opinion"
+    [innerHTML]="aiOpinion">
   </div>
+  <div class="image-container">
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Random Image" class="random-image" />
+  </div>
+</div>
+
+  
+  
   
   <section class="content">
     <app-create-meal 
@@ -51,6 +56,7 @@
       (dateChanged)="onDateChanged($event)"> 
     </app-list-meals>
   </section>
+
   
   <div *ngIf="successMessage" class="success-message">
     {{ successMessage }}

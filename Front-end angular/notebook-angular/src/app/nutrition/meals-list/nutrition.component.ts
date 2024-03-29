@@ -23,11 +23,14 @@ export class NutritionComponent implements OnInit {
 
   showMealFormAdd: boolean = false;
   showMealFormEdit: boolean = false;
+  aiOpinionLoading: boolean = false;
+  aiOpinion: string = '';
 
   idMeal!: number;
   editedMeal!: Meal;
   tips: NutritionTip[] = [];
 
+  datesOfMealsForAi!: string;
   datesWithNotes: string[] = [];
 
   constructor(private authService: AuthService,  private router: Router, 
@@ -42,6 +45,20 @@ export class NutritionComponent implements OnInit {
     this.loadMeals(this.selectedDate);
     this.loadRandomTip();
     this.loadDaysForMonth();
+  }
+
+  loadAiOpinion(): void {
+    this.aiOpinionLoading = true;
+    this.mealsService.generateAiMealsOpinion(this.selectedDate).subscribe(
+      (response) => {
+        this.aiOpinion = response.generation.replace(/(?!^1\.)((\d+)\.)/g, '<br>$1');
+        this.aiOpinionLoading = false;
+      },
+      (error) => {
+        console.error(error);
+        this.aiOpinionLoading = false;
+      }
+    );
   }
 
   loadDaysForMonth() {
