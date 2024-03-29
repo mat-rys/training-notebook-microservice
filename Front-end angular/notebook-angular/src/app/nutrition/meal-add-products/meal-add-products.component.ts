@@ -33,6 +33,8 @@ export class MealAddProductsComponent implements OnInit {
   selectedProduct: Product | null = null;
   selectedProductGrams: number = 100; 
   token = this.authService.getToken();
+  aiOpinion: string = 'Submit an inquiry via the button'; 
+  isLoading: boolean = false; 
 
   constructor(private authService: AuthService, private http: HttpClient, 
     private route: ActivatedRoute,  private router: Router, private mealsProductsService: MealsProductsService) {}
@@ -44,6 +46,15 @@ export class MealAddProductsComponent implements OnInit {
     });
     this.loadProducts();
   
+  }
+
+  getAiOpinion(): void {
+    this.isLoading = true;
+    this.aiOpinion = "Please wait, I'm generating an answer...";
+    this.mealsProductsService.generateAiProductsOpinion(this.idMeal).subscribe(response => {
+      this.aiOpinion = response.generation;
+      this.isLoading = false;
+    });
   }
 
   handleLogout() {

@@ -19,4 +19,14 @@
         (removeProduct)="removeProduct($event)">
     </app-list-added-meal-products>
   </section>
+
+  <div class="ai-div">
+    <button class="ai-button" (click)="getAiOpinion()" [disabled]="isLoading">Generate AI opinion on products</button>
+    <div class="ai-opinion">
+      {{ aiOpinion }}
+    </div>
+  </div>
+
+ 
+
 </body>

@@ -20,13 +20,13 @@ public class AiAdvisorController {
     private final ProductMealsService productMealsService;
 
 
-    @GetMapping("/generate")
+    @GetMapping("/generate/products")
     public Map generate(@RequestParam(value = "meal_id") Long mealId) {
         List<ProductsMeals> productMeals = productMealsService.getProductsForMeal(mealId);
         String productsList = productMeals.stream()
                 .map(productMeal -> productMeal.toString())
                 .collect(Collectors.joining(", "));
-        String message = "I have these products in the meal, tell me if the meal is balanced, and if not, what would you add to it and why? " + productsList;
+        String message = "I have these products in the meal, tell me if the meal is balanced in few sentences, and if not, what would you add to it and why? " + productsList;
         return Map.of("generation", chatClient.call(message));
     }
 

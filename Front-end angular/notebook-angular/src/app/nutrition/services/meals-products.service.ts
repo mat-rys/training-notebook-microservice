@@ -17,6 +17,11 @@ export class MealsProductsService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
+  generateAiProductsOpinion(mealId: number): Observable<any> {
+    const url = `http://localhost:8222/nutrition/ai/generate/products?meal_id=${mealId}`;
+    return this.http.get(url, { headers: this.headers });
+  }
+
   loadProducts(): Observable<Product[]> {
     const url = 'http://localhost:8222/nutrition/products';
     return this.http.get<Product[]>(url, { headers: this.headers });
