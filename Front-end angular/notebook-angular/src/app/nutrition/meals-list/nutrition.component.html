@@ -20,16 +20,17 @@
 
 
   
-<div class="tips-container">
-  <button class="ai-button" (click)="loadAiOpinion()">Generate AI opinion on meals</button>
-  <div *ngIf="aiOpinionLoading">Loading AI opinion, please wait...</div>
-  <div *ngIf="aiOpinion" class="ai-opinion"
-    [innerHTML]="aiOpinion">
+  <div class="tips-container">
+    <button class="ai-button modern" (click)="loadAiOpinion()">Generate AI opinion on meals</button>
+    <div *ngIf="aiOpinionLoading">Loading AI opinion, please wait...</div>
+    <div *ngIf="aiOpinion" class="ai-opinion"
+      [innerHTML]="aiOpinion">
+    </div>
+    <div class="image-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Random Image" class="random-image" />
+    </div>
   </div>
-  <div class="image-container">
-    <img *ngIf="imageUrl" [src]="imageUrl" alt="Random Image" class="random-image" />
-  </div>
-</div>
+  
 
   
   

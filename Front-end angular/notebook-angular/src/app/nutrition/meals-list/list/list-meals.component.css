@@ -239,3 +239,13 @@ color: white;
   background-color: #4009A5 !important;
   color: white !important;
 }
+
+.sort-select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  transition: 0.3s;
+}
+

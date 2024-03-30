@@ -15,12 +15,13 @@
   </div>
 
   <label>
-      Sort Hours:
-      <select [(ngModel)]="sortDirection" (change)="sortMealsByTime()">
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-      </select>
-  </label> 
+    Sort Hours:
+    <select class="sort-select" [(ngModel)]="sortDirection" (change)="sortMealsByTime()">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+  </label>
+   
 </div>
 
 <table class="nutrition-table" *ngIf="loadedMeals.length > 0">
