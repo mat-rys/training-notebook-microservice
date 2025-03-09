@@ -9,6 +9,9 @@ This project focuses on assisting users in creating personalized meal plans base
 🏋️ **Workout Scheduling**: Enables users to define and manage workout programs and track progress in achieving their fitness goals.  
 🔐 **User Authentication and Security**: Secure user accounts with role-based access control, ensuring data privacy and protection against unauthorized access.  
 
+## **🚀 The project model:**
+![image](https://github.com/mat-rys/training-notebook-microservice/assets/98847639/14bff766-9a38-4c97-a665-6a61e5dd68c9)
+
 ## **💻 Technologies:**
 Back-end
 ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white) ![Spring](https://img.shields.io/badge/-Spring-6DB33F?style=flat-square&logo=spring&logoColor=white) ![Hibernate](https://img.shields.io/badge/-Hibernate-59666C?style=flat-square&logo=hibernate&logoColor=white) ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![PostgreSql](https://img.shields.io/badge/-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
