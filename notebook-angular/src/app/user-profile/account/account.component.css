@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  width: 100%;
+  height: 120%;
+  user-select: none;
+  margin-top: 0;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#photo-background{
+  background-image: url("../../../assets/hiking-female-boots.jpg");
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  filter: brightness(45%);
+  background-size: cover; 
+}
+
+.content {
+  margin-left: 1000px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+  
+.tips-container {
+  position: fixed;
+  width: 350px; /* Szerokość kontenera */
+  top: 146px;
+  left: 170px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tips-container h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Dodanie odstępu poniżej nagłówka */
+}
+
+.tips-container ul {
+  list-style-type: none; /* Usuwa domyślny styl listy */
+  padding: 0; /* Usuwa padding */
+}
+
+.tips-container li {
+  margin-bottom: 10px; /* Odstęp między punktami */
+  font-weight: bold; /* Pogrubienie tekstu */
+  font-size: 14px; /* Ustalenie rozmiaru czcionki */
+}
+
+.tips-container p {
+  font-size: 14px; /* Ustalenie rozmiaru czcionki dla paragrafów */
+  line-height: 1.5; /* Większa przestrzeń między liniami */
+}
+
+.ai-opinion {
+  margin-top: 10px;
+  padding: 15px; /* Zwiększenie paddingu dla lepszej czytelności */
+  background-color: #f7f7f7; /* Subtelne tło, aby wyróżnić opinie */
+  border-left: 4px solid #2E8B57; /* Wyróżniająca linia */
+  border-radius: 5px;
+  font-size: 16px; /* Zwiększona czcionka */
+  color: #333; /* Czytelny kolor tekstu */
+  line-height: 1.8; /* Większa przestrzeń między liniami */
+  max-height: 408px; /* Zwiększona maksymalna wysokość */
+  overflow-y: auto; /* Przewijanie w przypadku długich opinii */
+}
+
+.image-container {
+  position: absolute;
+  top: -60px;
+  right: -50px;
+}
+
+.random-image {
+  width: 100px;
+  height: auto;
+  padding: 10px; 
+  opacity: 0.85;
+}
+
+.ai-button.modern {
+  background-color: #2E8B57; /* Zielony */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition-duration: 0.2s;
+}
+
+.ai-button.modern:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid
+}
+
+
+.add-note-button {
+  justify-content: flex-end;
+  transition: transform 0.4s ease;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  margin-left: 1000px;
+  margin-top: -570px;
+}
+
+.add-note-button button {
+  margin-bottom: 10px; /* Przerwa między przyciskami */
+  padding: 10px 20px; 
+  font-size: 16px;
+  background: linear-gradient(to bottom, #369F6A, #2E8B57);
+  color: #fff;
+  border: none;
+  border-radius: 30px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.4s ease; /* Dodaj animację do transform */
+}
+
+.add-note-button button:hover {
+  background-color: #2E8B57; 
+  transform: scale(1.2); /* Powiększanie tylko na hover */
+}
+
+
+
+

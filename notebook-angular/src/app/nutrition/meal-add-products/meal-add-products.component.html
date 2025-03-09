@@ -1,0 +1,31 @@
+<body>
+  <div id="photo-background" ></div>
+  <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+  <section class="content">
+    <app-list-search-products 
+      [products]="products" 
+      [searchQuery]="searchQuery" 
+      (deleteProduct)="deleteProduct($event)"
+      (sendEditProduct)="updateProduct($event)"
+      (addProductToMeal)="addSelectedProductToMeal($event)">
+    </app-list-search-products>
+  </section>
+  
+  <section class="added-products-section">
+    <app-list-added-meal-products 
+        [selectedProducts]="selectedProducts" 
+        (totalsUpdated)="updateMealTotals($event)"
+        (removeProduct)="removeProduct($event)">
+    </app-list-added-meal-products>
+  </section>
+
+  <div class="ai-div">
+    <button class="ai-button" (click)="getAiOpinion()" [disabled]="isLoading">Wygeneruj AI opinie o dodanych produktach</button>
+    <div class="ai-opinion" 
+    [innerHTML]="aiOpinion">
+  </div>
+</div>
+ 
+
+</body>

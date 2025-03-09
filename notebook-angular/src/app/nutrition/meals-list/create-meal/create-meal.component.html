@@ -1,0 +1,17 @@
+<div class="heroAdd" *ngIf="showMealFormAdd">
+  <form (submit)="createMeal()">
+    <div class="input-container">
+      <label for="title">Nazwa:</label>
+      <input type="text" id="title" [(ngModel)]="title" name="title" required>
+    </div>
+    <div class="input-container">
+      <label for="day">Dzień:</label>
+      <input type="date" id="day" [(ngModel)]="day" name="day" required>
+    </div>
+    <div class="input-container">
+      <label for="mealTime">Czas posiłku:</label>
+      <input type="time" id="mealTime" [(ngModel)]="mealTime" name="mealTime" required>
+    </div>
+    <button type="submit" class="submit-button">Utwórz posiłek</button>
+  </form>
+</div>

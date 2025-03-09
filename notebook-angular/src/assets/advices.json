@@ -1,0 +1,23 @@
+[
+    { "id": 0, "tip": "Eat more fruits and vegetables.", "statystyka": "People who eat 5 servings of fruits and vegetables a day have a 20% lower risk of heart disease." },
+    { "id": 1, "tip": "Avoid processed food.", "statystyka": "Studies show that 80% of people who avoid processed food have better overall health." },
+    { "id": 2, "tip": "Drink enough water every day.", "statystyka": "60% of our body is water. Drink at least 8 glasses of water a day." },
+    { "id": 3, "tip": "Exercise regularly to keep your body in good shape.", "statystyka": "80% of people who exercise regularly report better mood and more energy." },
+    { "id": 4, "tip": "Avoid stress through meditation or relaxing hobbies.", "statystyka": "Studies show that 70% of people who regularly meditate experience less stress and anxiety." },
+    { "id": 5, "tip": "Spend more time outdoors.", "statystyka": "Spending time outdoors can improve mood and increase vitamin D levels." },
+    { "id": 6, "tip": "Take care of regular sleep.", "statystyka": "Sleep deprivation can lead to many health problems. 70% of adults need at least 7 hours of sleep per day." },
+    { "id": 7, "tip": "Avoid stimulants like alcohol or cigarettes.", "statystyka": "People who avoid stimulants have a 30% lower risk of heart disease and cancer." },
+    { "id": 8, "tip": "Regularly check your blood pressure.", "statystyka": "High blood pressure is one of the main risk factors for heart disease. Regular measurements can help control it." },
+    { "id": 9, "tip": "Balance your diet.", "statystyka": "A balanced diet can prevent many diseases. 80% of people following a diet rich in protein, fiber and low in fats report improved health." },
+    { "id": 10, "tip": "Regularly check your eyes.", "statystyka": "Regular eye exams can help detect early symptoms of many eye diseases." },
+    { "id": 11, "tip": "Take care of oral hygiene.", "statystyka": "Regular tooth brushing and flossing can prevent many health problems, such as gum disease and tooth decay." },
+    { "id": 12, "tip": "Avoid a sedentary lifestyle.", "statystyka": "Studies show that prolonged sitting can lead to many health problems, such as obesity and heart disease." },
+    { "id": 13, "tip": "Take care of healthy relationships.", "statystyka": "Healthy relationships with others can improve our mood and overall health." },
+    { "id": 14, "tip": "Regularly check your mental health.", "statystyka": "Mental health is as important as physical health. Regularly checking your mental state can help detect problems at an early stage." },
+    { "id": 15, "tip": "Take care of a healthy diet.", "statystyka": "A healthy diet can prevent many diseases. 80% of people following a diet rich in protein, fiber and low in fats report improved health." },
+    { "id": 16, "tip": "Regularly check your eyes.", "statystyka": "Regular eye exams can help detect early symptoms of many eye diseases." },
+    { "id": 17, "tip": "Remember about regular check-ups.", "statystyka": "Regular check-ups can help detect many diseases at an early stage, increasing the chances of effective treatment." },
+    { "id": 18, "tip": "Take care of oral hygiene.", "statystyka": "Regular tooth brushing and flossing can prevent many health problems, such as gum disease and tooth decay." },
+    { "id": 19, "tip": "Avoid a sedentary lifestyle.", "statystyka": "Studies show that prolonged sitting can lead to many health problems, such as obesity and heart disease." },
+    { "id": 20, "tip": "Take care of a healthy weight.", "statystyka": "Maintaining a healthy weight can prevent many diseases, such as type 2 diabetes and heart disease. 75% of people who maintain a healthy weight report improved overall health." }
+  ]

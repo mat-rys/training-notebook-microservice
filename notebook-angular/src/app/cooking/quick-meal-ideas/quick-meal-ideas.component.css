@@ -1,0 +1,541 @@
+/* Stylizacja tła */
+#photo-background {
+  background-image: url("../../../assets/pierogi.jpg");
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  filter: brightness(45%);
+  background-size: cover;
+}
+
+/* Stylizacja dla kontenera głównego */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 20px;
+  max-width: 1230px; /* Zwiększenie maksymalnej szerokości kontenera o 30px */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stylizacja dla sekcji wyboru produktów */
+.product-selection {
+  display: flex; /* Ustawienie flexbox */
+  justify-content: space-between; /* Rozmieszczenie elementów z odstępami */
+  width: 100%; /* Szerokość na 100% */
+  width: 1230px; /* Ustal maksymalną szerokość o 30px więcej */
+  margin: 20px 0; /* Dodaj odstęp między górą a dołem */
+}
+
+/* Stylizacja listy produktów */
+/* Stylizacja paska przewijania dla listy produktów */
+.product-list, .selected-products {
+  /* Dotychczasowe style */
+  width: calc(50% - 20px);
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  margin: 0 10px;
+
+  /* Nowoczesny wygląd przewijania */
+  scrollbar-width: thin; /* Dla Firefox */
+  scrollbar-color: #003C8F #444; /* Kolor suwaka i tła */
+}
+
+/* Stylizacja dla sekcji wprowadzania danych użytkownika */
+.user-input-container {
+  position: relative; /* Aby pozycjonować absolutnie przycisk wewnątrz tego kontenera */
+  display: flex; /* Ustawienie flexbox */
+  flex-direction: column; /* Ustawienie kierunku kolumny */
+  align-items: center; /* Wyśrodkowanie elementów w poziomie */
+  justify-content: center; /* Wyśrodkowanie elementów w pionie */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: calc(50% - 20px); /* Szerokość na 50% z uwzględnieniem marginesu */
+  max-height: 400px; /* Ustal maksymalną wysokość */
+  margin-left: 10px; /* Odstęp między sekcją wyboru a sekcją danych */
+}
+
+/* Stylizacja nagłówków */
+.product-list h3, .selected-products h3, .user-input-container h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Stylizacja sekcji porady */
+.meal-advice {
+  margin-top: 20px; /* Odstęp powyżej porady */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  max-width: 630px; /* Ustal maksymalną szerokość dla porady o 30px więcej */
+  text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+/* Stylizacja dla obu list */
+.product-list ul, .selected-products ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li, .selected-products li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.product-list .checkmark, .selected-products .remove-x {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.product-list .checkmark {
+  color: green;
+}
+
+.selected-products .remove-x {
+  color: red;
+}
+
+/* Stylizacja paska przewijania dla Webkit (Chrome, Safari) */
+.product-list::-webkit-scrollbar, .selected-products::-webkit-scrollbar {
+  width: 10px; /* Szerokość paska przewijania */
+}
+
+.product-list::-webkit-scrollbar-thumb, .selected-products::-webkit-scrollbar-thumb {
+  background-color: #003C8F; /* Kolor suwaka */
+  border-radius: 5px; /* Zaokrąglone rogi suwaka */
+}
+
+.product-list::-webkit-scrollbar-thumb:hover, .selected-products::-webkit-scrollbar-thumb:hover {
+  background-color: #1c6dc3; /* Jaśniejszy kolor suwaka na hover */
+}
+
+.product-list::-webkit-scrollbar-track, .selected-products::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Tło dla paska przewijania */
+  border-radius: 5px; /* Zaokrąglone rogi tła */
+}
+
+/* Stylizacja dla etykiet checkboxów */
+.user-input-container label {
+  display: block; /* Sprawia, że etykiety zajmują całą szerokość */
+  margin: 10px 0; /* Odstępy między etykietami */
+  font-size: 1em; /* Ustal rozmiar czcionki */
+  color: white; /* Kolor tekstu */
+}
+
+/* Stylizacja textarea */
+.user-input-container textarea {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  font-size: 1em;
+}
+
+/* Stylizacja dla przycisku wprowadzania danych użytkownika */
+.user-input-container button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #003C8F; /* Niebieski królewski */
+  color: white; /* Kolor tekstu */
+  border: none; /* Bez obramowania */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  font-size: 1.1em; /* Rozmiar czcionki */
+  cursor: pointer; /* Wskaźnik na hover */
+  transition: background-color 0.5s ease, transform 0.5s ease; /* Płynne przejście dla tła i skalowania */
+}
+
+.user-input-container button:hover {
+  background-color: #1c6dc3; /* Jaśniejszy niebieski na hover */
+  transform: scale(1.08); /* Powiększenie przycisku o 8% */
+}
+
+.user-input-container button:active {
+  background-color: #002b6b; /* Ciemniejszy niebieski przy kliknięciu */
+  transform: scale(0.95); /* Zmniejszenie przycisku do 95% podczas kliknięcia */
+}
+
+/* Stylizacja checkboxów */
+.user-input-container input[type="checkbox"] {
+  margin-right: 10px; /* Odstęp między checkboxem a etykietą */
+}
+
+/* Stylizacja dla selectów */
+.user-input-container select {
+  width: calc(100% + 30px); /* Ustal szerokość na 100% + 30 pikseli */
+  max-width: calc(100% + 30px); /* Ustal maksymalną szerokość */
+  padding: 10px; /* Padding dla selecta */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  border: 1px solid #ccc; /* Stylizacja granicy */
+  background-color: rgba(255, 255, 255, 0.9); /* Tło selecta */
+  color: black; /* Kolor tekstu */
+  font-size: 1em; /* Ustal rozmiar czcionki */
+  margin: 10px 0; /* Odstęp dookoła selecta */
+}
+
+.user-input-container input[type="number"]{
+  width: 100%; /* Ustaw szerokość na 100% */
+  padding: 10px; /* Padding dla inputu */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  border: 1px solid #ccc; /* Stylizacja granicy */
+  background-color: rgba(255, 255, 255, 0.9); /* Tło selecta */
+  color: black; /* Kolor tekstu */
+  font-size: 1em; /* Ustal rozmiar czcionki */
+  margin: 10px 0; /* Odstęp dookoła selecta */
+}
+
+.user-input-container input[type="checkbox"] {
+  margin-right: 10px; /* Odstęp między checkboxem a etykietą */
+}
+
+/* Stylizacja sekcji porady */
+.meal-advice p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Wspólne style dla sekcji z formularzem i poradą */
+.meal-advice, .user-input-container {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Stylizacja dla kontenera pór dnia */
+.meal-times-container {
+  display: flex; /* Ustawienie flexbox */
+  justify-content: space-between; /* Rozmieszczenie elementów z odstępami */
+  width: 100%; /* Szerokość na 100% */
+  margin-top: 10px; /* Odstęp od etykiety */
+}
+
+/* Stylizacja dla pasków wyszukiwania */
+.search-bar {
+  display: flex; /* Ustawienie flexbox */
+  align-items: center; /* Wyśrodkowanie elementów w pionie */
+  margin-bottom: 15px; /* Odstęp poniżej paska wyszukiwania */
+}
+
+.search-bar input[type="text"] {
+  flex-grow: 1; /* Wypełnienie dostępnej przestrzeni */
+  padding: 10px; /* Padding dla inputu */
+  border: 1px solid #ccc; /* Granica inputu */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  font-size: 1em; /* Rozmiar czcionki */
+  color: black; /* Kolor tekstu */
+  background-color: rgba(255, 255, 255, 0.9); /* Tło inputu */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Płynne przejścia */
+}
+
+/* Stylizacja inputu na hover i focus */
+.search-bar input[type="text"]:hover, 
+.search-bar input[type="text"]:focus {
+  border-color: #003C8F; /* Zmiana koloru granicy */
+  box-shadow: 0 0 5px rgba(0, 60, 143, 0.5); /* Dodanie efektu cienia */
+  outline: none; /* Usunięcie domyślnego obramowania */
+}
+
+/* Stylizacja dla przycisku wyszukiwania */
+.search-bar button {
+  margin-left: 10px; /* Odstęp między inputem a przyciskiem */
+  padding: 10px 15px; /* Padding dla przycisku */
+  background-color: #003C8F; /* Niebieski królewski */
+  color: white; /* Kolor tekstu */
+  border: none; /* Bez obramowania */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  font-size: 1em; /* Rozmiar czcionki */
+  cursor: pointer; /* Wskaźnik na hover */
+  transition: background-color 0.5s ease, transform 0.3s ease; /* Płynne przejście dla tła i skalowania */
+}
+
+/* Stylizacja przycisku na hover */
+.search-bar button:hover {
+  background-color: #1c6dc3; /* Jaśniejszy niebieski na hover */
+  transform: scale(1.05); /* Powiększenie przycisku o 5% */
+}
+
+/* Stylizacja przycisku na active */
+.search-bar button:active {
+  background-color: #002b6b; /* Ciemniejszy niebieski przy kliknięciu */
+  transform: scale(0.95); /* Zmniejszenie przycisku do 95% podczas kliknięcia */
+}
+
+/* Stylizacja dla przycisku "+" do zaawansowanych kryteriów */
+.advanced-toggle {
+  position: absolute; /* Pozycjonowanie absolutne wewnątrz kontenera */
+  top: 10px; /* Odstęp od górnej krawędzi kontenera */
+  right: 10px; /* Odstęp od prawej krawędzi kontenera */
+  cursor: pointer;
+  font-size: 2em; /* Wielkość przycisku */
+  color: #32CD32; /* Neonowy zielony */
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.advanced-toggle:hover {
+  transform: scale(1.3); /* Powiększenie na hover */
+  color: #00FF00; /* Bardziej intensywny odcień zielonego przy najechaniu */
+}
+
+
+/* Stylizacja dla sekcji zaawansowanych opcji */
+.advanced-options {
+  position: relative; /* Pozycjonowanie kontenera */
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  max-height: 400px; /* Maksymalna wysokość dla sekcji */
+  overflow-y: auto; /* Umożliwienie przewijania w pionie */
+}
+
+/* Stylizacja nagłówka sekcji zaawansowanych opcji */
+.advanced-options h4 {
+  text-align: center; /* Wyśrodkowanie nagłówka */
+  margin-bottom: 15px; /* Odstęp poniżej nagłówka */
+  font-size: 1.2em; /* Ustal rozmiar czcionki nagłówka */
+}
+
+/* Stylizacja dla inputów i selectów */
+.advanced-options input[type="number"],
+.advanced-options select {
+  width: 80%; /* Ustal szerokość na 80% */
+  padding: 8px; /* Zmniejszony padding dla inputu */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  border: 1px solid #ccc; /* Stylizacja granicy */
+  background-color: rgba(255, 255, 255, 0.9); /* Tło inputów */
+  color: black; /* Kolor tekstu */
+  font-size: 0.9em; /* Zmniejszony rozmiar czcionki */
+  margin: 8px 0; /* Zmniejszone odstępy dookoła inputów i selectów */
+}
+
+.advanced-options select[multiple] {
+  height: 100px; /* Ustal wysokość dla wyboru wielokrotnego */
+}
+
+/* Stylizacja dla etykiet */
+.advanced-options label {
+  display: block; /* Sprawia, że etykiety zajmują całą szerokość */
+  margin: 8px 0; /* Zmniejszone odstępy między etykietami */
+  font-size: 0.9em; /* Zmniejszony rozmiar czcionki */
+  color: white; /* Kolor tekstu */
+}
+
+/* Stylizacja dla textarea */
+.advanced-options textarea {
+  width: 80%; /* Ustal szerokość na 80% */
+  max-width: 100%;
+  margin-top: 8px; /* Zmniejszone odstępy */
+  padding: 8px; /* Zmniejszony padding */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  font-size: 0.9em; /* Zmniejszony rozmiar czcionki */
+}
+
+/* Stylizacja dla paska przewijania */
+.advanced-options::-webkit-scrollbar {
+  width: 10px; /* Szerokość paska przewijania */
+}
+
+.advanced-options::-webkit-scrollbar-thumb {
+  background-color: #003C8F; /* Kolor suwaka */
+  border-radius: 5px; /* Zaokrąglone rogi suwaka */
+}
+
+.advanced-options::-webkit-scrollbar-thumb:hover {
+  background-color: #1c6dc3; /* Jaśniejszy kolor suwaka na hover */
+}
+
+.advanced-options::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1); /* Tło dla paska przewijania */
+  border-radius: 5px; /* Zaokrąglone rogi tła */
+}
+
+.meal-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.meal-types div {
+  padding: 10px 15px;
+  border: 1px solid #888; /* Zmniejszenie kontrastu granicy */
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(240, 240, 240, 0.9); /* Zamiast czystej bieli, delikatnie szary */
+  color: #333; /* Ciemniejszy kolor tekstu dla lepszej czytelności */
+  transition: background-color 0.3s, color 0.3s; /* Płynna zmiana kolorów */
+}
+
+.meal-types div:hover {
+  background-color: rgba(200, 200, 200, 0.9); /* Delikatny efekt hover */
+}
+
+.meal-types div.selected {
+  background-color: #0056b3; /* Stonowany niebieski dla wybranego elementu */
+  color: #fff; /* Biały tekst, kontrastujący z niebieskim tłem */
+  border-color: #004080; /* Ciemniejsza granica w stanie wybranym */
+}
+
+label {
+  color: #333; /* Ciemniejszy kolor tekstu dla labeli */
+  font-weight: bold; /* Podkreślenie ważności etykiet */
+  margin-bottom: 5px;
+}
+
+
+.advice-text {
+  white-space: pre-wrap; /* Zachowuje nowe linie i białe znaki */
+  word-wrap: break-word; /* Zapewnia łamanie długich słów */
+  margin: 15px 0; /* Większy margines górny i dolny dla lepszej czytelności */
+  font-size: 1.1em; /* Zwiększenie rozmiaru czcionki */
+  line-height: 1.6; /* Zwiększenie interlinii dla lepszej czytelności */
+  font-family: Arial, sans-serif; /* Czcionka bezszeryfowa dla lepszej czytelności */
+}
+
+.advice-title {
+  font-size: 1.8em; /* Powiększenie czcionki dla nagłówka */
+  margin-bottom: 15px; /* Odstęp pod nagłówkiem */
+  color: #ccc; /* Kolor czcionki */
+  font-family: 'Arial', sans-serif; /* Czcionka bezszeryfowa */
+}
+
+.advice-content {
+  padding: 15px; /* Większy padding dla zawartości porady */
+  border: 1px solid #ccc; /* Granica dla zawartości */
+  border-radius: 5px; /* Zaokrąglone rogi dla zawartości */
+}
+
+.recipe-header {
+  font-weight: bold; /* Pogrubienie tekstu */
+  font-size: 1.5em; /* Rozmiar czcionki dla nagłówków */
+  margin-top: 15px; /* Odstęp górny dla nagłówków */
+  font-family: 'Arial', sans-serif; /* Czcionka bezszeryfowa */
+}
+
+.meal-advice button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #003C8F; /* Niebieski królewski */
+  color: white; /* Kolor tekstu */
+  border: none; /* Bez obramowania */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  font-size: 1.1em; /* Rozmiar czcionki */
+  cursor: pointer; /* Wskaźnik na hover */
+  transition: background-color 0.5s ease, transform 0.5s ease; /* Płynne przejście dla tła i skalowania */
+}
+
+.meal-advice button:hover {
+  background-color: #1c6dc3; /* Jaśniejszy niebieski na hover */
+  transform: scale(1.1); /* Powiększenie przycisku o 8% */
+}
+
+.meal-advice button:active {
+  background-color: #002b6b; /* Ciemniejszy niebieski przy kliknięciu */
+  transform: scale(0.98); /* Zmniejszenie przycisku do 95% podczas kliknięcia */
+}
+
+
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog-overlay .dialog-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.dialog-overlay h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.dialog-overlay label {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.dialog-overlay input[type="date"],
+.dialog-overlay input[type="time"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Stylizacja przycisków */
+.dialog-overlay .dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.dialog-overlay .save-button,
+.dialog-overlay .cancel-button {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #ffffff;
+}
+
+/* Styl dla przycisku Zapisz Posiłek */
+.dialog-overlay .save-button {
+  background-color: #003C8F;
+}
+
+.dialog-overlay .save-button:hover {
+  background-color: #002a66;
+}
+
+/* Styl dla przycisku Anuluj */
+.dialog-overlay .cancel-button {
+  background-color: #555;
+}
+
+.dialog-overlay .cancel-button:hover {
+  background-color: #333;
+}

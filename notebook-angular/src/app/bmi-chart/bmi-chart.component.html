@@ -1,0 +1,87 @@
+
+<body>
+  <div id="photo-background" ></div>
+  <navbar-calcs> (logout)="handleLogout()"></navbar-calcs> 
+
+  <section class="content">
+    <div class="bmi">
+      <h2>Oblicz swoje BMI</h2>
+      <input [(ngModel)]="weight" type="number" name="weight" class="input-field" placeholder="Waga (kg)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="height" type="number" name="height" class="input-field" placeholder="Wzrost (cm)" (input)="onInputChange()"><br />
+      <button class="calculate-button" (click)="calculateBMI(weight, height)">Oblicz BMI</button><br />
+      <p>BMI to wskaźnik, który ocenia <br />
+        zależność między wagą <br /> 
+        a wzrostem danej osoby i służy do oceny <br />
+        jej stanu odżywienia.</p><br />
+     <p>Zakresy wartości BMI:<br />
+       Mniej niż 16 - niedowaga<br />
+       16 - 16.99 - znaczne wychudzenie<br />
+       17 - 18.49 - łagodne wychudzenie<br />
+       18.5 - 24.99 - prawidłowa waga<br />
+       25 - 29.99 - nadwaga<br />
+       30 - 34.99 - otyłość I stopnia<br />
+       35 - 39.99 - otyłość II stopnia<br />
+       40 lub więcej - otyłość ekstremalna</p>
+    </div>
+
+    <div class="bmr">
+      <h2>Oblicz swoje BMR</h2>
+    <div class="gender-options">
+      <label for="male2" [ngClass]="{'male-button-selected': selectedGender === 'male'}">Mężczyzna</label>
+      <input type="radio" name="gender" id="male2" value="male" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
+      <label for="female2" [ngClass]="{'female-button-selected': selectedGender === 'female'}">Kobieta</label>
+      <input type="radio" name="gender" id="female2" value="female" class="radio-button" [(ngModel)]="selectedGender" [ngClass]="{'male-button': selectedGender === 'male', 'female-button': selectedGender === 'female'}">
+    </div>
+    <input [(ngModel)]="weightBMR" type="number" name="weightBMR" class="input-field" placeholder="Waga (kg)" (input)="onInputChange()"><br />
+    <input [(ngModel)]="heightBMR" type="number" name="heightBMR" class="input-field" placeholder="Wzrost (cm)" (input)="onInputChange()"><br />
+    <input [(ngModel)]="age" type="number" name="age" class="input-field" placeholder="Wiek" (input)="onInputChange()"><br />
+    <button class="calculate-button" (click)="calculateBMR(weightBMR, heightBMR, age, selectedGender)">Oblicz BMR</button><br />
+      <p>Twoje podstawowe zapotrzebowanie kaloryczne (BMR) <br />
+        to ilość kalorii, jaką twoje ciało <br />
+        spala w spoczynku, aby utrzymać podstawowe <br />
+        funkcje życiowe, takie jak oddychanie, <br />
+        krążenie i regulacja temperatury.<br />
+        BMR można obliczyć na podstawie wagi, <br />
+        wzrostu, wieku i płci.</p><br />
+    </div>
+
+    <div class="body-fat">
+      <h2>Oblicz procentową<br />
+         zawartość tłuszczu w organizmie (NHRC)</h2>
+      <div class="gender-options">
+        <label for="maleBodyFat" [ngClass]="{'male-button-selected': selectedGenderBodyFat === 'male'}">Mężczyzna</label>
+        <input type="radio" name="genderBodyFat" id="maleBodyFat" value="male" class="radio-button" [(ngModel)]="selectedGenderBodyFat" [ngClass]="{'male-button': selectedGenderBodyFat === 'male', 'female-button': selectedGenderBodyFat === 'female'}">
+        <label for="femaleBodyFat" [ngClass]="{'female-button-selected': selectedGenderBodyFat === 'female'}">Kobieta</label>
+        <input type="radio" name="genderBodyFat" id="femaleBodyFat" value="female" class="radio-button" [(ngModel)]="selectedGenderBodyFat" [ngClass]="{'male-button': selectedGenderBodyFat === 'male', 'female-button': selectedGenderBodyFat === 'female'}">
+      </div>
+      <input [(ngModel)]="waist" type="number" name="waist" class="input-field" placeholder="Talia (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="hips" type="number" name="hips" class="input-field" placeholder="Biodra (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="neck" type="number" name="neck" class="input-field" placeholder="Szyja (cm)" (input)="onInputChange()"><br />
+      <input [(ngModel)]="heightBodyFat" type="number" name="heightBodyFat" class="input-field" placeholder="Wzrost (cm)" (input)="onInputChange()"><br />
+      <button class="calculate-button" (click)="calculateBodyFat(waist, hips, neck, heightBodyFat, selectedGenderBodyFat)">Oblicz procent tłuszczu w organizmie</button><br />
+      <p>
+        Oto standardowe zakresy procentowej zawartości tłuszczu w organizmie:<br />
+        - Mężczyźni: 6-24% norma<br />
+        - Kobiety: 14-31% norma
+      </p>    
+    </div>
+  </section>
+  
+  <section class="results">
+    <div class="result-bmi">
+      <h2>Wyniki BMI</h2>
+      <p *ngIf="bmiResult !== null">Twoje BMI wynosi: <span id="bmiResult">{{ bmiResult }}</span></p>
+      <p *ngIf="bmiResult === null">Wprowadź wagę i wzrost, aby obliczyć BMI.</p>
+    </div>
+    <div class="result-bmr">
+      <h2>Wyniki BMR</h2>
+      <p *ngIf="bmrResult !== null">Twoje BMR wynosi: <span id="bmrResult">{{ bmrResult }}</span></p>
+      <p *ngIf="bmrResult === null">Wprowadź wagę, wzrost, wiek i płeć, aby obliczyć BMR.</p>
+    </div>
+    <div class="result-body-fat">
+      <h2>Wyniki procentu tłuszczu w organizmie</h2>
+      <p *ngIf="bodyFatResult !== null">Twój procent tłuszczu w organizmie wynosi: <span id="bodyFatResult">{{ bodyFatResult }}</span></p>
+      <p *ngIf="bodyFatResult === null">Wprowadź talia, biodra, szyja, wzrost i płeć, aby obliczyć procent tłuszczu w organizmie.</p>
+    </div>
+  </section>
+</body>

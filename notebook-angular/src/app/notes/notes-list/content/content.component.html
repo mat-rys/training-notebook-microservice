@@ -1,0 +1,45 @@
+<section class="content">
+  <div *ngIf="editingNote && !showCopyModal" class="edit-form">
+    <h2>Edit Note</h2>
+    <input [(ngModel)]="editingNote.title" placeholder="Title">
+    <select class="search-container" [(ngModel)]="editingNote.activityType" required>
+      <option *ngFor="let type of activityTypes" [value]="type.activity_type">
+        {{ type.activity_type }}
+      </option>
+    </select>    
+    <input [(ngModel)]="editingNote.description" placeholder="Description">
+    <input [(ngModel)]="editingNote.startDate" type="datetime-local" placeholder="Start Date">
+    <input [(ngModel)]="editingNote.endDate" type="datetime-local" placeholder="End Date">
+    <button (click)="onUpdateNote()">Zatwierdź</button>
+    <button (click)="cancelEdit()">Anuluj</button>
+  </div>
+
+  <div *ngIf="showCopyModal" class="copy-form">
+    <h2>Kopiuj notatkę do nowej daty</h2>
+    <label for="copyStartDate">Wybierz datę i godzinę rozpoczęcia:</label>
+    <input id="copyStartDate" [(ngModel)]="copyStartDate" type="datetime-local" required>
+
+    <label for="copyEndDate">Wybierz datę i godzinę zakończenia:</label>
+    <input id="copyEndDate" [(ngModel)]="copyEndDate" type="datetime-local" required>
+
+    <button (click)="selectedNote && confirmCopy(selectedNote)">Zatwierdź</button> <!-- Tylko wywołaj confirmCopy, gdy selectedNote jest ustawione -->
+    <button (click)="closeCopyModal()">Anuluj</button>
+</div>
+
+<div *ngFor="let note of loadedNotes" class="note-card" [class.expanded]="note === expandedNote" [@rotateInOut] 
+     (mouseover)="expandNote(note)" (mouseout)="closeNote($event)"> 
+    <h2>{{ note.title }}</h2>
+    <p>{{ note.activityType }}</p>
+    <p class="description">{{ note.description }}</p>
+    <div class="date-info">
+        <p><strong>Rozpoczęcie:</strong> {{ note.startDate | formatHour }}</p>
+        <p><strong>Zakończenie:</strong> {{ note.endDate | formatHour }}</p>
+    </div>
+    <div class="action-buttons">
+        <!-- <button (click)="openCopyModal(note)">Kopiuj</button> Copy button for each note -->
+        <button class="edit-button" (click)="scrollToTop(); editNote(note)"><i class="fas fa-edit"></i> Edytuj</button>
+        <button class="delete-button" (click)="onDeleteNote(note.id)"><i class="fas fa-trash-alt"></i> Usuń</button>
+    </div>
+</div>
+
+</section>

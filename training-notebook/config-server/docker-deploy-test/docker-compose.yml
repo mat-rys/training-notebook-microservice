@@ -1,0 +1,85 @@
+version: '3'
+
+services:
+
+
+  config-server:
+    build:
+      context: ./config-server # Ścieżka do katalogu, w którym znajduje się Dockerfile dla config-server
+    ports:
+      - "8888:8888" # Porty na które ma być mapowany serwer konfiguracyjny
+
+  eureka:
+    image: netflixoss/eureka
+    ports:
+      - "8761:8761"
+    environment:
+      - eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
+      - eureka.instance.hostname=localhost
+      - server.port=8761
+
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5555:5432"
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: postgres
+      DB_SCHEMA: public
+      DB_PASSWORD: 1234
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+    ports:
+      - "8191:8080"
+    depends_on:
+      - postgres
+
+  calculator:
+    build:
+      context: ./calculator
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_PROFILES_ACTIVE: production
+    depends_on:
+      - config-server
+      - eureka
+      - postgres
+
+  account:
+    build:
+      context: ./account
+    ports:
+      - "8100:8100"
+    environment:
+      SPRING_PROFILES_ACTIVE: production
+    depends_on:
+      - config-server
+      - eureka
+      - postgres
+
+  notes:
+    build:
+      context: ./notes
+    ports:
+      - "8070:8070"
+    environment:
+      SPRING_PROFILES_ACTIVE: production
+    depends_on:
+      - config-server
+      - eureka
+      - postgres
+
+volumes:
+  postgres_data:
+    driver: local

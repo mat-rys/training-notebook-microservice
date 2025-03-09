@@ -1,0 +1,78 @@
+.star-web {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+    width: auto;
+  }
+  
+  .nav-list .logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .nav-list .logo a:hover {
+    color: #9B5C0F;
+    border-radius: 20px;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-buttons a + a::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    background-color: #fff;
+    margin: 0 11px; /* Zmniejszamy odstęp po bokach separatora */
+}
+
+.nav-buttons a {
+  display: flex;
+  align-items: center;
+  margin: 0 0px; /* Zmniejszamy margines przycisków */
+  text-decoration: none; /* Usuwamy podkreślenie */
+
+}
+  
+  .nav-buttons button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    border-radius: 0;
+  }
+  
+  .nav-buttons button:hover {
+    background-color: #9B5C0F;
+    color: #fff;
+    border-radius: 20px;
+  }

@@ -1,0 +1,6 @@
+{
+    "realm": "training-notebook-microservice-realm",
+    "url": "http://localhost:8191/auth",
+    "clientId": "backend"
+  }
+  

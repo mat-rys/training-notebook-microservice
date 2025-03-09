@@ -1,0 +1,6 @@
+
+
+<div id="photo-background" ></div>
+<app-navbar (logout)="handleLogout()"></app-navbar> 
+<app-hero-section (createNoteEvent)="handleCreateNoteEvent($event)"></app-hero-section>
+<div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>

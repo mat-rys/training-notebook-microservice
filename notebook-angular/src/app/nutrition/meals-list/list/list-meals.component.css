@@ -1,0 +1,373 @@
+
+.meals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .meal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .meal-info {
+    flex: 2;
+    padding: 10px;
+  }
+  
+  
+  .meal-nutrition {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .meal-nutrient {
+    margin: 5px 0;
+  }
+
+  
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    min-width: 535px;
+  }
+  
+  .arrow-left,
+  .arrow-right {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .date {
+    font-weight: bold;
+  }
+  
+  .meal {
+    transition: transform 0.3s;
+    position: relative;
+  }
+  
+  .meal:hover {
+    transform: scale(1.05);
+  }
+  
+  .meal-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .edit-button,
+.delete-button,
+.add-button,
+.copy-button {
+  background-color: #480DF0;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.add-button:hover,
+.copy-button:hover {
+  background-color: #0056b3;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  background-color: #4009A5; 
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: -35px;
+  color: #fff; 
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 20px;
+  color: #fff;
+}
+
+.date {
+  font-size: 18px;
+  color: #fff;
+}
+
+.nutrition-table {
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  background-color: #4009A5; 
+  color: #fff;
+  
+  margin-bottom: 20px;
+}
+
+.nutrition-table td {
+  flex: 1; 
+  padding: 10px;
+  text-align: center; 
+  border: 1px solid #fff; 
+  min-width: 40px;
+}
+
+.nutrition-table td.percent {
+  flex: 1; 
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #fff; 
+  
+}
+
+.nutrition-table th {
+  display: none; 
+}
+  
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  min-width: 535px;
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.date {
+  font-weight: bold;
+}
+
+
+
+
+.my-datepicker{
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  transform: scale(0.9);
+}
+
+.mat-form-field {
+  font-size: 0.9rem;
+  background-color: white;
+  border-radius: 5px;
+}
+
+::ng-deep .mat-datepicker-content {
+position: absolute;
+top: 90px;
+left: 200px; 
+transform: scale(0.75);
+background-color: #f0f0f0; 
+color: white;
+}
+
+/* Dopisek jaki miesiać u góry */
+::ng-deep .mat-calendar-body{
+  font-size: 0.75rem;
+  color: white
+
+}
+
+::ng-deep .mat-calendar-period-button {
+  font-size: 0.75rem;
+  color: white !important; /* Dodajemy tę linię */
+}
+
+::ng-deep .mat-calendar-period-button {
+  font-size: 0.75rem;
+  color: white !important;
+}
+
+::ng-deep .mat-calendar-previous-button,
+::ng-deep .mat-calendar-next-button{
+  font-size: 0.75rem;
+  color: #ccc !important;
+}
+
+/* Dni tygodnia u góry */
+::ng-deep .mat-calendar-table-header {
+  color: white;
+}
+
+
+/* Kolor tła dla strzałek nawigacyjnych */
+::ng-deep .mat-calendar-previous-button,
+::ng-deep .mat-calendar-next-button {
+  background-color: white;
+}
+
+/* Kolor tła dla dni miesiąca */
+::ng-deep .mat-calendar-body-cell-content {
+  position: absolute; 
+  background-color: white;
+}
+
+::ng-deep button.example-custom-date-class  {
+  color: #4009A5 !important;
+}
+
+/* Kolor tekstu dla numeru dnia w wybranych dniach miesiąca */
+::ng-deep .example-custom-date-class .mat-calendar-body-cell-content {
+  background-color: #4009A5 !important;
+  color: white !important;
+}
+
+.sort-select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  transition: 0.3s;
+}
+
+.nutrition-table-warning {
+  border: 3px solid #ff6f00; /* Bright orange for higher visibility */
+  background-color: #fff3cd; /* Light yellow background for clarity */
+  color: #856404; /* Text color to match the warning style */
+  border-radius: 8px; /* Add rounded corners for a softer appearance */
+  box-shadow: 0 4px 8px rgba(255, 111, 0, 0.2); /* Add subtle shadow for depth */
+}
+
+
+
+.alert-icon-container {
+  position: absolute; /* Absolute positioning to remove dependence on other elements */
+  margin-left: 642px; /* Shift the icon 200px to the left */
+  top: 224px; /* Adjust top position as needed */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.alert-icon {
+  font-size: 26px; /* Slightly larger icon */
+  color: #d9480f; /* Brighter orange color for the icon */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.alert-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack alerts vertically */
+  align-items: flex-start; /* Align to the left */
+  position: absolute; /* Positioned relative to the icon */
+  left: 50px; /* Space between the icon and alerts */
+  margin-top: 10px; /* Space between the icon and alerts */
+  z-index: 1000; /* Ensure it appears above other elements */
+  background: #ffeeba; /* Brighter background */
+  border: 2px solid #d9480f; /* Stronger border for alerts */
+  border-radius: 4px; /* Rounded corners */
+  padding: 10px; /* Padding around the alerts */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  width: 300px; /* Fixed width for alerts */
+}
+
+.alert {
+  padding: 10px; /* Inner padding for alerts */
+  margin: 5px 0; /* Space between alerts */
+  border-radius: 4px; /* Rounded corners for alerts */
+}
+
+.alert-warning {
+  color: #d9480f; /* Bright orange text color */
+  background-color: #ffeeba; /* Brighter yellow background for stronger contrast */
+  border-color: #d9480f; /* Darker orange border */
+  font-weight: bold; /* Make the text bold to draw attention */
+}
+
+.copy {
+  /* Opcjonalne style dla kontenera .copy */
+  padding: 20px;
+  background-color: #E3F2FD; /* Nowe tło - jasnoniebieskie */
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.copy-title {
+  color: #0D47A1; /* Nowy kolor tekstu - ciemnoniebieski */
+  text-align: center;
+  margin-bottom: 20px; /* Przestrzeń poniżej tytułu */
+}
+
+.copy .input-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  width: 100%; /* Ustaw szerokość na 100% kontenera */
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8); /* Lekko przezroczyste białe tło dla kontenerów input */
+}
+
+.copy label {
+  flex: 1;
+  padding: 5px;
+  color: #0D47A1; /* Nowy kolor etykiety - ciemnoniebieski */
+}
+
+.meal-info-copy{
+  color: #0D47A1;; /* Kolor etykiety */
+}
+
+.copy input {
+  flex: 3;
+  padding: 5px;
+  border: 1px solid #0D47A1; /* Nowy kolor ramki inputa - ciemnoniebieski */
+  border-radius: 5px;
+}
+
+.copy .heroAdd {
+  text-align: center;
+}
+
+.copy .submit-button {
+  padding: 8px 20px;
+  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin: 5px; /* Przestrzeń między przyciskami */
+}
+
+.copy .submit-button:hover {
+  background: linear-gradient(to bottom, #480DF0, #00B2C8); /* Efekt hover */
+}
+
+.copy .cancel-button {
+  background-color: red; /* Tło przycisku Anuluj */
+}
+
+.copy .cancel-button:hover {
+  background-color: darkred; /* Efekt hover dla przycisku Anuluj */
+}

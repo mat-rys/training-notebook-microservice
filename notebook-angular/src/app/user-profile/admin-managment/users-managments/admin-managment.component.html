@@ -1,0 +1,59 @@
+<body>
+
+    <div id="photo-background" ></div>
+    <navbar-admin>(logout)="handleLogout()"</navbar-admin>
+    
+   <!-- Komunikat o usunięciu użytkownika -->
+   <div *ngIf="successMessage" class="success-message">
+    <p>{{ successMessage }}</p>
+  </div>
+  
+
+  <div class="table-container">
+    <!-- Input do wyszukiwania użytkowników -->
+    <input type="text" class="search-input" placeholder="Wyszukaj użytkowników..." (input)="onSearch($event)" />
+    
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Imie</th>
+          <th>Nazwisko</th>
+          <th>Username</th>
+          <th>Dostęp do aplikacji</th>
+          <th>Akcje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td>{{ user.userId }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
+          <td>
+            <button 
+            class="toggle-button" 
+            [ngClass]="user.enabled ? 'enabled' : 'disabled'" 
+            (click)="toggleUserStatus(user)">
+            {{ user.enabled ? 'Zablokuj' : 'Odblokuj' }}
+          </button>
+            <!-- Przyciski z tooltipem -->
+            <button class="delete-button" 
+                    (click)="confirmDeleteUser(user.userId)" 
+                    matTooltip="Usuń użytkownika">
+              X
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Komunikat błędu -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+</body>

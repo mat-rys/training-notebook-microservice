@@ -1,0 +1,14 @@
+1.Rejestracja użytkownika -> logowanie  ->
+
+2.Dodanie produktu do bazy -> edytowanie produktu -> sprawdzenie go w liscie produktów
+
+3.Dodanie posiłku -> dodanie do niego produktu z pkt2 -> sprawdzenie produktów w posiłku ->
+-> sprawdzenie dziennej sumy z posiłków -> usunięcie posiłku i sprawdzenie czy poprawnie 
+
+4.Propozycja posiłku -> zapisanie posiłku -> sprawdzenie posiłku
+
+5.Testy kalkulatorów żywieniowych
+
+6.Dodanie ntoatki treningowej  -> sprawdzenie czy się zgadza notatka
+
+6.Profil użytkownika zmiany w nim jakieś -> zalogowanie ponownie nowe dane  -> usunięcie konta

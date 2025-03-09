@@ -1,0 +1,39 @@
+<body>
+    <div id="photo-background"></div>
+    <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+    <section class="content">
+        <div class="center-content">
+            <div class="search-header">
+                <select [(ngModel)]="selectedOption" (ngModelChange)="loadStatistics()">
+                    <option *ngFor="let option of options" [value]="option">{{option}}</option>
+                </select>
+
+                <label>
+                    Data początkowa:
+                    <input type="date" [(ngModel)]="startDate" (ngModelChange)="loadStatistics()">
+                </label>
+                <label>
+                    Data końcowa:
+                    <input type="date" [(ngModel)]="endDate" (ngModelChange)="loadStatistics()">
+                </label>
+            </div>
+
+            <div id="chart-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div *ngIf="statistics">
+            </div>
+        </div>
+    </section>
+
+    <div class="tips-container" [ngClass]="backgroundClass">
+        <button class="ai-button modern" (click)="generateAdvice()">Generuj opinię AI o posiłkach</button>
+        <div *ngIf="aiLoading">Ładowanie opinii AI, proszę czekać...</div>
+        <div *ngIf="aiAdvice" class="ai-opinion" [innerHTML]="aiAdvice"></div>
+    </div>
+    
+      
+      
+</body>

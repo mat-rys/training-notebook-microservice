@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: notes
+  ai:
+    openai:
+      api-key:
+      chat:
+        options:
+          model: gpt-4o
+  config:
+    import: optional:configserver:http://localhost:8888
+
+
+
+
+

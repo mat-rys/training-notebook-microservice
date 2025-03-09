@@ -1,0 +1,37 @@
+
+  <div id="photo-background" ></div>
+  <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+  <app-date-selector 
+    [selectedDate]="selectedDate" 
+    [datesWithNotes]="datesWithNotes" 
+    (dateChange)="onDateChange($event)" 
+    (nextDate)="changeDate(1)" 
+    (prevDate)="changeDate(-1)">
+  </app-date-selector>
+
+  <div class="add-note-button">
+    <a href="/notes/notes-add">
+      <button>
+        <i class="fas fa-add"></i> Dodaj notatkę
+      </button>
+    </a>
+    <a href="/notes/notes-statistics">
+      <button>
+        <i class="fas fa-add"></i> Statystyki
+      </button>
+    </a>
+  </div>
+  
+  
+  <app-content 
+  [loadedNotes]="notes" 
+  (updateNote)="updateNote($event)"
+  (deleteNote)="deleteNoteConfirmation($event)"
+  (createCopiedNote)="createCopiedNote($event)">
+  </app-content>
+
+ 
+ <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  
+  

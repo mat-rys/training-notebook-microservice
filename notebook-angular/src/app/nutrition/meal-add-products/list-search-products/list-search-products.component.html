@@ -1,0 +1,56 @@
+<div *ngIf="editingProduct" class="edit-form">
+  <h2>Edytuj Produkt</h2>
+  <input [(ngModel)]="editingProduct.title" placeholder="Nazwa">
+  <input [(ngModel)]="editingProduct.calories" placeholder="Kalorie">
+  <input [(ngModel)]="editingProduct.grams" placeholder="Gramy">
+  <input [(ngModel)]="editingProduct.carbs" placeholder="Węglowodany">
+  <input [(ngModel)]="editingProduct.fat" placeholder="Tłuszcz">
+  <input [(ngModel)]="editingProduct.protein" placeholder="Białko">
+  <button (click)="onUpdateProduct()">Zaktualizuj</button>
+  <button (click)="cancelEdit()">Anuluj</button> 
+</div>
+
+<div class="search-bar">
+    <input type="text" placeholder="Szukaj produktów" [(ngModel)]="searchQuery" (input)="searchProducts()" />
+    <button (click)="searchProducts()"><i class="fas fa-search"></i></button>
+</div>
+
+<div class="product-list" *ngIf="searchQuery">
+    <div *ngFor="let product of filteredProducts" class="product-item">
+      <div class="product-header">
+        <h2>{{ product.title }}</h2>
+        <div class="product-buttons">
+          <button class="add-button" (click)="onAddProductToMeal(product)">Dodaj</button>
+          <button class="edit-button" (click)="scrollToTop()" (click)="editProduct(product)"><i class="fas fa-edit"></i> Edytuj</button>
+          <button class="delete-button" (click)="onDeleteProduct(product)">Usuń</button>
+        </div>
+      </div>
+      <div class="product-details">
+        <p>Kalorie: {{ product.calories }}</p>
+        <p>Gramy: {{ product.grams }}</p>
+        <p>Węglowodany: {{ product.carbs }}</p>
+        <p>Białko: {{ product.protein }}</p>
+        <p>Tłuszcz: {{ product.fat }}</p>
+      </div>
+    </div>
+</div>
+
+<div class="product-list" *ngIf="!searchQuery">
+    <div *ngFor="let product of products" class="product-item">
+      <div class="product-header">
+        <h2>{{ product.title }}</h2>
+        <div class="product-buttons">
+          <button class="add-button" (click)="onAddProductToMeal(product)">Dodaj</button>
+          <button class="edit-button" (click)="scrollToTop()" (click)="editProduct(product)"><i class="fas fa-edit"></i> Edytuj</button>
+          <button class="delete-button" (click)="onDeleteProduct(product)">Usuń</button>
+        </div>
+      </div>
+      <div class="product-details">
+        <p>Kalorie: {{ product.calories }}</p>
+        <p>Gramy: {{ product.grams }}</p>
+        <p>Węglowodany: {{ product.carbs }}</p>
+        <p>Białko: {{ product.protein }}</p>
+        <p>Tłuszcz: {{ product.fat }}</p>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<body>
+
+    <div id="photo-background" ></div>
+    <navbar-admin>(logout)="handleLogout()"</navbar-admin>
+    
+    <div class="table-container">
+        <!-- Wyszukiwarka -->
+        <input 
+          class="search-input" 
+          type="text" 
+          placeholder="Wyszukaj sesję (ID, nazwa użytkownika)..." 
+          [(ngModel)]="searchTerm"
+          (input)="filterSessions()"
+        />
+      
+        <!-- Tabela sesji -->
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th>ID Sesji</th>
+              <th>Nazwa użytkownika</th>
+              <th>ID użytkownika</th>
+              <th>Czas rozpoczęcia sesji</th>
+              <th>Ostatne odświeżenie tokena</th>
+              <th>Klient</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let session of filteredSessions">
+              <td>{{ session.id }}</td>
+              <td>{{ session.username }}</td>
+              <td>{{ session.userId }}</td>
+              <td>{{ formatTimestamp(session.start) }}</td>
+              <td>{{ formatTimestamp(session.lastAccess) }}</td>
+              <td>
+                <ul>
+                  <li *ngFor="let client of getClients(session.clients)">
+                    {{ client }}
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button 
+                  class="delete-button" 
+                  (click)="endSession(session.id)" 
+                  matTooltip="Zakończ sesje">
+                  X
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+      
+      <!-- Komunikaty -->
+      <div *ngIf="successMessage" class="success-message">
+        <p>{{ successMessage }}</p>
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        <p>{{ errorMessage }}</p>
+      </div>
+      
+
+</body>

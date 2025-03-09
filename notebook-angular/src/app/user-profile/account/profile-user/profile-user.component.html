@@ -1,0 +1,45 @@
+<div class="profile-form">
+    <div class="profile-header">
+      <h2>Profil</h2>
+    </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Email:</span>
+        <span class="profile-value">{{ loadedUserProfile.email }}</span>
+        <div class="change-button" (click)="toggleInput('email')" >Zmień</div>
+      </div>
+      <div class="change-weight-input" *ngIf="showEmailInput">
+        <input type="text" [(ngModel)]="newEmail" placeholder="Nowy email">
+        <button (click)="onProfileUpdate('email', newEmail)">Zapisz</button>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Imie:</span>
+        <span class="profile-value">{{ loadedUserProfile.firstName }}</span>
+        <div class="change-button" (click)="toggleInput('firstName')">Zmień</div>
+      </div>
+      <div class="change-weight-input" *ngIf="showFirstNameInput">
+        <input type="text" [(ngModel)]="newFirstName" placeholder="Nowe imie">
+        <button (click)="onProfileUpdate('first_name', newFirstName)">Zapisz</button>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Nazwisko:</span>
+        <span class="profile-value">{{ loadedUserProfile.lastName }}</span>
+        <div class="change-button" (click)="toggleInput('lastName')" >Zmień</div>
+      </div>
+      <div class="change-weight-input" *ngIf="showLastNameInput">
+        <input type="text" [(ngModel)]="newLastName" placeholder="Nowe nazwisko">
+        <button (click)="onProfileUpdate('last_name', newLastName)">Zapisz</button>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Login:</span>
+        <span class="profile-value">{{ loadedUserProfile.username }}</span>
+        <div class="change-button" (click)="toggleInput('username')">Zmień</div>
+      </div>
+      <div class="change-weight-input" *ngIf="showUsernameInput">
+        <input type="text" [(ngModel)]="newUsername" placeholder="Nowy login">
+        <button (click)="onProfileUpdate('username', newUsername)">Zapisz</button>
+      </div>
+  </div>

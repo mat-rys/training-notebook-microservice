@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-01-16T01:32:26.854Z",
+    "end": "2025-01-16T01:32:39.156Z",
+    "duration": 12302,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "65a7763b-1f82-42b2-8f98-a1584e632631",
+      "title": "",
+      "fullFile": "cypress\\e2e\\1.registerAndLogin.cy.ts",
+      "file": "cypress\\e2e\\1.registerAndLogin.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bcd9bdbb-95c3-464f-b078-caaf2b7b5a75",
+          "title": "Rejestracja i logowanie użytkownika",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Powinna zarejestrować użytkownika",
+              "fullTitle": "Rejestracja i logowanie użytkownika Powinna zarejestrować użytkownika",
+              "timedOut": null,
+              "duration": 7381,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${baseUrl}/registration`);\ncy.log('Otwieram stronę rejestracji');\n// Wypełnienie formularza rejestracji\ncy.get('input.firstname').type(testUser.firstName);\ncy.get('input.lastname').type(testUser.lastName);\ncy.get('input.email').type(testUser.email);\ncy.get('input.username').type(testUser.username);\ncy.get('input.password').type(testUser.password);\ncy.log('Formularz rejestracji został wypełniony');\n// Kliknięcie przycisku \"Zarejestruj\"\ncy.get('button.login-button').click();\ncy.log('Kliknięto przycisk rejestracji');\n// Weryfikacja przekierowania do strony logowania\ncy.url().should('include', '/login');\ncy.log('Użytkownik został poprawnie przekierowany na stronę logowania');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:4200/registration' to include '/login'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:4200/registration' to include '/login'\n    at Context.eval (webpack://notebook-angular/./cypress/e2e/1.registerAndLogin.cy.ts:28:13)",
+                "diff": null
+              },
+              "uuid": "f19c7e36-8653-4773-9af2-29e7a13fd78a",
+              "parentUUID": "bcd9bdbb-95c3-464f-b078-caaf2b7b5a75",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Powinno zalogować użytkownika",
+              "fullTitle": "Rejestracja i logowanie użytkownika Powinno zalogować użytkownika",
+              "timedOut": null,
+              "duration": 4789,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${baseUrl}/login`);\ncy.log('Otwieram stronę logowania');\n// Wypełnienie formularza logowania\ncy.get('input.username-field').type(testUser.username);\ncy.get('input.password-field').type(testUser.password);\ncy.log('Formularz logowania został wypełniony');\n// Kliknięcie przycisku \"Zaloguj\"\ncy.get('button.login-button').click();\ncy.log('Kliknięto przycisk logowania');\n// Weryfikacja przekierowania do panelu użytkownika\ncy.url().should('include', '/nutrition');\ncy.log('Użytkownik został poprawnie przekierowany do panelu użytkownika');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:4200/login' to include '/nutrition'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:4200/login' to include '/nutrition'\n    at Context.eval (webpack://notebook-angular/./cypress/e2e/1.registerAndLogin.cy.ts:46:13)",
+                "diff": null
+              },
+              "uuid": "1a71544d-155b-40db-beb0-e63ae97d8c6e",
+              "parentUUID": "bcd9bdbb-95c3-464f-b078-caaf2b7b5a75",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f19c7e36-8653-4773-9af2-29e7a13fd78a",
+            "1a71544d-155b-40db-beb0-e63ae97d8c6e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12170,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,193 @@
+/* Resetowanie marginesów, ustawienia ogólne */
+body {
+    margin: 0;
+    width: 100%;
+    height: 120%;
+    user-select: none;
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Tło z obrazkiem */
+#photo-background {
+    background-image: url("../../../../assets/admin.jpg");
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    filter: brightness(25%) contrast(1.5) grayscale(0.2); /* Zwiększenie kontrastu i przyciemnienie */
+    background-size: cover;
+    background-position: center center;
+}
+
+/* Stylizacja kontenera tabeli */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Zmieniamy align-items na flex-start */
+    height: 100vh;
+    padding: 20px;
+    margin-top: -300px; /* Ustalamy margines, aby przesunąć tabelę w górę */
+    flex-direction: column;
+}
+
+/* Stylizacja wyszukiwarki */
+.search-input {
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Stylizacja tabeli */
+.users-table {
+    width: 100%;
+    max-width: 1200px; /* Ustalamy maksymalną szerokość, aby tabela nie była za szeroka */
+    border-collapse: collapse;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8); /* Dodajemy lekki przezroczysty biały kolor tła */
+    border-radius: 8px; /* Zaokrąglamy rogi tabeli */
+}
+
+.users-table th,
+.users-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.users-table th {
+    background-color: #2a9d8f; /* Kolor nagłówków tabeli */
+    color: white;
+}
+
+.users-table tr:hover {
+    background-color: #f4f4f4; /* Kolor przycisku przy najechaniu na wiersz */
+}
+
+/* Stylizacja przycisku usuwania */
+.delete-button {
+    background-color: #e63946; /* Kolor czerwony dla przycisku */
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Stylizacja przycisku usuwania po najechaniu */
+.delete-button:hover {
+    background-color: #d62828; /* Ciemniejszy odcień czerwonego na hover */
+}
+
+/* Stylizacja komunikatu o błędzie */
+.error-message {
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Stylizacja tooltipa */
+.delete-button[matTooltip] {
+    position: relative;
+    display: inline-block;
+}
+
+.delete-button[matTooltip]:hover::after {
+    content: 'Usuń użytkownika';
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+/* Stylizacja komunikatu "toast" po usunięciu użytkownika */
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.notification.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Stylizacja komunikatu sukcesu */
+.success-message {
+    position: fixed;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #32CD32; /* Kolor tła: jasnozielony */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 999; 
+    animation: fadeOut 2s forwards; /* Animacja wygasania komunikatu */
+}
+
+.success-message p {
+    margin: 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Definicja animacji fade-out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.toggle-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    margin-right: 4px;
+  }
+  
+  .toggle-button.enabled {
+    background-color: #ffa200; /* Niebieski dla odblokowania */
+  }
+  
+  .toggle-button.disabled {
+    background-color: rgba(35, 172, 110, 0.888); /* Czerwony dla zablokowania */
+  }

@@ -1,0 +1,18 @@
+<section class="hero">
+    <form (submit)="createNote()">
+      <div class="search-container">
+        <input class="title" type="text" placeholder="Tytuł" [(ngModel)]="Wtitle" name="Wtitle" required>
+        <select class="activity" [(ngModel)]="WactivityType" name="WactivityType" required>
+          <option *ngFor="let type of activityTypes" [value]="type.activity_type">
+            {{ type.activity_type }}
+          </option>
+        </select>
+        <textarea class="description" placeholder="Opis" [(ngModel)]="Wdescription" name="Wdescription" required></textarea>
+        <input class="datetime-start" type="datetime-local" placeholder="Start Date" [(ngModel)]="WstartDate" name="WstartDate" required>
+        <input class="datetime-end" type="datetime-local" placeholder="End Date" [(ngModel)]="WendDate" name="WendDate" required>
+        <button class="submit-button" type="submit" [disabled]="!Wtitle">Zatwierdź</button>
+      </div>
+    </form>
+  </section>
+
+

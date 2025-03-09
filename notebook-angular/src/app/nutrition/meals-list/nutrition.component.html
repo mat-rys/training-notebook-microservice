@@ -1,0 +1,58 @@
+<body>
+  <div id="photo-background"></div>
+  <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+  <div class="add-meal-button">
+    <button (click)="toggleMealFormAdd()">Dodaj nowy posiłek</button>
+  </div>
+  <div class="go-statisctics-button">
+    <a href="/nutrition/limits"><button><i class="fas fa-add"></i> Limity żywieniowe</button></a>
+  </div>
+  <div class="add-product-button">
+    <a href="/nutrition/product-add"><button><i class="fas fa-add"></i> Dodaj nowy produkt</button></a>
+  </div>
+  <div class="products-list-button">
+    <a href="/nutrition/products-list"><button><i class="fas fa-add"></i> Lista produktów</button></a>
+  </div>
+  <div class="go-statisctics-button">
+    <a href="/nutrition/statistics"><button><i class="fas fa-add"></i> Statystyki</button></a>
+  </div>
+
+  <div class="tips-container">
+    <button class="ai-button modern" (click)="loadAiOpinion()">Generuj opinię AI o posiłkach</button>
+    <div *ngIf="aiOpinionLoading">Ładowanie opinii AI, proszę czekać...</div>
+    <div *ngIf="aiOpinion" class="ai-opinion" [innerHTML]="aiOpinion"></div>
+    <div class="image-container">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Losowy obraz" class="random-image" />
+    </div>
+  </div>
+
+  <section class="content">
+    <app-create-meal 
+      [showMealFormAdd]="showMealFormAdd" 
+      (create)="handleCreateMeal($event)">
+    </app-create-meal>
+
+    <app-edit-meal 
+      [showMealFormEdit]="showMealFormEdit"
+      [editedMeal]="editedMeal"
+      (edit)="handleEditMeal($event)">
+    </app-edit-meal>
+  
+    <app-list-meals 
+      [loadedMeals]="meals"
+      [datesWithNotes]="datesWithNotes" 
+      (deleteMeal)="deleteMeal($event)"
+      (addProducts)="addProductsToMeal($event)"
+      (mealToEdit)="editMeal($event)"
+      (copyMeal)="copyMeal($event)"  
+      (loadMealsEvent)="loadMeals($event)"
+      (dateChanged)="onDateChanged($event)"
+      [limits]="limits">
+    </app-list-meals>
+  </section>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div> 
+</body>

@@ -1,0 +1,162 @@
+<div id="photo-background"></div>
+<app-navbar (logout)="handleLogout()"></app-navbar>
+
+<div class="main-container">
+  <div class="product-selection">
+    <div class="product-list">
+      <div class="search-bar">
+        <h3>Produkty w bazie</h3>
+        <input type="text" placeholder="Szukaj..." (input)="onSearchProducts($event)" />
+      </div>
+      <ul>
+        <li *ngFor="let product of filteredProducts">
+          {{ product.title }}
+          <span (click)="addToSelected(product)" class="checkmark">&#10004;</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="selected-products">
+      <div class="search-bar">
+        <h3>Wybrane produkty do posiłku</h3>
+        <input type="text" placeholder="Szukaj..." (input)="onSearchSelected($event)" />
+      </div>
+      <ul>
+        <li *ngFor="let selectedProduct of filteredSelectedProducts">
+          {{ selectedProduct.title }}
+          <span (click)="removeFromSelected(selectedProduct)" class="remove-x">&#10006;</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Kontener na dane użytkownika z opcją zaawansowanych kryteriów -->
+    <div class="user-input-container">
+      <!-- Przycisk z plusem teraz w rogu -->
+      <span (click)="toggleAdvanced()" class="advanced-toggle">+</span>
+
+      <h3>Wprowadź dodatkowe informacje o produktach:</h3>
+
+      <!-- Sekcja wyświetlana przy starcie (dodatkowe informacje) -->
+      <div *ngIf="!isAdvancedVisible">
+        <textarea [(ngModel)]="additionalInfo" placeholder="Wpisz tutaj informacje..." rows="3"></textarea>
+        
+        <div class="meal-times-container">
+          <label for="mealTimes">Wybierz porę dnia:</label>
+          <select id="mealTimes" [(ngModel)]="selectedMealTime">
+            <option value="breakfast">Śniadanie</option>
+            <option value="lunch">Obiad</option>
+            <option value="dinner">Kolacja</option>
+            <option value="snack">Przekąska</option>
+          </select>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" [(ngModel)]="allowAdditionalProducts" /> Pozwól na dodatkowe składniki
+          </label>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" [(ngModel)]="isHealthy" /> Posiłek ma być zdrowy
+          </label>
+        </div>
+        
+        <button (click)="generateMealAdvice()">Generuj poradę o posiłku</button>
+      </div>
+
+      <div *ngIf="isAdvancedVisible" class="advanced-options">
+        <h4>Zaawansowane opcje</h4>
+      
+        <div>
+          <label for="calories">Podaj kaloryczność (kcal):</label>
+          <input type="number" id="calories" [(ngModel)]="calories" placeholder="np. 500" />
+        </div>
+      
+        <div>
+          <label>Podaj limity makroskładników (opcjonalne):</label>
+          <div>
+            <label for="minCarbs">Minimalna ilość węglowodanów (g):</label>
+            <input type="number" id="minCarbs" [(ngModel)]="minCarbs" placeholder="np. 50" />
+          </div>
+          <div>
+            <label for="maxCarbs">Maksymalna ilość węglowodanów (g):</label>
+            <input type="number" id="maxCarbs" [(ngModel)]="maxCarbs" placeholder="np. 100" />
+          </div>
+          <div>
+            <label for="minProtein">Minimalna ilość białka (g):</label>
+            <input type="number" id="minProtein" [(ngModel)]="minProtein" placeholder="np. 30" />
+          </div>
+          <div>
+            <label for="maxProtein">Maksymalna ilość białka (g):</label>
+            <input type="number" id="maxProtein" [(ngModel)]="maxProtein" placeholder="np. 60" />
+          </div>
+          <div>
+            <label for="minFat">Minimalna ilość tłuszczu (g):</label>
+            <input type="number" id="minFat" [(ngModel)]="minFat" placeholder="np. 10" />
+          </div>
+          <div>
+            <label for="maxFat">Maksymalna ilość tłuszczu (g):</label>
+            <input type="number" id="maxFat" [(ngModel)]="maxFat" placeholder="np. 30" />
+          </div>
+        </div>
+      
+        <div>
+          <label>Typ posiłku:</label>
+          <div class="meal-types">
+            <div 
+              *ngFor="let type of mealTypes" 
+              [ngClass]="{'selected': selectedMealTypes.includes(type)}" 
+              (click)="toggleMealType(type)">
+              {{ type }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Okno dialogowe -->
+<!-- Okno dialogowe -->
+<div *ngIf="isDialogOpen" class="dialog-overlay">
+  <div class="dialog-content">
+    <h3>Dodaj Posiłek</h3>
+
+    <label for="mealDate">Data:</label>
+    <input type="date" id="mealDate" [(ngModel)]="mealDate" />
+
+    <label for="mealTime">Czas:</label>
+    <input type="time" id="mealTime" [(ngModel)]="mealTime" />
+
+    <!-- Sprawdź, czy isSaving jest true, aby wyświetlić komunikat -->
+    <div *ngIf="isSaving" class="loading-message">
+      Proszę czekać, zapisywanie posiłku...
+    </div>
+
+    <!-- Nowe przyciski na dole okna dialogowego -->
+    <div class="dialog-buttons">
+      <button (click)="saveMeal()" class="save-button" [disabled]="isSaving">Zapisz Posiłek</button>
+      <button (click)="closeDialog()" class="cancel-button" [disabled]="isSaving">Anuluj</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="meal-advice">
+  <h3 *ngIf="loading" class="loading-message">Proszę czekać, generuję nową poradę...</h3>
+  
+  <h3 *ngIf="hasGeneratedAdvice && !loading" class="advice-title">Porada dotycząca posiłku:</h3>
+  
+  <div *ngIf="hasGeneratedAdvice && !loading" class="advice-content">
+      <p class="advice-text">{{ mealAdvice }}</p>
+  </div>
+  
+  <button *ngIf="hasGeneratedAdvice" (click)="openAddMealDialog()">Dodaj do posiłków</button>
+
+  <p *ngIf="!hasGeneratedAdvice && !loading" class="no-advice-message">Nie wygenerowano jeszcze żadnej porady. Proszę kliknij przycisk, aby wygenerować posiłek.</p>
+</div>
+
+
+</div>

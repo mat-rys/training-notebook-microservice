@@ -1,0 +1,280 @@
+body {
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+    background-color: #0D66B4;
+    background-size: auto;
+    width: 100.95%;
+    max-height: 100%;
+   
+    user-select: none; 
+}
+
+.star-web {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.star-web .header {
+    display: flex;
+    align-items: center;
+}
+
+.star-web .header a {
+    margin-right: 28px;
+    text-decoration: none;
+}
+
+.star-web .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 100px;
+    padding: 0;
+}
+
+.star-web .Training-Notebook-Logo {
+    margin-top: -54px;
+}
+
+.separator1 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    margin-top: -75px;
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
+}
+
+.star-web,
+.star-web * {
+    user-select: none;
+}
+
+.hero {
+    color: #fff;
+    
+}
+
+.hero-title {
+    font-size: 82px;
+    text-align: center;
+    margin-top: 170px;
+    margin-left: -500px;
+    margin-bottom: 0px;
+    font-family: 'Different Font Name', playfire display; 
+    user-select: none;
+}
+
+.hero-description {
+    font-size: 26px;
+    text-align: center;
+    margin-left: -500px;
+    margin-top: 35px;
+    margin-bottom: 175px;
+    white-space: pre-line;
+    user-select: none; 
+}
+
+.reg-and-log {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -370px;
+    margin-left: 1340px;
+}
+
+.reg-and-log a {
+    text-decoration: none;
+}
+
+.reg-and-log button {
+    background: linear-gradient(0deg, #480DF0, #00B2C8);
+    color: #fff;
+    border: none;
+    border-radius: 38px;
+    padding: 18px 60px;
+    margin: 30px 25px; 
+    font-size: 31px; 
+    font-family: 'Playfair Display', serif; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+.reg-and-log button:hover {
+    background: linear-gradient(0deg, #480DF0, #0056b3); 
+    transform: scale(1.2);
+    transform-origin: center;
+    outline: none;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+.separator2 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
+    margin-top: 0px;
+}
+
+.scroll-down {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    align-items: center;
+   
+}
+
+.scroll-down, .scroll-top a {
+    text-decoration: none;
+    margin-left: -10px;
+}
+
+.scroll-down button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(0deg, #480DF0, #00B2C8);
+    color: #fff;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 32px;
+    padding: 13px 24px;
+    margin: 15px 15px; 
+    font-size: 18px; 
+    font-family: 'Playfair Display', serif; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+
+.scroll-down button:hover {
+    background: linear-gradient(0deg, #480DF0, #0056b3); 
+    transform: scale(1.1);
+    transform-origin: center;
+    outline: none;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+.scroll-top {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 250px;
+   
+}
+
+.scroll-top button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(0deg, #480DF0, #00B2C8);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    padding: 13px 24px;
+    margin: 15px 15px; 
+    font-size: 18px; 
+    font-family: 'Playfair Display', serif; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+
+.scroll-top button:hover {
+    background: linear-gradient(0deg, #480DF0, #0056b3); 
+    transform: scale(1.1);
+    transform-origin: center;
+    outline: none;
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.3); 
+    user-select: none; 
+}
+
+.Personal.Account {
+    position: relative; 
+    margin-top: 200px;
+    margin-bottom: 590px;
+    text-align: center; 
+    color: #fff;
+}
+
+.profile-title {
+    font-size: 52px;
+    text-align: center;
+    margin-top: -450px;
+    margin-left: 1470px;
+    max-width: 400px; 
+    font-family: 'Different Font Name', playfire display; 
+    color: #fff;
+    user-select: none;
+}
+
+.profile-description {
+   
+    color: #fff;
+    max-width: 500px; 
+    font-size: 24px;
+    text-align: center;
+    margin-left: 1420px;
+    margin-top: -30px;
+    white-space: pre-line;
+
+    user-select: none; 
+}
+
+.Personal.Account img {
+    margin-left: -590px;
+    box-shadow: 20px 10px 100px rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgb(0, 0, 0); 
+}
+
+.dot-container {
+    text-align: center;
+    position: absolute;
+    bottom: -900px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #717171;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #bbb;
+}
+  
+.hero2 {
+    margin-top: 10px;
+}
+
+.hero2 img{
+    width: 100%;
+    min-height: 980px;    
+}
+
+

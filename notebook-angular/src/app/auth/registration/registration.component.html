@@ -1,0 +1,75 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+</head>
+<body>
+    <div class="star-web">
+        <div class="header">
+            <a class="Training-Notebook-Logo" href="/start-page"><img width="164" height="169" [src]="logoPath" alt="Logo Treningowego Notatnika" /></a>
+            <nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="https://facebook.com" class="facebook">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/facebook-circled.png" alt="facebook-circled"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/mat-rys" class="github">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/github.png" alt="github"/>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="linkedin" class="linkedin">
+                            <img width="40" height="40" src="https://img.icons8.com/3d-fluency/94/linkedin.png" alt="linkedin"/>
+                        </a>
+                    </li> 
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <hr class="separator1"> 
+    
+    <section class="hero">
+        <div class="register-section">
+            <div class="left-column">
+                <p class="hero-title">90% klientów kupuje konto premium,  <br> 
+                    załóż konto i poznaj możliwości</p>
+                <div class="form-fields">
+                    <div class="input-field">
+                        <input type="text" class="firstname" placeholder="Imię" [(ngModel)]="firstName">
+                        <img src="https://img.icons8.com/ios/61005/name.png" alt="Ikona Imienia" class="input-icon">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="lastname" placeholder="Nazwisko" [(ngModel)]="lastName">
+                        <img src="https://img.icons8.com/ios/61005/name.png" alt="Ikona Nazwiska" class="input-icon">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="email" placeholder="Email" [(ngModel)]="email">
+                        <img src="https://img.icons8.com/ios/12623/email.png" alt="Ikona Emaila" class="input-icon">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="username" placeholder="Nazwa użytkownika" [(ngModel)]="username">
+                        <img src="https://img.icons8.com/ios/452/username.png" alt="Ikona Nazwy Użytkownika" class="input-icon">
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="Hasło" [(ngModel)]="password" (keydown.enter)="registerAccount()">
+                        <img src="https://img.icons8.com/ios/452/password.png" alt="Ikona Hasła" class="input-icon">
+                    </div>                    
+                </div>
+                <div class="input">
+                    <button class="login-button" (click)="registerAccount()">Zarejestruj się</button>
+                </div>
+                <p class="register-link">Masz już konto? <a href="/login">Zaloguj się</a></p>
+            </div>
+            <div class="right-column">
+                <img [src]="women_registration" alt="Twoje zdjęcie" class="image"/>
+            </div>
+        </div>
+    </section>
+    
+    <section class="foot">
+        <p>(c) Copyright Mateusz 2024. Wszelkie prawa zastrzeżone.</p>
+        <a href="#"><button>Polityka Prywatności</button></a>
+        <a href="#"><button>Warunki Użytkowania</button></a>
+    </section>
+</body>

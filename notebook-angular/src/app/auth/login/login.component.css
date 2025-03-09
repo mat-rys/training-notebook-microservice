@@ -1,0 +1,248 @@
+body {
+    margin-top: -10px;
+    margin-left: -9.5px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+    background-color: #0D66B4;
+    background-size: auto;
+    width: 100.95%;
+    height: 100%;
+    user-select: none; /* Unselectable text */
+}
+
+.star-web {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.star-web .header {
+    display: flex;
+    align-items: center;
+}
+
+.star-web .header a {
+    margin-right: 28px;
+    text-decoration: none;
+}
+
+.star-web .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 100px;
+    padding: 0;
+}
+
+.star-web .Training-Notebook-Logo {
+    margin-top: -54px;
+}
+
+.separator1 {
+    border: none;
+    border-top: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    margin-top: -75px;
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-column {
+    width: 420px;
+    height: 550px;
+    padding: 20px;
+    margin-left: 170px;
+    margin-top: -180px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #FFFFFF, #0D66B4);
+    box-shadow: 0px 5px 10px rgba(10, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    margin-left: -180px;
+    margin-top: -135px;
+    width: 420px;
+    height: 590px;
+    border-radius: 10px;
+}
+
+.right-column {
+    width: 50%;
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-title {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: absolute;
+    margin-top: -420px;
+    text-align: center;
+}
+
+.buttons {
+    margin-bottom: 0px;
+}
+
+.login-button {
+    width: 150px;
+    height: 46px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    color: #FFFFFF;
+    font-size: 22px;
+  
+    margin-top: 70px;
+    margin-bottom: auto;
+    text-decoration: none; 
+    transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s; 
+    box-shadow: 0px 8px 10  px rgba(0, 0, 0, 0.3); }
+
+.login-button:hover {
+    background: linear-gradient(0deg, #480DF0, #0056b3); 
+    transform: scale(1.08);
+    transform-origin: center;
+    outline: none;
+    box-shadow: 0px 12px 10px rgba(0, 0, 0, 0.3); 
+    user-select: none;}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 50px;
+}
+
+.input-field {
+    position: relative;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    margin-top: -6px;
+    width: 22px;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    filter: invert(100%);
+}
+
+.input-field input::placeholder {
+    color: #FFFFFF;
+}
+
+.username-field, .password-field {
+    padding: 10px 20px 10px 40px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #FFFFFF; 
+    background: linear-gradient(to bottom, #FFFFFF, #480DF0);
+}
+
+.remember-label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-left: -90px;
+    color: #FFFFFF;
+}
+
+.remember-checkbox {
+    margin-right: 5px;
+}
+
+.forget-password {
+    margin-top: 0px;
+    position: absolute;
+    margin-left: 65px;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+
+.remember-forget {
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 35px;
+}
+
+.register-link {
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.register-link a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+
+.foot {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: -90px;
+    background-color: #f0f0f0;
+}
+
+.foot p {
+    margin-left: 100px;
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.foot a {
+    margin-left: 100px;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.foot button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.foot button:hover {
+    background-color: #0056b3;
+}

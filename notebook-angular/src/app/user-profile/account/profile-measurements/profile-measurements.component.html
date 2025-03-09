@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row">
+        <!-- Lewa strona z listą pomiarów -->
+        <div class="col-md-4">
+            <h2>Moje Pomiary</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="date-cell">Data</th> <!-- Klasa dla nagłówka daty -->
+                        <th>Obwód w talii</th>
+                        <th>Obwód bicepsa</th>
+                        <th>Obwód klatki piersiowej</th>
+                        <th>Obwód uda</th>
+                        <th>Obwód bioder</th>
+                        <th>Obwód przedramienia</th>
+                        <th>Obwód łydki</th>
+                        <th>Obwód szyi</th>
+                        <th>Obwód nadgarstka</th>
+                        <th>Obwód ramienia</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let measurement of measurements">
+                        <td class="date-cell">{{ measurement.dateMeasured | date:'yyyy-MM-dd HH:mm' }}</td>
+                        <td>{{ measurement.waistCircumference }} cm</td>
+                        <td>{{ measurement.bicepCircumference }} cm</td>
+                        <td>{{ measurement.chestCircumference }} cm</td>
+                        <td>{{ measurement.thighCircumference }} cm</td>
+                        <td>{{ measurement.hipCircumference }} cm</td>
+                        <td>{{ measurement.forearmCircumference }} cm</td>
+                        <td>{{ measurement.calfCircumference }} cm</td>
+                        <td>{{ measurement.neckCircumference }} cm</td>
+                        <td>{{ measurement.wristCircumference }} cm</td>
+                        <td>{{ measurement.shoulderCircumference }} cm</td>
+                        <td>
+                            <button (click)="selectMeasurement(measurement)" class="btn btn-primary btn-sm">Edytuj</button>
+                            <button (click)="deleteMeasurement(measurement.id!)" class="btn btn-danger btn-sm">Usuń</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Prawa strona z formularzem -->
+        <div class="col-md-8">
+            <h2>{{ selectedMeasurement ? 'Edycja Pomiaru' : 'Dodaj Pomiar' }}</h2>
+            <form (ngSubmit)="selectedMeasurement ? updateMeasurement() : addMeasurement()">
+                <div class="form-group">
+                    <label>Obwód w talii:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.waistCircumference" name="waistCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód bicepsa:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.bicepCircumference" name="bicepCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód klatki piersiowej:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.chestCircumference" name="chestCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód uda:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.thighCircumference" name="thighCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód bioder:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.hipCircumference" name="hipCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód przedramienia:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.forearmCircumference" name="forearmCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód łydki:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.calfCircumference" name="calfCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód szyi:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.neckCircumference" name="neckCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód nadgarstka:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.wristCircumference" name="wristCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Obwód ramienia:</label>
+                    <input type="number" [(ngModel)]="newMeasurement.shoulderCircumference" name="shoulderCircumference" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Data pomiaru:</label>
+                    <input type="datetime-local" [(ngModel)]="newMeasurement.dateMeasured" name="dateMeasured" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-success">{{ selectedMeasurement ? 'Zapisz' : 'Dodaj' }}</button>
+                <button type="button" class="btn btn-secondary" (click)="clearSelection()">Anuluj</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="photo-background"></div>
+    <navbar-account (logout)="handleLogout()"></navbar-account>
+</div>

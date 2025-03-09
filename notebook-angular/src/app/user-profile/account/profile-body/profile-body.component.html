@@ -1,0 +1,61 @@
+<section class="Body">
+    <div class="additional-section">
+      <div class="additional-box" >
+        <h2>Informacje personalne</h2>
+  
+        <div class="profile-row">
+          <span class="profile-label">Waga:</span>
+          <span class="profile-value">{{ loadedBodyProfile.weight }} kg</span>
+          <div class="change-button" (click)="toggleInput('weight')">Zmień</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showWeightInput">
+          <input type="number" [(ngModel)]="newWeight" placeholder="Nowa waga">
+          <button (click)="onProfileUpdate('weight', newWeight)">Zapisz</button>
+        </div>
+  
+        <div class="profile-row">
+          <span class="profile-label">Wzrost:</span>
+          <span class="profile-value">{{ loadedBodyProfile.height }} cm</span>
+          <div class="change-button" (click)="toggleInput('height')">Zmień</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showHeightInput">
+          <input type="number" [(ngModel)]="newHeight" placeholder="Nowy wzrost">
+          <button (click)="onProfileUpdate('height', newHeight)">Zapisz</button>
+        </div>
+  
+        <div class="profile-row">
+          <span class="profile-label">Płeć:</span>
+          <span class="profile-value">{{ loadedBodyProfile.gender }}</span>
+          <div class="change-button" (click)="toggleInput('gender')">Zmień</div>
+      </div>
+      <div class="change-weight-input" *ngIf="showGenderInput">
+        <select [(ngModel)]="newGender" placeholder="">
+          <option value="Mężczyzna">Mężczyzna</option>
+          <option value="Kobieta">Kobieta</option>
+        </select>
+        <button (click)="onProfileUpdate('gender', newGender)">Zapisz</button>
+      </div>
+      
+        <div class="profile-row">
+          <span class="profile-label">Wiek:</span>
+          <span class="profile-value">{{ loadedBodyProfile.age }}</span>
+          <div class="change-button" (click)="toggleInput('age')">Zmień</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showAgeInput">
+          <input type="number" [(ngModel)]="newAge" placeholder="Nowy wiek">
+          <button (click)="onProfileUpdate('age', newAge)">Zapisz</button>
+        </div>
+  
+
+        <div class="profile-row">
+          <span class="profile-label">Cel:</span>
+          <span class="profile-value">{{ loadedBodyProfile.goals }}</span>
+          <div class="change-button" (click)="toggleInput('goals')">Zmień</div>
+        </div>
+        <div class="change-weight-input" *ngIf="showGoalsInput">
+          <input type="text" [(ngModel)]="newGoals" placeholder="Nowe cele">
+          <button (click)="onProfileUpdate('goals', newGoals)">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </section>

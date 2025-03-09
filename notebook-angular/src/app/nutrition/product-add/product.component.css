@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    margin-top: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .content {
+    flex-grow: 1;
+    margin-left: 200px; 
+    top: 200px;
+  }
+     
+    .hero {
+      padding: 50px;
+      text-align: center;
+    }
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .search-container input {
+      padding: 10px;
+      border: none;
+      border-radius: 29px; 
+      margin-right: 10px;
+      width: 400px; 
+      height: 20px; 
+    }
+    
+    .round-button {
+      padding: 12px;
+      border: none;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px; 
+      background-color: white;;
+      color: white;
+      cursor: pointer;
+    }
+    
+    #photo-background{
+      background-image: url("../../../assets/foodAi.jpg");
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      filter: brightness(40%);
+      background-size: cover; 
+    }
+
+    .content {
+      flex-grow: 1;
+      margin-left: 200px;
+      margin-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+    }
+    
+    .hero {
+      padding: 50px;
+      text-align: center;
+    }
+    
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .search-container input {
+      padding: 10px;
+      border: none;
+      border-radius: 29px;
+      margin: 10px 0;
+      width: 400px;
+    }
+    
+    .round-button {
+      padding: 12px;
+      border: none;
+      border-radius: 50%;
+      height: 30px;
+      width: 30px;
+      background-color: white;
+      color: white;
+      cursor: pointer;
+    }
+    
+    .submit-button {
+      padding: 8px 20px;
+      background: linear-gradient(to bottom, #00B2C8, #480DF0);
+      color: #fff;
+      border: none;
+      margin: 0px;
+      margin-left: 30px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+  
+    
+    .black-text {
+      color: #000; /* Kolor tekstu czarny */
+    }
+    
+    .search-container input, .search-container textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 29px;
+      margin: 10px 0;
+      width: 400px;
+    }
+    
+   
+   
+
+    .input-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  margin-left: -70px;
+  width:400px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+label {
+  flex: 1;
+  padding: 5px;
+  color: #fff;
+}
+
+input {
+  flex: 3;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.products-list-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 950px;
+  margin-top: 80px;
+}
+
+.products-list-button  button {
+  padding: 10px 20px; 
+  font-size: 16px;
+  background:  #480DF0;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  transition: transform 0.5s ease;
+}
+
+.products-list-button  button:hover {
+  background-color:  #0056b3;
+  transform: scale(1.1);
+}
+
+.product-created-message {
+  position: fixed;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999; 
+}
+
+.product-created-message p {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.product-error-message {
+  position: fixed;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f44336; 
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999; 
+}
+
+.product-error-message p {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}

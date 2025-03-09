@@ -1,0 +1,18 @@
+[
+    {"id": 1, "activity_type": "Bieganie"},
+    {"id": 2, "activity_type": "Pływanie"},
+    {"id": 3, "activity_type": "Jazda na rowerze"},
+    {"id": 4, "activity_type": "Siłownia"},
+    {"id": 5, "activity_type": "Joga"},
+    {"id": 6, "activity_type": "Sporty drużynowe"},
+    {"id": 7, "activity_type": "Narciarstwo/Snowboarding"},
+    {"id": 8, "activity_type": "Wspinaczka"},
+    {"id": 9, "activity_type": "Taniec"},
+    {"id": 10, "activity_type": "Sztuki walki"},
+    {"id": 11, "activity_type": "Wędrówki"},
+    {"id": 12, "activity_type": "Tenis"},
+    {"id": 13, "activity_type": "CrossFit"},
+    {"id": 14, "activity_type": "Aerobik/Fitness"},
+    {"id": 15, "activity_type": "Parkour/Skateboarding"},
+    {"id": 15, "activity_type": "Inne"}
+]

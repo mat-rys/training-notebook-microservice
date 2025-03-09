@@ -1,0 +1,17 @@
+<div class="heroEdit" *ngIf="showMealFormEdit">
+  <form (submit)="submitEditedMeal()">
+    <div class="input-container">
+      <label for="title">Nazwa:</label>
+      <input type="text" id="title" [(ngModel)]="editedMeal.title" name="title" required>
+    </div>
+    <div class="input-container">
+      <label for="day">Dzień:</label>
+      <input type="date" id="day" [ngModel]="editedMeal.day | date:'yyyy-MM-dd'" (ngModelChange)="updateDay($event)" name="day" required>
+    </div>
+    <div class="input-container">
+      <label for="mealTime">Czas posiłku:</label>
+      <input type="time" id="mealTime" [(ngModel)]="editedMeal.mealTime" name="mealTime" required>
+    </div>
+    <button type="submit" class="submit-button">Edytuj posiłek</button>
+  </form>
+</div>

@@ -1,0 +1,97 @@
+
+.added-products {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .added-products h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .added-products ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .added-products li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+  }
+  
+  .added-products li button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .added-products li button:hover {
+    background-color: #c0392b;
+  }
+
+.totals {
+    margin-top: 20px; 
+    border-collapse: collapse; 
+    color:#ddd;
+    width: 100%; 
+  }
+  
+  .totals th {
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+    color: black;
+  }
+  
+  .totals td{
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+  }
+  
+  .totals th {
+    background-color: #f2f2f2;
+  }
+  
+  
+  .totals td {
+    font-weight: bold; 
+  }
+  
+ 
+  
+  .added-products {
+    text-align: center;
+  }
+  
+  .added-products ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .added-products li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .added-products button.add-products-to-meal-button {
+    padding: 10px 14px;
+    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 20px; 
+  }

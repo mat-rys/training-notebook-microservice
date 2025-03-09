@@ -1,0 +1,89 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8222
+  servlet:
+    context-path: /
+spring:
+  profiles:
+    active:
+      - ${ACTIVE_SPRING_PROFILE:dev}
+  application:
+    name: gateway
+#  security:
+#    oauth2:
+#      client:
+#        provider:
+#          my-keycloak-provider:
+#            issuer-uri: http://localhost:8191/auth/realms/training-notebook-microservice-realm
+#        registration:
+#          keycloak-spring-gateway-client:
+#            scope: openid
+#            provider: my-keycloak-provider
+#            client-id: backend
+#            client-secret: 6aiXmUlE27BiMVUerHBVNCUTJs4ascMS
+#            authorization-grant-type: authorization_code
+#            redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
+
+
+  cloud:
+    gateway:
+
+#      default-filters:
+#        - TokenRelay
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: body
+          uri: http://localhost:8090
+          predicates:
+            - Path=/body/**
+        - id: notes
+          uri: http://localhost:8070
+          predicates:
+            - Path=/notes/**
+        - id: account
+          uri: http://localhost:8100
+          predicates:
+            - Path=/account/**
+        - id: nutrition
+          uri: http://localhost:8110
+          predicates:
+            - Path=/nutrition/**
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs
+        name: gateway
+        primaryName: gateway
+
+      - url: /notes/v3/api-docs
+        name: notes
+        primaryName: notes
+
+      - url: /body/v3/api-docs
+        name: body
+        primaryName: body
+
+      - url: /account/v3/api-docs
+        name: account
+        primaryName: account
+
+      - url: /nutrition/v3/api-docs
+        name: nutrition
+        primaryName: nutrition

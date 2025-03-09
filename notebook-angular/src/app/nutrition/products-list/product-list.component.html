@@ -1,0 +1,20 @@
+<body>
+  <div id="photo-background"></div>
+  <app-navbar (logout)="handleLogout()"></app-navbar> 
+
+  <div class="add-product-button">
+    <a href="/nutrition/product-add"><button><i class="fas fa-add"></i> Dodaj nowy produkt</button></a>
+  </div>
+
+  <section class="content">
+    <app-list 
+      [loadedProducts]="products"
+      (deleteProduct)="deleteProduct($event)"
+      (updateProduct)="updateProduct($event)">
+    </app-list>
+  </section>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</body>

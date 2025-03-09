@@ -1,0 +1,344 @@
+
+
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; 
+        align-items: flex-start; 
+      }
+      
+      .product-item {
+        background-color: #f9f9f9;
+        padding: 20px;
+        margin: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        min-width: 300px;
+        max-width: 400px;
+      }
+      
+      .product-item h2 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+      
+      .product-item p {
+        font-size: 16px;
+        margin: 5px 0;
+      }
+      
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .search-input:focus {
+    border-color: #007bff;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-item {
+    background-color: #f9f9f9;
+    padding: 16px;
+    margin: 8px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    max-width: 400px;
+  
+  }
+  
+  .product-item .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .product-item h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .product-item .product-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .product-item p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .product-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-info {
+    font-size: 16px;
+  }
+  
+  .product-info p {
+    margin: 5px 0;
+  }
+  
+
+  .add-product-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 950px;
+    margin-top: 12px;
+  }
+  
+  .add-product-button button {
+    padding: 10px 20px; 
+    font-size: 16px;
+    background:  #480DF0;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .add-product-button button:hover {
+    background-color:  #0056b3; 
+  }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+  outline: none; 
+}
+
+.search-bar button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-bar button i {
+  font-size: 18px;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.product-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button,.add-button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover ,
+.add-button:hover{
+  background: #0056b3;
+}
+
+.edit-form {
+  border-radius: 10px; 
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  margin-left: -20px;
+  margin-bottom: 30px;
+}
+
+.edit-form h2 {
+  font-size: 24px;
+  color:#fff; 
+  margin-bottom: 20px;
+}
+
+.edit-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.edit-form button {
+  padding: 8px 20px;
+    background: linear-gradient(to bottom, #00B2C8, #480DF0);
+    color: #fff;
+    border: none;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+.added-products {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .added-products h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .added-products ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .added-products li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: #fff;
+  }
+  
+  .added-products li button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .added-products li button:hover {
+    background-color: #c0392b;
+  }
+  
+
+.totals {
+  margin-top: 20px; 
+  border-collapse: collapse; 
+  color:#ddd;
+  width: 100%; 
+}
+
+.totals th {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left; 
+  color: black;
+}
+
+.totals td{
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left; 
+}
+
+.totals th {
+  background-color: #f2f2f2;
+}
+
+
+.totals td {
+  font-weight: bold; 
+}
+
+.added-products-section {
+  position: absolute;
+  left: 1350px;
+  top: 50px; 
+}
+
+.added-products {
+  text-align: center;
+}
+
+.added-products ul {
+  list-style: none;
+  padding: 0;
+}
+
+.added-products li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.added-products button.add-products-to-meal-button {
+  padding: 10px 14px;
+  background: linear-gradient(to bottom, #00B2C8, #480DF0);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px; 
+}

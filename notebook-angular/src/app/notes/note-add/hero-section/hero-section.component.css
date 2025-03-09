@@ -1,0 +1,91 @@
+
+  .content {
+    flex-grow: 1;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hero {
+    margin-top: 150px;
+    padding: 50px;
+    text-align: center;
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-container select {
+    padding: 10px;
+    border: none;
+    border-radius: 29px;
+    margin: 10px 0;
+    width: 422px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+  }
+    
+  .search-container input {
+    padding: 10px;
+    border: none;
+    border-radius: 29px;
+    margin: 10px 0;
+    width: 400px;
+  }
+  
+  .round-button {
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .submit-button {
+    padding: 8px 20px;
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
+    color: #fff;
+    border: none;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  
+  .black-text {
+    color: #000; 
+  }
+  
+  .search-container input, .search-container textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 29px;
+    margin: 10px 0;
+    width: 400px;
+  }
+  
+
+  .submit-button {
+    padding: 8px 20px;
+    background: linear-gradient(to bottom, #C889A9, #BA2C84);
+    color: #fff;
+    border: none;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
